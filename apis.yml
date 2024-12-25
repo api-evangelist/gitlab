@@ -32,7 +32,7 @@ apis:
       - url: overlays/gitlab-api-v4-groups-openapi-search.yml
         type: OpenAPI
     properties:
-      - url: properties/gitlab-api-v4-groups-openapi-original.yml
+      - url: openapigitlab-api-v4-groups-openapi-original.yml
         type: OpenAPI
     description: Needs description.
     aid: gitlab:apiv4groups
@@ -42,7 +42,7 @@ apis:
       - url: overlays/gitlab-api-v4-projects-openapi-search.yml
         type: OpenAPI
     properties:
-      - url: properties/gitlab-api-v4-projects-openapi-original.yml
+      - url: openapigitlab-api-v4-projects-openapi-original.yml
         type: OpenAPI
     description: Needs description.
     aid: gitlab:apiv4projects
@@ -52,7 +52,7 @@ apis:
       - url: overlays/gitlab-api-v4-admin-openapi-search.yml
         type: OpenAPI
     properties:
-      - url: properties/gitlab-api-v4-admin-openapi-original.yml
+      - url: openapigitlab-api-v4-admin-openapi-original.yml
         type: OpenAPI
     description: Needs description.
     aid: gitlab:apiv4admin
@@ -62,7 +62,7 @@ apis:
       - url: overlays/gitlab-api-v4-applications-openapi-search.yml
         type: OpenAPI
     properties:
-      - url: properties/gitlab-api-v4-applications-openapi-original.yml
+      - url: openapigitlab-api-v4-applications-openapi-original.yml
         type: OpenAPI
     description: Needs description.
     aid: gitlab:apiv4applications
@@ -72,7 +72,7 @@ apis:
       - url: overlays/gitlab-api-v4-avatar-openapi-search.yml
         type: OpenAPI
     properties:
-      - url: properties/gitlab-api-v4-avatar-openapi-original.yml
+      - url: openapigitlab-api-v4-avatar-openapi-original.yml
         type: OpenAPI
     description: Needs description.
     aid: gitlab:apiv4avatar
@@ -82,7 +82,7 @@ apis:
       - url: overlays/gitlab-api-v4-broadcast-messages-openapi-search.yml
         type: OpenAPI
     properties:
-      - url: properties/gitlab-api-v4-broadcast-messages-openapi-original.yml
+      - url: openapigitlab-api-v4-broadcast-messages-openapi-original.yml
         type: OpenAPI
     description: Needs description.
     aid: gitlab:apiv4broadcast-messages
@@ -92,7 +92,7 @@ apis:
       - url: overlays/gitlab-api-v4-bulk-imports-openapi-search.yml
         type: OpenAPI
     properties:
-      - url: properties/gitlab-api-v4-bulk-imports-openapi-original.yml
+      - url: openapigitlab-api-v4-bulk-imports-openapi-original.yml
         type: OpenAPI
     description: Needs description.
     aid: gitlab:apiv4bulk-imports
@@ -102,7 +102,7 @@ apis:
       - url: overlays/gitlab-api-v4-application-openapi-search.yml
         type: OpenAPI
     properties:
-      - url: properties/gitlab-api-v4-application-openapi-original.yml
+      - url: openapigitlab-api-v4-application-openapi-original.yml
         type: OpenAPI
     description: Needs description.
     aid: gitlab:apiv4application
@@ -112,7 +112,7 @@ apis:
       - url: overlays/gitlab-api-v4-metadata-openapi-search.yml
         type: OpenAPI
     properties:
-      - url: properties/gitlab-api-v4-metadata-openapi-original.yml
+      - url: openapigitlab-api-v4-metadata-openapi-original.yml
         type: OpenAPI
     description: Needs description.
     aid: gitlab:apiv4metadata
@@ -122,7 +122,7 @@ apis:
       - url: overlays/gitlab-api-v4-version-openapi-search.yml
         type: OpenAPI
     properties:
-      - url: properties/gitlab-api-v4-version-openapi-original.yml
+      - url: openapigitlab-api-v4-version-openapi-original.yml
         type: OpenAPI
     description: Needs description.
     aid: gitlab:apiv4version
