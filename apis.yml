@@ -7,7 +7,6 @@ apis:
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://docs.gitlab.com/ee/api/graphql/
-    overlays: []
     properties:
       - url: https://docs.gitlab.com/ee/api/graphql/
         type: Documentation
@@ -28,9 +27,6 @@ apis:
       creating breaking changes. This enables us to have a versionless API.
   - name: ' api/v4/groups'
     tags: []
-    overlays:
-      - url: overlays/gitlab-api-v4-groups-openapi-search.yml
-        type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-groups-openapi-original.yml
         type: OpenAPI
@@ -38,9 +34,6 @@ apis:
     aid: gitlab:apiv4groups
   - name: ' api/v4/projects'
     tags: []
-    overlays:
-      - url: overlays/gitlab-api-v4-projects-openapi-search.yml
-        type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-projects-openapi-original.yml
         type: OpenAPI
@@ -48,9 +41,6 @@ apis:
     aid: gitlab:apiv4projects
   - name: ' api/v4/admin'
     tags: []
-    overlays:
-      - url: overlays/gitlab-api-v4-admin-openapi-search.yml
-        type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-admin-openapi-original.yml
         type: OpenAPI
@@ -58,9 +48,6 @@ apis:
     aid: gitlab:apiv4admin
   - name: ' api/v4/applications'
     tags: []
-    overlays:
-      - url: overlays/gitlab-api-v4-applications-openapi-search.yml
-        type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-applications-openapi-original.yml
         type: OpenAPI
@@ -68,9 +55,6 @@ apis:
     aid: gitlab:apiv4applications
   - name: ' api/v4/avatar'
     tags: []
-    overlays:
-      - url: overlays/gitlab-api-v4-avatar-openapi-search.yml
-        type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-avatar-openapi-original.yml
         type: OpenAPI
@@ -78,9 +62,6 @@ apis:
     aid: gitlab:apiv4avatar
   - name: ' api/v4/broadcast messages'
     tags: []
-    overlays:
-      - url: overlays/gitlab-api-v4-broadcast-messages-openapi-search.yml
-        type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-broadcast-messages-openapi-original.yml
         type: OpenAPI
@@ -88,9 +69,6 @@ apis:
     aid: gitlab:apiv4broadcast-messages
   - name: ' api/v4/bulk imports'
     tags: []
-    overlays:
-      - url: overlays/gitlab-api-v4-bulk-imports-openapi-search.yml
-        type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-bulk-imports-openapi-original.yml
         type: OpenAPI
@@ -98,9 +76,6 @@ apis:
     aid: gitlab:apiv4bulk-imports
   - name: ' api/v4/application'
     tags: []
-    overlays:
-      - url: overlays/gitlab-api-v4-application-openapi-search.yml
-        type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-application-openapi-original.yml
         type: OpenAPI
@@ -108,9 +83,6 @@ apis:
     aid: gitlab:apiv4application
   - name: ' api/v4/metadata'
     tags: []
-    overlays:
-      - url: overlays/gitlab-api-v4-metadata-openapi-search.yml
-        type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-metadata-openapi-original.yml
         type: OpenAPI
@@ -118,9 +90,6 @@ apis:
     aid: gitlab:apiv4metadata
   - name: ' api/v4/version'
     tags: []
-    overlays:
-      - url: overlays/gitlab-api-v4-version-openapi-search.yml
-        type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-version-openapi-original.yml
         type: OpenAPI
