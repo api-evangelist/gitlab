@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gitlab.com/schemas/gitlab/issue.json",
+  "title": "GitLab Issue",
+  "description": "A GitLab issue used for tracking work, bugs, feature requests, or incidents within a project.",
+  "type": "object",
+  "required": ["id", "iid", "project_id", "title", "state"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The globally unique identifier of the issue."
+    },
+    "iid": {
+      "type": "integer",
+      "description": "The internal project-scoped ID of the issue."
+    },
+    "project_id": {
+      "type": "integer",
+      "description": "The ID of the project the issue belongs to."
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the issue.",
+      "maxLength": 255
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "The description of the issue, supporting Markdown syntax.",
+      "maxLength": 1048576
+    },
+    "state": {
+      "type": "string",
+      "enum": ["opened", "closed"],
+      "description": "The current state of the issue."
+    },
+    "issue_type": {
+      "type": "string",
+      "enum": ["issue", "incident", "test_case", "task"],
+      "description": "The type of issue."
+    },
+    "type": {
+      "type": "string",
+      "description": "The GitLab-internal issue type designation."
+    },
+    "labels": {
+      "type": "array",
+      "description": "Labels applied to the issue.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "milestone": {
+      "oneOf": [
+        { "$ref": "#/$defs/Milestone" },
+        { "type": "null" }
+      ],
+      "description": "The milestone the issue is associated with."
+    },
+    "author": {
+      "$ref": "#/$defs/UserSummary"
+    },
+    "assignees": {
+      "type": "array",
+      "description": "Users assigned to work on this issue.",
+      "items": {
+        "$ref": "#/$defs/UserSummary"
+      }
+    },
+    "closed_by": {
+      "oneOf": [
+        { "$ref": "#/$defs/UserSummary" },
+        { "type": "null" }
+      ],
+      "description": "The user who closed the issue."
+    },
+    "confidential": {
+      "type": "boolean",
+      "description": "Whether the issue is confidential and visible only to project members with Reporter access or above."
+    },
+    "weight": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "The weight assigned to the issue for effort estimation. Requires Premium or Ultimate tier."
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["UNKNOWN", "INFO", "LOW", "MEDIUM", "HIGH", "CRITICAL"],
+      "description": "The severity level of the issue. Used for incidents."
+    },
+    "upvotes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The number of upvotes the issue has received."
+    },
+    "downvotes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The number of downvotes the issue has received."
+    },
+    "user_notes_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The number of user-authored comments on the issue."
+    },
+    "merge_requests_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The number of merge requests related to this issue."
+    },
+    "references": {
+      "$ref": "#/$defs/References"
+    },
+    "web_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL to view the issue in a browser."
+    },
+    "time_stats": {
+      "$ref": "#/$defs/TimeStats"
+    },
+    "task_completion_status": {
+      "$ref": "#/$defs/TaskCompletionStatus"
+    },
+    "has_tasks": {
+      "type": "boolean",
+      "description": "Whether the issue description contains task list items."
+    },
+    "due_date": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "The due date of the issue in YYYY-MM-DD format."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the issue was created."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the issue was last updated."
+    },
+    "closed_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "The date and time the issue was closed."
+    }
+  },
+  "$defs": {
+    "UserSummary": {
+      "type": "object",
+      "description": "A simplified representation of a GitLab user.",
+      "required": ["id", "username"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "The unique identifier of the user."
+        },
+        "username": {
+          "type": "string",
+          "description": "The username of the user."
+        },
+        "name": {
+          "type": "string",
+          "description": "The display name of the user."
+        },
+        "state": {
+          "type": "string",
+          "enum": ["active", "blocked", "deactivated"],
+          "description": "The current state of the user account."
+        },
+        "avatar_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "URL to the user's avatar image."
+        },
+        "web_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the user's GitLab profile page."
+        }
+      }
+    },
+    "Milestone": {
+      "type": "object",
+      "description": "A milestone that groups issues and merge requests by a target date.",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "The unique identifier of the milestone."
+        },
+        "iid": {
+          "type": "integer",
+          "description": "The project-scoped ID of the milestone."
+        },
+        "project_id": {
+          "type": "integer",
+          "description": "The ID of the project the milestone belongs to."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the milestone."
+        },
+        "description": {
+          "type": ["string", "null"],
+          "description": "The description of the milestone."
+        },
+        "state": {
+          "type": "string",
+          "enum": ["active", "closed"],
+          "description": "The current state of the milestone."
+        },
+        "due_date": {
+          "type": ["string", "null"],
+          "format": "date",
+          "description": "The due date of the milestone."
+        },
+        "web_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to view the milestone in a browser."
+        }
+      }
+    },
+    "References": {
+      "type": "object",
+      "description": "Reference strings for the issue.",
+      "properties": {
+        "short": {
+          "type": "string",
+          "description": "Short reference format, for example #42."
+        },
+        "relative": {
+          "type": "string",
+          "description": "Relative reference format including project path."
+        },
+        "full": {
+          "type": "string",
+          "description": "Full reference format including namespace and project path."
+        }
+      }
+    },
+    "TimeStats": {
+      "type": "object",
+      "description": "Time tracking statistics for the issue.",
+      "properties": {
+        "time_estimate": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Estimated time to complete the issue in seconds."
+        },
+        "total_time_spent": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total time logged against the issue in seconds."
+        },
+        "human_time_estimate": {
+          "type": ["string", "null"],
+          "description": "Human-readable time estimate, for example 1d 2h."
+        },
+        "human_total_time_spent": {
+          "type": ["string", "null"],
+          "description": "Human-readable total time spent, for example 30m."
+        }
+      }
+    },
+    "TaskCompletionStatus": {
+      "type": "object",
+      "description": "Completion status for task list items in the issue description.",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of task list items."
+        },
+        "completed_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of completed task list items."
+        }
+      }
+    }
+  }
+}

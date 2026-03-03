@@ -1,0 +1,391 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "gitlab": "https://docs.gitlab.com/ns/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Project": {
+      "@id": "gitlab:Project",
+      "@context": {
+        "id": "schema:identifier",
+        "name": "schema:name",
+        "description": "schema:description",
+        "path": "gitlab:path",
+        "path_with_namespace": "gitlab:pathWithNamespace",
+        "web_url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "http_url_to_repo": {
+          "@id": "gitlab:httpCloneUrl",
+          "@type": "@id"
+        },
+        "ssh_url_to_repo": "gitlab:sshCloneUrl",
+        "readme_url": {
+          "@id": "schema:mainEntityOfPage",
+          "@type": "@id"
+        },
+        "homepage": {
+          "@id": "schema:mainEntityOfPage",
+          "@type": "@id"
+        },
+        "default_branch": "gitlab:defaultBranch",
+        "visibility": "gitlab:visibility",
+        "topics": {
+          "@id": "schema:keywords",
+          "@container": "@set"
+        },
+        "archived": "gitlab:isArchived",
+        "empty_repo": "gitlab:isEmptyRepo",
+        "namespace": {
+          "@id": "gitlab:namespace",
+          "@type": "@id"
+        },
+        "owner": {
+          "@id": "schema:maintainer",
+          "@type": "@id"
+        },
+        "creator_id": "schema:creator",
+        "star_count": "gitlab:starCount",
+        "forks_count": "gitlab:forksCount",
+        "open_issues_count": "gitlab:openIssuesCount",
+        "ci_config_path": "gitlab:ciConfigPath",
+        "created_at": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "last_activity_at": {
+          "@id": "gitlab:lastActivityAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Group": {
+      "@id": "gitlab:Group",
+      "@context": {
+        "id": "schema:identifier",
+        "name": "schema:name",
+        "description": "schema:description",
+        "path": "gitlab:path",
+        "full_path": "gitlab:fullPath",
+        "web_url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "avatar_url": {
+          "@id": "schema:image",
+          "@type": "@id"
+        },
+        "visibility": "gitlab:visibility",
+        "parent_id": "gitlab:parentId",
+        "members_count": "gitlab:membersCount",
+        "created_at": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "User": {
+      "@id": "gitlab:User",
+      "@context": {
+        "id": "schema:identifier",
+        "username": "schema:alternateName",
+        "name": "schema:name",
+        "email": "schema:email",
+        "bio": "schema:description",
+        "organization": "schema:worksFor",
+        "location": "schema:homeLocation",
+        "website_url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "web_url": {
+          "@id": "schema:mainEntityOfPage",
+          "@type": "@id"
+        },
+        "avatar_url": {
+          "@id": "schema:image",
+          "@type": "@id"
+        },
+        "state": "gitlab:state",
+        "public_repos": "gitlab:publicProjectsCount",
+        "followers": "schema:follows",
+        "following": "gitlab:followingCount",
+        "created_at": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Issue": {
+      "@id": "gitlab:Issue",
+      "@context": {
+        "id": "schema:identifier",
+        "iid": "gitlab:iid",
+        "title": "schema:name",
+        "description": "schema:description",
+        "state": "gitlab:state",
+        "issue_type": "gitlab:issueType",
+        "web_url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "author": {
+          "@id": "schema:author",
+          "@type": "@id"
+        },
+        "assignees": {
+          "@id": "gitlab:assignees",
+          "@container": "@set"
+        },
+        "labels": {
+          "@id": "gitlab:labels",
+          "@container": "@set"
+        },
+        "milestone": "gitlab:milestone",
+        "confidential": "gitlab:isConfidential",
+        "weight": "gitlab:weight",
+        "severity": "gitlab:severity",
+        "upvotes": "gitlab:upvotes",
+        "downvotes": "gitlab:downvotes",
+        "user_notes_count": "schema:commentCount",
+        "due_date": {
+          "@id": "schema:expires",
+          "@type": "xsd:date"
+        },
+        "created_at": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "closed_at": {
+          "@id": "gitlab:closedAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "MergeRequest": {
+      "@id": "gitlab:MergeRequest",
+      "@context": {
+        "id": "schema:identifier",
+        "iid": "gitlab:iid",
+        "title": "schema:name",
+        "description": "schema:description",
+        "state": "gitlab:state",
+        "draft": "gitlab:isDraft",
+        "source_branch": "gitlab:sourceBranch",
+        "target_branch": "gitlab:targetBranch",
+        "web_url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "author": {
+          "@id": "schema:author",
+          "@type": "@id"
+        },
+        "assignees": {
+          "@id": "gitlab:assignees",
+          "@container": "@set"
+        },
+        "reviewers": {
+          "@id": "gitlab:reviewers",
+          "@container": "@set"
+        },
+        "merge_user": "gitlab:mergeUser",
+        "labels": {
+          "@id": "gitlab:labels",
+          "@container": "@set"
+        },
+        "milestone": "gitlab:milestone",
+        "sha": "schema:version",
+        "merge_commit_sha": "gitlab:mergeCommitSha",
+        "squash": "gitlab:isSquash",
+        "upvotes": "gitlab:upvotes",
+        "downvotes": "gitlab:downvotes",
+        "user_notes_count": "schema:commentCount",
+        "created_at": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "merged_at": {
+          "@id": "gitlab:mergedAt",
+          "@type": "xsd:dateTime"
+        },
+        "closed_at": {
+          "@id": "gitlab:closedAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Pipeline": {
+      "@id": "gitlab:Pipeline",
+      "@context": {
+        "id": "schema:identifier",
+        "iid": "gitlab:iid",
+        "name": "schema:name",
+        "status": "gitlab:status",
+        "source": "gitlab:source",
+        "ref": "gitlab:ref",
+        "sha": "gitlab:sha",
+        "tag": "gitlab:isTag",
+        "web_url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "user": {
+          "@id": "schema:creator",
+          "@type": "@id"
+        },
+        "coverage": "gitlab:coverage",
+        "duration": "schema:duration",
+        "archived": "gitlab:isArchived",
+        "created_at": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "started_at": {
+          "@id": "gitlab:startedAt",
+          "@type": "xsd:dateTime"
+        },
+        "finished_at": {
+          "@id": "gitlab:finishedAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Commit": {
+      "@id": "gitlab:Commit",
+      "@context": {
+        "id": "schema:identifier",
+        "title": "schema:name",
+        "message": "schema:text",
+        "web_url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "author_name": "schema:author",
+        "author_email": "schema:email",
+        "authored_date": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "committer_name": "gitlab:committer",
+        "committer_email": "gitlab:committerEmail",
+        "committed_date": {
+          "@id": "gitlab:committedAt",
+          "@type": "xsd:dateTime"
+        },
+        "parent_ids": {
+          "@id": "gitlab:parentCommits",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "Webhook": {
+      "@id": "gitlab:Webhook",
+      "@context": {
+        "id": "schema:identifier",
+        "url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "name": "schema:name",
+        "description": "schema:description",
+        "project_id": "gitlab:projectId",
+        "enable_ssl_verification": "gitlab:enableSslVerification",
+        "push_events": "gitlab:pushEvents",
+        "merge_requests_events": "gitlab:mergeRequestsEvents",
+        "issues_events": "gitlab:issuesEvents",
+        "pipeline_events": "gitlab:pipelineEvents",
+        "deployment_events": "gitlab:deploymentEvents",
+        "releases_events": "gitlab:releasesEvents",
+        "created_at": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "WebhookEvent": {
+      "@id": "gitlab:WebhookEvent",
+      "@context": {
+        "object_kind": "gitlab:eventKind",
+        "event_type": "gitlab:eventType",
+        "user": {
+          "@id": "schema:agent",
+          "@type": "@id"
+        },
+        "project": {
+          "@id": "gitlab:project",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "Label": {
+      "@id": "gitlab:Label",
+      "@context": {
+        "id": "schema:identifier",
+        "title": "schema:name",
+        "description": "schema:description",
+        "color": "gitlab:color",
+        "type": "gitlab:labelType"
+      }
+    },
+
+    "Milestone": {
+      "@id": "gitlab:Milestone",
+      "@context": {
+        "id": "schema:identifier",
+        "iid": "gitlab:iid",
+        "title": "schema:name",
+        "description": "schema:description",
+        "state": "gitlab:state",
+        "web_url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "due_date": {
+          "@id": "schema:expires",
+          "@type": "xsd:date"
+        },
+        "created_at": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}

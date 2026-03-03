@@ -1,0 +1,584 @@
+openapi: 3.1.0
+info:
+  title: GitLab Webhooks API
+  description: >-
+    The GitLab Webhooks API provides REST endpoints for managing project and
+    group webhooks. Webhooks can be configured to send HTTP POST requests to
+    external URLs when events occur in GitLab, such as pushes, merge requests,
+    issues, pipelines, and deployments. This API covers webhook configuration,
+    event history, and test trigger operations.
+  version: '4'
+  contact:
+    name: GitLab Support
+    url: https://about.gitlab.com/support/
+  termsOfService: https://about.gitlab.com/terms/
+externalDocs:
+  description: GitLab Project Webhooks API Documentation
+  url: https://docs.gitlab.com/api/project_webhooks/
+servers:
+  - url: https://gitlab.com/api/v4
+    description: GitLab.com Production Server
+tags:
+  - name: Project Webhooks
+    description: Manage webhooks for a specific project.
+  - name: Webhook Events
+    description: Access webhook delivery history and resend events.
+  - name: Webhook Configuration
+    description: Manage custom headers and URL variables for webhooks.
+security:
+  - privateToken: []
+  - bearerAuth: []
+paths:
+  /projects/{id}/hooks:
+    get:
+      operationId: listProjectWebhooks
+      summary: List project webhooks
+      description: >-
+        Returns a list of all webhooks configured for the specified project.
+        Each webhook entry includes its URL, enabled event triggers, and
+        SSL verification settings.
+      tags:
+        - Project Webhooks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of project webhooks returned successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Webhook'
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project not found.
+    post:
+      operationId: addProjectWebhook
+      summary: Add a webhook to a project
+      description: >-
+        Creates a new webhook for the specified project. The webhook will
+        receive HTTP POST requests for the configured event triggers. A secret
+        token can be specified for payload verification.
+      tags:
+        - Project Webhooks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookInput'
+      responses:
+        '201':
+          description: Webhook created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+        '400':
+          description: Invalid parameters.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project not found.
+  /projects/{id}/hooks/{hook_id}:
+    get:
+      operationId: getProjectWebhook
+      summary: Get a project webhook
+      description: >-
+        Returns configuration details for a specific webhook in a project,
+        including the URL, enabled triggers, and SSL verification setting.
+      tags:
+        - Project Webhooks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/hookId'
+      responses:
+        '200':
+          description: Webhook configuration returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project or webhook not found.
+    put:
+      operationId: updateProjectWebhook
+      summary: Update a project webhook
+      description: >-
+        Modifies the configuration of an existing project webhook. You can
+        update the URL, secret token, SSL verification setting, and which
+        events trigger the webhook.
+      tags:
+        - Project Webhooks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/hookId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookInput'
+      responses:
+        '200':
+          description: Webhook updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+        '400':
+          description: Invalid parameters.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project or webhook not found.
+    delete:
+      operationId: deleteProjectWebhook
+      summary: Delete a project webhook
+      description: >-
+        Removes a webhook from the specified project. Deleted webhooks
+        will no longer receive event deliveries.
+      tags:
+        - Project Webhooks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/hookId'
+      responses:
+        '204':
+          description: Webhook deleted successfully.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project or webhook not found.
+  /projects/{id}/hooks/{hook_id}/events:
+    get:
+      operationId: listProjectWebhookEvents
+      summary: List webhook events
+      description: >-
+        Returns a list of all delivery events for a specified project webhook
+        from the past 7 days. Each event includes the trigger type, response
+        status code, request and response headers, and payload body.
+      tags:
+        - Webhook Events
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/hookId'
+      responses:
+        '200':
+          description: Webhook events returned successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebhookEvent'
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project or webhook not found.
+  /projects/{id}/hooks/{hook_id}/events/{hook_event_id}/resend:
+    post:
+      operationId: resendWebhookEvent
+      summary: Resend a webhook event
+      description: >-
+        Resends a previously triggered webhook event to the configured URL.
+        Useful for retrying failed deliveries or for debugging webhook
+        configurations.
+      tags:
+        - Webhook Events
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/hookId'
+        - name: hook_event_id
+          in: path
+          required: true
+          description: The ID of the webhook event to resend.
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Webhook event resent successfully.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project, webhook, or event not found.
+  /projects/{id}/hooks/{hook_id}/test/{trigger}:
+    post:
+      operationId: testProjectWebhook
+      summary: Test a webhook trigger
+      description: >-
+        Sends a test webhook payload of the specified trigger type to the
+        configured webhook URL. Use this to verify the webhook endpoint is
+        reachable and handling payloads correctly.
+      tags:
+        - Webhook Events
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/hookId'
+        - name: trigger
+          in: path
+          required: true
+          description: >-
+            The event type to simulate. Supported values include push_events,
+            tag_push_events, issues_events, confidential_issues_events,
+            note_events, merge_requests_events, job_events, pipeline_events,
+            wiki_page_events, releases_events, and member_events.
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Test event sent successfully.
+        '400':
+          description: Trigger type not supported or webhook could not be tested.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project or webhook not found.
+  /projects/{id}/hooks/{hook_id}/custom_headers/{key}:
+    put:
+      operationId: setWebhookCustomHeader
+      summary: Set a webhook custom header
+      description: >-
+        Adds or updates a custom HTTP header sent with every webhook delivery
+        for the specified webhook. Custom headers are useful for authentication
+        or routing at the receiving endpoint.
+      tags:
+        - Webhook Configuration
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/hookId'
+        - name: key
+          in: path
+          required: true
+          description: The name of the custom header.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  description: The value of the custom header.
+      responses:
+        '204':
+          description: Custom header set successfully.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project or webhook not found.
+    delete:
+      operationId: deleteWebhookCustomHeader
+      summary: Delete a webhook custom header
+      description: >-
+        Removes a custom HTTP header from the specified webhook. The header
+        will no longer be included in future webhook deliveries.
+      tags:
+        - Webhook Configuration
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/hookId'
+        - name: key
+          in: path
+          required: true
+          description: The name of the custom header to delete.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Custom header deleted successfully.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project, webhook, or header not found.
+  /projects/{id}/hooks/{hook_id}/url_variables/{key}:
+    put:
+      operationId: setWebhookUrlVariable
+      summary: Set a webhook URL variable
+      description: >-
+        Adds or updates a URL variable for the specified webhook. URL variables
+        allow dynamic substitution in the webhook URL, enabling reuse of the
+        same webhook configuration with different target endpoints.
+      tags:
+        - Webhook Configuration
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/hookId'
+        - name: key
+          in: path
+          required: true
+          description: The name of the URL variable.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  description: The value to substitute for the URL variable.
+      responses:
+        '204':
+          description: URL variable set successfully.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project or webhook not found.
+    delete:
+      operationId: deleteWebhookUrlVariable
+      summary: Delete a webhook URL variable
+      description: >-
+        Removes a URL variable from the specified webhook. The variable will
+        no longer be substituted in future webhook deliveries.
+      tags:
+        - Webhook Configuration
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/hookId'
+        - name: key
+          in: path
+          required: true
+          description: The name of the URL variable to delete.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: URL variable deleted successfully.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project, webhook, or variable not found.
+components:
+  securitySchemes:
+    privateToken:
+      type: apiKey
+      in: header
+      name: PRIVATE-TOKEN
+      description: GitLab personal access token or project access token.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token.
+  parameters:
+    projectId:
+      name: id
+      in: path
+      required: true
+      description: >-
+        The ID or URL-encoded path of the project. For example, 42 or
+        namespace%2Fproject-name.
+      schema:
+        type: string
+    hookId:
+      name: hook_id
+      in: path
+      required: true
+      description: The ID of the webhook.
+      schema:
+        type: integer
+  schemas:
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the webhook.
+        url:
+          type: string
+          format: uri
+          description: The URL that receives webhook POST requests.
+        name:
+          type: string
+          description: Optional name for the webhook.
+        description:
+          type: string
+          description: Optional description of the webhook.
+        project_id:
+          type: integer
+          description: The ID of the project the webhook belongs to.
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the webhook was created.
+        push_events:
+          type: boolean
+          description: Whether the webhook triggers on push events.
+        tag_push_events:
+          type: boolean
+          description: Whether the webhook triggers on tag push events.
+        issues_events:
+          type: boolean
+          description: Whether the webhook triggers on issue events.
+        confidential_issues_events:
+          type: boolean
+          description: Whether the webhook triggers on confidential issue events.
+        merge_requests_events:
+          type: boolean
+          description: Whether the webhook triggers on merge request events.
+        note_events:
+          type: boolean
+          description: Whether the webhook triggers on comment events.
+        confidential_note_events:
+          type: boolean
+          description: Whether the webhook triggers on confidential comment events.
+        job_events:
+          type: boolean
+          description: Whether the webhook triggers on job status change events.
+        pipeline_events:
+          type: boolean
+          description: Whether the webhook triggers on pipeline status change events.
+        wiki_page_events:
+          type: boolean
+          description: Whether the webhook triggers on wiki page events.
+        deployment_events:
+          type: boolean
+          description: Whether the webhook triggers on deployment events.
+        releases_events:
+          type: boolean
+          description: Whether the webhook triggers on release events.
+        member_events:
+          type: boolean
+          description: Whether the webhook triggers on group member events.
+        enable_ssl_verification:
+          type: boolean
+          description: >-
+            Whether SSL certificate verification is enabled for the webhook URL.
+        push_events_branch_filter:
+          type: string
+          description: >-
+            Branch name or wildcard pattern to filter push events.
+        branch_filter_strategy:
+          type: string
+          enum:
+            - wildcard
+            - regex
+            - all_branches
+          description: The strategy used for filtering branches.
+        alert_status:
+          type: string
+          description: The current alert status of the webhook based on delivery failures.
+        disabled_until:
+          type: string
+          format: date-time
+          description: If set, the webhook is temporarily disabled until this time.
+    WebhookInput:
+      type: object
+      required:
+        - url
+      properties:
+        url:
+          type: string
+          format: uri
+          description: The URL to send webhook POST requests to.
+        name:
+          type: string
+          description: Optional name for the webhook.
+        description:
+          type: string
+          description: Optional description of the webhook.
+        secret_token:
+          type: string
+          description: >-
+            A secret token to validate received payloads. Sent as the
+            X-Gitlab-Token header.
+        enable_ssl_verification:
+          type: boolean
+          description: Whether to verify SSL certificates on the webhook URL.
+        push_events:
+          type: boolean
+          description: Trigger on push events.
+        tag_push_events:
+          type: boolean
+          description: Trigger on tag push events.
+        issues_events:
+          type: boolean
+          description: Trigger on issue events.
+        confidential_issues_events:
+          type: boolean
+          description: Trigger on confidential issue events.
+        merge_requests_events:
+          type: boolean
+          description: Trigger on merge request events.
+        note_events:
+          type: boolean
+          description: Trigger on comment events.
+        confidential_note_events:
+          type: boolean
+          description: Trigger on confidential comment events.
+        job_events:
+          type: boolean
+          description: Trigger on job status change events.
+        pipeline_events:
+          type: boolean
+          description: Trigger on pipeline status change events.
+        wiki_page_events:
+          type: boolean
+          description: Trigger on wiki page events.
+        deployment_events:
+          type: boolean
+          description: Trigger on deployment events.
+        releases_events:
+          type: boolean
+          description: Trigger on release events.
+        member_events:
+          type: boolean
+          description: Trigger on group member events.
+        push_events_branch_filter:
+          type: string
+          description: >-
+            Branch name or wildcard pattern to filter push events.
+    WebhookEvent:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the webhook event delivery.
+        url:
+          type: string
+          format: uri
+          description: The URL the event was delivered to.
+        trigger:
+          type: string
+          description: The event type that triggered the webhook delivery.
+        request_headers:
+          type: object
+          description: HTTP headers sent with the webhook request.
+          additionalProperties:
+            type: string
+        request_data:
+          type: string
+          description: The JSON payload body sent in the webhook request.
+        response_headers:
+          type: object
+          description: HTTP headers returned in the webhook response.
+          additionalProperties:
+            type: string
+        response_body:
+          type: string
+          description: The body of the response from the webhook receiver.
+        response_status:
+          type: string
+          description: The HTTP response status code returned by the receiver.
+        execution_duration:
+          type: number
+          description: Time in milliseconds the webhook delivery took.
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the event was delivered.

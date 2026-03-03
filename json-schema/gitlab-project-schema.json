@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gitlab.com/schemas/gitlab/project.json",
+  "title": "GitLab Project",
+  "description": "A GitLab project containing a Git repository, issues, merge requests, CI/CD pipelines, and other DevOps resources.",
+  "type": "object",
+  "required": ["id", "name", "path", "path_with_namespace"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier of the project."
+    },
+    "name": {
+      "type": "string",
+      "description": "The display name of the project."
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "A short description of the project.",
+      "maxLength": 2000
+    },
+    "path": {
+      "type": "string",
+      "description": "The URL-friendly path component of the project name.",
+      "pattern": "^[a-zA-Z0-9_.-]+$"
+    },
+    "path_with_namespace": {
+      "type": "string",
+      "description": "The full path of the project including the namespace, such as group/project-name."
+    },
+    "name_with_namespace": {
+      "type": "string",
+      "description": "The full name of the project including the namespace."
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["private", "internal", "public"],
+      "description": "The visibility level of the project."
+    },
+    "web_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL to access the project in a browser."
+    },
+    "http_url_to_repo": {
+      "type": "string",
+      "format": "uri",
+      "description": "The HTTP URL for cloning the repository."
+    },
+    "ssh_url_to_repo": {
+      "type": "string",
+      "description": "The SSH URL for cloning the repository."
+    },
+    "readme_url": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "The URL to the README file of the default branch."
+    },
+    "default_branch": {
+      "type": ["string", "null"],
+      "description": "The default branch of the repository."
+    },
+    "topics": {
+      "type": "array",
+      "description": "List of topic tags associated with the project.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "archived": {
+      "type": "boolean",
+      "description": "Whether the project is archived and read-only."
+    },
+    "empty_repo": {
+      "type": "boolean",
+      "description": "Whether the repository has been initialized with commits."
+    },
+    "namespace": {
+      "$ref": "#/$defs/Namespace"
+    },
+    "owner": {
+      "$ref": "#/$defs/UserSummary"
+    },
+    "creator_id": {
+      "type": "integer",
+      "description": "The ID of the user who created the project."
+    },
+    "star_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The number of stars the project has received."
+    },
+    "forks_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The number of forks of the project."
+    },
+    "open_issues_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The number of open issues in the project."
+    },
+    "ci_config_path": {
+      "type": ["string", "null"],
+      "description": "The path to the CI/CD configuration file relative to the repository root.",
+      "default": ".gitlab-ci.yml"
+    },
+    "issues_access_level": {
+      "type": "string",
+      "enum": ["disabled", "private", "enabled", "public"],
+      "description": "The access level for the issues feature."
+    },
+    "merge_requests_access_level": {
+      "type": "string",
+      "enum": ["disabled", "private", "enabled", "public"],
+      "description": "The access level for the merge requests feature."
+    },
+    "builds_access_level": {
+      "type": "string",
+      "enum": ["disabled", "private", "enabled", "public"],
+      "description": "The access level for CI/CD pipelines and builds."
+    },
+    "wiki_access_level": {
+      "type": "string",
+      "enum": ["disabled", "private", "enabled", "public"],
+      "description": "The access level for the project wiki."
+    },
+    "container_registry_access_level": {
+      "type": "string",
+      "enum": ["disabled", "private", "enabled", "public"],
+      "description": "The access level for the container registry."
+    },
+    "pages_access_level": {
+      "type": "string",
+      "enum": ["disabled", "private", "enabled", "public"],
+      "description": "The access level for GitLab Pages."
+    },
+    "permissions": {
+      "$ref": "#/$defs/Permissions"
+    },
+    "statistics": {
+      "$ref": "#/$defs/Statistics"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the project was created."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the project was last updated."
+    },
+    "last_activity_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time of the last activity in the project."
+    }
+  },
+  "$defs": {
+    "Namespace": {
+      "type": "object",
+      "description": "The namespace (user or group) that owns the project.",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "The unique identifier of the namespace."
+        },
+        "name": {
+          "type": "string",
+          "description": "The display name of the namespace."
+        },
+        "path": {
+          "type": "string",
+          "description": "The URL path of the namespace."
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["user", "group"],
+          "description": "Whether the namespace belongs to a user or a group."
+        },
+        "full_path": {
+          "type": "string",
+          "description": "The full path of the namespace."
+        },
+        "parent_id": {
+          "type": ["integer", "null"],
+          "description": "The ID of the parent namespace for subgroups."
+        },
+        "avatar_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "URL to the namespace avatar image."
+        },
+        "web_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the namespace page on GitLab."
+        }
+      }
+    },
+    "UserSummary": {
+      "type": "object",
+      "description": "A simplified representation of a GitLab user.",
+      "required": ["id", "username"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "The unique identifier of the user."
+        },
+        "username": {
+          "type": "string",
+          "description": "The username of the user."
+        },
+        "name": {
+          "type": "string",
+          "description": "The display name of the user."
+        },
+        "state": {
+          "type": "string",
+          "enum": ["active", "blocked", "deactivated"],
+          "description": "The current state of the user account."
+        },
+        "avatar_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "URL to the user's avatar image."
+        },
+        "web_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the user's profile on GitLab."
+        }
+      }
+    },
+    "Permissions": {
+      "type": "object",
+      "description": "The access permissions the current user has on the project.",
+      "properties": {
+        "project_access": {
+          "type": ["object", "null"],
+          "description": "Direct project access level for the user.",
+          "properties": {
+            "access_level": {
+              "type": "integer",
+              "description": "Access level value (10=Guest, 20=Reporter, 30=Developer, 40=Maintainer, 50=Owner)."
+            }
+          }
+        },
+        "group_access": {
+          "type": ["object", "null"],
+          "description": "Group-inherited access level for the user.",
+          "properties": {
+            "access_level": {
+              "type": "integer",
+              "description": "Access level value inherited from group membership."
+            }
+          }
+        }
+      }
+    },
+    "Statistics": {
+      "type": "object",
+      "description": "Storage and activity statistics for the project.",
+      "properties": {
+        "commit_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The total number of commits in the default branch."
+        },
+        "storage_size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total storage size in bytes."
+        },
+        "repository_size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Git repository size in bytes."
+        },
+        "wiki_size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Wiki repository size in bytes."
+        },
+        "lfs_objects_size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "LFS objects size in bytes."
+        },
+        "job_artifacts_size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "CI/CD job artifacts size in bytes."
+        },
+        "packages_size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Packages registry size in bytes."
+        },
+        "snippets_size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Snippets size in bytes."
+        }
+      }
+    }
+  }
+}

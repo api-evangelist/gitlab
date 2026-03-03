@@ -1,0 +1,1195 @@
+asyncapi: 2.6.0
+info:
+  title: GitLab Webhooks
+  description: >-
+    GitLab Webhooks deliver HTTP POST payloads to a configured URL whenever
+    specified events occur in a GitLab project or group, such as pushes, merge
+    requests, issues, pipeline status changes, and deployments. Webhooks are
+    configured at the project or group level and include an X-Gitlab-Token
+    header for payload signature verification.
+  version: '4'
+  contact:
+    name: GitLab Support
+    url: https://about.gitlab.com/support/
+  license:
+    name: GitLab Terms of Service
+    url: https://about.gitlab.com/terms/
+externalDocs:
+  description: GitLab Webhooks Documentation
+  url: https://docs.gitlab.com/user/project/integrations/webhooks.html
+servers:
+  webhook-receiver:
+    url: '{webhookUrl}'
+    protocol: https
+    description: >-
+      Your webhook receiver endpoint. GitLab sends POST requests to this URL
+      when subscribed events occur in the configured project or group.
+    variables:
+      webhookUrl:
+        description: The URL configured to receive webhook deliveries.
+    security:
+      - gitlabToken: []
+channels:
+  /webhook:
+    description: >-
+      The endpoint that receives all GitLab webhook event deliveries. The
+      specific event type is identified by the X-Gitlab-Event header.
+    publish:
+      operationId: receiveGitLabWebhookEvent
+      summary: Receive a GitLab webhook event
+      description: >-
+        GitLab delivers webhook events as HTTP POST requests with JSON payloads.
+        Each delivery includes the X-Gitlab-Token header for verification and
+        the X-Gitlab-Event header identifying the event type. Deliveries that
+        fail are retried up to three times with exponential backoff.
+      bindings:
+        http:
+          type: request
+          method: POST
+          headers:
+            type: object
+            properties:
+              X-Gitlab-Event:
+                type: string
+                description: >-
+                  The name of the event that triggered the delivery, such as
+                  Push Hook, Merge Request Hook, or Pipeline Hook.
+              X-Gitlab-Token:
+                type: string
+                description: >-
+                  The secret token configured on the webhook for payload
+                  verification. Compare against the secret token set when
+                  the webhook was created.
+              X-Gitlab-Instance:
+                type: string
+                description: The URL of the GitLab instance that sent the event.
+              Content-Type:
+                type: string
+                description: Always application/json.
+      message:
+        oneOf:
+          - $ref: '#/components/messages/PushEvent'
+          - $ref: '#/components/messages/TagPushEvent'
+          - $ref: '#/components/messages/MergeRequestEvent'
+          - $ref: '#/components/messages/IssueEvent'
+          - $ref: '#/components/messages/NoteEvent'
+          - $ref: '#/components/messages/PipelineEvent'
+          - $ref: '#/components/messages/JobEvent'
+          - $ref: '#/components/messages/DeploymentEvent'
+          - $ref: '#/components/messages/ReleaseEvent'
+          - $ref: '#/components/messages/MemberEvent'
+          - $ref: '#/components/messages/WikiPageEvent'
+components:
+  securitySchemes:
+    gitlabToken:
+      type: httpApiKey
+      in: header
+      name: X-Gitlab-Token
+      description: >-
+        A secret token set when configuring the webhook. Verify the value of
+        this header matches your configured token to authenticate deliveries.
+  messages:
+    PushEvent:
+      name: PushEvent
+      title: Push Hook
+      summary: Triggered when code is pushed to a repository branch.
+      description: >-
+        Delivered when one or more commits are pushed to a branch in the
+        repository. Contains information about the commits, the branch
+        affected, and the user who performed the push.
+      headers:
+        type: object
+        properties:
+          X-Gitlab-Event:
+            type: string
+            enum:
+              - Push Hook
+      payload:
+        $ref: '#/components/schemas/PushPayload'
+    TagPushEvent:
+      name: TagPushEvent
+      title: Tag Push Hook
+      summary: Triggered when a tag is created or deleted.
+      description: >-
+        Delivered when a Git tag is pushed to or deleted from the repository.
+        Contains the tag name, the commit it points to, and the user who
+        performed the action.
+      headers:
+        type: object
+        properties:
+          X-Gitlab-Event:
+            type: string
+            enum:
+              - Tag Push Hook
+      payload:
+        $ref: '#/components/schemas/TagPushPayload'
+    MergeRequestEvent:
+      name: MergeRequestEvent
+      title: Merge Request Hook
+      summary: Triggered when a merge request is created, updated, or closed.
+      description: >-
+        Delivered when a merge request is opened, edited, closed, merged,
+        approved, or has its reviewers changed. Contains detailed information
+        about the merge request state, participants, and source/target branches.
+      headers:
+        type: object
+        properties:
+          X-Gitlab-Event:
+            type: string
+            enum:
+              - Merge Request Hook
+      payload:
+        $ref: '#/components/schemas/MergeRequestPayload'
+    IssueEvent:
+      name: IssueEvent
+      title: Issue Hook
+      summary: Triggered when an issue is created, updated, or closed.
+      description: >-
+        Delivered when an issue is opened, edited, closed, or reopened.
+        Contains details about the issue including title, description, labels,
+        assignees, and milestone.
+      headers:
+        type: object
+        properties:
+          X-Gitlab-Event:
+            type: string
+            enum:
+              - Issue Hook
+      payload:
+        $ref: '#/components/schemas/IssuePayload'
+    NoteEvent:
+      name: NoteEvent
+      title: Note Hook
+      summary: Triggered when a comment is added on a commit, MR, issue, or snippet.
+      description: >-
+        Delivered when a user adds a comment on a commit, merge request, issue,
+        or code snippet. The noteable_type field identifies what the comment was
+        made on.
+      headers:
+        type: object
+        properties:
+          X-Gitlab-Event:
+            type: string
+            enum:
+              - Note Hook
+      payload:
+        $ref: '#/components/schemas/NotePayload'
+    PipelineEvent:
+      name: PipelineEvent
+      title: Pipeline Hook
+      summary: Triggered when a CI/CD pipeline changes status.
+      description: >-
+        Delivered when a pipeline transitions between states such as pending,
+        running, success, failed, or canceled. Contains information about the
+        pipeline's stages, the triggering commit, and all jobs in the pipeline.
+      headers:
+        type: object
+        properties:
+          X-Gitlab-Event:
+            type: string
+            enum:
+              - Pipeline Hook
+      payload:
+        $ref: '#/components/schemas/PipelinePayload'
+    JobEvent:
+      name: JobEvent
+      title: Job Hook
+      summary: Triggered when a CI/CD job changes status.
+      description: >-
+        Delivered when an individual CI/CD job transitions between states.
+        Contains information about the job, its runner, the associated pipeline,
+        and any artifacts produced.
+      headers:
+        type: object
+        properties:
+          X-Gitlab-Event:
+            type: string
+            enum:
+              - Job Hook
+      payload:
+        $ref: '#/components/schemas/JobPayload'
+    DeploymentEvent:
+      name: DeploymentEvent
+      title: Deployment Hook
+      summary: Triggered when a deployment starts, succeeds, fails, or is canceled.
+      description: >-
+        Delivered during deployment lifecycle transitions. Contains information
+        about the environment, deployment ID, the ref being deployed, and the
+        deployment status.
+      headers:
+        type: object
+        properties:
+          X-Gitlab-Event:
+            type: string
+            enum:
+              - Deployment Hook
+      payload:
+        $ref: '#/components/schemas/DeploymentPayload'
+    ReleaseEvent:
+      name: ReleaseEvent
+      title: Release Hook
+      summary: Triggered when a release is created, updated, or deleted.
+      description: >-
+        Delivered when a release is created, updated, or deleted. Contains
+        details about the release including its tag, name, description, and
+        associated assets.
+      headers:
+        type: object
+        properties:
+          X-Gitlab-Event:
+            type: string
+            enum:
+              - Release Hook
+      payload:
+        $ref: '#/components/schemas/ReleasePayload'
+    MemberEvent:
+      name: MemberEvent
+      title: Member Hook
+      summary: Triggered when a group member is added, removed, or changes access level.
+      description: >-
+        Delivered when a user is added to or removed from a group, or when
+        their access level is changed. Contains information about the member,
+        their access level, and the group affected.
+      headers:
+        type: object
+        properties:
+          X-Gitlab-Event:
+            type: string
+            enum:
+              - Member Hook
+      payload:
+        $ref: '#/components/schemas/MemberPayload'
+    WikiPageEvent:
+      name: WikiPageEvent
+      title: Wiki Page Hook
+      summary: Triggered when a wiki page is created, updated, or deleted.
+      description: >-
+        Delivered when a wiki page is created, edited, or deleted in a project.
+        Contains information about the wiki page including its slug, title,
+        content, and the action performed.
+      headers:
+        type: object
+        properties:
+          X-Gitlab-Event:
+            type: string
+            enum:
+              - Wiki Page Hook
+      payload:
+        $ref: '#/components/schemas/WikiPagePayload'
+  schemas:
+    Project:
+      type: object
+      description: Information about the GitLab project where the event occurred.
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the project.
+        name:
+          type: string
+          description: The name of the project.
+        description:
+          type: string
+          description: The project description.
+        web_url:
+          type: string
+          format: uri
+          description: The URL to access the project in a browser.
+        avatar_url:
+          type: string
+          format: uri
+          description: URL to the project avatar image.
+        git_ssh_url:
+          type: string
+          description: SSH URL for cloning the repository.
+        git_http_url:
+          type: string
+          format: uri
+          description: HTTP URL for cloning the repository.
+        namespace:
+          type: string
+          description: The namespace of the project.
+        visibility_level:
+          type: integer
+          description: The visibility level (0=private, 10=internal, 20=public).
+        path_with_namespace:
+          type: string
+          description: The full path including the namespace.
+        default_branch:
+          type: string
+          description: The default branch of the project.
+        homepage:
+          type: string
+          format: uri
+          description: The URL to the project homepage.
+        url:
+          type: string
+          format: uri
+          description: The URL to access the project.
+        ssh_url:
+          type: string
+          description: SSH clone URL.
+        http_url:
+          type: string
+          format: uri
+          description: HTTP clone URL.
+    UserSummary:
+      type: object
+      description: A summary of the GitLab user who triggered the event.
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the user.
+        name:
+          type: string
+          description: The display name of the user.
+        username:
+          type: string
+          description: The username of the user.
+        avatar_url:
+          type: string
+          format: uri
+          description: URL to the user's avatar image.
+        email:
+          type: string
+          format: email
+          description: The email address of the user.
+    Commit:
+      type: object
+      description: A Git commit included in the event payload.
+      properties:
+        id:
+          type: string
+          description: The full SHA of the commit.
+        message:
+          type: string
+          description: The commit message.
+        title:
+          type: string
+          description: The first line of the commit message.
+        timestamp:
+          type: string
+          format: date-time
+          description: The date and time of the commit.
+        url:
+          type: string
+          format: uri
+          description: URL to view the commit in GitLab.
+        author:
+          type: object
+          description: The commit author.
+          properties:
+            name:
+              type: string
+              description: The author's name.
+            email:
+              type: string
+              format: email
+              description: The author's email address.
+        added:
+          type: array
+          description: List of files added in this commit.
+          items:
+            type: string
+        modified:
+          type: array
+          description: List of files modified in this commit.
+          items:
+            type: string
+        removed:
+          type: array
+          description: List of files removed in this commit.
+          items:
+            type: string
+    PushPayload:
+      type: object
+      description: Payload for push events.
+      properties:
+        object_kind:
+          type: string
+          enum:
+            - push
+          description: The type of event. Always push for push events.
+        event_name:
+          type: string
+          description: The event name. push or tag_push.
+        before:
+          type: string
+          description: The commit SHA before the push.
+        after:
+          type: string
+          description: The commit SHA after the push.
+        ref:
+          type: string
+          description: The full ref name including refs/heads/ prefix.
+        ref_protected:
+          type: boolean
+          description: Whether the branch is protected.
+        checkout_sha:
+          type: string
+          description: The SHA to check out.
+        user_id:
+          type: integer
+          description: The ID of the user who pushed.
+        user_name:
+          type: string
+          description: The display name of the user who pushed.
+        user_username:
+          type: string
+          description: The username of the user who pushed.
+        user_email:
+          type: string
+          format: email
+          description: The email of the user who pushed.
+        user_avatar:
+          type: string
+          format: uri
+          description: URL to the user's avatar.
+        project_id:
+          type: integer
+          description: The ID of the project.
+        project:
+          $ref: '#/components/schemas/Project'
+        commits:
+          type: array
+          description: List of commits included in the push.
+          items:
+            $ref: '#/components/schemas/Commit'
+        total_commits_count:
+          type: integer
+          description: Total number of commits in the push.
+        push_options:
+          type: object
+          description: Push options set with git push -o.
+        repository:
+          $ref: '#/components/schemas/Project'
+    TagPushPayload:
+      type: object
+      description: Payload for tag push events.
+      properties:
+        object_kind:
+          type: string
+          enum:
+            - tag_push
+          description: The type of event. Always tag_push.
+        event_name:
+          type: string
+          description: Always tag_push.
+        before:
+          type: string
+          description: The SHA before tag creation or after tag deletion.
+        after:
+          type: string
+          description: The SHA the tag points to or zeros on deletion.
+        ref:
+          type: string
+          description: The full tag ref name including refs/tags/ prefix.
+        checkout_sha:
+          type: string
+          description: The SHA to check out.
+        message:
+          type: string
+          description: The tag message for annotated tags.
+        user_id:
+          type: integer
+          description: The ID of the user who created or deleted the tag.
+        user_name:
+          type: string
+          description: The display name of the user.
+        user_username:
+          type: string
+          description: The username of the user.
+        project_id:
+          type: integer
+          description: The ID of the project.
+        project:
+          $ref: '#/components/schemas/Project'
+        commits:
+          type: array
+          description: Commits associated with the tag.
+          items:
+            $ref: '#/components/schemas/Commit'
+        repository:
+          $ref: '#/components/schemas/Project'
+    MergeRequestAttributes:
+      type: object
+      description: Attributes describing the merge request state.
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the merge request.
+        iid:
+          type: integer
+          description: The internal project-scoped ID of the merge request.
+        title:
+          type: string
+          description: The title of the merge request.
+        description:
+          type: string
+          description: The description of the merge request.
+        state:
+          type: string
+          enum:
+            - opened
+            - closed
+            - merged
+            - locked
+          description: The current state of the merge request.
+        action:
+          type: string
+          description: >-
+            The action that triggered this event. Values include open, close,
+            reopen, update, approved, unapproved, merge.
+        source_branch:
+          type: string
+          description: The source branch name.
+        target_branch:
+          type: string
+          description: The target branch name.
+        source_project_id:
+          type: integer
+          description: The ID of the source project.
+        target_project_id:
+          type: integer
+          description: The ID of the target project.
+        url:
+          type: string
+          format: uri
+          description: The URL to view the merge request.
+        draft:
+          type: boolean
+          description: Whether the merge request is in draft state.
+        merge_status:
+          type: string
+          description: The merge status of the merge request.
+        created_at:
+          type: string
+          format: date-time
+          description: When the merge request was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: When the merge request was last updated.
+        merged_at:
+          type: string
+          format: date-time
+          description: When the merge request was merged.
+    MergeRequestPayload:
+      type: object
+      description: Payload for merge request events.
+      properties:
+        object_kind:
+          type: string
+          enum:
+            - merge_request
+          description: Always merge_request.
+        event_type:
+          type: string
+          description: The event type identifier.
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        project:
+          $ref: '#/components/schemas/Project'
+        object_attributes:
+          $ref: '#/components/schemas/MergeRequestAttributes'
+        labels:
+          type: array
+          description: Labels associated with the merge request.
+          items:
+            $ref: '#/components/schemas/Label'
+        changes:
+          type: object
+          description: Fields that changed in this event.
+        assignees:
+          type: array
+          description: Users assigned to the merge request.
+          items:
+            $ref: '#/components/schemas/UserSummary'
+        reviewers:
+          type: array
+          description: Users assigned to review the merge request.
+          items:
+            $ref: '#/components/schemas/UserSummary'
+    IssueAttributes:
+      type: object
+      description: Attributes describing the issue.
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the issue.
+        iid:
+          type: integer
+          description: The project-scoped ID of the issue.
+        title:
+          type: string
+          description: The title of the issue.
+        description:
+          type: string
+          description: The description of the issue.
+        state:
+          type: string
+          enum:
+            - opened
+            - closed
+          description: The current state of the issue.
+        action:
+          type: string
+          description: >-
+            The action that triggered this event. Values include open, close,
+            reopen, update.
+        issue_type:
+          type: string
+          enum:
+            - issue
+            - incident
+            - test_case
+            - task
+          description: The type of issue.
+        confidential:
+          type: boolean
+          description: Whether the issue is confidential.
+        url:
+          type: string
+          format: uri
+          description: The URL to view the issue.
+        created_at:
+          type: string
+          format: date-time
+          description: When the issue was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: When the issue was last updated.
+        closed_at:
+          type: string
+          format: date-time
+          description: When the issue was closed.
+    IssuePayload:
+      type: object
+      description: Payload for issue events.
+      properties:
+        object_kind:
+          type: string
+          enum:
+            - issue
+          description: Always issue.
+        event_type:
+          type: string
+          description: The event type identifier.
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        project:
+          $ref: '#/components/schemas/Project'
+        object_attributes:
+          $ref: '#/components/schemas/IssueAttributes'
+        labels:
+          type: array
+          description: Labels associated with the issue.
+          items:
+            $ref: '#/components/schemas/Label'
+        changes:
+          type: object
+          description: Fields that changed in this event.
+        assignees:
+          type: array
+          description: Users assigned to the issue.
+          items:
+            $ref: '#/components/schemas/UserSummary'
+    NotePayload:
+      type: object
+      description: Payload for note (comment) events.
+      properties:
+        object_kind:
+          type: string
+          enum:
+            - note
+          description: Always note.
+        event_type:
+          type: string
+          description: The event type identifier.
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        project:
+          $ref: '#/components/schemas/Project'
+        object_attributes:
+          type: object
+          description: Attributes of the note.
+          properties:
+            id:
+              type: integer
+              description: The unique ID of the note.
+            note:
+              type: string
+              description: The body of the comment.
+            noteable_type:
+              type: string
+              enum:
+                - Commit
+                - MergeRequest
+                - Issue
+                - Snippet
+              description: The type of object the comment was made on.
+            noteable_id:
+              type: integer
+              description: The ID of the object the comment was made on.
+            url:
+              type: string
+              format: uri
+              description: The URL to view the comment.
+            created_at:
+              type: string
+              format: date-time
+              description: When the comment was created.
+            updated_at:
+              type: string
+              format: date-time
+              description: When the comment was last updated.
+    PipelinePayload:
+      type: object
+      description: Payload for pipeline events.
+      properties:
+        object_kind:
+          type: string
+          enum:
+            - pipeline
+          description: Always pipeline.
+        object_attributes:
+          type: object
+          description: Attributes of the pipeline.
+          properties:
+            id:
+              type: integer
+              description: The unique ID of the pipeline.
+            iid:
+              type: integer
+              description: The project-scoped pipeline ID.
+            ref:
+              type: string
+              description: The branch or tag the pipeline ran on.
+            tag:
+              type: boolean
+              description: Whether the pipeline ran on a tag.
+            sha:
+              type: string
+              description: The commit SHA the pipeline ran on.
+            status:
+              type: string
+              enum:
+                - pending
+                - running
+                - success
+                - failed
+                - canceled
+                - skipped
+              description: The current status of the pipeline.
+            source:
+              type: string
+              description: >-
+                The source that triggered the pipeline. Values include push,
+                web, trigger, schedule, api, merge_request_event, and others.
+            created_at:
+              type: string
+              format: date-time
+              description: When the pipeline was created.
+            finished_at:
+              type: string
+              format: date-time
+              description: When the pipeline finished.
+            duration:
+              type: integer
+              description: Pipeline duration in seconds.
+            url:
+              type: string
+              format: uri
+              description: URL to view the pipeline.
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        project:
+          $ref: '#/components/schemas/Project'
+        commit:
+          $ref: '#/components/schemas/Commit'
+        builds:
+          type: array
+          description: Jobs included in this pipeline.
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: The unique ID of the job.
+              stage:
+                type: string
+                description: The stage the job belongs to.
+              name:
+                type: string
+                description: The name of the job.
+              status:
+                type: string
+                description: The current status of the job.
+              created_at:
+                type: string
+                format: date-time
+                description: When the job was created.
+              started_at:
+                type: string
+                format: date-time
+                description: When the job started.
+              finished_at:
+                type: string
+                format: date-time
+                description: When the job finished.
+              allow_failure:
+                type: boolean
+                description: Whether a failure of this job is allowed.
+    JobPayload:
+      type: object
+      description: Payload for job events.
+      properties:
+        object_kind:
+          type: string
+          enum:
+            - build
+          description: Always build for job events.
+        ref:
+          type: string
+          description: The branch or tag name the job ran on.
+        tag:
+          type: boolean
+          description: Whether the job ran on a tag.
+        before_sha:
+          type: string
+          description: The commit SHA before the ref was updated.
+        sha:
+          type: string
+          description: The commit SHA the job ran on.
+        build_id:
+          type: integer
+          description: The unique ID of the build.
+        build_name:
+          type: string
+          description: The name of the build job.
+        build_stage:
+          type: string
+          description: The pipeline stage the job belongs to.
+        build_status:
+          type: string
+          description: >-
+            The current status of the build. Values include created, pending,
+            running, failed, success, canceled, skipped.
+        build_created_at:
+          type: string
+          format: date-time
+          description: When the build was created.
+        build_started_at:
+          type: string
+          format: date-time
+          description: When the build started.
+        build_finished_at:
+          type: string
+          format: date-time
+          description: When the build finished.
+        build_duration:
+          type: number
+          description: Build duration in seconds.
+        build_allow_failure:
+          type: boolean
+          description: Whether a failure is allowed for this build.
+        project_id:
+          type: integer
+          description: The ID of the project.
+        project_name:
+          type: string
+          description: The name of the project.
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        commit:
+          type: object
+          description: Commit information for this build.
+          properties:
+            id:
+              type: integer
+              description: The pipeline ID.
+            sha:
+              type: string
+              description: The commit SHA.
+            message:
+              type: string
+              description: The commit message.
+            author_name:
+              type: string
+              description: The commit author name.
+    DeploymentPayload:
+      type: object
+      description: Payload for deployment events.
+      properties:
+        object_kind:
+          type: string
+          enum:
+            - deployment
+          description: Always deployment.
+        status:
+          type: string
+          enum:
+            - created
+            - running
+            - success
+            - failed
+            - canceled
+          description: The current status of the deployment.
+        status_changed_at:
+          type: string
+          format: date-time
+          description: When the deployment status last changed.
+        deployment_id:
+          type: integer
+          description: The unique ID of the deployment.
+        deployable_id:
+          type: integer
+          description: The ID of the deployable (job) that triggered the deployment.
+        deployable_url:
+          type: string
+          format: uri
+          description: URL to the job that triggered the deployment.
+        environment:
+          type: string
+          description: The name of the target deployment environment.
+        environment_slug:
+          type: string
+          description: URL-safe version of the environment name.
+        environment_external_url:
+          type: string
+          format: uri
+          description: The external URL configured for the environment.
+        project:
+          $ref: '#/components/schemas/Project'
+        short_sha:
+          type: string
+          description: Short version of the commit SHA.
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        user_url:
+          type: string
+          format: uri
+          description: URL to the user's GitLab profile.
+        commit_url:
+          type: string
+          format: uri
+          description: URL to the commit being deployed.
+        commit_title:
+          type: string
+          description: The title (first line) of the commit message.
+    ReleasePayload:
+      type: object
+      description: Payload for release events.
+      properties:
+        id:
+          type: integer
+          description: The unique ID of the release.
+        created_at:
+          type: string
+          format: date-time
+          description: When the release was created.
+        description:
+          type: string
+          description: The description or release notes.
+        name:
+          type: string
+          description: The name of the release.
+        released_at:
+          type: string
+          format: date-time
+          description: When the release was published.
+        tag:
+          type: string
+          description: The tag the release is associated with.
+        object_kind:
+          type: string
+          enum:
+            - release
+          description: Always release.
+        project:
+          $ref: '#/components/schemas/Project'
+        url:
+          type: string
+          format: uri
+          description: The URL to view the release.
+        action:
+          type: string
+          enum:
+            - create
+            - update
+            - delete
+          description: The action performed on the release.
+        assets:
+          type: object
+          description: Assets included with the release.
+          properties:
+            count:
+              type: integer
+              description: The total number of assets.
+            links:
+              type: array
+              description: Custom asset links.
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  external_link_type:
+                    type: string
+                  link_type:
+                    type: string
+                  name:
+                    type: string
+                  url:
+                    type: string
+                    format: uri
+            sources:
+              type: array
+              description: Source archive links.
+              items:
+                type: object
+                properties:
+                  format:
+                    type: string
+                  url:
+                    type: string
+                    format: uri
+    MemberPayload:
+      type: object
+      description: Payload for group member events.
+      properties:
+        object_kind:
+          type: string
+          enum:
+            - member
+          description: Always member.
+        event_name:
+          type: string
+          description: >-
+            The event name. Values include user_add_to_group,
+            user_remove_from_group, user_update_for_group.
+        created_at:
+          type: string
+          format: date-time
+          description: When the membership event occurred.
+        updated_at:
+          type: string
+          format: date-time
+          description: When the membership was last updated.
+        group_name:
+          type: string
+          description: The name of the group.
+        group_path:
+          type: string
+          description: The path of the group.
+        group_id:
+          type: integer
+          description: The ID of the group.
+        user_username:
+          type: string
+          description: The username of the member.
+        user_name:
+          type: string
+          description: The display name of the member.
+        user_email:
+          type: string
+          format: email
+          description: The email of the member.
+        user_id:
+          type: integer
+          description: The ID of the member.
+        group_access:
+          type: string
+          description: >-
+            The access level granted. Values include Guest, Reporter,
+            Developer, Maintainer, Owner.
+        group_plan:
+          type: string
+          description: The current plan of the group.
+        expires_at:
+          type: string
+          format: date-time
+          description: When the membership expires, if set.
+    WikiPagePayload:
+      type: object
+      description: Payload for wiki page events.
+      properties:
+        object_kind:
+          type: string
+          enum:
+            - wiki_page
+          description: Always wiki_page.
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        project:
+          $ref: '#/components/schemas/Project'
+        wiki:
+          type: object
+          description: Information about the project wiki.
+          properties:
+            web_url:
+              type: string
+              format: uri
+              description: URL to the project wiki.
+            git_ssh_url:
+              type: string
+              description: SSH URL to clone the wiki repository.
+            git_http_url:
+              type: string
+              format: uri
+              description: HTTP URL to clone the wiki repository.
+            path_with_namespace:
+              type: string
+              description: Path including namespace.
+            default_branch:
+              type: string
+              description: The default branch of the wiki repository.
+        object_attributes:
+          type: object
+          description: Attributes of the wiki page event.
+          properties:
+            title:
+              type: string
+              description: The title of the wiki page.
+            content:
+              type: string
+              description: The content of the wiki page.
+            format:
+              type: string
+              description: The markup format (markdown, rdoc, etc.).
+            message:
+              type: string
+              description: The commit message for the wiki page change.
+            slug:
+              type: string
+              description: URL-safe version of the page title.
+            url:
+              type: string
+              format: uri
+              description: The URL to view the wiki page.
+            action:
+              type: string
+              enum:
+                - create
+                - update
+                - delete
+              description: The action performed on the wiki page.
+    Label:
+      type: object
+      description: A label applied to an issue or merge request.
+      properties:
+        id:
+          type: integer
+          description: The unique ID of the label.
+        title:
+          type: string
+          description: The name of the label.
+        color:
+          type: string
+          description: The hex color code of the label.
+        description:
+          type: string
+          description: The description of the label.
+        type:
+          type: string
+          description: The type of label (ProjectLabel or GroupLabel).

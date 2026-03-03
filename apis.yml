@@ -3,9 +3,12 @@ url: https://raw.githubusercontent.com/api-search/code/main/_apis/gitlab/apis.md
 apis:
   - aid: gitlab:gitlab-graphql-api
     name: GitLab GraphQL API
-    tags: []
+    tags:
+      - GraphQL
+      - Query Language
+      - Data
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.example.com
+    baseURL: https://gitlab.com/api/graphql
     humanURL: https://docs.gitlab.com/ee/api/graphql/
     overlays: []
     properties:
@@ -19,6 +22,8 @@ apis:
         type: Breaking Changes
       - url: https://docs.gitlab.com/ee/api/graphql/#limits
         type: Rate Limits
+      - url: https://docs.gitlab.com/api/rest/authentication/
+        type: Authentication
     description: |-
       GraphQL is a query language for APIs. You can use it to request the exact
       data you need, and therefore limit the number of requests you need.
@@ -28,104 +33,300 @@ apis:
       creating breaking changes. This enables us to have a versionless API.
   - aid: gitlab:apiv4groups
     name: GitLab Groups API
-    tags: []
+    tags:
+      - Groups
+      - Organizations
+      - Access Control
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/api/groups/
     overlays:
       - url: overlays/gitlab-api-v4-groups-openapi-search.yml
         type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-groups-openapi-original.yml
         type: OpenAPI
-    description: Needs description.
+      - url: https://docs.gitlab.com/api/groups/
+        type: Documentation
+    description: >-
+      The GitLab Groups API allows you to create, read, update, and delete
+      groups and subgroups. Groups are used to manage access control and organize
+      projects within a GitLab instance, enabling teams to collaborate with
+      shared access permissions and settings.
   - aid: gitlab:apiv4projects
     name: GitLab Projects API
-    tags: []
+    tags:
+      - Projects
+      - Repositories
+      - Source Control
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/api/projects/
     overlays:
       - url: overlays/gitlab-api-v4-projects-openapi-search.yml
         type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-projects-openapi-original.yml
         type: OpenAPI
-    description: Needs description.
+      - url: https://docs.gitlab.com/api/projects/
+        type: Documentation
+    description: >-
+      The GitLab Projects API provides programmatic access to GitLab projects,
+      enabling you to create, list, update, and delete projects. It supports
+      managing project settings, members, forks, stars, and other project-level
+      resources across GitLab.com and self-managed instances.
   - aid: gitlab:apiv4admin
     name: GitLab Admin API
-    tags: []
+    tags:
+      - Admin
+      - Administration
+      - Management
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/api/admin/
     overlays:
       - url: overlays/gitlab-api-v4-admin-openapi-search.yml
         type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-admin-openapi-original.yml
         type: OpenAPI
-    description: Needs description.
+      - url: https://docs.gitlab.com/api/admin/
+        type: Documentation
+    description: >-
+      The GitLab Admin API provides administrative endpoints for managing a
+      GitLab instance. It includes operations for managing runners, CI/CD
+      variables, Sidekiq queues, and other instance-level administrative tasks
+      that require administrator privileges.
   - aid: gitlab:apiv4applications
     name: GitLab Applications API
-    tags: []
+    tags:
+      - Applications
+      - OAuth
+      - Authentication
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/api/applications/
     overlays:
       - url: overlays/gitlab-api-v4-applications-openapi-search.yml
         type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-applications-openapi-original.yml
         type: OpenAPI
-    description: Needs description.
+      - url: https://docs.gitlab.com/api/applications/
+        type: Documentation
+    description: >-
+      The GitLab Applications API allows you to manage OAuth applications
+      registered in GitLab. You can create, list, and delete OAuth applications
+      that enable third-party services to access GitLab resources on behalf of
+      users using the OAuth 2.0 protocol.
   - aid: gitlab:apiv4avatar
     name: GitLab Avatar API
-    tags: []
+    tags:
+      - Avatars
+      - Users
+      - Profile
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/api/avatar/
     overlays:
       - url: overlays/gitlab-api-v4-avatar-openapi-search.yml
         type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-avatar-openapi-original.yml
         type: OpenAPI
-    description: Needs description.
+      - url: https://docs.gitlab.com/api/avatar/
+        type: Documentation
+    description: >-
+      The GitLab Avatar API allows you to retrieve avatar images for users and
+      groups. It returns avatar URLs based on user email addresses, enabling
+      applications to display profile images for GitLab users without requiring
+      authentication.
   - aid: gitlab:apiv4broadcast-messages
     name: GitLab Broadcast Messages API
-    tags: []
+    tags:
+      - Broadcast Messages
+      - Notifications
+      - Administration
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/api/broadcast_messages/
     overlays:
       - url: overlays/gitlab-api-v4-broadcast-messages-openapi-search.yml
         type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-broadcast-messages-openapi-original.yml
         type: OpenAPI
-    description: Needs description.
+      - url: https://docs.gitlab.com/api/broadcast_messages/
+        type: Documentation
+    description: >-
+      The GitLab Broadcast Messages API allows administrators to create and
+      manage broadcast messages that appear as banners across all GitLab pages.
+      These messages are used to communicate announcements, maintenance notices,
+      and other important information to all users of a GitLab instance.
   - aid: gitlab:apiv4bulk-imports
     name: GitLab Bulk Imports API
-    tags: []
+    tags:
+      - Bulk Imports
+      - Migration
+      - Data Transfer
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/api/bulk_imports/
     overlays:
       - url: overlays/gitlab-api-v4-bulk-imports-openapi-search.yml
         type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-bulk-imports-openapi-original.yml
         type: OpenAPI
-    description: Needs description.
+      - url: https://docs.gitlab.com/api/bulk_imports/
+        type: Documentation
+    description: >-
+      The GitLab Bulk Imports API enables migration of groups and projects
+      between GitLab instances. It provides endpoints for initiating bulk import
+      operations and tracking their progress, facilitating large-scale data
+      migrations between GitLab environments.
   - aid: gitlab:apiv4application
-    name: GitLab Applications API
-    tags: []
+    name: GitLab Application Settings API
+    tags:
+      - Application Settings
+      - Configuration
+      - Administration
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/api/settings/
     overlays:
       - url: overlays/gitlab-api-v4-application-openapi-search.yml
         type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-application-openapi-original.yml
         type: OpenAPI
-    description: Needs description.
+      - url: https://docs.gitlab.com/api/settings/
+        type: Documentation
+    description: >-
+      The GitLab Application Settings API provides access to instance-wide
+      configuration settings for a GitLab installation. Administrators can
+      retrieve and modify application settings such as sign-up restrictions,
+      default project visibility, and other instance-level preferences.
   - aid: gitlab:apiv4metadata
     name: GitLab Metadata API
-    tags: []
+    tags:
+      - Metadata
+      - Instance Information
+      - System
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/api/metadata/
     overlays:
       - url: overlays/gitlab-api-v4-metadata-openapi-search.yml
         type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-metadata-openapi-original.yml
         type: OpenAPI
-    description: Needs description.
+      - url: https://docs.gitlab.com/api/metadata/
+        type: Documentation
+    description: >-
+      The GitLab Metadata API provides information about the GitLab instance,
+      including the version, revision, and other metadata about the running
+      installation. It is useful for verifying connectivity and identifying the
+      version of a GitLab instance programmatically.
   - aid: gitlab:apiv4version
     name: GitLab Version API
-    tags: []
+    tags:
+      - Version
+      - Instance Information
+      - System
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/api/version/
     overlays:
       - url: overlays/gitlab-api-v4-version-openapi-search.yml
         type: OpenAPI
     properties:
       - url: openapi/gitlab-api-v4-version-openapi-original.yml
         type: OpenAPI
-    description: Needs description.
+      - url: https://docs.gitlab.com/api/version/
+        type: Documentation
+    description: >-
+      The GitLab Version API returns version and revision information for the
+      GitLab instance. This endpoint is useful for verifying what version of
+      GitLab is running and for checking compatibility with specific API
+      features before making requests.
+  - aid: gitlab:gitlab-rest-api
+    name: GitLab REST API
+    tags:
+      - REST
+      - DevOps
+      - Integration
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/api/rest/
+    overlays: []
+    properties:
+      - url: openapi/gitlab-openapi-original.yml
+        type: OpenAPI
+      - url: https://docs.gitlab.com/api/rest/
+        type: Documentation
+      - url: https://docs.gitlab.com/api/rest/authentication/
+        type: Authentication
+      - url: https://docs.gitlab.com/api/rest/third_party_clients/
+        type: Client Libraries
+      - url: https://docs.gitlab.com/api/api_resources/
+        type: Reference
+      - url: https://docs.gitlab.com/security/rate_limits/
+        type: Rate Limits
+    description: >-
+      The GitLab REST API provides programmatic access to GitLab resources,
+      enabling you to build integrations, automate repetitive tasks, and extract
+      data for custom reports. The API supports projects, groups, issues, merge
+      requests, CI/CD pipelines, and many other GitLab features through standard
+      HTTP methods and JSON responses.
+  - aid: gitlab:gitlab-oauth2-api
+    name: GitLab OAuth 2.0 API
+    tags:
+      - OAuth
+      - Authentication
+      - Authorization
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com
+    humanURL: https://docs.gitlab.com/api/oauth2/
+    overlays: []
+    properties:
+      - url: openapi/gitlab-oauth2-openapi.yml
+        type: OpenAPI
+      - url: https://docs.gitlab.com/api/oauth2/
+        type: Documentation
+      - url: https://docs.gitlab.com/integration/oauth_provider/
+        type: Authentication
+    description: >-
+      The GitLab OAuth 2.0 API enables third-party services to access GitLab
+      resources on behalf of users using the OAuth 2.0 protocol. It supports
+      authorization code with PKCE, device authorization grant, and resource
+      owner password credentials flows, allowing secure delegation of access to
+      GitLab resources.
+  - aid: gitlab:gitlab-webhooks
+    name: GitLab Webhooks
+    tags:
+      - Webhooks
+      - Events
+      - Integrations
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://gitlab.com/api/v4
+    humanURL: https://docs.gitlab.com/user/project/integrations/webhooks.html
+    overlays: []
+    properties:
+      - url: openapi/gitlab-webhooks-openapi.yml
+        type: OpenAPI
+      - url: asyncapi/gitlab-webhooks-asyncapi.yml
+        type: AsyncAPI
+      - url: https://docs.gitlab.com/user/project/integrations/webhooks.html
+        type: Documentation
+      - url: https://docs.gitlab.com/api/project_webhooks/
+        type: Reference
+    description: >-
+      GitLab Webhooks allow you to receive real-time HTTP POST notifications
+      when events occur in GitLab projects or groups. Webhooks can be configured
+      to trigger on events such as push events, merge requests, issues, comments,
+      and pipeline status changes, enabling integrations with external systems.
 name: GitLab
 tags:
   - Code
@@ -146,8 +347,42 @@ common:
     type: IDE
   - url: https://about.gitlab.com/releases/categories/releases/
     type: Whats New
+  - url: https://developer.gitlab.com/
+    type: Portal
+  - url: https://docs.gitlab.com/
+    type: Documentation
+  - url: https://about.gitlab.com/get-started/
+    type: Getting Started
+  - url: https://status.gitlab.com/
+    type: Status
+  - url: https://gitlab.com/users/sign_up
+    type: Sign Up
+  - url: https://about.gitlab.com/blog/
+    type: Blog
+  - url: https://about.gitlab.com/support/
+    type: Support
+  - url: https://gitlab.com/gitlab-org/gitlab/blob/master/CHANGELOG.md
+    type: Change Log
+  - url: https://docs.gitlab.com/api/rest/authentication/
+    type: Authentication
+  - url: https://docs.gitlab.com/api/rest/third_party_clients/
+    type: Client Libraries
+  - url: https://forum.gitlab.com/
+    type: Community
+  - url: https://docs.gitlab.com/security/rate_limits/
+    type: Rate Limits
+  - url: json-ld/gitlab-context.jsonld
+    type: JSON-LD
+  - url: json-schema/gitlab-project-schema.json
+    type: JSONSchema
+  - url: json-schema/gitlab-merge-request-schema.json
+    type: JSONSchema
+  - url: json-schema/gitlab-issue-schema.json
+    type: JSONSchema
+  - url: json-schema/gitlab-pipeline-schema.json
+    type: JSONSchema
 created: 2023/11/10
-modified: '2025-01-13'
+modified: '2026-03-02'
 position: Consuming
 description: >-
   GitLab Inc. is an open-core company that develops GitLab, a DevOps software
@@ -158,7 +393,7 @@ description: >-
   has approximately 30 million registered users, including 1 million active
   licensed users.
 maintainers:
-  - FN: API Evangelist
+  - FN: Kin Lane
     url: http://apievangelist.com
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
 specificationVersion: '0.16'

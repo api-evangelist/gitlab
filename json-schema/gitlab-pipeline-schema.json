@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gitlab.com/schemas/gitlab/pipeline.json",
+  "title": "GitLab Pipeline",
+  "description": "A GitLab CI/CD pipeline that runs automated jobs defined in a .gitlab-ci.yml configuration file.",
+  "type": "object",
+  "required": ["id", "project_id", "status", "ref", "sha"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier of the pipeline."
+    },
+    "iid": {
+      "type": "integer",
+      "description": "The project-scoped sequential ID of the pipeline."
+    },
+    "project_id": {
+      "type": "integer",
+      "description": "The ID of the project the pipeline belongs to."
+    },
+    "name": {
+      "type": ["string", "null"],
+      "description": "The user-defined name of the pipeline."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["created", "waiting_for_resource", "preparing", "pending", "running", "success", "failed", "canceled", "skipped", "manual", "scheduled"],
+      "description": "The current execution status of the pipeline."
+    },
+    "source": {
+      "type": "string",
+      "enum": ["push", "web", "trigger", "schedule", "api", "external", "pipeline", "chat", "webide", "merge_request_event", "external_pull_request_event", "parent_pipeline", "ondemand_dast_scan", "ondemand_dast_validation"],
+      "description": "The source that triggered the pipeline."
+    },
+    "ref": {
+      "type": "string",
+      "description": "The branch name, tag name, or commit SHA the pipeline runs on."
+    },
+    "sha": {
+      "type": "string",
+      "description": "The full SHA of the commit the pipeline runs on.",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "tag": {
+      "type": "boolean",
+      "description": "Whether the pipeline was triggered by a tag push."
+    },
+    "yaml_errors": {
+      "type": ["string", "null"],
+      "description": "YAML configuration validation errors, if any."
+    },
+    "user": {
+      "$ref": "#/$defs/UserSummary"
+    },
+    "web_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL to view the pipeline in a browser."
+    },
+    "before_sha": {
+      "type": "string",
+      "description": "The SHA of the commit before the pipeline was triggered."
+    },
+    "duration": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "The total duration of the pipeline in seconds."
+    },
+    "queued_duration": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "description": "The time in seconds the pipeline spent in the queue before starting."
+    },
+    "coverage": {
+      "type": ["string", "null"],
+      "description": "The code coverage percentage reported by the pipeline."
+    },
+    "archived": {
+      "type": "boolean",
+      "description": "Whether the pipeline has been archived."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the pipeline was created."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the pipeline was last updated."
+    },
+    "started_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "The date and time the pipeline started execution."
+    },
+    "finished_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "The date and time the pipeline finished execution."
+    },
+    "committed_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "The date and time of the commit that triggered the pipeline."
+    }
+  },
+  "$defs": {
+    "UserSummary": {
+      "type": "object",
+      "description": "A simplified representation of the GitLab user who triggered the pipeline.",
+      "required": ["id", "username"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "The unique identifier of the user."
+        },
+        "username": {
+          "type": "string",
+          "description": "The username of the user."
+        },
+        "name": {
+          "type": "string",
+          "description": "The display name of the user."
+        },
+        "state": {
+          "type": "string",
+          "enum": ["active", "blocked", "deactivated"],
+          "description": "The current state of the user account."
+        },
+        "avatar_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "URL to the user's avatar image."
+        },
+        "web_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the user's GitLab profile page."
+        }
+      }
+    }
+  }
+}
