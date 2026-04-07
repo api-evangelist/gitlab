@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: ' api/v4/metadata'
+  title: 'GitLab api/v4/metadata'
   version: v4
   description: Needs description.
   termsOfService: https://about.gitlab.com/terms/
@@ -16,7 +16,7 @@ paths:
   /api/v4/metadata:
     get:
       tags:
-        - - - - metadata
+        -   -   -   - metadata
       summary: Retrieve metadata information for this GitLab instance
       description: This feature was introduced in GitLab 15.2.
       operationId: getApiV4Metadata

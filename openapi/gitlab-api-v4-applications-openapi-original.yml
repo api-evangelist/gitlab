@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: ' api/v4/applications'
+  title: 'GitLab api/v4/applications'
   version: v4
   description: Needs description.
   termsOfService: https://about.gitlab.com/terms/
@@ -16,8 +16,8 @@ paths:
   /api/v4/applications/{id}:
     delete:
       tags:
-        - - - - applications
-      summary: Delete an application
+        -   -   -   - applications
+      summary: GitLab Delete an application
       description: Delete a specific application
       operationId: deleteApiV4ApplicationsId
       parameters:
@@ -35,8 +35,8 @@ paths:
   /api/v4/applications:
     get:
       tags:
-        - - - - applications
-      summary: Get applications
+        -   -   -   - applications
+      summary: GitLab Get applications
       description: List all registered applications
       operationId: getApiV4Applications
       responses:
@@ -50,8 +50,8 @@ paths:
                   $ref: '#/components/schemas/API_Entities_Application'
     post:
       tags:
-        - - - - applications
-      summary: Create a new application
+        -   -   -   - applications
+      summary: GitLab Create a new application
       description: This feature was introduced in GitLab 10.5
       operationId: postApiV4Applications
       requestBody:

@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: ' api/v4/admin'
+  title: 'GitLab api/v4/admin'
   version: v4
   description: Needs description.
   termsOfService: https://about.gitlab.com/terms/
@@ -16,7 +16,7 @@ paths:
   /api/v4/admin/batched_background_migrations/{id}:
     get:
       tags:
-        - - - - batched_background_migrations
+        -   -   -   - batched_background_migrations
       description: Retrieve a batched background migration
       operationId: getApiV4AdminBatchedBackgroundMigrationsId
       parameters:
@@ -58,7 +58,7 @@ paths:
   /api/v4/admin/batched_background_migrations:
     get:
       tags:
-        - - - - batched_background_migrations
+        -   -   -   - batched_background_migrations
       description: Get the list of batched background migrations
       operationId: getApiV4AdminBatchedBackgroundMigrations
       parameters:
@@ -92,7 +92,7 @@ paths:
   /api/v4/admin/batched_background_migrations/{id}/resume:
     put:
       tags:
-        - - - - batched_background_migrations
+        -   -   -   - batched_background_migrations
       description: Resume a batched background migration
       operationId: putApiV4AdminBatchedBackgroundMigrationsIdResume
       parameters:
@@ -140,7 +140,7 @@ paths:
   /api/v4/admin/batched_background_migrations/{id}/pause:
     put:
       tags:
-        - - - - batched_background_migrations
+        -   -   -   - batched_background_migrations
       description: Pause a batched background migration
       operationId: putApiV4AdminBatchedBackgroundMigrationsIdPause
       parameters:
@@ -188,7 +188,7 @@ paths:
   /api/v4/admin/ci/variables/{key}:
     get:
       tags:
-        - - - - ci_variables
+        -   -   -   - ci_variables
       description: Get the details of a specific instance-level variable
       operationId: getApiV4AdminCiVariablesKey
       parameters:
@@ -210,7 +210,7 @@ paths:
           content: {}
     put:
       tags:
-        - - - - ci_variables
+        -   -   -   - ci_variables
       description: Update an instance-level variable
       operationId: putApiV4AdminCiVariablesKey
       parameters:
@@ -257,7 +257,7 @@ paths:
           content: {}
     delete:
       tags:
-        - - - - ci_variables
+        -   -   -   - ci_variables
       description: Delete an existing instance-level variable
       operationId: deleteApiV4AdminCiVariablesKey
       parameters:
@@ -280,7 +280,7 @@ paths:
   /api/v4/admin/ci/variables:
     get:
       tags:
-        - - - - ci_variables
+        -   -   -   - ci_variables
       description: List all instance-level variables
       operationId: getApiV4AdminCiVariables
       parameters:
@@ -307,7 +307,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_Ci_Variable'
     post:
       tags:
-        - - - - ci_variables
+        -   -   -   - ci_variables
       description: Create a new instance-level variable
       operationId: postApiV4AdminCiVariables
       requestBody:
@@ -355,7 +355,7 @@ paths:
   /api/v4/admin/databases/{database_name}/dictionary/tables/{table_name}:
     get:
       tags:
-        - - - - admin
+        -   -   -   - admin
       description: Retrieve dictionary details
       operationId: getApiV4AdminDatabasesDatabaseNameDictionaryTablesTableName
       parameters:
@@ -393,8 +393,8 @@ paths:
   /api/v4/admin/clusters/{cluster_id}:
     get:
       tags:
-        - - - - clusters
-      summary: Get a single instance cluster
+        -   -   -   - clusters
+      summary: GitLab Get a single instance cluster
       description: >-
         This feature was introduced in GitLab 13.2. Returns a single instance
         cluster.
@@ -422,8 +422,8 @@ paths:
           content: {}
     put:
       tags:
-        - - - - clusters
-      summary: Edit instance cluster
+        -   -   -   - clusters
+      summary: GitLab Edit instance cluster
       description: >-
         This feature was introduced in GitLab 13.2. Updates an existing instance
         cluster.
@@ -500,8 +500,8 @@ paths:
           content: {}
     delete:
       tags:
-        - - - - clusters
-      summary: Delete instance cluster
+        -   -   -   - clusters
+      summary: GitLab Delete instance cluster
       description: >-
         This feature was introduced in GitLab 13.2. Deletes an existing instance
         cluster. Does not remove existing resources within the connected
@@ -531,8 +531,8 @@ paths:
   /api/v4/admin/clusters/add:
     post:
       tags:
-        - - - - clusters
-      summary: Add existing instance cluster
+        -   -   -   - clusters
+      summary: GitLab Add existing instance cluster
       description: >-
         This feature was introduced in GitLab 13.2. Adds an existing Kubernetes
         instance cluster.
@@ -616,8 +616,8 @@ paths:
   /api/v4/admin/clusters:
     get:
       tags:
-        - - - - clusters
-      summary: List instance clusters
+        -   -   -   - clusters
+      summary: GitLab List instance clusters
       description: >-
         This feature was introduced in GitLab 13.2. Returns a list of instance
         clusters.
@@ -637,7 +637,7 @@ paths:
   /api/v4/admin/migrations/{timestamp}/mark:
     post:
       tags:
-        - - - - migrations
+        -   -   -   - migrations
       description: Mark the migration as successfully executed
       operationId: postApiV4AdminMigrationsTimestampMark
       parameters:

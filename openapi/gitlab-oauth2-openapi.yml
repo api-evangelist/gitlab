@@ -29,7 +29,7 @@ paths:
   /oauth/authorize:
     get:
       operationId: authorizeOAuth
-      summary: Authorize OAuth application
+      summary: GitLab Authorize OAuth application
       description: >-
         Initiates the OAuth 2.0 authorization code flow. Redirects the user to
         the GitLab authorization page where they can grant access to the
@@ -106,7 +106,7 @@ paths:
   /oauth/authorize_device:
     post:
       operationId: authorizeDevice
-      summary: Initiate device authorization grant
+      summary: GitLab Initiate device authorization grant
       description: >-
         Initiates the OAuth 2.0 device authorization grant flow for
         input-constrained devices. Returns a device code and user code
@@ -131,7 +131,7 @@ paths:
   /oauth/token:
     post:
       operationId: exchangeToken
-      summary: Exchange code for access token
+      summary: GitLab Exchange code for access token
       description: >-
         Exchanges an authorization code, device code, or refresh token for an
         OAuth 2.0 access token. Supports authorization_code, refresh_token,
@@ -159,7 +159,7 @@ paths:
   /oauth/revoke:
     post:
       operationId: revokeToken
-      summary: Revoke an OAuth token
+      summary: GitLab Revoke an OAuth token
       description: >-
         Revokes an existing OAuth access token or refresh token. After
         revocation the token can no longer be used to access GitLab resources.
@@ -180,7 +180,7 @@ paths:
   /oauth/token/info:
     get:
       operationId: getTokenInfo
-      summary: Get token information
+      summary: GitLab Get token information
       description: >-
         Returns information about the current OAuth access token, including
         the scopes it was granted and its expiration time. Useful for
@@ -201,7 +201,7 @@ paths:
   /oauth/userinfo:
     get:
       operationId: getUserInfo
-      summary: Get authenticated user information
+      summary: GitLab Get authenticated user information
       description: >-
         Returns profile information about the currently authenticated user
         based on the OAuth token's scopes. Implements the OpenID Connect

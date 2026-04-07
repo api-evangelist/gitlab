@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: ' api/v4/bulk imports'
+  title: 'GitLab api/v4/bulk imports'
   version: v4
   description: Needs description.
   termsOfService: https://about.gitlab.com/terms/
@@ -16,7 +16,7 @@ paths:
   /api/v4/bulk_imports/{import_id}/entities/{entity_id}:
     get:
       tags:
-        - - - - bulk_imports
+        -   -   -   - bulk_imports
       summary: Get GitLab Migration entity details
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportIdEntitiesEntityId
@@ -54,7 +54,7 @@ paths:
   /api/v4/bulk_imports/{import_id}/entities:
     get:
       tags:
-        - - - - bulk_imports
+        -   -   -   - bulk_imports
       summary: List GitLab Migration entities
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportIdEntities
@@ -112,7 +112,7 @@ paths:
   /api/v4/bulk_imports/{import_id}:
     get:
       tags:
-        - - - - bulk_imports
+        -   -   -   - bulk_imports
       summary: Get GitLab Migration details
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportId
@@ -143,7 +143,7 @@ paths:
   /api/v4/bulk_imports/entities:
     get:
       tags:
-        - - - - bulk_imports
+        -   -   -   - bulk_imports
       summary: List all GitLab Migrations' entities
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsEntities
@@ -203,7 +203,7 @@ paths:
   /api/v4/bulk_imports:
     get:
       tags:
-        - - - - bulk_imports
+        -   -   -   - bulk_imports
       summary: List all GitLab Migrations
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImports
@@ -262,7 +262,7 @@ paths:
           content: {}
     post:
       tags:
-        - - - - bulk_imports
+        -   -   -   - bulk_imports
       summary: Start a new GitLab Migration
       description: This feature was introduced in GitLab 14.2.
       operationId: postApiV4BulkImports

@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: ' api/v4/broadcast messages'
+  title: 'GitLab api/v4/broadcast messages'
   version: v4
   description: Needs description.
   termsOfService: https://about.gitlab.com/terms/
@@ -16,8 +16,8 @@ paths:
   /api/v4/broadcast_messages/{id}:
     get:
       tags:
-        - - - - broadcast_messages
-      summary: Get a specific broadcast message
+        -   -   -   - broadcast_messages
+      summary: GitLab Get a specific broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: getApiV4BroadcastMessagesId
       parameters:
@@ -37,8 +37,8 @@ paths:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
     put:
       tags:
-        - - - - broadcast_messages
-      summary: Update a broadcast message
+        -   -   -   - broadcast_messages
+      summary: GitLab Update a broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: putApiV4BroadcastMessagesId
       parameters:
@@ -104,8 +104,8 @@ paths:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
     delete:
       tags:
-        - - - - broadcast_messages
-      summary: Delete a broadcast message
+        -   -   -   - broadcast_messages
+      summary: GitLab Delete a broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: deleteApiV4BroadcastMessagesId
       parameters:
@@ -126,8 +126,8 @@ paths:
   /api/v4/broadcast_messages:
     get:
       tags:
-        - - - - broadcast_messages
-      summary: Get all broadcast messages
+        -   -   -   - broadcast_messages
+      summary: GitLab Get all broadcast messages
       description: This feature was introduced in GitLab 8.12.
       operationId: getApiV4BroadcastMessages
       parameters:
@@ -154,8 +154,8 @@ paths:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
     post:
       tags:
-        - - - - broadcast_messages
-      summary: Create a broadcast message
+        -   -   -   - broadcast_messages
+      summary: GitLab Create a broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: postApiV4BroadcastMessages
       requestBody:

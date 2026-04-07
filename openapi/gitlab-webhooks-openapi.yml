@@ -32,7 +32,7 @@ paths:
   /projects/{id}/hooks:
     get:
       operationId: listProjectWebhooks
-      summary: List project webhooks
+      summary: GitLab List project webhooks
       description: >-
         Returns a list of all webhooks configured for the specified project.
         Each webhook entry includes its URL, enabled event triggers, and
@@ -56,7 +56,7 @@ paths:
           description: Project not found.
     post:
       operationId: addProjectWebhook
-      summary: Add a webhook to a project
+      summary: GitLab Add a webhook to a project
       description: >-
         Creates a new webhook for the specified project. The webhook will
         receive HTTP POST requests for the configured event triggers. A secret
@@ -87,7 +87,7 @@ paths:
   /projects/{id}/hooks/{hook_id}:
     get:
       operationId: getProjectWebhook
-      summary: Get a project webhook
+      summary: GitLab Get a project webhook
       description: >-
         Returns configuration details for a specific webhook in a project,
         including the URL, enabled triggers, and SSL verification setting.
@@ -109,7 +109,7 @@ paths:
           description: Project or webhook not found.
     put:
       operationId: updateProjectWebhook
-      summary: Update a project webhook
+      summary: GitLab Update a project webhook
       description: >-
         Modifies the configuration of an existing project webhook. You can
         update the URL, secret token, SSL verification setting, and which
@@ -140,7 +140,7 @@ paths:
           description: Project or webhook not found.
     delete:
       operationId: deleteProjectWebhook
-      summary: Delete a project webhook
+      summary: GitLab Delete a project webhook
       description: >-
         Removes a webhook from the specified project. Deleted webhooks
         will no longer receive event deliveries.
@@ -159,7 +159,7 @@ paths:
   /projects/{id}/hooks/{hook_id}/events:
     get:
       operationId: listProjectWebhookEvents
-      summary: List webhook events
+      summary: GitLab List webhook events
       description: >-
         Returns a list of all delivery events for a specified project webhook
         from the past 7 days. Each event includes the trigger type, response
@@ -185,7 +185,7 @@ paths:
   /projects/{id}/hooks/{hook_id}/events/{hook_event_id}/resend:
     post:
       operationId: resendWebhookEvent
-      summary: Resend a webhook event
+      summary: GitLab Resend a webhook event
       description: >-
         Resends a previously triggered webhook event to the configured URL.
         Useful for retrying failed deliveries or for debugging webhook
@@ -211,7 +211,7 @@ paths:
   /projects/{id}/hooks/{hook_id}/test/{trigger}:
     post:
       operationId: testProjectWebhook
-      summary: Test a webhook trigger
+      summary: GitLab Test a webhook trigger
       description: >-
         Sends a test webhook payload of the specified trigger type to the
         configured webhook URL. Use this to verify the webhook endpoint is
@@ -243,7 +243,7 @@ paths:
   /projects/{id}/hooks/{hook_id}/custom_headers/{key}:
     put:
       operationId: setWebhookCustomHeader
-      summary: Set a webhook custom header
+      summary: GitLab Set a webhook custom header
       description: >-
         Adds or updates a custom HTTP header sent with every webhook delivery
         for the specified webhook. Custom headers are useful for authentication
@@ -280,7 +280,7 @@ paths:
           description: Project or webhook not found.
     delete:
       operationId: deleteWebhookCustomHeader
-      summary: Delete a webhook custom header
+      summary: GitLab Delete a webhook custom header
       description: >-
         Removes a custom HTTP header from the specified webhook. The header
         will no longer be included in future webhook deliveries.
@@ -305,7 +305,7 @@ paths:
   /projects/{id}/hooks/{hook_id}/url_variables/{key}:
     put:
       operationId: setWebhookUrlVariable
-      summary: Set a webhook URL variable
+      summary: GitLab Set a webhook URL variable
       description: >-
         Adds or updates a URL variable for the specified webhook. URL variables
         allow dynamic substitution in the webhook URL, enabling reuse of the
@@ -342,7 +342,7 @@ paths:
           description: Project or webhook not found.
     delete:
       operationId: deleteWebhookUrlVariable
-      summary: Delete a webhook URL variable
+      summary: GitLab Delete a webhook URL variable
       description: >-
         Removes a URL variable from the specified webhook. The variable will
         no longer be substituted in future webhook deliveries.
