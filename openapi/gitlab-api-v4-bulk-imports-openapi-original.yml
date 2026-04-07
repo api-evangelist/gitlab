@@ -11,12 +11,13 @@ servers:
   - url: https://www.gitlab.com/api/
 security:
   - ApiKeyAuth: []
-tags: []
+tags:
+  - name: Bulk Imports
 paths:
   /api/v4/bulk_imports/{import_id}/entities/{entity_id}:
     get:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: Get GitLab Migration entity details
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportIdEntitiesEntityId
@@ -54,7 +55,7 @@ paths:
   /api/v4/bulk_imports/{import_id}/entities:
     get:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: List GitLab Migration entities
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportIdEntities
@@ -112,7 +113,7 @@ paths:
   /api/v4/bulk_imports/{import_id}:
     get:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: Get GitLab Migration details
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportId
@@ -143,7 +144,7 @@ paths:
   /api/v4/bulk_imports/entities:
     get:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: List all GitLab Migrations' entities
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsEntities
@@ -203,7 +204,7 @@ paths:
   /api/v4/bulk_imports:
     get:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: List all GitLab Migrations
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImports
@@ -262,7 +263,7 @@ paths:
           content: {}
     post:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: Start a new GitLab Migration
       description: This feature was introduced in GitLab 14.2.
       operationId: postApiV4BulkImports

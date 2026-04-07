@@ -11,12 +11,13 @@ servers:
   - url: https://www.gitlab.com/api/
 security:
   - ApiKeyAuth: []
-tags: []
+tags:
+  - name: Projects
 paths:
   /api/v4/projects/{id}/repository/merged_branches:
     delete:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Delete all merged branches
       operationId: deleteApiV4ProjectsIdRepositoryMergedBranches
       parameters:
@@ -36,7 +37,7 @@ paths:
   /api/v4/projects/{id}/repository/branches/{branch}:
     get:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Get a single repository branch
       operationId: getApiV4ProjectsIdRepositoryBranchesBranch
       parameters:
@@ -64,7 +65,7 @@ paths:
           content: {}
     delete:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Delete a branch
       operationId: deleteApiV4ProjectsIdRepositoryBranchesBranch
       parameters:
@@ -89,7 +90,7 @@ paths:
           content: {}
     head:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Check if a branch exists
       operationId: headApiV4ProjectsIdRepositoryBranchesBranch
       parameters:
@@ -115,7 +116,7 @@ paths:
   /api/v4/projects/{id}/repository/branches:
     get:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Get a project repository branches
       operationId: getApiV4ProjectsIdRepositoryBranches
       parameters:
@@ -177,7 +178,7 @@ paths:
           content: {}
     post:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Create branch
       operationId: postApiV4ProjectsIdRepositoryBranches
       parameters:
@@ -212,7 +213,7 @@ paths:
   /api/v4/projects/{id}/repository/branches/{branch}/unprotect:
     put:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Unprotect a single branch
       operationId: putApiV4ProjectsIdRepositoryBranchesBranchUnprotect
       parameters:
@@ -241,7 +242,7 @@ paths:
   /api/v4/projects/{id}/repository/branches/{branch}/protect:
     put:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Protect a single branch
       operationId: putApiV4ProjectsIdRepositoryBranchesBranchProtect
       parameters:
@@ -281,7 +282,7 @@ paths:
   /api/v4/projects/{id}/badges/{badge_id}:
     get:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Gets a badge of a project.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4ProjectsIdBadgesBadgeId
@@ -310,7 +311,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_Badge'
     put:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Updates a badge of a project.
       description: This feature was introduced in GitLab 10.6.
       operationId: putApiV4ProjectsIdBadgesBadgeId
@@ -352,7 +353,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_Badge'
     delete:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Removes a badge from the project.
       description: This feature was introduced in GitLab 10.6.
       operationId: deleteApiV4ProjectsIdBadgesBadgeId
@@ -379,7 +380,7 @@ paths:
   /api/v4/projects/{id}/badges:
     get:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Gets a list of project badges viewable by the authenticated user.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4ProjectsIdBadges
@@ -422,7 +423,7 @@ paths:
                   $ref: '#/components/schemas/API_Entities_Badge'
     post:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Adds a badge to a project.
       description: This feature was introduced in GitLab 10.6.
       operationId: postApiV4ProjectsIdBadges
@@ -463,7 +464,7 @@ paths:
   /api/v4/projects/{id}/badges/render:
     get:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Preview a badge from a project.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4ProjectsIdBadgesRender
@@ -498,7 +499,7 @@ paths:
   /api/v4/projects/{id}/access_requests/{user_id}:
     delete:
       tags:
-        -   -   -   - access_requests
+        - Projects
       summary: GitLab Denies an access request for the given user.
       description: This feature was introduced in GitLab 8.11.
       operationId: deleteApiV4ProjectsIdAccessRequestsUserId
@@ -525,7 +526,7 @@ paths:
   /api/v4/projects/{id}/access_requests/{user_id}/approve:
     put:
       tags:
-        -   -   -   - access_requests
+        - Projects
       summary: GitLab Approves an access request for the given user.
       description: This feature was introduced in GitLab 8.11.
       operationId: putApiV4ProjectsIdAccessRequestsUserIdApprove
@@ -573,7 +574,7 @@ paths:
   /api/v4/projects/{id}/access_requests:
     get:
       tags:
-        -   -   -   - access_requests
+        - Projects
       summary: GitLab Gets a list of access requests for a project.
       description: This feature was introduced in GitLab 8.11.
       operationId: getApiV4ProjectsIdAccessRequests
@@ -609,7 +610,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_AccessRequester'
     post:
       tags:
-        -   -   -   - access_requests
+        - Projects
       summary: GitLab Requests access for the authenticated user to a project.
       description: This feature was introduced in GitLab 8.11.
       operationId: postApiV4ProjectsIdAccessRequests
@@ -640,7 +641,7 @@ paths:
   /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images/{metric_image_id}:
     put:
       tags:
-        -   -   -   - alert_management
+        - Projects
       description: Update a metric image for an alert
       operationId: putApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId
       parameters:
@@ -690,7 +691,7 @@ paths:
           content: {}
     delete:
       tags:
-        -   -   -   - alert_management
+        - Projects
       description: Remove a metric image for an alert
       operationId: >-
         deleteApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId
@@ -731,7 +732,7 @@ paths:
   /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images:
     get:
       tags:
-        -   -   -   - alert_management
+        - Projects
       description: Metric Images for alert
       operationId: getApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImages
       parameters:
@@ -762,7 +763,7 @@ paths:
           content: {}
     post:
       tags:
-        -   -   -   - alert_management
+        - Projects
       description: Upload a metric image for an alert
       operationId: postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImages
       parameters:
@@ -810,7 +811,7 @@ paths:
   /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images/authorize:
     post:
       tags:
-        -   -   -   - alert_management
+        - Projects
       description: Workhorse authorize metric image file upload
       operationId: postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesAuthorize
       parameters:
@@ -837,7 +838,7 @@ paths:
   /api/v4/projects/{id}/jobs:
     get:
       tags:
-        -   -   -   - jobs
+        - Projects
       summary: GitLab List jobs for a project
       operationId: listProjectJobs
       parameters:
@@ -867,7 +868,7 @@ paths:
   /api/v4/projects/{id}/jobs/{job_id}:
     get:
       tags:
-        -   -   -   - jobs
+        - Projects
       summary: GitLab Get a single job by ID
       operationId: getSingleJob
       parameters:
@@ -893,7 +894,7 @@ paths:
   /api/v4/projects/{id}/jobs/{job_id}/play:
     post:
       tags:
-        -   -   -   - jobs
+        - Projects
       summary: GitLab Run a manual job
       operationId: triggerManualJob
       parameters:

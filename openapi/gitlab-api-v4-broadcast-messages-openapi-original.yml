@@ -11,12 +11,13 @@ servers:
   - url: https://www.gitlab.com/api/
 security:
   - ApiKeyAuth: []
-tags: []
+tags:
+  - name: Broadcast Messages
 paths:
   /api/v4/broadcast_messages/{id}:
     get:
       tags:
-        -   -   -   - broadcast_messages
+        - Broadcast Messages
       summary: GitLab Get a specific broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: getApiV4BroadcastMessagesId
@@ -37,7 +38,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
     put:
       tags:
-        -   -   -   - broadcast_messages
+        - Broadcast Messages
       summary: GitLab Update a broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: putApiV4BroadcastMessagesId
@@ -104,7 +105,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
     delete:
       tags:
-        -   -   -   - broadcast_messages
+        - Broadcast Messages
       summary: GitLab Delete a broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: deleteApiV4BroadcastMessagesId
@@ -126,7 +127,7 @@ paths:
   /api/v4/broadcast_messages:
     get:
       tags:
-        -   -   -   - broadcast_messages
+        - Broadcast Messages
       summary: GitLab Get all broadcast messages
       description: This feature was introduced in GitLab 8.12.
       operationId: getApiV4BroadcastMessages
@@ -154,7 +155,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
     post:
       tags:
-        -   -   -   - broadcast_messages
+        - Broadcast Messages
       summary: GitLab Create a broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: postApiV4BroadcastMessages

@@ -35,158 +35,26 @@ servers:
 security:
   - ApiKeyAuth: []
 tags:
-  - name: Badges
-    description: Operations about badges
-  - name: Branches
-    description: Operations about branches
-  - name: Alerts
-    description: Operations about alert_managements
-  - name: Background Migrations
-    description: Operations about batched_background_migrations
-  - name: Administrative
-    description: Operations about admins
-  - name: Migrations
-    description: Operations about migrations
+  - name: Admin
+  - name: Application
   - name: Applications
     description: Operations about applications
-  - name: Avatars
-    description: Operations about avatars
+  - name: Avatar
   - name: Broadcast Messages
     description: Operations about broadcast_messages
   - name: Bulk Imports
     description: Operations about bulk_imports
-  - name: Applications
-    description: Operations about applications
-  - name: Access
-    description: Operations related to access requests
-  - 
-  - name: Resource Groups
-    description: Operations to manage job concurrency with resource groups
-  - name: Variables
-    description: Operations related to CI/CD variables
-  - name: Cluster Agents
-    description: Operations related to the GitLab agent for Kubernetes
-  - name: Clusters
-    description: Operations related to clusters
-  - name: Composer Packages
-    description: Operations related to Composer packages
-  - name: Container Registry
-    description: Operations related to container registry
-  - name: Container Registry Events
-    description: Operations related to container registry events
-  - name: Dashboard Annoations
-    description: Operations related to dashboard annotations
-  - name: Debian Distribution
-    description: Operations related to Debian Linux distributions
-  - name: Debian Packages
-    description: Operations related to Debian Linux packages
-  - name: Dependency Proxy
-    description: Operations to manage dependency proxy for a groups
-  - name: Deploy Keys
-    description: Operations related to deploy keys
-  - name: Deploy Tokens
-    description: Operations related to deploy tokens
-  - name: Deployments
-    description: Operations related to deployments
-  - name: DORA metrics
-    description: Operations related to DevOps Research and Assessment (DORA) key metrics
-  - name: Environments
-    description: Operations related to environments
-  - name: Error Tracking Client Keys
-    description: Operations related to error tracking client keys
-  - name: Error Tracking Project Settings
-    description: Operations related to error tracking project settings
-  - name: Feature Flags
-    description: Operations related to accessing GitLab feature flag user lists
-  - name: Feature Flags
-    description: Operations related to feature flags
-  - name: Features
-    description: Operations related to managing Flipper-based feature flags
-  - name: Freeze periods
-    description: Operations related to deploy freeze periods
-  - name: Generic Packages
-    description: Operations related to Generic packages
-  - name: Geo
-    description: Operations related to Geo
-  - name: Geo Nodes
-    description: Operations related Geo Nodes
-  - name: Proxies
-    description: Operations related to Go Proxy
-  - name: Group Export
-    description: Operations related to exporting groups
-  - name: Group Import
-    description: Operations related to importing groups
-  - name: Group Packages
-    description: Operations related to group packages
-  - name: Helm Packages
-    description: Operations related to Helm packages
-  - name: integrations
-    description: Operations related to integrations
-  - name: issue_links
-    description: Operations related to issue links
-  - name: jira_connect_subscriptions
-    description: Operations related to JiraConnect subscriptions
-  - name: jobs
-    description: Operations related to CI Jobs
-  - name: maven_packages
-    description: Operations related to Maven packages
-  - name: merge_requests
-    description: Operations related to merge requests
-  - name: metadata
+  - name: Groups
+  - name: Metadata
     description: Operations related to metadata of the GitLab instance
-  - name: metrics_user_starred_dashboards
-    description: Operations related to User-starred metrics dashboards
-  - name: ml_model_registry
-    description: Operations related to Model registry
-  - name: npm_packages
-    description: Operations related to NPM packages
-  - name: nuget_packages
-    description: Operations related to Nuget packages
-  - name: package_files
-    description: Operations about package files
-  - name: plan_limits
-    description: Operations related to plan limits
-  - name: project_export
-    description: Operations related to exporting projects
-  - name: project_hooks
-    description: Operations related to project hooks
-  - name: project_import
-    description: Operations related to importing projects
-  - name: project_import_bitbucket
-    description: Operations related to importing BitBucket projects
-  - name: project_import_github
-    description: Operations related to importing GitHub projects
-  - name: project_packages
-    description: Operations related to project packages
   - name: Projects
     description: Operations related to projects
-  - name: protected environments
-    description: Operations related to protected environments
-  - name: pypi_packages
-    description: Operations related to PyPI packages
-  - name: release_links
-    description: Operations related to release assets (links)
-  - name: releases
-    description: Operations related to releases
-  - name: resource_milestone_events
-    description: Operations about resource milestone events
-  - name: rpm_packages
-    description: Operations related to RPM packages
-  - name: rubygem_packages
-    description: Operations related to RubyGems
-  - name: suggestions
-    description: Operations related to suggestions
-  - name: system_hooks
-    description: Operations related to system hooks
-  - name: terraform_state
-    description: Operations related to Terraform state files
-  - name: terraform_registry
-    description: Operations related to the Terraform module registry
+  - name: Version
 paths:
   /api/v4/groups/{id}/badges/{badge_id}:
     get:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Gets a badge of a group.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadgesBadgeId
@@ -215,7 +83,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_Badge'
     put:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Updates a badge of a group.
       description: This feature was introduced in GitLab 10.6.
       operationId: putApiV4GroupsIdBadgesBadgeId
@@ -257,7 +125,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_Badge'
     delete:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Removes a badge from the group.
       description: This feature was introduced in GitLab 10.6.
       operationId: deleteApiV4GroupsIdBadgesBadgeId
@@ -284,7 +152,7 @@ paths:
   /api/v4/groups/{id}/badges:
     get:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Gets a list of group badges viewable by the authenticated user.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadges
@@ -327,7 +195,7 @@ paths:
                   $ref: '#/components/schemas/API_Entities_Badge'
     post:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Adds a badge to a group.
       description: This feature was introduced in GitLab 10.6.
       operationId: postApiV4GroupsIdBadges
@@ -368,7 +236,7 @@ paths:
   /api/v4/groups/{id}/badges/render:
     get:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Preview a badge from a group.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadgesRender
@@ -403,7 +271,7 @@ paths:
   /api/v4/groups/{id}/access_requests/{user_id}:
     delete:
       tags:
-        -   -   -   - access_requests
+        - Groups
       summary: GitLab Denies an access request for the given user.
       description: This feature was introduced in GitLab 8.11.
       operationId: deleteApiV4GroupsIdAccessRequestsUserId
@@ -430,7 +298,7 @@ paths:
   /api/v4/groups/{id}/access_requests/{user_id}/approve:
     put:
       tags:
-        -   -   -   - access_requests
+        - Groups
       summary: GitLab Approves an access request for the given user.
       description: This feature was introduced in GitLab 8.11.
       operationId: putApiV4GroupsIdAccessRequestsUserIdApprove
@@ -478,7 +346,7 @@ paths:
   /api/v4/groups/{id}/access_requests:
     get:
       tags:
-        -   -   -   - access_requests
+        - Groups
       summary: GitLab Gets a list of access requests for a group.
       description: This feature was introduced in GitLab 8.11.
       operationId: getApiV4GroupsIdAccessRequests
@@ -514,7 +382,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_AccessRequester'
     post:
       tags:
-        -   -   -   - access_requests
+        - Groups
       summary: GitLab Requests access for the authenticated user to a group.
       description: This feature was introduced in GitLab 8.11.
       operationId: postApiV4GroupsIdAccessRequests
@@ -545,7 +413,7 @@ paths:
   /api/v4/projects/{id}/repository/merged_branches:
     delete:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Delete all merged branches
       operationId: deleteApiV4ProjectsIdRepositoryMergedBranches
       parameters:
@@ -565,7 +433,7 @@ paths:
   /api/v4/projects/{id}/repository/branches/{branch}:
     get:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Get a single repository branch
       operationId: getApiV4ProjectsIdRepositoryBranchesBranch
       parameters:
@@ -593,7 +461,7 @@ paths:
           content: {}
     delete:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Delete a branch
       operationId: deleteApiV4ProjectsIdRepositoryBranchesBranch
       parameters:
@@ -618,7 +486,7 @@ paths:
           content: {}
     head:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Check if a branch exists
       operationId: headApiV4ProjectsIdRepositoryBranchesBranch
       parameters:
@@ -644,7 +512,7 @@ paths:
   /api/v4/projects/{id}/repository/branches:
     get:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Get a project repository branches
       operationId: getApiV4ProjectsIdRepositoryBranches
       parameters:
@@ -706,7 +574,7 @@ paths:
           content: {}
     post:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Create branch
       operationId: postApiV4ProjectsIdRepositoryBranches
       parameters:
@@ -741,7 +609,7 @@ paths:
   /api/v4/projects/{id}/repository/branches/{branch}/unprotect:
     put:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Unprotect a single branch
       operationId: putApiV4ProjectsIdRepositoryBranchesBranchUnprotect
       parameters:
@@ -770,7 +638,7 @@ paths:
   /api/v4/projects/{id}/repository/branches/{branch}/protect:
     put:
       tags:
-        -   -   -   - branches
+        - Projects
       description: Protect a single branch
       operationId: putApiV4ProjectsIdRepositoryBranchesBranchProtect
       parameters:
@@ -810,7 +678,7 @@ paths:
   /api/v4/projects/{id}/badges/{badge_id}:
     get:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Gets a badge of a project.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4ProjectsIdBadgesBadgeId
@@ -839,7 +707,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_Badge'
     put:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Updates a badge of a project.
       description: This feature was introduced in GitLab 10.6.
       operationId: putApiV4ProjectsIdBadgesBadgeId
@@ -881,7 +749,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_Badge'
     delete:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Removes a badge from the project.
       description: This feature was introduced in GitLab 10.6.
       operationId: deleteApiV4ProjectsIdBadgesBadgeId
@@ -908,7 +776,7 @@ paths:
   /api/v4/projects/{id}/badges:
     get:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Gets a list of project badges viewable by the authenticated user.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4ProjectsIdBadges
@@ -951,7 +819,7 @@ paths:
                   $ref: '#/components/schemas/API_Entities_Badge'
     post:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Adds a badge to a project.
       description: This feature was introduced in GitLab 10.6.
       operationId: postApiV4ProjectsIdBadges
@@ -992,7 +860,7 @@ paths:
   /api/v4/projects/{id}/badges/render:
     get:
       tags:
-        -   -   -   - badges
+        - Projects
       summary: GitLab Preview a badge from a project.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4ProjectsIdBadgesRender
@@ -1027,7 +895,7 @@ paths:
   /api/v4/projects/{id}/access_requests/{user_id}:
     delete:
       tags:
-        -   -   -   - access_requests
+        - Projects
       summary: GitLab Denies an access request for the given user.
       description: This feature was introduced in GitLab 8.11.
       operationId: deleteApiV4ProjectsIdAccessRequestsUserId
@@ -1054,7 +922,7 @@ paths:
   /api/v4/projects/{id}/access_requests/{user_id}/approve:
     put:
       tags:
-        -   -   -   - access_requests
+        - Projects
       summary: GitLab Approves an access request for the given user.
       description: This feature was introduced in GitLab 8.11.
       operationId: putApiV4ProjectsIdAccessRequestsUserIdApprove
@@ -1102,7 +970,7 @@ paths:
   /api/v4/projects/{id}/access_requests:
     get:
       tags:
-        -   -   -   - access_requests
+        - Projects
       summary: GitLab Gets a list of access requests for a project.
       description: This feature was introduced in GitLab 8.11.
       operationId: getApiV4ProjectsIdAccessRequests
@@ -1138,7 +1006,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_AccessRequester'
     post:
       tags:
-        -   -   -   - access_requests
+        - Projects
       summary: GitLab Requests access for the authenticated user to a project.
       description: This feature was introduced in GitLab 8.11.
       operationId: postApiV4ProjectsIdAccessRequests
@@ -1169,7 +1037,7 @@ paths:
   /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images/{metric_image_id}:
     put:
       tags:
-        -   -   -   - alert_management
+        - Projects
       description: Update a metric image for an alert
       operationId: putApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId
       parameters:
@@ -1219,7 +1087,7 @@ paths:
           content: {}
     delete:
       tags:
-        -   -   -   - alert_management
+        - Projects
       description: Remove a metric image for an alert
       operationId: >-
         deleteApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId
@@ -1260,7 +1128,7 @@ paths:
   /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images:
     get:
       tags:
-        -   -   -   - alert_management
+        - Projects
       description: Metric Images for alert
       operationId: getApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImages
       parameters:
@@ -1291,7 +1159,7 @@ paths:
           content: {}
     post:
       tags:
-        -   -   -   - alert_management
+        - Projects
       description: Upload a metric image for an alert
       operationId: postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImages
       parameters:
@@ -1339,7 +1207,7 @@ paths:
   /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images/authorize:
     post:
       tags:
-        -   -   -   - alert_management
+        - Projects
       description: Workhorse authorize metric image file upload
       operationId: postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesAuthorize
       parameters:
@@ -1366,7 +1234,7 @@ paths:
   /api/v4/admin/batched_background_migrations/{id}:
     get:
       tags:
-        -   -   -   - batched_background_migrations
+        - Admin
       description: Retrieve a batched background migration
       operationId: getApiV4AdminBatchedBackgroundMigrationsId
       parameters:
@@ -1408,7 +1276,7 @@ paths:
   /api/v4/admin/batched_background_migrations:
     get:
       tags:
-        -   -   -   - batched_background_migrations
+        - Admin
       description: Get the list of batched background migrations
       operationId: getApiV4AdminBatchedBackgroundMigrations
       parameters:
@@ -1442,7 +1310,7 @@ paths:
   /api/v4/admin/batched_background_migrations/{id}/resume:
     put:
       tags:
-        -   -   -   - batched_background_migrations
+        - Admin
       description: Resume a batched background migration
       operationId: putApiV4AdminBatchedBackgroundMigrationsIdResume
       parameters:
@@ -1490,7 +1358,7 @@ paths:
   /api/v4/admin/batched_background_migrations/{id}/pause:
     put:
       tags:
-        -   -   -   - batched_background_migrations
+        - Admin
       description: Pause a batched background migration
       operationId: putApiV4AdminBatchedBackgroundMigrationsIdPause
       parameters:
@@ -1538,7 +1406,7 @@ paths:
   /api/v4/admin/ci/variables/{key}:
     get:
       tags:
-        -   -   -   - ci_variables
+        - Admin
       description: Get the details of a specific instance-level variable
       operationId: getApiV4AdminCiVariablesKey
       parameters:
@@ -1560,7 +1428,7 @@ paths:
           content: {}
     put:
       tags:
-        -   -   -   - ci_variables
+        - Admin
       description: Update an instance-level variable
       operationId: putApiV4AdminCiVariablesKey
       parameters:
@@ -1607,7 +1475,7 @@ paths:
           content: {}
     delete:
       tags:
-        -   -   -   - ci_variables
+        - Admin
       description: Delete an existing instance-level variable
       operationId: deleteApiV4AdminCiVariablesKey
       parameters:
@@ -1630,7 +1498,7 @@ paths:
   /api/v4/admin/ci/variables:
     get:
       tags:
-        -   -   -   - ci_variables
+        - Admin
       description: List all instance-level variables
       operationId: getApiV4AdminCiVariables
       parameters:
@@ -1657,7 +1525,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_Ci_Variable'
     post:
       tags:
-        -   -   -   - ci_variables
+        - Admin
       description: Create a new instance-level variable
       operationId: postApiV4AdminCiVariables
       requestBody:
@@ -1705,7 +1573,7 @@ paths:
   /api/v4/admin/databases/{database_name}/dictionary/tables/{table_name}:
     get:
       tags:
-        -   -   -   - admin
+        - Admin
       description: Retrieve dictionary details
       operationId: getApiV4AdminDatabasesDatabaseNameDictionaryTablesTableName
       parameters:
@@ -1743,7 +1611,7 @@ paths:
   /api/v4/admin/clusters/{cluster_id}:
     get:
       tags:
-        -   -   -   - clusters
+        - Admin
       summary: GitLab Get a single instance cluster
       description: >-
         This feature was introduced in GitLab 13.2. Returns a single instance
@@ -1772,7 +1640,7 @@ paths:
           content: {}
     put:
       tags:
-        -   -   -   - clusters
+        - Admin
       summary: GitLab Edit instance cluster
       description: >-
         This feature was introduced in GitLab 13.2. Updates an existing instance
@@ -1850,7 +1718,7 @@ paths:
           content: {}
     delete:
       tags:
-        -   -   -   - clusters
+        - Admin
       summary: GitLab Delete instance cluster
       description: >-
         This feature was introduced in GitLab 13.2. Deletes an existing instance
@@ -1881,7 +1749,7 @@ paths:
   /api/v4/admin/clusters/add:
     post:
       tags:
-        -   -   -   - clusters
+        - Admin
       summary: GitLab Add existing instance cluster
       description: >-
         This feature was introduced in GitLab 13.2. Adds an existing Kubernetes
@@ -1966,7 +1834,7 @@ paths:
   /api/v4/admin/clusters:
     get:
       tags:
-        -   -   -   - clusters
+        - Admin
       summary: GitLab List instance clusters
       description: >-
         This feature was introduced in GitLab 13.2. Returns a list of instance
@@ -1987,7 +1855,7 @@ paths:
   /api/v4/admin/migrations/{timestamp}/mark:
     post:
       tags:
-        -   -   -   - migrations
+        - Admin
       description: Mark the migration as successfully executed
       operationId: postApiV4AdminMigrationsTimestampMark
       parameters:
@@ -2032,7 +1900,7 @@ paths:
   /api/v4/applications/{id}:
     delete:
       tags:
-        -   -   -   - applications
+        - Applications
       summary: GitLab Delete an application
       description: Delete a specific application
       operationId: deleteApiV4ApplicationsId
@@ -2051,7 +1919,7 @@ paths:
   /api/v4/applications:
     get:
       tags:
-        -   -   -   - applications
+        - Applications
       summary: GitLab Get applications
       description: List all registered applications
       operationId: getApiV4Applications
@@ -2066,7 +1934,7 @@ paths:
                   $ref: '#/components/schemas/API_Entities_Application'
     post:
       tags:
-        -   -   -   - applications
+        - Applications
       summary: GitLab Create a new application
       description: This feature was introduced in GitLab 10.5
       operationId: postApiV4Applications
@@ -2109,7 +1977,7 @@ paths:
   /api/v4/avatar:
     get:
       tags:
-        -   -   -   - avatar
+        - Avatar
       description: Return avatar url for a user
       operationId: getApiV4Avatar
       parameters:
@@ -2135,7 +2003,7 @@ paths:
   /api/v4/broadcast_messages/{id}:
     get:
       tags:
-        -   -   -   - broadcast_messages
+        - Broadcast Messages
       summary: GitLab Get a specific broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: getApiV4BroadcastMessagesId
@@ -2156,7 +2024,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
     put:
       tags:
-        -   -   -   - broadcast_messages
+        - Broadcast Messages
       summary: GitLab Update a broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: putApiV4BroadcastMessagesId
@@ -2223,7 +2091,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
     delete:
       tags:
-        -   -   -   - broadcast_messages
+        - Broadcast Messages
       summary: GitLab Delete a broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: deleteApiV4BroadcastMessagesId
@@ -2245,7 +2113,7 @@ paths:
   /api/v4/broadcast_messages:
     get:
       tags:
-        -   -   -   - broadcast_messages
+        - Broadcast Messages
       summary: GitLab Get all broadcast messages
       description: This feature was introduced in GitLab 8.12.
       operationId: getApiV4BroadcastMessages
@@ -2273,7 +2141,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
     post:
       tags:
-        -   -   -   - broadcast_messages
+        - Broadcast Messages
       summary: GitLab Create a broadcast message
       description: This feature was introduced in GitLab 8.12.
       operationId: postApiV4BroadcastMessages
@@ -2336,7 +2204,7 @@ paths:
   /api/v4/bulk_imports/{import_id}/entities/{entity_id}:
     get:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: Get GitLab Migration entity details
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportIdEntitiesEntityId
@@ -2374,7 +2242,7 @@ paths:
   /api/v4/bulk_imports/{import_id}/entities:
     get:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: List GitLab Migration entities
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportIdEntities
@@ -2432,7 +2300,7 @@ paths:
   /api/v4/bulk_imports/{import_id}:
     get:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: Get GitLab Migration details
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportId
@@ -2463,7 +2331,7 @@ paths:
   /api/v4/bulk_imports/entities:
     get:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: List all GitLab Migrations' entities
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsEntities
@@ -2523,7 +2391,7 @@ paths:
   /api/v4/bulk_imports:
     get:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: List all GitLab Migrations
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImports
@@ -2582,7 +2450,7 @@ paths:
           content: {}
     post:
       tags:
-        -   -   -   - bulk_imports
+        - Bulk Imports
       summary: Start a new GitLab Migration
       description: This feature was introduced in GitLab 14.2.
       operationId: postApiV4BulkImports
@@ -2664,7 +2532,7 @@ paths:
   /api/v4/application/appearance:
     get:
       tags:
-        -   -   -   - application
+        - Application
       description: Get the current appearance
       operationId: getApiV4ApplicationAppearance
       responses:
@@ -2676,7 +2544,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_Appearance'
     put:
       tags:
-        -   -   -   - application
+        - Application
       description: Modify appearance
       operationId: putApiV4ApplicationAppearance
       requestBody:
@@ -2746,7 +2614,7 @@ paths:
   /api/v4/application/plan_limits:
     get:
       tags:
-        -   -   -   - plan_limits
+        - Application
       summary: GitLab Get current plan limits
       description: List the current limits of a plan on the GitLab instance.
       operationId: getApiV4ApplicationPlanLimits
@@ -2783,7 +2651,7 @@ paths:
           content: {}
     put:
       tags:
-        -   -   -   - plan_limits
+        - Application
       summary: GitLab Change plan limits
       description: Modify the limits of a plan on the GitLab instance.
       operationId: putApiV4ApplicationPlanLimits
@@ -2912,7 +2780,7 @@ paths:
   /api/v4/metadata:
     get:
       tags:
-        -   -   -   - metadata
+        - Metadata
       summary: Retrieve metadata information for this GitLab instance
       description: This feature was introduced in GitLab 15.2.
       operationId: getApiV4Metadata
@@ -2929,7 +2797,7 @@ paths:
   /api/v4/version:
     get:
       tags:
-        -   -   -   - metadata
+        - Version
       summary: Retrieves version information for the GitLab instance
       description: >-
         This feature was introduced in GitLab 8.13 and deprecated in 15.5. We
@@ -2948,7 +2816,7 @@ paths:
   /api/v4/projects/{id}/jobs:
     get:
       tags:
-        -   -   -   - jobs
+        - Projects
       summary: GitLab List jobs for a project
       operationId: listProjectJobs
       parameters:
@@ -2978,7 +2846,7 @@ paths:
   /api/v4/projects/{id}/jobs/{job_id}:
     get:
       tags:
-        -   -   -   - jobs
+        - Projects
       summary: GitLab Get a single job by ID
       operationId: getSingleJob
       parameters:
@@ -3004,7 +2872,7 @@ paths:
   /api/v4/projects/{id}/jobs/{job_id}/play:
     post:
       tags:
-        -   -   -   - jobs
+        - Projects
       summary: GitLab Run a manual job
       operationId: triggerManualJob
       parameters:

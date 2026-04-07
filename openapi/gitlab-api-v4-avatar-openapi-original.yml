@@ -11,12 +11,13 @@ servers:
   - url: https://www.gitlab.com/api/
 security:
   - ApiKeyAuth: []
-tags: []
+tags:
+  - name: Avatar
 paths:
   /api/v4/avatar:
     get:
       tags:
-        -   -   -   - avatar
+        - Avatar
       description: Return avatar url for a user
       operationId: getApiV4Avatar
       parameters:

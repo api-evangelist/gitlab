@@ -11,12 +11,13 @@ servers:
   - url: https://www.gitlab.com/api/
 security:
   - ApiKeyAuth: []
-tags: []
+tags:
+  - name: Applications
 paths:
   /api/v4/applications/{id}:
     delete:
       tags:
-        -   -   -   - applications
+        - Applications
       summary: GitLab Delete an application
       description: Delete a specific application
       operationId: deleteApiV4ApplicationsId
@@ -35,7 +36,7 @@ paths:
   /api/v4/applications:
     get:
       tags:
-        -   -   -   - applications
+        - Applications
       summary: GitLab Get applications
       description: List all registered applications
       operationId: getApiV4Applications
@@ -50,7 +51,7 @@ paths:
                   $ref: '#/components/schemas/API_Entities_Application'
     post:
       tags:
-        -   -   -   - applications
+        - Applications
       summary: GitLab Create a new application
       description: This feature was introduced in GitLab 10.5
       operationId: postApiV4Applications

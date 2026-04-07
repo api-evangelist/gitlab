@@ -11,12 +11,13 @@ servers:
   - url: https://www.gitlab.com/api/
 security:
   - ApiKeyAuth: []
-tags: []
+tags:
+  - name: Version
 paths:
   /api/v4/version:
     get:
       tags:
-        -   -   -   - metadata
+        - Version
       summary: Retrieves version information for the GitLab instance
       description: >-
         This feature was introduced in GitLab 8.13 and deprecated in 15.5. We

@@ -11,12 +11,13 @@ servers:
   - url: https://www.gitlab.com/api/
 security:
   - ApiKeyAuth: []
-tags: []
+tags:
+  - name: Metadata
 paths:
   /api/v4/metadata:
     get:
       tags:
-        -   -   -   - metadata
+        - Metadata
       summary: Retrieve metadata information for this GitLab instance
       description: This feature was introduced in GitLab 15.2.
       operationId: getApiV4Metadata

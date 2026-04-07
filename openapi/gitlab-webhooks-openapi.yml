@@ -21,10 +21,10 @@ servers:
 tags:
   - name: Project Webhooks
     description: Manage webhooks for a specific project.
-  - name: Webhook Events
-    description: Access webhook delivery history and resend events.
   - name: Webhook Configuration
     description: Manage custom headers and URL variables for webhooks.
+  - name: Webhook Events
+    description: Access webhook delivery history and resend events.
 security:
   - privateToken: []
   - bearerAuth: []

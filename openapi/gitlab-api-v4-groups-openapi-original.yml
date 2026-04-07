@@ -11,12 +11,13 @@ servers:
   - url: https://www.gitlab.com/api/
 security:
   - ApiKeyAuth: []
-tags: []
+tags:
+  - name: Groups
 paths:
   /api/v4/groups/{id}/badges/{badge_id}:
     get:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Gets a badge of a group.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadgesBadgeId
@@ -45,7 +46,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_Badge'
     put:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Updates a badge of a group.
       description: This feature was introduced in GitLab 10.6.
       operationId: putApiV4GroupsIdBadgesBadgeId
@@ -87,7 +88,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_Badge'
     delete:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Removes a badge from the group.
       description: This feature was introduced in GitLab 10.6.
       operationId: deleteApiV4GroupsIdBadgesBadgeId
@@ -114,7 +115,7 @@ paths:
   /api/v4/groups/{id}/badges:
     get:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Gets a list of group badges viewable by the authenticated user.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadges
@@ -157,7 +158,7 @@ paths:
                   $ref: '#/components/schemas/API_Entities_Badge'
     post:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Adds a badge to a group.
       description: This feature was introduced in GitLab 10.6.
       operationId: postApiV4GroupsIdBadges
@@ -198,7 +199,7 @@ paths:
   /api/v4/groups/{id}/badges/render:
     get:
       tags:
-        -   -   -   - badges
+        - Groups
       summary: GitLab Preview a badge from a group.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadgesRender
@@ -233,7 +234,7 @@ paths:
   /api/v4/groups/{id}/access_requests/{user_id}:
     delete:
       tags:
-        -   -   -   - access_requests
+        - Groups
       summary: GitLab Denies an access request for the given user.
       description: This feature was introduced in GitLab 8.11.
       operationId: deleteApiV4GroupsIdAccessRequestsUserId
@@ -260,7 +261,7 @@ paths:
   /api/v4/groups/{id}/access_requests/{user_id}/approve:
     put:
       tags:
-        -   -   -   - access_requests
+        - Groups
       summary: GitLab Approves an access request for the given user.
       description: This feature was introduced in GitLab 8.11.
       operationId: putApiV4GroupsIdAccessRequestsUserIdApprove
@@ -308,7 +309,7 @@ paths:
   /api/v4/groups/{id}/access_requests:
     get:
       tags:
-        -   -   -   - access_requests
+        - Groups
       summary: GitLab Gets a list of access requests for a group.
       description: This feature was introduced in GitLab 8.11.
       operationId: getApiV4GroupsIdAccessRequests
@@ -344,7 +345,7 @@ paths:
                 $ref: '#/components/schemas/API_Entities_AccessRequester'
     post:
       tags:
-        -   -   -   - access_requests
+        - Groups
       summary: GitLab Requests access for the authenticated user to a group.
       description: This feature was introduced in GitLab 8.11.
       operationId: postApiV4GroupsIdAccessRequests
