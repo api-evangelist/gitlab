@@ -1,0 +1,8 @@
+{
+  "device_code": "example_value",
+  "user_code": "example_value",
+  "verification_uri": "2026-04-17T12:00:00Z",
+  "verification_uri_complete": "2026-04-17T12:00:00Z",
+  "expires_in": 42,
+  "interval": 42
+}

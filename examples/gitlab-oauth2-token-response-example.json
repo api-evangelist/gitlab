@@ -1,0 +1,8 @@
+{
+  "access_token": "glpat-example-token",
+  "token_type": "glpat-example-token",
+  "expires_in": 42,
+  "refresh_token": "main",
+  "scope": "example_value",
+  "created_at": 42
+}

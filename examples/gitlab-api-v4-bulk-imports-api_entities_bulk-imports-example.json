@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "bulk_import_id": 1,
+  "status": "created",
+  "entity_type": "group",
+  "source_full_path": "source_group",
+  "destination_full_path": "some_group/source_project",
+  "destination_name": "destination_slug",
+  "destination_slug": "destination_slug",
+  "destination_namespace": "destination_path",
+  "parent_id": 1
+}

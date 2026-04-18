@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-api-v4-admin-api_entities_dictionary_table-structure.json",
+  "name": "API_Entities_Dictionary_Table",
+  "description": "API_Entities_Dictionary_Table model",
+  "type": "object",
+  "properties": {
+    "table_name": {
+      "type": "string",
+      "example": "users"
+    },
+    "feature_categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "database"
+      }
+    }
+  }
+}

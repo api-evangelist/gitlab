@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-schema/gitlab-openapi-original-api_entities_custom-attribute-schema.json",
+  "title": "API_Entities_CustomAttribute",
+  "description": "API_Entities_CustomAttribute from GitLab API",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "example": "foo"
+    },
+    "value": {
+      "type": "string",
+      "example": "bar"
+    }
+  }
+}

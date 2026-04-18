@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-webhooks-webhook-structure.json",
+  "name": "Webhook",
+  "description": "Webhook from GitLab API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "The unique identifier of the webhook.",
+      "example": 42
+    },
+    "url": {
+      "type": "uri",
+      "description": "The URL that receives webhook POST requests.",
+      "example": "https://gitlab.com/example"
+    },
+    "name": {
+      "type": "string",
+      "description": "Optional name for the webhook.",
+      "example": "Example Project"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of the webhook.",
+      "example": "Example description"
+    },
+    "project_id": {
+      "type": "int32",
+      "description": "The ID of the project the webhook belongs to.",
+      "example": 42
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "The date and time the webhook was created.",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "push_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on push events.",
+      "example": true
+    },
+    "tag_push_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on tag push events.",
+      "example": true
+    },
+    "issues_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on issue events.",
+      "example": true
+    },
+    "confidential_issues_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on confidential issue events.",
+      "example": true
+    },
+    "merge_requests_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on merge request events.",
+      "example": true
+    },
+    "note_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on comment events.",
+      "example": true
+    },
+    "confidential_note_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on confidential comment events.",
+      "example": true
+    },
+    "job_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on job status change events.",
+      "example": true
+    },
+    "pipeline_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on pipeline status change events.",
+      "example": true
+    },
+    "wiki_page_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on wiki page events.",
+      "example": true
+    },
+    "deployment_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on deployment events.",
+      "example": true
+    },
+    "releases_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on release events.",
+      "example": true
+    },
+    "member_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on group member events.",
+      "example": true
+    },
+    "enable_ssl_verification": {
+      "type": "boolean",
+      "description": "Whether SSL certificate verification is enabled for the webhook URL.",
+      "example": true
+    },
+    "push_events_branch_filter": {
+      "type": "string",
+      "description": "Branch name or wildcard pattern to filter push events.",
+      "example": "main"
+    },
+    "branch_filter_strategy": {
+      "type": "string",
+      "enum": [
+        "wildcard",
+        "regex",
+        "all_branches"
+      ],
+      "description": "The strategy used for filtering branches.",
+      "example": "wildcard"
+    },
+    "alert_status": {
+      "type": "string",
+      "description": "The current alert status of the webhook based on delivery failures.",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "disabled_until": {
+      "type": "datetime",
+      "description": "If set, the webhook is temporarily disabled until this time.",
+      "example": "example_value"
+    }
+  }
+}

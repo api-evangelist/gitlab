@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "username": "admin",
+  "name": "Administrator",
+  "state": "active",
+  "avatar_url": "https://gravatar.com/avatar/1",
+  "avatar_path": "/user/avatar/28/The-Big-Lebowski-400-400.png",
+  "custom_attributes": [
+    "2026-04-17T12:00:00Z"
+  ],
+  "web_url": "https://gitlab.example.com/root",
+  "email": "user@example.com"
+}

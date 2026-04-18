@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-oauth2-token-response-structure.json",
+  "name": "TokenResponse",
+  "description": "TokenResponse from GitLab API",
+  "type": "object",
+  "properties": {
+    "access_token": {
+      "type": "string",
+      "description": "The OAuth 2.0 access token.",
+      "example": "glpat-example-token"
+    },
+    "token_type": {
+      "type": "string",
+      "description": "The type of token. Always Bearer.",
+      "example": "glpat-example-token"
+    },
+    "expires_in": {
+      "type": "int32",
+      "description": "Token lifetime in seconds. Typically 7200 (2 hours).",
+      "example": 42
+    },
+    "refresh_token": {
+      "type": "string",
+      "description": "The refresh token for obtaining new access tokens.",
+      "example": "main"
+    },
+    "scope": {
+      "type": "string",
+      "description": "Space-separated list of granted scopes.",
+      "example": "example_value"
+    },
+    "created_at": {
+      "type": "int32",
+      "description": "Unix timestamp of when the token was created.",
+      "example": 42
+    }
+  }
+}

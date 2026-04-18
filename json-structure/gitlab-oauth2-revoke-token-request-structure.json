@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-oauth2-revoke-token-request-structure.json",
+  "name": "RevokeTokenRequest",
+  "description": "RevokeTokenRequest from GitLab API",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "The application ID registered in GitLab.",
+      "example": "123456"
+    },
+    "client_secret": {
+      "type": "string",
+      "description": "The application secret.",
+      "example": "example_value"
+    },
+    "token": {
+      "type": "string",
+      "description": "The access token or refresh token to revoke.",
+      "example": "glpat-example-token"
+    }
+  },
+  "required": [
+    "client_id",
+    "client_secret",
+    "token"
+  ]
+}

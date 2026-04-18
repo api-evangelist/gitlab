@@ -1,0 +1,11 @@
+{
+  "name": "master",
+  "commit": "example_value",
+  "merged": true,
+  "protected": true,
+  "developers_can_push": true,
+  "developers_can_merge": true,
+  "can_push": true,
+  "default": true,
+  "web_url": "https://gitlab.example.com/Commit921/the-dude/-/tree/master"
+}

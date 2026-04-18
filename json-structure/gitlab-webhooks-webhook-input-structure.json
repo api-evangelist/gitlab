@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-webhooks-webhook-input-structure.json",
+  "name": "WebhookInput",
+  "description": "WebhookInput from GitLab API",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "uri",
+      "description": "The URL to send webhook POST requests to.",
+      "example": "https://gitlab.com/example"
+    },
+    "name": {
+      "type": "string",
+      "description": "Optional name for the webhook.",
+      "example": "Example Project"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of the webhook.",
+      "example": "Example description"
+    },
+    "secret_token": {
+      "type": "string",
+      "description": "A secret token to validate received payloads. Sent as the X-Gitlab-Token header.",
+      "example": "glpat-example-token"
+    },
+    "enable_ssl_verification": {
+      "type": "boolean",
+      "description": "Whether to verify SSL certificates on the webhook URL.",
+      "example": true
+    },
+    "push_events": {
+      "type": "boolean",
+      "description": "Trigger on push events.",
+      "example": true
+    },
+    "tag_push_events": {
+      "type": "boolean",
+      "description": "Trigger on tag push events.",
+      "example": true
+    },
+    "issues_events": {
+      "type": "boolean",
+      "description": "Trigger on issue events.",
+      "example": true
+    },
+    "confidential_issues_events": {
+      "type": "boolean",
+      "description": "Trigger on confidential issue events.",
+      "example": true
+    },
+    "merge_requests_events": {
+      "type": "boolean",
+      "description": "Trigger on merge request events.",
+      "example": true
+    },
+    "note_events": {
+      "type": "boolean",
+      "description": "Trigger on comment events.",
+      "example": true
+    },
+    "confidential_note_events": {
+      "type": "boolean",
+      "description": "Trigger on confidential comment events.",
+      "example": true
+    },
+    "job_events": {
+      "type": "boolean",
+      "description": "Trigger on job status change events.",
+      "example": true
+    },
+    "pipeline_events": {
+      "type": "boolean",
+      "description": "Trigger on pipeline status change events.",
+      "example": true
+    },
+    "wiki_page_events": {
+      "type": "boolean",
+      "description": "Trigger on wiki page events.",
+      "example": true
+    },
+    "deployment_events": {
+      "type": "boolean",
+      "description": "Trigger on deployment events.",
+      "example": true
+    },
+    "releases_events": {
+      "type": "boolean",
+      "description": "Trigger on release events.",
+      "example": true
+    },
+    "member_events": {
+      "type": "boolean",
+      "description": "Trigger on group member events.",
+      "example": true
+    },
+    "push_events_branch_filter": {
+      "type": "string",
+      "description": "Branch name or wildcard pattern to filter push events.",
+      "example": "main"
+    }
+  },
+  "required": [
+    "url"
+  ]
+}

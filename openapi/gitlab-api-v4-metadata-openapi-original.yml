@@ -8,17 +8,17 @@ info:
     name: CC BY-SA 4.0
     url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
 servers:
-  - url: https://www.gitlab.com/api/
+- url: https://www.gitlab.com/api/
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
 tags:
-  - name: Metadata
+- name: Metadata
 paths:
   /api/v4/metadata:
     get:
       tags:
-        - Metadata
-      summary: Retrieve metadata information for this GitLab instance
+      - Metadata
+      summary: GitLab Retrieve Metadata Information for This GitLab Instance
       description: This feature was introduced in GitLab 15.2.
       operationId: getApiV4Metadata
       responses:
@@ -31,6 +31,9 @@ paths:
         '401':
           description: Unauthorized
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     API_Entities_Metadata:
@@ -55,4 +58,5 @@ components:
               example: 15.0.0
         enterprise:
           type: boolean
+          example: true
       description: API_Entities_Metadata model

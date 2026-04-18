@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-openapi-original-api_entities_commit-structure.json",
+  "name": "API_Entities_Commit",
+  "description": "API_Entities_Commit from GitLab API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "2695effb5807a22ff3d138d593fd856244e155e7"
+    },
+    "short_id": {
+      "type": "string",
+      "example": "2695effb"
+    },
+    "created_at": {
+      "type": "datetime",
+      "example": "2017-07-26 09:08:53+00:00"
+    },
+    "parent_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "2a4b78934375d7f53875269ffd4f45fd83a84ebe"
+      }
+    },
+    "title": {
+      "type": "string",
+      "example": "Initial commit"
+    },
+    "message": {
+      "type": "string",
+      "example": "Initial commit"
+    },
+    "author_name": {
+      "type": "string",
+      "example": "John Smith"
+    },
+    "author_email": {
+      "type": "string",
+      "example": "john@example.com"
+    },
+    "authored_date": {
+      "type": "datetime",
+      "example": "2012-05-28 11:42:42+00:00"
+    },
+    "committer_name": {
+      "type": "string",
+      "example": "Jack Smith"
+    },
+    "committer_email": {
+      "type": "string",
+      "example": "jack@example.com"
+    },
+    "committed_date": {
+      "type": "datetime",
+      "example": "2012-05-28 11:42:42+00:00"
+    },
+    "trailers": {
+      "type": "object",
+      "properties": {},
+      "example": "{ \"Merged-By\": \"Jane Doe janedoe@gitlab.com\" }"
+    },
+    "web_url": {
+      "type": "string",
+      "example": "https://gitlab.example.com/janedoe/gitlab-foss/-/commit/ed899a2f4b50b4370feeea94676502b42383c746"
+    }
+  }
+}

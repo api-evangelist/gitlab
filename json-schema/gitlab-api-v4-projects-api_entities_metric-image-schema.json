@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-schema/gitlab-api-v4-projects-api_entities_metric-image-schema.json",
+  "title": "API_Entities_MetricImage",
+  "description": "API_Entities_MetricImage model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32",
+      "example": 23
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-11-13T00:06:18.084Z"
+    },
+    "filename": {
+      "type": "string",
+      "example": "file.png"
+    },
+    "file_path": {
+      "type": "string",
+      "example": "/uploads/-/system/alert_metric_image/file/23/file.png"
+    },
+    "url": {
+      "type": "string",
+      "example": "https://example.com/metric"
+    },
+    "url_text": {
+      "type": "string",
+      "example": "An example metric"
+    }
+  }
+}

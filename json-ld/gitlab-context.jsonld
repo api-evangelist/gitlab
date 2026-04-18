@@ -1,391 +1,1128 @@
 {
   "@context": {
     "@version": 1.1,
-    "gitlab": "https://docs.gitlab.com/ns/",
+    "gl": "https://docs.gitlab.com/api/schema/",
     "schema": "https://schema.org/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcterms": "http://purl.org/dc/terms/",
-
-    "Project": {
-      "@id": "gitlab:Project",
-      "@context": {
-        "id": "schema:identifier",
-        "name": "schema:name",
-        "description": "schema:description",
-        "path": "gitlab:path",
-        "path_with_namespace": "gitlab:pathWithNamespace",
-        "web_url": {
-          "@id": "schema:url",
-          "@type": "@id"
-        },
-        "http_url_to_repo": {
-          "@id": "gitlab:httpCloneUrl",
-          "@type": "@id"
-        },
-        "ssh_url_to_repo": "gitlab:sshCloneUrl",
-        "readme_url": {
-          "@id": "schema:mainEntityOfPage",
-          "@type": "@id"
-        },
-        "homepage": {
-          "@id": "schema:mainEntityOfPage",
-          "@type": "@id"
-        },
-        "default_branch": "gitlab:defaultBranch",
-        "visibility": "gitlab:visibility",
-        "topics": {
-          "@id": "schema:keywords",
-          "@container": "@set"
-        },
-        "archived": "gitlab:isArchived",
-        "empty_repo": "gitlab:isEmptyRepo",
-        "namespace": {
-          "@id": "gitlab:namespace",
-          "@type": "@id"
-        },
-        "owner": {
-          "@id": "schema:maintainer",
-          "@type": "@id"
-        },
-        "creator_id": "schema:creator",
-        "star_count": "gitlab:starCount",
-        "forks_count": "gitlab:forksCount",
-        "open_issues_count": "gitlab:openIssuesCount",
-        "ci_config_path": "gitlab:ciConfigPath",
-        "created_at": {
-          "@id": "dcterms:created",
-          "@type": "xsd:dateTime"
-        },
-        "updated_at": {
-          "@id": "dcterms:modified",
-          "@type": "xsd:dateTime"
-        },
-        "last_activity_at": {
-          "@id": "gitlab:lastActivityAt",
-          "@type": "xsd:dateTime"
-        }
-      }
+    "API_Entities_AccessRequester": "gl:API_Entities_AccessRequester",
+    "API_Entities_Appearance": "gl:API_Entities_Appearance",
+    "API_Entities_ApplicationWithSecret": "gl:API_Entities_ApplicationWithSecret",
+    "API_Entities_Avatar": "gl:API_Entities_Avatar",
+    "API_Entities_Badge": "gl:API_Entities_Badge",
+    "API_Entities_BasicBadgeDetails": "gl:API_Entities_BasicBadgeDetails",
+    "API_Entities_BatchedBackgroundMigration": "gl:API_Entities_BatchedBackgroundMigration",
+    "API_Entities_Branch": "gl:API_Entities_Branch",
+    "API_Entities_BroadcastMessage": "gl:API_Entities_BroadcastMessage",
+    "API_Entities_BulkImport": "gl:API_Entities_BulkImport",
+    "API_Entities_BulkImports": "gl:API_Entities_BulkImports",
+    "API_Entities_Ci_Variable": "gl:API_Entities_Ci_Variable",
+    "API_Entities_Cluster": "gl:API_Entities_Cluster",
+    "API_Entities_Commit": "gl:API_Entities_Commit",
+    "API_Entities_CustomAttribute": "gl:API_Entities_CustomAttribute",
+    "API_Entities_Dictionary_Table": "gl:API_Entities_Dictionary_Table",
+    "API_Entities_Job": "gl:API_Entities_Job",
+    "API_Entities_Metadata": "gl:API_Entities_Metadata",
+    "API_Entities_MetricImage": "gl:API_Entities_MetricImage",
+    "API_Entities_PlanLimit": "gl:API_Entities_PlanLimit",
+    "API_Entities_Platform_Kubernetes": "gl:API_Entities_Platform_Kubernetes",
+    "API_Entities_ProjectIdentity": "gl:API_Entities_ProjectIdentity",
+    "API_Entities_Provider_Gcp": "gl:API_Entities_Provider_Gcp",
+    "API_Entities_UserBasic": "gl:API_Entities_UserBasic",
+    "DeviceAuthorizationRequest": "gl:DeviceAuthorizationRequest",
+    "DeviceAuthorizationResponse": "gl:DeviceAuthorizationResponse",
+    "GitLab Issue": "gl:GitLab Issue",
+    "GitLab Merge Request": "gl:GitLab Merge Request",
+    "GitLab Pipeline": "gl:GitLab Pipeline",
+    "GitLab Project": "gl:GitLab Project",
+    "RevokeTokenRequest": "gl:RevokeTokenRequest",
+    "TokenInfo": "gl:TokenInfo",
+    "TokenRequest": "gl:TokenRequest",
+    "TokenResponse": "gl:TokenResponse",
+    "UserInfo": "gl:UserInfo",
+    "Webhook": "gl:Webhook",
+    "WebhookEvent": "gl:WebhookEvent",
+    "WebhookInput": "gl:WebhookInput",
+    "access_token": {
+      "@id": "gl:access_token",
+      "@type": "xsd:string"
     },
-
-    "Group": {
-      "@id": "gitlab:Group",
-      "@context": {
-        "id": "schema:identifier",
-        "name": "schema:name",
-        "description": "schema:description",
-        "path": "gitlab:path",
-        "full_path": "gitlab:fullPath",
-        "web_url": {
-          "@id": "schema:url",
-          "@type": "@id"
-        },
-        "avatar_url": {
-          "@id": "schema:image",
-          "@type": "@id"
-        },
-        "visibility": "gitlab:visibility",
-        "parent_id": "gitlab:parentId",
-        "members_count": "gitlab:membersCount",
-        "created_at": {
-          "@id": "dcterms:created",
-          "@type": "xsd:dateTime"
-        },
-        "updated_at": {
-          "@id": "dcterms:modified",
-          "@type": "xsd:dateTime"
-        }
-      }
+    "active": {
+      "@id": "gl:active",
+      "@type": "xsd:string"
     },
-
-    "User": {
-      "@id": "gitlab:User",
-      "@context": {
-        "id": "schema:identifier",
-        "username": "schema:alternateName",
-        "name": "schema:name",
-        "email": "schema:email",
-        "bio": "schema:description",
-        "organization": "schema:worksFor",
-        "location": "schema:homeLocation",
-        "website_url": {
-          "@id": "schema:url",
-          "@type": "@id"
-        },
-        "web_url": {
-          "@id": "schema:mainEntityOfPage",
-          "@type": "@id"
-        },
-        "avatar_url": {
-          "@id": "schema:image",
-          "@type": "@id"
-        },
-        "state": "gitlab:state",
-        "public_repos": "gitlab:publicProjectsCount",
-        "followers": "schema:follows",
-        "following": "gitlab:followingCount",
-        "created_at": {
-          "@id": "dcterms:created",
-          "@type": "xsd:dateTime"
-        },
-        "updated_at": {
-          "@id": "dcterms:modified",
-          "@type": "xsd:dateTime"
-        }
-      }
+    "alert_status": {
+      "@id": "gl:alert_status",
+      "@type": "xsd:string"
     },
-
-    "Issue": {
-      "@id": "gitlab:Issue",
-      "@context": {
-        "id": "schema:identifier",
-        "iid": "gitlab:iid",
-        "title": "schema:name",
-        "description": "schema:description",
-        "state": "gitlab:state",
-        "issue_type": "gitlab:issueType",
-        "web_url": {
-          "@id": "schema:url",
-          "@type": "@id"
-        },
-        "author": {
-          "@id": "schema:author",
-          "@type": "@id"
-        },
-        "assignees": {
-          "@id": "gitlab:assignees",
-          "@container": "@set"
-        },
-        "labels": {
-          "@id": "gitlab:labels",
-          "@container": "@set"
-        },
-        "milestone": "gitlab:milestone",
-        "confidential": "gitlab:isConfidential",
-        "weight": "gitlab:weight",
-        "severity": "gitlab:severity",
-        "upvotes": "gitlab:upvotes",
-        "downvotes": "gitlab:downvotes",
-        "user_notes_count": "schema:commentCount",
-        "due_date": {
-          "@id": "schema:expires",
-          "@type": "xsd:date"
-        },
-        "created_at": {
-          "@id": "dcterms:created",
-          "@type": "xsd:dateTime"
-        },
-        "updated_at": {
-          "@id": "dcterms:modified",
-          "@type": "xsd:dateTime"
-        },
-        "closed_at": {
-          "@id": "gitlab:closedAt",
-          "@type": "xsd:dateTime"
-        }
-      }
+    "allow_failure": {
+      "@id": "gl:allow_failure",
+      "@type": "xsd:boolean"
     },
-
-    "MergeRequest": {
-      "@id": "gitlab:MergeRequest",
-      "@context": {
-        "id": "schema:identifier",
-        "iid": "gitlab:iid",
-        "title": "schema:name",
-        "description": "schema:description",
-        "state": "gitlab:state",
-        "draft": "gitlab:isDraft",
-        "source_branch": "gitlab:sourceBranch",
-        "target_branch": "gitlab:targetBranch",
-        "web_url": {
-          "@id": "schema:url",
-          "@type": "@id"
-        },
-        "author": {
-          "@id": "schema:author",
-          "@type": "@id"
-        },
-        "assignees": {
-          "@id": "gitlab:assignees",
-          "@container": "@set"
-        },
-        "reviewers": {
-          "@id": "gitlab:reviewers",
-          "@container": "@set"
-        },
-        "merge_user": "gitlab:mergeUser",
-        "labels": {
-          "@id": "gitlab:labels",
-          "@container": "@set"
-        },
-        "milestone": "gitlab:milestone",
-        "sha": "schema:version",
-        "merge_commit_sha": "gitlab:mergeCommitSha",
-        "squash": "gitlab:isSquash",
-        "upvotes": "gitlab:upvotes",
-        "downvotes": "gitlab:downvotes",
-        "user_notes_count": "schema:commentCount",
-        "created_at": {
-          "@id": "dcterms:created",
-          "@type": "xsd:dateTime"
-        },
-        "updated_at": {
-          "@id": "dcterms:modified",
-          "@type": "xsd:dateTime"
-        },
-        "merged_at": {
-          "@id": "gitlab:mergedAt",
-          "@type": "xsd:dateTime"
-        },
-        "closed_at": {
-          "@id": "gitlab:closedAt",
-          "@type": "xsd:dateTime"
-        }
-      }
+    "api_url": {
+      "@id": "gl:api_url",
+      "@type": "xsd:string"
     },
-
-    "Pipeline": {
-      "@id": "gitlab:Pipeline",
-      "@context": {
-        "id": "schema:identifier",
-        "iid": "gitlab:iid",
-        "name": "schema:name",
-        "status": "gitlab:status",
-        "source": "gitlab:source",
-        "ref": "gitlab:ref",
-        "sha": "gitlab:sha",
-        "tag": "gitlab:isTag",
-        "web_url": {
-          "@id": "schema:url",
-          "@type": "@id"
-        },
-        "user": {
-          "@id": "schema:creator",
-          "@type": "@id"
-        },
-        "coverage": "gitlab:coverage",
-        "duration": "schema:duration",
-        "archived": "gitlab:isArchived",
-        "created_at": {
-          "@id": "dcterms:created",
-          "@type": "xsd:dateTime"
-        },
-        "updated_at": {
-          "@id": "dcterms:modified",
-          "@type": "xsd:dateTime"
-        },
-        "started_at": {
-          "@id": "gitlab:startedAt",
-          "@type": "xsd:dateTime"
-        },
-        "finished_at": {
-          "@id": "gitlab:finishedAt",
-          "@type": "xsd:dateTime"
-        }
-      }
+    "application": {
+      "@id": "gl:application",
+      "@type": "@id"
     },
-
-    "Commit": {
-      "@id": "gitlab:Commit",
-      "@context": {
-        "id": "schema:identifier",
-        "title": "schema:name",
-        "message": "schema:text",
-        "web_url": {
-          "@id": "schema:url",
-          "@type": "@id"
-        },
-        "author_name": "schema:author",
-        "author_email": "schema:email",
-        "authored_date": {
-          "@id": "dcterms:created",
-          "@type": "xsd:dateTime"
-        },
-        "committer_name": "gitlab:committer",
-        "committer_email": "gitlab:committerEmail",
-        "committed_date": {
-          "@id": "gitlab:committedAt",
-          "@type": "xsd:dateTime"
-        },
-        "parent_ids": {
-          "@id": "gitlab:parentCommits",
-          "@container": "@set"
-        }
-      }
+    "application_id": {
+      "@id": "gl:application_id",
+      "@type": "xsd:string"
     },
-
-    "Webhook": {
-      "@id": "gitlab:Webhook",
-      "@context": {
-        "id": "schema:identifier",
-        "url": {
-          "@id": "schema:url",
-          "@type": "@id"
-        },
-        "name": "schema:name",
-        "description": "schema:description",
-        "project_id": "gitlab:projectId",
-        "enable_ssl_verification": "gitlab:enableSslVerification",
-        "push_events": "gitlab:pushEvents",
-        "merge_requests_events": "gitlab:mergeRequestsEvents",
-        "issues_events": "gitlab:issuesEvents",
-        "pipeline_events": "gitlab:pipelineEvents",
-        "deployment_events": "gitlab:deploymentEvents",
-        "releases_events": "gitlab:releasesEvents",
-        "created_at": {
-          "@id": "dcterms:created",
-          "@type": "xsd:dateTime"
-        }
-      }
+    "application_name": {
+      "@id": "gl:application_name",
+      "@type": "xsd:string"
     },
-
-    "WebhookEvent": {
-      "@id": "gitlab:WebhookEvent",
-      "@context": {
-        "object_kind": "gitlab:eventKind",
-        "event_type": "gitlab:eventType",
-        "user": {
-          "@id": "schema:agent",
-          "@type": "@id"
-        },
-        "project": {
-          "@id": "gitlab:project",
-          "@type": "@id"
-        }
-      }
+    "archived": {
+      "@id": "gl:archived",
+      "@type": "xsd:boolean"
     },
-
-    "Label": {
-      "@id": "gitlab:Label",
-      "@context": {
-        "id": "schema:identifier",
-        "title": "schema:name",
-        "description": "schema:description",
-        "color": "gitlab:color",
-        "type": "gitlab:labelType"
-      }
+    "artifacts": {
+      "@id": "gl:artifacts",
+      "@container": "@set",
+      "@type": "xsd:string"
     },
-
-    "Milestone": {
-      "@id": "gitlab:Milestone",
-      "@context": {
-        "id": "schema:identifier",
-        "iid": "gitlab:iid",
-        "title": "schema:name",
-        "description": "schema:description",
-        "state": "gitlab:state",
-        "web_url": {
-          "@id": "schema:url",
-          "@type": "@id"
-        },
-        "due_date": {
-          "@id": "schema:expires",
-          "@type": "xsd:date"
-        },
-        "created_at": {
-          "@id": "dcterms:created",
-          "@type": "xsd:dateTime"
-        }
-      }
+    "assignees": {
+      "@id": "gl:assignees",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "author": {
+      "@id": "gl:author",
+      "@type": "xsd:string"
+    },
+    "author_email": {
+      "@id": "gl:author_email",
+      "@type": "xsd:string"
+    },
+    "author_name": {
+      "@id": "gl:author_name",
+      "@type": "xsd:string"
+    },
+    "authored_date": {
+      "@id": "gl:authored_date",
+      "@type": "xsd:dateTime"
+    },
+    "authorization_type": {
+      "@id": "gl:authorization_type",
+      "@type": "xsd:string"
+    },
+    "avatar_path": {
+      "@id": "gl:avatar_path",
+      "@type": "xsd:string"
+    },
+    "avatar_url": {
+      "@id": "gl:avatar_url",
+      "@type": "xsd:string"
+    },
+    "before_sha": {
+      "@id": "gl:before_sha",
+      "@type": "xsd:string"
+    },
+    "branch_filter_strategy": {
+      "@id": "gl:branch_filter_strategy",
+      "@type": "xsd:string"
+    },
+    "broadcast_type": {
+      "@id": "gl:broadcast_type",
+      "@type": "xsd:string"
+    },
+    "builds_access_level": {
+      "@id": "gl:builds_access_level",
+      "@type": "xsd:string"
+    },
+    "bulk_import_id": {
+      "@id": "gl:bulk_import_id",
+      "@type": "xsd:string"
+    },
+    "ca_cert": {
+      "@id": "gl:ca_cert",
+      "@type": "xsd:string"
+    },
+    "callback_url": {
+      "@id": "gl:callback_url",
+      "@type": "xsd:string"
+    },
+    "can_push": {
+      "@id": "gl:can_push",
+      "@type": "xsd:boolean"
+    },
+    "changes_count": {
+      "@id": "gl:changes_count",
+      "@type": "xsd:string"
+    },
+    "ci_active_jobs": {
+      "@id": "gl:ci_active_jobs",
+      "@type": "xsd:string"
+    },
+    "ci_config_path": {
+      "@id": "gl:ci_config_path",
+      "@type": "xsd:string"
+    },
+    "ci_needs_size_limit": {
+      "@id": "gl:ci_needs_size_limit",
+      "@type": "xsd:string"
+    },
+    "ci_pipeline_schedules": {
+      "@id": "gl:ci_pipeline_schedules",
+      "@type": "xsd:string"
+    },
+    "ci_pipeline_size": {
+      "@id": "gl:ci_pipeline_size",
+      "@type": "xsd:string"
+    },
+    "ci_project_subscriptions": {
+      "@id": "gl:ci_project_subscriptions",
+      "@type": "xsd:string"
+    },
+    "ci_registered_group_runners": {
+      "@id": "gl:ci_registered_group_runners",
+      "@type": "xsd:string"
+    },
+    "ci_registered_project_runners": {
+      "@id": "gl:ci_registered_project_runners",
+      "@type": "xsd:string"
+    },
+    "client_id": {
+      "@id": "gl:client_id",
+      "@type": "xsd:string"
+    },
+    "client_secret": {
+      "@id": "gl:client_secret",
+      "@type": "xsd:string"
+    },
+    "closed_at": {
+      "@id": "gl:closed_at",
+      "@type": "xsd:dateTime"
+    },
+    "closed_by": {
+      "@id": "gl:closed_by",
+      "@type": "xsd:string"
+    },
+    "cluster_id": {
+      "@id": "gl:cluster_id",
+      "@type": "xsd:string"
+    },
+    "cluster_type": {
+      "@id": "gl:cluster_type",
+      "@type": "xsd:string"
+    },
+    "code": {
+      "@id": "gl:code",
+      "@type": "xsd:string"
+    },
+    "code_verifier": {
+      "@id": "gl:code_verifier",
+      "@type": "xsd:string"
+    },
+    "color": {
+      "@id": "gl:color",
+      "@type": "xsd:string"
+    },
+    "commit": {
+      "@id": "gl:commit",
+      "@type": "xsd:string"
+    },
+    "committed_at": {
+      "@id": "gl:committed_at",
+      "@type": "xsd:dateTime"
+    },
+    "committed_date": {
+      "@id": "gl:committed_date",
+      "@type": "xsd:dateTime"
+    },
+    "committer_email": {
+      "@id": "gl:committer_email",
+      "@type": "xsd:string"
+    },
+    "committer_name": {
+      "@id": "gl:committer_name",
+      "@type": "xsd:string"
+    },
+    "conan_max_file_size": {
+      "@id": "gl:conan_max_file_size",
+      "@type": "xsd:string"
+    },
+    "confidential": {
+      "@id": "gl:confidential",
+      "@type": "xsd:boolean"
+    },
+    "confidential_issues_events": {
+      "@id": "gl:confidential_issues_events",
+      "@type": "xsd:boolean"
+    },
+    "confidential_note_events": {
+      "@id": "gl:confidential_note_events",
+      "@type": "xsd:boolean"
+    },
+    "container_registry_access_level": {
+      "@id": "gl:container_registry_access_level",
+      "@type": "xsd:string"
+    },
+    "coverage": {
+      "@id": "gl:coverage",
+      "@type": "xsd:string"
+    },
+    "created_at": {
+      "@id": "gl:created_at",
+      "@type": "xsd:dateTime"
+    },
+    "creator_id": {
+      "@id": "gl:creator_id",
+      "@type": "xsd:integer"
+    },
+    "custom_attributes": {
+      "@id": "gl:custom_attributes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "default": {
+      "@id": "gl:default",
+      "@type": "xsd:boolean"
+    },
+    "default_branch": {
+      "@id": "gl:default_branch",
+      "@type": "xsd:string"
+    },
+    "deployment_events": {
+      "@id": "gl:deployment_events",
+      "@type": "xsd:boolean"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "destination_full_path": {
+      "@id": "gl:destination_full_path",
+      "@type": "xsd:string"
+    },
+    "destination_name": {
+      "@id": "gl:destination_name",
+      "@type": "xsd:string"
+    },
+    "destination_namespace": {
+      "@id": "gl:destination_namespace",
+      "@type": "xsd:string"
+    },
+    "destination_slug": {
+      "@id": "gl:destination_slug",
+      "@type": "xsd:string"
+    },
+    "detailed_merge_status": {
+      "@id": "gl:detailed_merge_status",
+      "@type": "xsd:string"
+    },
+    "developers_can_merge": {
+      "@id": "gl:developers_can_merge",
+      "@type": "xsd:boolean"
+    },
+    "developers_can_push": {
+      "@id": "gl:developers_can_push",
+      "@type": "xsd:boolean"
+    },
+    "device_code": {
+      "@id": "gl:device_code",
+      "@type": "xsd:string"
+    },
+    "disabled_until": {
+      "@id": "gl:disabled_until",
+      "@type": "xsd:dateTime"
+    },
+    "dismissable": {
+      "@id": "gl:dismissable",
+      "@type": "xsd:string"
+    },
+    "domain": {
+      "@id": "gl:domain",
+      "@type": "xsd:string"
+    },
+    "downvotes": {
+      "@id": "gl:downvotes",
+      "@type": "xsd:integer"
+    },
+    "draft": {
+      "@id": "gl:draft",
+      "@type": "xsd:boolean"
+    },
+    "due_date": {
+      "@id": "gl:due_date",
+      "@type": "xsd:string"
+    },
+    "duration": {
+      "@id": "gl:duration",
+      "@type": "xsd:integer"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "email_header_and_footer_enabled": {
+      "@id": "gl:email_header_and_footer_enabled",
+      "@type": "xsd:string"
+    },
+    "email_verified": {
+      "@id": "gl:email_verified",
+      "@type": "xsd:boolean"
+    },
+    "empty_repo": {
+      "@id": "gl:empty_repo",
+      "@type": "xsd:boolean"
+    },
+    "enable_ssl_verification": {
+      "@id": "gl:enable_ssl_verification",
+      "@type": "xsd:boolean"
+    },
+    "enabled": {
+      "@id": "gl:enabled",
+      "@type": "xsd:string"
+    },
+    "endpoint": {
+      "@id": "gl:endpoint",
+      "@type": "xsd:string"
+    },
+    "ends_at": {
+      "@id": "gl:ends_at",
+      "@type": "xsd:string"
+    },
+    "enforcement_limit": {
+      "@id": "gl:enforcement_limit",
+      "@type": "xsd:string"
+    },
+    "enterprise": {
+      "@id": "gl:enterprise",
+      "@type": "xsd:boolean"
+    },
+    "entity_type": {
+      "@id": "gl:entity_type",
+      "@type": "xsd:string"
+    },
+    "environment_scope": {
+      "@id": "gl:environment_scope",
+      "@type": "xsd:string"
+    },
+    "erased_at": {
+      "@id": "gl:erased_at",
+      "@type": "xsd:dateTime"
+    },
+    "execution_duration": {
+      "@id": "gl:execution_duration",
+      "@type": "xsd:decimal"
+    },
+    "expires_in": {
+      "@id": "gl:expires_in",
+      "@type": "xsd:integer"
+    },
+    "expires_in_seconds": {
+      "@id": "gl:expires_in_seconds",
+      "@type": "xsd:integer"
+    },
+    "failures": {
+      "@id": "gl:failures",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "favicon": {
+      "@id": "gl:favicon",
+      "@type": "xsd:string"
+    },
+    "feature_categories": {
+      "@id": "gl:feature_categories",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "file_path": {
+      "@id": "gl:file_path",
+      "@type": "xsd:string"
+    },
+    "filename": {
+      "@id": "gl:filename",
+      "@type": "xsd:string"
+    },
+    "finished_at": {
+      "@id": "gl:finished_at",
+      "@type": "xsd:dateTime"
+    },
+    "font": {
+      "@id": "gl:font",
+      "@type": "xsd:string"
+    },
+    "footer_message": {
+      "@id": "gl:footer_message",
+      "@type": "xsd:string"
+    },
+    "forks_count": {
+      "@id": "gl:forks_count",
+      "@type": "xsd:integer"
+    },
+    "gcp_project_id": {
+      "@id": "gl:gcp_project_id",
+      "@type": "xsd:string"
+    },
+    "generic_packages_max_file_size": {
+      "@id": "gl:generic_packages_max_file_size",
+      "@type": "xsd:string"
+    },
+    "grant_type": {
+      "@id": "gl:grant_type",
+      "@type": "xsd:string"
+    },
+    "groups": {
+      "@id": "gl:groups",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "has_tasks": {
+      "@id": "gl:has_tasks",
+      "@type": "xsd:boolean"
+    },
+    "header_logo": {
+      "@id": "gl:header_logo",
+      "@type": "xsd:string"
+    },
+    "header_message": {
+      "@id": "gl:header_message",
+      "@type": "xsd:string"
+    },
+    "helm_max_file_size": {
+      "@id": "gl:helm_max_file_size",
+      "@type": "xsd:string"
+    },
+    "http_url_to_repo": {
+      "@id": "gl:http_url_to_repo",
+      "@type": "@id"
+    },
+    "id": {
+      "@id": "gl:id",
+      "@type": "xsd:string"
+    },
+    "iid": {
+      "@id": "gl:iid",
+      "@type": "xsd:integer"
+    },
+    "image_url": {
+      "@id": "gl:image_url",
+      "@type": "xsd:string"
+    },
+    "interval": {
+      "@id": "gl:interval",
+      "@type": "xsd:integer"
+    },
+    "issue_type": {
+      "@id": "gl:issue_type",
+      "@type": "xsd:string"
+    },
+    "issues_access_level": {
+      "@id": "gl:issues_access_level",
+      "@type": "xsd:string"
+    },
+    "issues_events": {
+      "@id": "gl:issues_events",
+      "@type": "xsd:boolean"
+    },
+    "job_class_name": {
+      "@id": "gl:job_class_name",
+      "@type": "xsd:string"
+    },
+    "job_events": {
+      "@id": "gl:job_events",
+      "@type": "xsd:boolean"
+    },
+    "kas": {
+      "@id": "gl:kas",
+      "@type": "@id"
+    },
+    "key": {
+      "@id": "gl:key",
+      "@type": "xsd:string"
+    },
+    "kind": {
+      "@id": "gl:kind",
+      "@type": "xsd:string"
+    },
+    "labels": {
+      "@id": "gl:labels",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "last_activity_at": {
+      "@id": "gl:last_activity_at",
+      "@type": "xsd:dateTime"
+    },
+    "limits_history": {
+      "@id": "gl:limits_history",
+      "@type": "@id"
+    },
+    "link_url": {
+      "@id": "gl:link_url",
+      "@type": "xsd:string"
+    },
+    "logo": {
+      "@id": "gl:logo",
+      "@type": "xsd:string"
+    },
+    "machine_type": {
+      "@id": "gl:machine_type",
+      "@type": "xsd:string"
+    },
+    "managed": {
+      "@id": "gl:managed",
+      "@type": "xsd:string"
+    },
+    "management_project": {
+      "@id": "gl:management_project",
+      "@type": "xsd:string"
+    },
+    "masked": {
+      "@id": "gl:masked",
+      "@type": "xsd:boolean"
+    },
+    "maven_max_file_size": {
+      "@id": "gl:maven_max_file_size",
+      "@type": "xsd:string"
+    },
+    "member_events": {
+      "@id": "gl:member_events",
+      "@type": "xsd:boolean"
+    },
+    "merge_commit_sha": {
+      "@id": "gl:merge_commit_sha",
+      "@type": "xsd:string"
+    },
+    "merge_requests_access_level": {
+      "@id": "gl:merge_requests_access_level",
+      "@type": "xsd:string"
+    },
+    "merge_requests_count": {
+      "@id": "gl:merge_requests_count",
+      "@type": "xsd:integer"
+    },
+    "merge_requests_events": {
+      "@id": "gl:merge_requests_events",
+      "@type": "xsd:boolean"
+    },
+    "merge_user": {
+      "@id": "gl:merge_user",
+      "@type": "xsd:string"
+    },
+    "merged": {
+      "@id": "gl:merged",
+      "@type": "xsd:boolean"
+    },
+    "merged_at": {
+      "@id": "gl:merged_at",
+      "@type": "xsd:dateTime"
+    },
+    "message": {
+      "@id": "gl:message",
+      "@type": "xsd:string"
+    },
+    "message_background_color": {
+      "@id": "gl:message_background_color",
+      "@type": "xsd:string"
+    },
+    "message_font_color": {
+      "@id": "gl:message_font_color",
+      "@type": "xsd:string"
+    },
+    "migrate_projects": {
+      "@id": "gl:migrate_projects",
+      "@type": "xsd:boolean"
+    },
+    "milestone": {
+      "@id": "gl:milestone",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "name_with_namespace": {
+      "@id": "gl:name_with_namespace",
+      "@type": "xsd:string"
+    },
+    "namespace": {
+      "@id": "gl:namespace",
+      "@type": "xsd:string"
+    },
+    "namespace_id": {
+      "@id": "gl:namespace_id",
+      "@type": "xsd:string"
+    },
+    "namespace_per_environment": {
+      "@id": "gl:namespace_per_environment",
+      "@type": "xsd:string"
+    },
+    "new_project_guidelines": {
+      "@id": "gl:new_project_guidelines",
+      "@type": "xsd:string"
+    },
+    "nickname": {
+      "@id": "gl:nickname",
+      "@type": "xsd:string"
+    },
+    "note_events": {
+      "@id": "gl:note_events",
+      "@type": "xsd:boolean"
+    },
+    "notification_limit": {
+      "@id": "gl:notification_limit",
+      "@type": "xsd:string"
+    },
+    "npm_max_file_size": {
+      "@id": "gl:npm_max_file_size",
+      "@type": "xsd:string"
+    },
+    "nuget_max_file_size": {
+      "@id": "gl:nuget_max_file_size",
+      "@type": "xsd:string"
+    },
+    "num_nodes": {
+      "@id": "gl:num_nodes",
+      "@type": "xsd:string"
+    },
+    "open_issues_count": {
+      "@id": "gl:open_issues_count",
+      "@type": "xsd:integer"
+    },
+    "owner": {
+      "@id": "gl:owner",
+      "@type": "xsd:string"
+    },
+    "pages_access_level": {
+      "@id": "gl:pages_access_level",
+      "@type": "xsd:string"
+    },
+    "parent_id": {
+      "@id": "gl:parent_id",
+      "@type": "xsd:string"
+    },
+    "parent_ids": {
+      "@id": "gl:parent_ids",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "password": {
+      "@id": "gl:password",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "gl:path",
+      "@type": "xsd:string"
+    },
+    "path_with_namespace": {
+      "@id": "gl:path_with_namespace",
+      "@type": "xsd:string"
+    },
+    "permissions": {
+      "@id": "gl:permissions",
+      "@type": "xsd:string"
+    },
+    "picture": {
+      "@id": "gl:picture",
+      "@type": "@id"
+    },
+    "pipeline_events": {
+      "@id": "gl:pipeline_events",
+      "@type": "xsd:boolean"
+    },
+    "pipeline_hierarchy_size": {
+      "@id": "gl:pipeline_hierarchy_size",
+      "@type": "xsd:string"
+    },
+    "platform_kubernetes": {
+      "@id": "gl:platform_kubernetes",
+      "@type": "xsd:string"
+    },
+    "platform_type": {
+      "@id": "gl:platform_type",
+      "@type": "xsd:string"
+    },
+    "prepared_at": {
+      "@id": "gl:prepared_at",
+      "@type": "xsd:dateTime"
+    },
+    "profile": {
+      "@id": "gl:profile",
+      "@type": "@id"
+    },
+    "profile_image_guidelines": {
+      "@id": "gl:profile_image_guidelines",
+      "@type": "xsd:string"
+    },
+    "progress": {
+      "@id": "gl:progress",
+      "@type": "xsd:string"
+    },
+    "project": {
+      "@id": "gl:project",
+      "@type": "@id"
+    },
+    "project_id": {
+      "@id": "gl:project_id",
+      "@type": "xsd:string"
+    },
+    "protected": {
+      "@id": "gl:protected",
+      "@type": "xsd:boolean"
+    },
+    "provider_gcp": {
+      "@id": "gl:provider_gcp",
+      "@type": "xsd:string"
+    },
+    "provider_type": {
+      "@id": "gl:provider_type",
+      "@type": "xsd:string"
+    },
+    "push_events": {
+      "@id": "gl:push_events",
+      "@type": "xsd:boolean"
+    },
+    "push_events_branch_filter": {
+      "@id": "gl:push_events_branch_filter",
+      "@type": "xsd:string"
+    },
+    "pwa_description": {
+      "@id": "gl:pwa_description",
+      "@type": "xsd:string"
+    },
+    "pwa_icon": {
+      "@id": "gl:pwa_icon",
+      "@type": "xsd:string"
+    },
+    "pwa_name": {
+      "@id": "gl:pwa_name",
+      "@type": "xsd:string"
+    },
+    "pwa_short_name": {
+      "@id": "gl:pwa_short_name",
+      "@type": "xsd:string"
+    },
+    "pypi_max_file_size": {
+      "@id": "gl:pypi_max_file_size",
+      "@type": "xsd:string"
+    },
+    "queued_duration": {
+      "@id": "gl:queued_duration",
+      "@type": "xsd:decimal"
+    },
+    "raw": {
+      "@id": "gl:raw",
+      "@type": "xsd:boolean"
+    },
+    "readme_url": {
+      "@id": "gl:readme_url",
+      "@type": "@id"
+    },
+    "redirect_uri": {
+      "@id": "gl:redirect_uri",
+      "@type": "@id"
+    },
+    "ref": {
+      "@id": "gl:ref",
+      "@type": "xsd:string"
+    },
+    "references": {
+      "@id": "gl:references",
+      "@type": "xsd:string"
+    },
+    "refresh_token": {
+      "@id": "gl:refresh_token",
+      "@type": "xsd:string"
+    },
+    "releases_events": {
+      "@id": "gl:releases_events",
+      "@type": "xsd:boolean"
+    },
+    "rendered_image_url": {
+      "@id": "gl:rendered_image_url",
+      "@type": "xsd:string"
+    },
+    "rendered_link_url": {
+      "@id": "gl:rendered_link_url",
+      "@type": "xsd:string"
+    },
+    "request_data": {
+      "@id": "gl:request_data",
+      "@type": "xsd:string"
+    },
+    "request_headers": {
+      "@id": "gl:request_headers",
+      "@type": "@id"
+    },
+    "requested_at": {
+      "@id": "gl:requested_at",
+      "@type": "xsd:string"
+    },
+    "resource_owner_id": {
+      "@id": "gl:resource_owner_id",
+      "@type": "xsd:integer"
+    },
+    "response_body": {
+      "@id": "gl:response_body",
+      "@type": "xsd:string"
+    },
+    "response_headers": {
+      "@id": "gl:response_headers",
+      "@type": "@id"
+    },
+    "response_status": {
+      "@id": "gl:response_status",
+      "@type": "xsd:string"
+    },
+    "reviewers": {
+      "@id": "gl:reviewers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "revision": {
+      "@id": "gl:revision",
+      "@type": "xsd:string"
+    },
+    "scope": {
+      "@id": "gl:scope",
+      "@type": "xsd:string"
+    },
+    "secret": {
+      "@id": "gl:secret",
+      "@type": "xsd:string"
+    },
+    "secret_token": {
+      "@id": "gl:secret_token",
+      "@type": "xsd:string"
+    },
+    "severity": {
+      "@id": "gl:severity",
+      "@type": "xsd:string"
+    },
+    "sha": {
+      "@id": "gl:sha",
+      "@type": "xsd:string"
+    },
+    "short_id": {
+      "@id": "gl:short_id",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "gl:source",
+      "@type": "xsd:string"
+    },
+    "source_branch": {
+      "@id": "gl:source_branch",
+      "@type": "xsd:string"
+    },
+    "source_full_path": {
+      "@id": "gl:source_full_path",
+      "@type": "xsd:string"
+    },
+    "source_project_id": {
+      "@id": "gl:source_project_id",
+      "@type": "xsd:integer"
+    },
+    "source_type": {
+      "@id": "gl:source_type",
+      "@type": "xsd:string"
+    },
+    "squash": {
+      "@id": "gl:squash",
+      "@type": "xsd:boolean"
+    },
+    "squash_commit_sha": {
+      "@id": "gl:squash_commit_sha",
+      "@type": "xsd:string"
+    },
+    "ssh_url_to_repo": {
+      "@id": "gl:ssh_url_to_repo",
+      "@type": "xsd:string"
+    },
+    "stage": {
+      "@id": "gl:stage",
+      "@type": "xsd:string"
+    },
+    "star_count": {
+      "@id": "gl:star_count",
+      "@type": "xsd:integer"
+    },
+    "started_at": {
+      "@id": "gl:started_at",
+      "@type": "xsd:dateTime"
+    },
+    "starts_at": {
+      "@id": "gl:starts_at",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "gl:state",
+      "@type": "xsd:string"
+    },
+    "statistics": {
+      "@id": "gl:statistics",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "gl:status",
+      "@type": "xsd:string"
+    },
+    "status_name": {
+      "@id": "gl:status_name",
+      "@type": "xsd:string"
+    },
+    "storage_size_limit": {
+      "@id": "gl:storage_size_limit",
+      "@type": "xsd:string"
+    },
+    "sub": {
+      "@id": "gl:sub",
+      "@type": "xsd:string"
+    },
+    "table_name": {
+      "@id": "gl:table_name",
+      "@type": "xsd:string"
+    },
+    "tag": {
+      "@id": "gl:tag",
+      "@type": "xsd:boolean"
+    },
+    "tag_push_events": {
+      "@id": "gl:tag_push_events",
+      "@type": "xsd:boolean"
+    },
+    "target_access_levels": {
+      "@id": "gl:target_access_levels",
+      "@type": "xsd:string"
+    },
+    "target_branch": {
+      "@id": "gl:target_branch",
+      "@type": "xsd:string"
+    },
+    "target_path": {
+      "@id": "gl:target_path",
+      "@type": "xsd:string"
+    },
+    "target_project_id": {
+      "@id": "gl:target_project_id",
+      "@type": "xsd:integer"
+    },
+    "task_completion_status": {
+      "@id": "gl:task_completion_status",
+      "@type": "xsd:string"
+    },
+    "terraform_module_max_file_size": {
+      "@id": "gl:terraform_module_max_file_size",
+      "@type": "xsd:string"
+    },
+    "time_stats": {
+      "@id": "gl:time_stats",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "gl:title",
+      "@type": "xsd:string"
+    },
+    "token": {
+      "@id": "gl:token",
+      "@type": "xsd:string"
+    },
+    "token_type": {
+      "@id": "gl:token_type",
+      "@type": "xsd:string"
+    },
+    "topics": {
+      "@id": "gl:topics",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "trailers": {
+      "@id": "gl:trailers",
+      "@type": "@id"
+    },
+    "trigger": {
+      "@id": "gl:trigger",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "gl:type",
+      "@type": "xsd:string"
+    },
+    "updated_at": {
+      "@id": "gl:updated_at",
+      "@type": "xsd:dateTime"
+    },
+    "upvotes": {
+      "@id": "gl:upvotes",
+      "@type": "xsd:integer"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "xsd:string"
+    },
+    "url_text": {
+      "@id": "gl:url_text",
+      "@type": "xsd:string"
+    },
+    "user": {
+      "@id": "gl:user",
+      "@type": "xsd:string"
+    },
+    "user_code": {
+      "@id": "gl:user_code",
+      "@type": "xsd:string"
+    },
+    "user_notes_count": {
+      "@id": "gl:user_notes_count",
+      "@type": "xsd:integer"
+    },
+    "username": {
+      "@id": "gl:username",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "gl:value",
+      "@type": "xsd:string"
+    },
+    "variable_type": {
+      "@id": "gl:variable_type",
+      "@type": "xsd:string"
+    },
+    "verification_uri": {
+      "@id": "gl:verification_uri",
+      "@type": "@id"
+    },
+    "verification_uri_complete": {
+      "@id": "gl:verification_uri_complete",
+      "@type": "@id"
+    },
+    "version": {
+      "@id": "gl:version",
+      "@type": "xsd:string"
+    },
+    "visibility": {
+      "@id": "gl:visibility",
+      "@type": "xsd:string"
+    },
+    "web_url": {
+      "@id": "gl:web_url",
+      "@type": "xsd:string"
+    },
+    "weight": {
+      "@id": "gl:weight",
+      "@type": "xsd:integer"
+    },
+    "wiki_access_level": {
+      "@id": "gl:wiki_access_level",
+      "@type": "xsd:string"
+    },
+    "wiki_page_events": {
+      "@id": "gl:wiki_page_events",
+      "@type": "xsd:boolean"
+    },
+    "yaml_errors": {
+      "@id": "gl:yaml_errors",
+      "@type": "xsd:string"
+    },
+    "zone": {
+      "@id": "gl:zone",
+      "@type": "xsd:string"
     }
   }
 }

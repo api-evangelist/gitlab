@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-openapi-original-api_entities_platform_kubernetes-structure.json",
+  "name": "API_Entities_Platform_Kubernetes",
+  "description": "API_Entities_Platform_Kubernetes from GitLab API",
+  "type": "object",
+  "properties": {
+    "api_url": {
+      "type": "string",
+      "example": "https://gitlab.com/example"
+    },
+    "namespace": {
+      "type": "string",
+      "example": "Example Project"
+    },
+    "authorization_type": {
+      "type": "string",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "ca_cert": {
+      "type": "string",
+      "example": "example_value"
+    }
+  }
+}

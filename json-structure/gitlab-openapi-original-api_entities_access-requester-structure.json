@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-openapi-original-api_entities_access-requester-structure.json",
+  "name": "API_Entities_AccessRequester",
+  "description": "API_Entities_AccessRequester model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "username": {
+      "type": "string",
+      "example": "admin"
+    },
+    "name": {
+      "type": "string",
+      "example": "Administrator"
+    },
+    "state": {
+      "type": "string",
+      "example": "active"
+    },
+    "avatar_url": {
+      "type": "string",
+      "example": "https://gravatar.com/avatar/1"
+    },
+    "avatar_path": {
+      "type": "string",
+      "example": "/user/avatar/28/The-Big-Lebowski-400-400.png"
+    },
+    "custom_attributes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/API_Entities_CustomAttribute"
+      }
+    },
+    "web_url": {
+      "type": "string",
+      "example": "https://gitlab.example.com/root"
+    },
+    "email": {
+      "type": "string",
+      "example": "user@example.com"
+    },
+    "requested_at": {
+      "type": "string",
+      "example": "2026-04-17T12:00:00Z"
+    }
+  }
+}

@@ -31,49 +31,51 @@ info:
     name: CC BY-SA 4.0
     url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
 servers:
-  - url: https://www.gitlab.com/api/
+- url: https://www.gitlab.com/api/
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
 tags:
-  - name: Admin
-  - name: Application
-  - name: Applications
-    description: Operations about applications
-  - name: Avatar
-  - name: Broadcast Messages
-    description: Operations about broadcast_messages
-  - name: Bulk Imports
-    description: Operations about bulk_imports
-  - name: Groups
-  - name: Metadata
-    description: Operations related to metadata of the GitLab instance
-  - name: Projects
-    description: Operations related to projects
-  - name: Version
+- name: Admin
+- name: Application
+- name: Applications
+  description: Operations about applications
+- name: Avatar
+- name: Broadcast Messages
+  description: Operations about broadcast_messages
+- name: Bulk Imports
+  description: Operations about bulk_imports
+- name: Groups
+- name: Metadata
+  description: Operations related to metadata of the GitLab instance
+- name: Projects
+  description: Operations related to projects
+- name: Version
 paths:
   /api/v4/groups/{id}/badges/{badge_id}:
     get:
       tags:
-        - Groups
-      summary: GitLab Gets a badge of a group.
+      - Groups
+      summary: GitLab Gets a Badge of a Group.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadgesBadgeId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: badge_id
-          in: path
-          description: The badge ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: badge_id
+        in: path
+        description: The badge ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Gets a badge of a group.
@@ -81,27 +83,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Groups
-      summary: GitLab Updates a badge of a group.
+      - Groups
+      summary: GitLab Updates a Badge of a Group.
       description: This feature was introduced in GitLab 10.6.
       operationId: putApiV4GroupsIdBadgesBadgeId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: badge_id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: badge_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -123,67 +130,79 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       tags:
-        - Groups
-      summary: GitLab Removes a badge from the group.
+      - Groups
+      summary: GitLab Removes a Badge from the Group.
       description: This feature was introduced in GitLab 10.6.
       operationId: deleteApiV4GroupsIdBadgesBadgeId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: badge_id
-          in: path
-          description: The badge ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: badge_id
+        in: path
+        description: The badge ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Removes a badge from the group.
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/groups/{id}/badges:
     get:
       tags:
-        - Groups
-      summary: GitLab Gets a list of group badges viewable by the authenticated user.
+      - Groups
+      summary: GitLab Gets a List of Group Badges Viewable by the Authenticated User.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadges
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
-        - name: name
-          in: query
-          description: Name for the badge
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
+      - name: name
+        in: query
+        description: Name for the badge
+        schema:
+          type: string
+        example: Example Project
       responses:
         '200':
           description: Gets a list of group badges viewable by the authenticated user.
@@ -193,28 +212,32 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Groups
-      summary: GitLab Adds a badge to a group.
+      - Groups
+      summary: GitLab Adds a Badge to a Group.
       description: This feature was introduced in GitLab 10.6.
       operationId: postApiV4GroupsIdBadges
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
       requestBody:
         content:
           application/json:
             schema:
               required:
-                - image_url
-                - link_url
+              - image_url
+              - link_url
               properties:
                 link_url:
                   type: string
@@ -233,34 +256,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/groups/{id}/badges/render:
     get:
       tags:
-        - Groups
-      summary: GitLab Preview a badge from a group.
+      - Groups
+      summary: GitLab Preview a Badge from a Group.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadgesRender
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: link_url
-          in: query
-          description: URL of the badge link
-          required: true
-          schema:
-            type: string
-        - name: image_url
-          in: query
-          description: URL of the badge image
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: link_url
+        in: query
+        description: URL of the badge link
+        required: true
+        schema:
+          type: string
+        example: https://gitlab.com/example
+      - name: image_url
+        in: query
+        description: URL of the badge image
+        required: true
+        schema:
+          type: string
+        example: https://gitlab.com/example
       responses:
         '200':
           description: Preview a badge from a group.
@@ -268,56 +297,66 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_BasicBadgeDetails'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/groups/{id}/access_requests/{user_id}:
     delete:
       tags:
-        - Groups
-      summary: GitLab Denies an access request for the given user.
+      - Groups
+      summary: GitLab Denies an Access Request for the Given User.
       description: This feature was introduced in GitLab 8.11.
       operationId: deleteApiV4GroupsIdAccessRequestsUserId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
-        - name: user_id
-          in: path
-          description: The user ID of the access requester
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: user_id
+        in: path
+        description: The user ID of the access requester
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Denies an access request for the given user.
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/groups/{id}/access_requests/{user_id}/approve:
     put:
       tags:
-        - Groups
-      summary: GitLab Approves an access request for the given user.
+      - Groups
+      summary: GitLab Approves an Access Request for the Given User.
       description: This feature was introduced in GitLab 8.11.
       operationId: putApiV4GroupsIdAccessRequestsUserIdApprove
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
-        - name: user_id
-          in: path
-          description: The user ID of the access requester
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: user_id
+        in: path
+        description: The user ID of the access requester
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -343,36 +382,42 @@ paths:
                 state: active
                 created_at: 2012-10-22T14:13:35Z
                 access_level: 20
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/groups/{id}/access_requests:
     get:
       tags:
-        - Groups
-      summary: GitLab Gets a list of access requests for a group.
+      - Groups
+      summary: GitLab Gets a List of Access Requests for a Group.
       description: This feature was introduced in GitLab 8.11.
       operationId: getApiV4GroupsIdAccessRequests
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
       responses:
         '200':
           description: Gets a list of access requests for a group.
@@ -380,21 +425,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_AccessRequester'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Groups
-      summary: GitLab Requests access for the authenticated user to a group.
+      - Groups
+      summary: GitLab Requests Access for the Authenticated User to a Group.
       description: This feature was introduced in GitLab 8.11.
       operationId: postApiV4GroupsIdAccessRequests
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
       responses:
         '200':
           description: successful operation
@@ -410,19 +459,23 @@ paths:
                 state: active
                 created_at: 2012-10-22T14:13:35Z
                 access_level: 20
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/repository/merged_branches:
     delete:
       tags:
-        - Projects
+      - Projects
       description: Delete all merged branches
       operationId: deleteApiV4ProjectsIdRepositoryMergedBranches
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
       responses:
         '202':
           description: 202 Accepted
@@ -430,25 +483,30 @@ paths:
         '404':
           description: 404 Project Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/repository/branches/{branch}:
     get:
       tags:
-        - Projects
+      - Projects
       description: Get a single repository branch
       operationId: getApiV4ProjectsIdRepositoryBranchesBranch
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: branch
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: branch
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Get a single repository branch
@@ -459,24 +517,29 @@ paths:
         '404':
           description: Branch Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       tags:
-        - Projects
+      - Projects
       description: Delete a branch
       operationId: deleteApiV4ProjectsIdRepositoryBranchesBranch
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: branch
-          in: path
-          description: The name of the branch
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: branch
+        in: path
+        description: The name of the branch
+        required: true
+        schema:
+          type: string
+        example: main
       responses:
         '204':
           description: Delete a branch
@@ -484,24 +547,27 @@ paths:
         '404':
           description: Branch Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     head:
       tags:
-        - Projects
+      - Projects
       description: Check if a branch exists
       operationId: headApiV4ProjectsIdRepositoryBranchesBranch
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: branch
-          in: path
-          description: The name of the branch
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+      - name: branch
+        in: path
+        description: The name of the branch
+        required: true
+        schema:
+          type: string
       responses:
         '204':
           description: No Content
@@ -512,54 +578,61 @@ paths:
   /api/v4/projects/{id}/repository/branches:
     get:
       tags:
-        - Projects
+      - Projects
       description: Get a project repository branches
       operationId: getApiV4ProjectsIdRepositoryBranches
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
-        - name: search
-          in: query
-          description: Return list of branches matching the search criteria
-          schema:
-            type: string
-        - name: regex
-          in: query
-          description: Return list of branches matching the regex
-          schema:
-            type: string
-        - name: sort
-          in: query
-          description: Return list of branches sorted by the given field
-          schema:
-            type: string
-            enum:
-              - name_asc
-              - updated_asc
-              - updated_desc
-        - name: page_token
-          in: query
-          description: Name of branch to start the pagination from
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
+      - name: search
+        in: query
+        description: Return list of branches matching the search criteria
+        schema:
+          type: string
+        example: example_value
+      - name: regex
+        in: query
+        description: Return list of branches matching the regex
+        schema:
+          type: string
+        example: example_value
+      - name: sort
+        in: query
+        description: Return list of branches sorted by the given field
+        schema:
+          type: string
+          enum:
+          - name_asc
+          - updated_asc
+          - updated_desc
+        example: name_asc
+      - name: page_token
+        in: query
+        description: Name of branch to start the pagination from
+        schema:
+          type: string
+        example: glpat-example-token
       responses:
         '200':
           description: Get a project repository branches
@@ -572,30 +645,36 @@ paths:
         '404':
           description: 404 Project Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Projects
+      - Projects
       description: Create branch
       operationId: postApiV4ProjectsIdRepositoryBranches
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: branch
-          in: query
-          description: The name of the branch
-          required: true
-          schema:
-            type: string
-        - name: ref
-          in: query
-          description: Create branch from commit sha or existing branch
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: branch
+        in: query
+        description: The name of the branch
+        required: true
+        schema:
+          type: string
+        example: main
+      - name: ref
+        in: query
+        description: Create branch from commit sha or existing branch
+        required: true
+        schema:
+          type: string
+        example: main
       responses:
         '201':
           description: Create branch
@@ -606,25 +685,30 @@ paths:
         '400':
           description: Failed to create branch
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/repository/branches/{branch}/unprotect:
     put:
       tags:
-        - Projects
+      - Projects
       description: Unprotect a single branch
       operationId: putApiV4ProjectsIdRepositoryBranchesBranchUnprotect
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: branch
-          in: path
-          description: The name of the branch
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: branch
+        in: path
+        description: The name of the branch
+        required: true
+        schema:
+          type: string
+        example: main
       responses:
         '200':
           description: Unprotect a single branch
@@ -635,25 +719,30 @@ paths:
         '404':
           description: 404 Project Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/repository/branches/{branch}/protect:
     put:
       tags:
-        - Projects
+      - Projects
       description: Protect a single branch
       operationId: putApiV4ProjectsIdRepositoryBranchesBranchProtect
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: branch
-          in: path
-          description: The name of the branch
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: branch
+        in: path
+        description: The name of the branch
+        required: true
+        schema:
+          type: string
+        example: main
       requestBody:
         content:
           application/json:
@@ -675,29 +764,34 @@ paths:
         '404':
           description: 404 Branch Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/badges/{badge_id}:
     get:
       tags:
-        - Projects
-      summary: GitLab Gets a badge of a project.
+      - Projects
+      summary: GitLab Gets a Badge of a Project.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4ProjectsIdBadgesBadgeId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the project owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: badge_id
-          in: path
-          description: The badge ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the project owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: badge_id
+        in: path
+        description: The badge ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Gets a badge of a project.
@@ -705,27 +799,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Projects
-      summary: GitLab Updates a badge of a project.
+      - Projects
+      summary: GitLab Updates a Badge of a Project.
       description: This feature was introduced in GitLab 10.6.
       operationId: putApiV4ProjectsIdBadgesBadgeId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the project owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: badge_id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the project owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: badge_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -747,67 +846,79 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       tags:
-        - Projects
-      summary: GitLab Removes a badge from the project.
+      - Projects
+      summary: GitLab Removes a Badge from the Project.
       description: This feature was introduced in GitLab 10.6.
       operationId: deleteApiV4ProjectsIdBadgesBadgeId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the project owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: badge_id
-          in: path
-          description: The badge ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the project owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: badge_id
+        in: path
+        description: The badge ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Removes a badge from the project.
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/badges:
     get:
       tags:
-        - Projects
-      summary: GitLab Gets a list of project badges viewable by the authenticated user.
+      - Projects
+      summary: GitLab Gets a List of Project Badges Viewable by the Authenticated User.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4ProjectsIdBadges
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the project owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
-        - name: name
-          in: query
-          description: Name for the badge
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the project owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
+      - name: name
+        in: query
+        description: Name for the badge
+        schema:
+          type: string
+        example: Example Project
       responses:
         '200':
           description: Gets a list of project badges viewable by the authenticated user.
@@ -817,28 +928,32 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Projects
-      summary: GitLab Adds a badge to a project.
+      - Projects
+      summary: GitLab Adds a Badge to a Project.
       description: This feature was introduced in GitLab 10.6.
       operationId: postApiV4ProjectsIdBadges
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the project owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the project owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
       requestBody:
         content:
           application/json:
             schema:
               required:
-                - image_url
-                - link_url
+              - image_url
+              - link_url
               properties:
                 link_url:
                   type: string
@@ -857,34 +972,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/badges/render:
     get:
       tags:
-        - Projects
-      summary: GitLab Preview a badge from a project.
+      - Projects
+      summary: GitLab Preview a Badge from a Project.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4ProjectsIdBadgesRender
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the project owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: link_url
-          in: query
-          description: URL of the badge link
-          required: true
-          schema:
-            type: string
-        - name: image_url
-          in: query
-          description: URL of the badge image
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the project owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: link_url
+        in: query
+        description: URL of the badge link
+        required: true
+        schema:
+          type: string
+        example: https://gitlab.com/example
+      - name: image_url
+        in: query
+        description: URL of the badge image
+        required: true
+        schema:
+          type: string
+        example: https://gitlab.com/example
       responses:
         '200':
           description: Preview a badge from a project.
@@ -892,56 +1013,66 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_BasicBadgeDetails'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/access_requests/{user_id}:
     delete:
       tags:
-        - Projects
-      summary: GitLab Denies an access request for the given user.
+      - Projects
+      summary: GitLab Denies an Access Request for the Given User.
       description: This feature was introduced in GitLab 8.11.
       operationId: deleteApiV4ProjectsIdAccessRequestsUserId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the project owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
-        - name: user_id
-          in: path
-          description: The user ID of the access requester
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the project owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: user_id
+        in: path
+        description: The user ID of the access requester
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Denies an access request for the given user.
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/access_requests/{user_id}/approve:
     put:
       tags:
-        - Projects
-      summary: GitLab Approves an access request for the given user.
+      - Projects
+      summary: GitLab Approves an Access Request for the Given User.
       description: This feature was introduced in GitLab 8.11.
       operationId: putApiV4ProjectsIdAccessRequestsUserIdApprove
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the project owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
-        - name: user_id
-          in: path
-          description: The user ID of the access requester
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the project owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: user_id
+        in: path
+        description: The user ID of the access requester
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -967,36 +1098,42 @@ paths:
                 state: active
                 created_at: 2012-10-22T14:13:35Z
                 access_level: 20
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/access_requests:
     get:
       tags:
-        - Projects
-      summary: GitLab Gets a list of access requests for a project.
+      - Projects
+      summary: GitLab Gets a List of Access Requests for a Project.
       description: This feature was introduced in GitLab 8.11.
       operationId: getApiV4ProjectsIdAccessRequests
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the project owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the project owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
       responses:
         '200':
           description: Gets a list of access requests for a project.
@@ -1004,21 +1141,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_AccessRequester'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Projects
-      summary: GitLab Requests access for the authenticated user to a project.
+      - Projects
+      summary: GitLab Requests Access for the Authenticated User to a Project.
       description: This feature was introduced in GitLab 8.11.
       operationId: postApiV4ProjectsIdAccessRequests
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the project owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the project owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
       responses:
         '200':
           description: successful operation
@@ -1034,33 +1175,39 @@ paths:
                 state: active
                 created_at: 2012-10-22T14:13:35Z
                 access_level: 20
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images/{metric_image_id}:
     put:
       tags:
-        - Projects
+      - Projects
       description: Update a metric image for an alert
       operationId: putApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: alert_iid
-          in: path
-          description: The IID of the Alert
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: metric_image_id
-          in: path
-          description: The ID of metric image
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: alert_iid
+        in: path
+        description: The IID of the Alert
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
+      - name: metric_image_id
+        in: path
+        description: The ID of metric image
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           multipart/form-data:
@@ -1085,33 +1232,39 @@ paths:
         '422':
           description: Unprocessable entity
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       tags:
-        - Projects
+      - Projects
       description: Remove a metric image for an alert
       operationId: >-
         deleteApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: alert_iid
-          in: path
-          description: The IID of the Alert
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: metric_image_id
-          in: path
-          description: The ID of metric image
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: alert_iid
+        in: path
+        description: The IID of the Alert
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
+      - name: metric_image_id
+        in: path
+        description: The ID of metric image
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Remove a metric image for an alert
@@ -1125,26 +1278,31 @@ paths:
         '422':
           description: Unprocessable entity
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images:
     get:
       tags:
-        - Projects
+      - Projects
       description: Metric Images for alert
       operationId: getApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImages
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: alert_iid
-          in: path
-          description: The IID of the Alert
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: alert_iid
+        in: path
+        description: The IID of the Alert
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Metric Images for alert
@@ -1157,31 +1315,36 @@ paths:
         '404':
           description: Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Projects
+      - Projects
       description: Upload a metric image for an alert
       operationId: postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImages
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: alert_iid
-          in: path
-          description: The IID of the Alert
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: alert_iid
+        in: path
+        description: The IID of the Alert
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           multipart/form-data:
             schema:
               required:
-                - file
+              - file
               properties:
                 file:
                   type: string
@@ -1204,26 +1367,31 @@ paths:
         '403':
           description: Forbidden
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images/authorize:
     post:
       tags:
-        - Projects
+      - Projects
       description: Workhorse authorize metric image file upload
       operationId: postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesAuthorize
       parameters:
-        - name: id
-          in: path
-          description: The ID or URL-encoded path of the project
-          required: true
-          schema:
-            type: string
-        - name: alert_iid
-          in: path
-          description: The IID of the Alert
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The ID or URL-encoded path of the project
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: alert_iid
+        in: path
+        description: The IID of the Alert
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Workhorse authorize metric image file upload
@@ -1231,32 +1399,37 @@ paths:
         '403':
           description: Forbidden
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/batched_background_migrations/{id}:
     get:
       tags:
-        - Admin
+      - Admin
       description: Retrieve a batched background migration
       operationId: getApiV4AdminBatchedBackgroundMigrationsId
       parameters:
-        - name: database
-          in: query
-          description: The name of the database
-          schema:
-            type: string
-            default: main
-            enum:
-              - main
-              - ci
-              - embedding
-              - main_clusterwide
-              - geo
-        - name: id
-          in: path
-          description: The batched background migration id
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: database
+        in: query
+        description: The name of the database
+        schema:
+          type: string
+          default: main
+          enum:
+          - main
+          - ci
+          - embedding
+          - main_clusterwide
+          - geo
+        example: main
+      - name: id
+        in: path
+        description: The batched background migration id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Retrieve a batched background migration
@@ -1273,25 +1446,29 @@ paths:
         '404':
           description: 404 Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/batched_background_migrations:
     get:
       tags:
-        - Admin
+      - Admin
       description: Get the list of batched background migrations
       operationId: getApiV4AdminBatchedBackgroundMigrations
       parameters:
-        - name: database
-          in: query
-          description: The name of the database, the default `main`
-          schema:
-            type: string
-            default: main
-            enum:
-              - main
-              - ci
-              - embedding
-              - main_clusterwide
-              - geo
+      - name: database
+        in: query
+        description: The name of the database, the default `main`
+        schema:
+          type: string
+          default: main
+          enum:
+          - main
+          - ci
+          - embedding
+          - main_clusterwide
+          - geo
+        example: main
       responses:
         '200':
           description: Get the list of batched background migrations
@@ -1307,20 +1484,24 @@ paths:
         '403':
           description: 403 Forbidden
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/batched_background_migrations/{id}/resume:
     put:
       tags:
-        - Admin
+      - Admin
       description: Resume a batched background migration
       operationId: putApiV4AdminBatchedBackgroundMigrationsIdResume
       parameters:
-        - name: id
-          in: path
-          description: The batched background migration id
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The batched background migration id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -1331,11 +1512,11 @@ paths:
                   description: The name of the database
                   default: main
                   enum:
-                    - main
-                    - ci
-                    - embedding
-                    - main_clusterwide
-                    - geo
+                  - main
+                  - ci
+                  - embedding
+                  - main_clusterwide
+                  - geo
       responses:
         '200':
           description: Resume a batched background migration
@@ -1355,20 +1536,24 @@ paths:
         '422':
           description: You can resume only `paused` batched background migrations.
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/batched_background_migrations/{id}/pause:
     put:
       tags:
-        - Admin
+      - Admin
       description: Pause a batched background migration
       operationId: putApiV4AdminBatchedBackgroundMigrationsIdPause
       parameters:
-        - name: id
-          in: path
-          description: The batched background migration id
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The batched background migration id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -1379,11 +1564,11 @@ paths:
                   description: The name of the database
                   default: main
                   enum:
-                    - main
-                    - ci
-                    - embedding
-                    - main_clusterwide
-                    - geo
+                  - main
+                  - ci
+                  - embedding
+                  - main_clusterwide
+                  - geo
       responses:
         '200':
           description: Pause a batched background migration
@@ -1403,19 +1588,23 @@ paths:
         '422':
           description: You can pause only `active` batched background migrations.
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/ci/variables/{key}:
     get:
       tags:
-        - Admin
+      - Admin
       description: Get the details of a specific instance-level variable
       operationId: getApiV4AdminCiVariablesKey
       parameters:
-        - name: key
-          in: path
-          description: The key of a variable
-          required: true
-          schema:
-            type: string
+      - name: key
+        in: path
+        description: The key of a variable
+        required: true
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Get the details of a specific instance-level variable
@@ -1426,18 +1615,22 @@ paths:
         '404':
           description: Instance Variable Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Admin
+      - Admin
       description: Update an instance-level variable
       operationId: putApiV4AdminCiVariablesKey
       parameters:
-        - name: key
-          in: path
-          description: The key of a variable
-          required: true
-          schema:
-            type: string
+      - name: key
+        in: path
+        description: The key of a variable
+        required: true
+        schema:
+          type: string
+        example: example_value
       requestBody:
         content:
           application/json:
@@ -1461,8 +1654,8 @@ paths:
                     The type of a variable. Available types are: env_var
                     (default) and file
                   enum:
-                    - env_var
-                    - file
+                  - env_var
+                  - file
       responses:
         '200':
           description: Update an instance-level variable
@@ -1473,18 +1666,22 @@ paths:
         '404':
           description: Instance Variable Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       tags:
-        - Admin
+      - Admin
       description: Delete an existing instance-level variable
       operationId: deleteApiV4AdminCiVariablesKey
       parameters:
-        - name: key
-          in: path
-          description: The key of a variable
-          required: true
-          schema:
-            type: string
+      - name: key
+        in: path
+        description: The key of a variable
+        required: true
+        schema:
+          type: string
+        example: example_value
       responses:
         '204':
           description: Delete an existing instance-level variable
@@ -1495,27 +1692,32 @@ paths:
         '404':
           description: Instance Variable Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/ci/variables:
     get:
       tags:
-        - Admin
+      - Admin
       description: List all instance-level variables
       operationId: getApiV4AdminCiVariables
       parameters:
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
       responses:
         '200':
           description: List all instance-level variables
@@ -1523,9 +1725,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Ci_Variable'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Admin
+      - Admin
       description: Create a new instance-level variable
       operationId: postApiV4AdminCiVariables
       requestBody:
@@ -1533,8 +1738,8 @@ paths:
           application/json:
             schema:
               required:
-                - key
-                - value
+              - key
+              - value
               properties:
                 key:
                   type: string
@@ -1557,8 +1762,8 @@ paths:
                     The type of a variable. Available types are: env_var
                     (default) and file
                   enum:
-                    - env_var
-                    - file
+                  - env_var
+                  - file
         required: true
       responses:
         '201':
@@ -1570,28 +1775,33 @@ paths:
         '400':
           description: 400 Bad Request
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/databases/{database_name}/dictionary/tables/{table_name}:
     get:
       tags:
-        - Admin
+      - Admin
       description: Retrieve dictionary details
       operationId: getApiV4AdminDatabasesDatabaseNameDictionaryTablesTableName
       parameters:
-        - name: database_name
-          in: path
-          description: The database name
-          required: true
-          schema:
-            type: string
-            enum:
-              - main
-              - ci
-        - name: table_name
-          in: path
-          description: The table name
-          required: true
-          schema:
-            type: string
+      - name: database_name
+        in: path
+        description: The database name
+        required: true
+        schema:
+          type: string
+          enum:
+          - main
+          - ci
+        example: main
+      - name: table_name
+        in: path
+        description: The table name
+        required: true
+        schema:
+          type: string
+        example: Example Project
       responses:
         '200':
           description: Retrieve dictionary details
@@ -1608,23 +1818,27 @@ paths:
         '404':
           description: 404 Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/clusters/{cluster_id}:
     get:
       tags:
-        - Admin
-      summary: GitLab Get a single instance cluster
+      - Admin
+      summary: GitLab Get a Single Instance Cluster
       description: >-
         This feature was introduced in GitLab 13.2. Returns a single instance
         cluster.
       operationId: getApiV4AdminClustersClusterId
       parameters:
-        - name: cluster_id
-          in: path
-          description: The cluster ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: cluster_id
+        in: path
+        description: The cluster ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Get a single instance cluster
@@ -1638,22 +1852,26 @@ paths:
         '404':
           description: Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Admin
-      summary: GitLab Edit instance cluster
+      - Admin
+      summary: GitLab Edit Instance Cluster
       description: >-
         This feature was introduced in GitLab 13.2. Updates an existing instance
         cluster.
       operationId: putApiV4AdminClustersClusterId
       parameters:
-        - name: cluster_id
-          in: path
-          description: The cluster ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: cluster_id
+        in: path
+        description: The cluster ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -1716,23 +1934,27 @@ paths:
         '404':
           description: Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       tags:
-        - Admin
-      summary: GitLab Delete instance cluster
+      - Admin
+      summary: GitLab Delete Instance Cluster
       description: >-
         This feature was introduced in GitLab 13.2. Deletes an existing instance
         cluster. Does not remove existing resources within the connected
         Kubernetes cluster.
       operationId: deleteApiV4AdminClustersClusterId
       parameters:
-        - name: cluster_id
-          in: path
-          description: The cluster ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: cluster_id
+        in: path
+        description: The cluster ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Delete instance cluster
@@ -1746,11 +1968,14 @@ paths:
         '404':
           description: Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/clusters/add:
     post:
       tags:
-        - Admin
-      summary: GitLab Add existing instance cluster
+      - Admin
+      summary: GitLab Add Existing Instance Cluster
       description: >-
         This feature was introduced in GitLab 13.2. Adds an existing Kubernetes
         instance cluster.
@@ -1760,9 +1985,9 @@ paths:
           application/json:
             schema:
               required:
-                - name
-                - platform_kubernetes_attributes[api_url]
-                - platform_kubernetes_attributes[token]
+              - name
+              - platform_kubernetes_attributes[api_url]
+              - platform_kubernetes_attributes[token]
               properties:
                 name:
                   type: string
@@ -1811,9 +2036,9 @@ paths:
                   description: Cluster authorization type, defaults to RBAC
                   default: rbac
                   enum:
-                    - unknown_authorization
-                    - rbac
-                    - abac
+                  - unknown_authorization
+                  - rbac
+                  - abac
         required: true
       responses:
         '201':
@@ -1831,11 +2056,14 @@ paths:
         '404':
           description: Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/clusters:
     get:
       tags:
-        - Admin
-      summary: GitLab List instance clusters
+      - Admin
+      summary: GitLab List Instance Clusters
       description: >-
         This feature was introduced in GitLab 13.2. Returns a list of instance
         clusters.
@@ -1852,20 +2080,24 @@ paths:
         '403':
           description: Forbidden
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/migrations/{timestamp}/mark:
     post:
       tags:
-        - Admin
+      - Admin
       description: Mark the migration as successfully executed
       operationId: postApiV4AdminMigrationsTimestampMark
       parameters:
-        - name: timestamp
-          in: path
-          description: The migration version timestamp
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: timestamp
+        in: path
+        description: The migration version timestamp
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -1876,11 +2108,11 @@ paths:
                   description: The name of the database
                   default: main
                   enum:
-                    - main
-                    - ci
-                    - embedding
-                    - main_clusterwide
-                    - geo
+                  - main
+                  - ci
+                  - embedding
+                  - main_clusterwide
+                  - geo
       responses:
         '201':
           description: 201 Created
@@ -1897,30 +2129,37 @@ paths:
         '422':
           description: You can mark only pending migrations
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/applications/{id}:
     delete:
       tags:
-        - Applications
-      summary: GitLab Delete an application
+      - Applications
+      summary: GitLab Delete an Application
       description: Delete a specific application
       operationId: deleteApiV4ApplicationsId
       parameters:
-        - name: id
-          in: path
-          description: The ID of the application (not the application_id)
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The ID of the application (not the application_id)
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Delete an application
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/applications:
     get:
       tags:
-        - Applications
-      summary: GitLab Get applications
+      - Applications
+      summary: GitLab Get Applications
       description: List all registered applications
       operationId: getApiV4Applications
       responses:
@@ -1932,10 +2171,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/API_Entities_Application'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Applications
-      summary: GitLab Create a new application
+      - Applications
+      summary: GitLab Create a New Application
       description: This feature was introduced in GitLab 10.5
       operationId: postApiV4Applications
       requestBody:
@@ -1943,9 +2185,9 @@ paths:
           application/json:
             schema:
               required:
-                - name
-                - redirect_uri
-                - scopes
+              - name
+              - redirect_uri
+              - scopes
               properties:
                 name:
                   type: string
@@ -1974,25 +2216,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_ApplicationWithSecret'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/avatar:
     get:
       tags:
-        - Avatar
+      - Avatar
       description: Return avatar url for a user
       operationId: getApiV4Avatar
       parameters:
-        - name: email
-          in: query
-          description: Public email address of the user
-          required: true
-          schema:
-            type: string
-        - name: size
-          in: query
-          description: Single pixel dimension for Gravatar images
-          schema:
-            type: integer
-            format: int32
+      - name: email
+        in: query
+        description: Public email address of the user
+        required: true
+        schema:
+          type: string
+        example: user@example.com
+      - name: size
+        in: query
+        description: Single pixel dimension for Gravatar images
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Return avatar url for a user
@@ -2000,21 +2247,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Avatar'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/broadcast_messages/{id}:
     get:
       tags:
-        - Broadcast Messages
-      summary: GitLab Get a specific broadcast message
+      - Broadcast Messages
+      summary: GitLab Get a Specific Broadcast Message
       description: This feature was introduced in GitLab 8.12.
       operationId: getApiV4BroadcastMessagesId
       parameters:
-        - name: id
-          in: path
-          description: Broadcast message ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: Broadcast message ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Get a specific broadcast message
@@ -2022,20 +2273,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Broadcast Messages
-      summary: GitLab Update a broadcast message
+      - Broadcast Messages
+      summary: GitLab Update a Broadcast Message
       description: This feature was introduced in GitLab 8.12.
       operationId: putApiV4BroadcastMessagesId
       parameters:
-        - name: id
-          in: path
-          description: Broadcast message ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: Broadcast message ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -2065,11 +2320,11 @@ paths:
                     type: integer
                     format: int32
                     enum:
-                      - 10
-                      - 20
-                      - 30
-                      - 40
-                      - 50
+                    - 10
+                    - 20
+                    - 30
+                    - 40
+                    - 50
                 target_path:
                   type: string
                   description: Target path
@@ -2077,8 +2332,8 @@ paths:
                   type: string
                   description: Broadcast Type
                   enum:
-                    - banner
-                    - notification
+                  - banner
+                  - notification
                 dismissable:
                   type: boolean
                   description: Is dismissable
@@ -2089,20 +2344,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       tags:
-        - Broadcast Messages
-      summary: GitLab Delete a broadcast message
+      - Broadcast Messages
+      summary: GitLab Delete a Broadcast Message
       description: This feature was introduced in GitLab 8.12.
       operationId: deleteApiV4BroadcastMessagesId
       parameters:
-        - name: id
-          in: path
-          description: Broadcast message ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: Broadcast message ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Delete a broadcast message
@@ -2110,28 +2369,33 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/broadcast_messages:
     get:
       tags:
-        - Broadcast Messages
-      summary: GitLab Get all broadcast messages
+      - Broadcast Messages
+      summary: GitLab Get All Broadcast Messages
       description: This feature was introduced in GitLab 8.12.
       operationId: getApiV4BroadcastMessages
       parameters:
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
       responses:
         '200':
           description: Get all broadcast messages
@@ -2139,10 +2403,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Broadcast Messages
-      summary: GitLab Create a broadcast message
+      - Broadcast Messages
+      summary: GitLab Create a Broadcast Message
       description: This feature was introduced in GitLab 8.12.
       operationId: postApiV4BroadcastMessages
       requestBody:
@@ -2150,7 +2417,7 @@ paths:
           application/json:
             schema:
               required:
-                - message
+              - message
               properties:
                 message:
                   type: string
@@ -2176,11 +2443,11 @@ paths:
                     type: integer
                     format: int32
                     enum:
-                      - 10
-                      - 20
-                      - 30
-                      - 40
-                      - 50
+                    - 10
+                    - 20
+                    - 30
+                    - 40
+                    - 50
                 target_path:
                   type: string
                   description: Target path
@@ -2188,8 +2455,8 @@ paths:
                   type: string
                   description: Broadcast type. Defaults to banner
                   enum:
-                    - banner
-                    - notification
+                  - banner
+                  - notification
                 dismissable:
                   type: boolean
                   description: Is dismissable
@@ -2201,28 +2468,33 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_BroadcastMessage'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/bulk_imports/{import_id}/entities/{entity_id}:
     get:
       tags:
-        - Bulk Imports
-      summary: Get GitLab Migration entity details
+      - Bulk Imports
+      summary: GitLab Get GitLab Migration Entity Details
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportIdEntitiesEntityId
       parameters:
-        - name: import_id
-          in: path
-          description: The ID of user's GitLab Migration
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: entity_id
-          in: path
-          description: The ID of GitLab Migration entity
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: import_id
+        in: path
+        description: The ID of user's GitLab Migration
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
+      - name: entity_id
+        in: path
+        description: The ID of GitLab Migration entity
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Get GitLab Migration entity details
@@ -2239,46 +2511,53 @@ paths:
         '503':
           description: Service unavailable
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/bulk_imports/{import_id}/entities:
     get:
       tags:
-        - Bulk Imports
-      summary: List GitLab Migration entities
+      - Bulk Imports
+      summary: GitLab List GitLab Migration Entities
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportIdEntities
       parameters:
-        - name: import_id
-          in: path
-          description: The ID of user's GitLab Migration
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: status
-          in: query
-          description: Return import entities with specified status
-          schema:
-            type: string
-            enum:
-              - created
-              - started
-              - finished
-              - timeout
-              - failed
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
+      - name: import_id
+        in: path
+        description: The ID of user's GitLab Migration
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
+      - name: status
+        in: query
+        description: Return import entities with specified status
+        schema:
+          type: string
+          enum:
+          - created
+          - started
+          - finished
+          - timeout
+          - failed
+        example: created
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
       responses:
         '200':
           description: List GitLab Migration entities
@@ -2297,21 +2576,25 @@ paths:
         '503':
           description: Service unavailable
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/bulk_imports/{import_id}:
     get:
       tags:
-        - Bulk Imports
-      summary: Get GitLab Migration details
+      - Bulk Imports
+      summary: GitLab Get GitLab Migration Details
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsImportId
       parameters:
-        - name: import_id
-          in: path
-          description: The ID of user's GitLab Migration
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: import_id
+        in: path
+        description: The ID of user's GitLab Migration
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Get GitLab Migration details
@@ -2328,48 +2611,55 @@ paths:
         '503':
           description: Service unavailable
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/bulk_imports/entities:
     get:
       tags:
-        - Bulk Imports
-      summary: List all GitLab Migrations' entities
+      - Bulk Imports
+      summary: GitLab List All GitLab Migrations' Entities
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImportsEntities
       parameters:
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
-        - name: sort
-          in: query
-          description: Return GitLab Migrations sorted in created by `asc` or `desc` order.
-          schema:
-            type: string
-            default: desc
-            enum:
-              - asc
-              - desc
-        - name: status
-          in: query
-          description: Return all GitLab Migrations' entities with specified status
-          schema:
-            type: string
-            enum:
-              - created
-              - started
-              - finished
-              - timeout
-              - failed
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
+      - name: sort
+        in: query
+        description: Return GitLab Migrations sorted in created by `asc` or `desc` order.
+        schema:
+          type: string
+          default: desc
+          enum:
+          - asc
+          - desc
+        example: asc
+      - name: status
+        in: query
+        description: Return all GitLab Migrations' entities with specified status
+        schema:
+          type: string
+          enum:
+          - created
+          - started
+          - finished
+          - timeout
+          - failed
+        example: created
       responses:
         '200':
           description: List all GitLab Migrations' entities
@@ -2388,48 +2678,55 @@ paths:
         '503':
           description: Service unavailable
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/bulk_imports:
     get:
       tags:
-        - Bulk Imports
-      summary: List all GitLab Migrations
+      - Bulk Imports
+      summary: GitLab List All GitLab Migrations
       description: This feature was introduced in GitLab 14.1.
       operationId: getApiV4BulkImports
       parameters:
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
-        - name: sort
-          in: query
-          description: Return GitLab Migrations sorted in created by `asc` or `desc` order.
-          schema:
-            type: string
-            default: desc
-            enum:
-              - asc
-              - desc
-        - name: status
-          in: query
-          description: Return GitLab Migrations with specified status
-          schema:
-            type: string
-            enum:
-              - created
-              - started
-              - finished
-              - timeout
-              - failed
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
+      - name: sort
+        in: query
+        description: Return GitLab Migrations sorted in created by `asc` or `desc` order.
+        schema:
+          type: string
+          default: desc
+          enum:
+          - asc
+          - desc
+        example: asc
+      - name: status
+        in: query
+        description: Return GitLab Migrations with specified status
+        schema:
+          type: string
+          enum:
+          - created
+          - started
+          - finished
+          - timeout
+          - failed
+        example: created
       responses:
         '200':
           description: List all GitLab Migrations
@@ -2448,10 +2745,13 @@ paths:
         '503':
           description: Service unavailable
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Bulk Imports
-      summary: Start a new GitLab Migration
+      - Bulk Imports
+      summary: GitLab Start a New GitLab Migration
       description: This feature was introduced in GitLab 14.2.
       operationId: postApiV4BulkImports
       requestBody:
@@ -2459,11 +2759,11 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               required:
-                - configuration[access_token]
-                - configuration[url]
-                - entities[destination_namespace]
-                - entities[source_full_path]
-                - entities[source_type]
+              - configuration[access_token]
+              - configuration[url]
+              - entities[destination_namespace]
+              - entities[source_full_path]
+              - entities[source_type]
               properties:
                 configuration[url]:
                   type: string
@@ -2477,8 +2777,8 @@ paths:
                   items:
                     type: string
                     enum:
-                      - group_entity
-                      - project_entity
+                    - group_entity
+                    - project_entity
                 entities[source_full_path]:
                   type: array
                   description: Relative path of the source entity to import
@@ -2529,10 +2829,13 @@ paths:
         '503':
           description: Service unavailable
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/application/appearance:
     get:
       tags:
-        - Application
+      - Application
       description: Get the current appearance
       operationId: getApiV4ApplicationAppearance
       responses:
@@ -2542,9 +2845,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Appearance'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Application
+      - Application
       description: Modify appearance
       operationId: putApiV4ApplicationAppearance
       requestBody:
@@ -2611,31 +2917,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Appearance'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/application/plan_limits:
     get:
       tags:
-        - Application
-      summary: GitLab Get current plan limits
+      - Application
+      summary: GitLab Get Current Plan Limits
       description: List the current limits of a plan on the GitLab instance.
       operationId: getApiV4ApplicationPlanLimits
       parameters:
-        - name: plan_name
-          in: query
-          description: 'Name of the plan to get the limits from. Default: default.'
-          schema:
-            type: string
-            default: default
-            enum:
-              - default
-              - free
-              - bronze
-              - silver
-              - premium
-              - gold
-              - ultimate
-              - ultimate_trial
-              - premium_trial
-              - opensource
+      - name: plan_name
+        in: query
+        description: 'Name of the plan to get the limits from. Default: default.'
+        schema:
+          type: string
+          default: default
+          enum:
+          - default
+          - free
+          - bronze
+          - silver
+          - premium
+          - gold
+          - ultimate
+          - ultimate_trial
+          - premium_trial
+          - opensource
+        example: default
       responses:
         '200':
           description: Get current plan limits
@@ -2649,10 +2959,13 @@ paths:
         '403':
           description: Forbidden
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Application
-      summary: GitLab Change plan limits
+      - Application
+      summary: GitLab Change Plan Limits
       description: Modify the limits of a plan on the GitLab instance.
       operationId: putApiV4ApplicationPlanLimits
       requestBody:
@@ -2660,22 +2973,22 @@ paths:
           application/json:
             schema:
               required:
-                - plan_name
+              - plan_name
               properties:
                 plan_name:
                   type: string
                   description: Name of the plan to update
                   enum:
-                    - default
-                    - free
-                    - bronze
-                    - silver
-                    - premium
-                    - gold
-                    - ultimate
-                    - ultimate_trial
-                    - premium_trial
-                    - opensource
+                  - default
+                  - free
+                  - bronze
+                  - silver
+                  - premium
+                  - gold
+                  - ultimate
+                  - ultimate_trial
+                  - premium_trial
+                  - opensource
                 ci_pipeline_size:
                   type: integer
                   description: Maximum number of jobs in a single pipeline
@@ -2777,11 +3090,14 @@ paths:
         '403':
           description: Forbidden
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/metadata:
     get:
       tags:
-        - Metadata
-      summary: Retrieve metadata information for this GitLab instance
+      - Metadata
+      summary: GitLab Retrieve Metadata Information for This GitLab Instance
       description: This feature was introduced in GitLab 15.2.
       operationId: getApiV4Metadata
       responses:
@@ -2794,11 +3110,14 @@ paths:
         '401':
           description: Unauthorized
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/version:
     get:
       tags:
-        - Version
-      summary: Retrieves version information for the GitLab instance
+      - Version
+      summary: GitLab Retrieves Version Information for the GitLab Instance
       description: >-
         This feature was introduced in GitLab 8.13 and deprecated in 15.5. We
         recommend you instead use the Metadata API.
@@ -2813,27 +3132,31 @@ paths:
         '401':
           description: Unauthorized
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/jobs:
     get:
       tags:
-        - Projects
-      summary: GitLab List jobs for a project
+      - Projects
+      summary: GitLab List Jobs for a Project
       operationId: listProjectJobs
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: The ID of the project
-          schema:
-            type: integer
-        - name: scope
-          in: query
-          required: false
-          description: Return all jobs with the specified statuses
-          schema:
-            type: array
-            items:
-              type: string
+      - name: id
+        in: path
+        required: true
+        description: The ID of the project
+        schema:
+          type: integer
+        example: 42
+      - name: scope
+        in: query
+        required: false
+        description: Return all jobs with the specified statuses
+        schema:
+          type: array
+          items:
+            type: string
       responses:
         '200':
           description: An array of jobs
@@ -2843,25 +3166,30 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/API_Entities_Job'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/jobs/{job_id}:
     get:
       tags:
-        - Projects
-      summary: GitLab Get a single job by ID
+      - Projects
+      summary: GitLab Get a Single Job by ID
       operationId: getSingleJob
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: The ID of the project
-          schema:
-            type: integer
-        - name: job_id
-          in: path
-          required: true
-          description: The ID of the job
-          schema:
-            type: integer
+      - name: id
+        in: path
+        required: true
+        description: The ID of the project
+        schema:
+          type: integer
+        example: 42
+      - name: job_id
+        in: path
+        required: true
+        description: The ID of the job
+        schema:
+          type: integer
+        example: 42
       responses:
         '200':
           description: A single job object
@@ -2869,36 +3197,44 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Job'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/projects/{id}/jobs/{job_id}/play:
     post:
       tags:
-        - Projects
-      summary: GitLab Run a manual job
+      - Projects
+      summary: GitLab Run a Manual Job
       operationId: triggerManualJob
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: The ID of the project
-          schema:
-            type: integer
-        - name: job_id
-          in: path
-          required: true
-          description: The ID of the manual job to run
-          schema:
-            type: integer
-        - name: job_variables_attributes
-          in: query
-          required: false
-          description: An array containing the custom variables available to the job
-          schema:
-            type: array
-            items:
-              type: string
+      - name: id
+        in: path
+        required: true
+        description: The ID of the project
+        schema:
+          type: integer
+        example: 42
+      - name: job_id
+        in: path
+        required: true
+        description: The ID of the manual job to run
+        schema:
+          type: integer
+        example: 42
+      - name: job_variables_attributes
+        in: query
+        required: false
+        description: An array containing the custom variables available to the job
+        schema:
+          type: array
+          items:
+            type: string
       responses:
         '200':
           description: Job started successfully
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     API_Entities_Badge:
@@ -2906,32 +3242,44 @@ components:
       properties:
         name:
           type: string
+          example: Example Project
         link_url:
           type: string
+          example: https://gitlab.com/example
         image_url:
           type: string
+          example: https://gitlab.com/example
         rendered_link_url:
           type: string
+          example: https://gitlab.com/example
         rendered_image_url:
           type: string
+          example: https://gitlab.com/example
         id:
           type: string
+          example: '123456'
         kind:
           type: string
+          example: example_value
       description: API_Entities_Badge model
     API_Entities_BasicBadgeDetails:
       type: object
       properties:
         name:
           type: string
+          example: Example Project
         link_url:
           type: string
+          example: https://gitlab.com/example
         image_url:
           type: string
+          example: https://gitlab.com/example
         rendered_link_url:
           type: string
+          example: https://gitlab.com/example
         rendered_image_url:
           type: string
+          example: https://gitlab.com/example
       description: API_Entities_BasicBadgeDetails model
     API_Entities_AccessRequester:
       type: object
@@ -2964,8 +3312,10 @@ components:
           example: https://gitlab.example.com/root
         email:
           type: string
+          example: user@example.com
         requested_at:
           type: string
+          example: '2026-04-17T12:00:00Z'
       description: API_Entities_AccessRequester model
     API_Entities_CustomAttribute:
       type: object
@@ -3120,10 +3470,13 @@ components:
           example: TEST_1
         protected:
           type: boolean
+          example: true
         masked:
           type: boolean
+          example: true
         raw:
           type: boolean
+          example: true
         environment_scope:
           type: string
           example: '*'
@@ -3145,26 +3498,37 @@ components:
       properties:
         id:
           type: string
+          example: '123456'
         name:
           type: string
+          example: Example Project
         created_at:
           type: string
+          example: '2026-04-17T12:00:00Z'
         domain:
           type: string
+          example: example_value
         enabled:
           type: string
+          example: example_value
         managed:
           type: string
+          example: example_value
         provider_type:
           type: string
+          example: example_value
         platform_type:
           type: string
+          example: '2026-04-17T12:00:00Z'
         environment_scope:
           type: string
+          example: example_value
         cluster_type:
           type: string
+          example: example_value
         namespace_per_environment:
           type: string
+          example: Example Project
         user:
           $ref: '#/components/schemas/API_Entities_UserBasic'
         platform_kubernetes:
@@ -3205,34 +3569,46 @@ components:
           example: https://gitlab.example.com/root
         email:
           type: string
+          example: user@example.com
     API_Entities_Platform_Kubernetes:
       type: object
       properties:
         api_url:
           type: string
+          example: https://gitlab.com/example
         namespace:
           type: string
+          example: Example Project
         authorization_type:
           type: string
+          example: '2026-04-17T12:00:00Z'
         ca_cert:
           type: string
+          example: example_value
     API_Entities_Provider_Gcp:
       type: object
       properties:
         cluster_id:
           type: string
+          example: '123456'
         status_name:
           type: string
+          example: Example Project
         gcp_project_id:
           type: string
+          example: '123456'
         zone:
           type: string
+          example: example_value
         machine_type:
           type: string
+          example: example_value
         num_nodes:
           type: string
+          example: example_value
         endpoint:
           type: string
+          example: example_value
     API_Entities_ProjectIdentity:
       type: object
       properties:
@@ -3264,6 +3640,7 @@ components:
       properties:
         id:
           type: string
+          example: '123456'
         application_id:
           type: string
           example: 5832fc6e14300a0d962240a8144466eef4ee93ef0d218477e55f11cf12fc3737
@@ -3282,6 +3659,7 @@ components:
       properties:
         id:
           type: string
+          example: '123456'
         application_id:
           type: string
           example: 5832fc6e14300a0d962240a8144466eef4ee93ef0d218477e55f11cf12fc3737
@@ -3303,32 +3681,44 @@ components:
       properties:
         avatar_url:
           type: string
+          example: https://gitlab.com/example
       description: API_Entities_Avatar model
     API_Entities_BroadcastMessage:
       type: object
       properties:
         id:
           type: string
+          example: '123456'
         message:
           type: string
+          example: example_value
         starts_at:
           type: string
+          example: '2026-04-17T12:00:00Z'
         ends_at:
           type: string
+          example: '2026-04-17T12:00:00Z'
         color:
           type: string
+          example: example_value
         font:
           type: string
+          example: example_value
         target_access_levels:
           type: string
+          example: example_value
         target_path:
           type: string
+          example: my-group/my-project
         broadcast_type:
           type: string
+          example: example_value
         dismissable:
           type: string
+          example: example_value
         active:
           type: string
+          example: example_value
       description: API_Entities_BroadcastMessage model
     API_Entities_BulkImports:
       type: object
@@ -3345,16 +3735,17 @@ components:
           type: string
           example: created
           enum:
-            - created
-            - started
-            - finished
-            - timeout
-            - failed
+          - created
+          - started
+          - finished
+          - timeout
+          - failed
         entity_type:
           type: string
           enum:
-            - group
-            - project
+          - group
+          - project
+          example: group
         source_full_path:
           type: string
           example: source_group
@@ -3437,11 +3828,11 @@ components:
           type: string
           example: finished
           enum:
-            - created
-            - started
-            - finished
-            - timeout
-            - failed
+          - created
+          - started
+          - finished
+          - timeout
+          - failed
         source_type:
           type: string
           example: gitlab
@@ -3459,36 +3850,52 @@ components:
       properties:
         title:
           type: string
+          example: example_value
         description:
           type: string
+          example: Example description
         pwa_name:
           type: string
+          example: Example Project
         pwa_short_name:
           type: string
+          example: Example Project
         pwa_description:
           type: string
+          example: Example description
         logo:
           type: string
+          example: example_value
         pwa_icon:
           type: string
+          example: example_value
         header_logo:
           type: string
+          example: example_value
         favicon:
           type: string
+          example: example_value
         new_project_guidelines:
           type: string
+          example: example_value
         profile_image_guidelines:
           type: string
+          example: example_value
         header_message:
           type: string
+          example: example_value
         footer_message:
           type: string
+          example: example_value
         message_background_color:
           type: string
+          example: example_value
         message_font_color:
           type: string
+          example: example_value
         email_header_and_footer_enabled:
           type: string
+          example: user@example.com
       description: API_Entities_Appearance model
     API_Entities_PlanLimit:
       type: object
@@ -3599,6 +4006,7 @@ components:
               example: 15.0.0
         enterprise:
           type: boolean
+          example: true
       description: API_Entities_Metadata model
     API_Entities_Job:
       type: object
@@ -3606,15 +4014,19 @@ components:
         id:
           type: integer
           description: The ID of the job
+          example: 42
         name:
           type: string
           description: The name of the job
+          example: Example Project
         status:
           type: string
           description: The current status of the job
+          example: '2026-04-17T12:00:00Z'
         stage:
           type: string
           description: The stage of the job in the CI/CD pipeline
+          example: example_value
         created_at:
           type: string
           format: date-time
@@ -3635,9 +4047,11 @@ components:
         archived:
           type: boolean
           description: Indicates if the job is archived
+          example: true
         allow_failure:
           type: boolean
           description: Indicates if the job is allowed to fail
+          example: true
         erased_at:
           type: string
           format: date-time
@@ -3646,21 +4060,26 @@ components:
         duration:
           type: integer
           description: The duration of the job in seconds
+          example: 42
         queued_duration:
           type: number
           description: The duration the job was queued before execution, in seconds
+          example: 42.5
         ref:
           type: string
           description: The reference for the job
+          example: main
         artifacts:
           type: array
           description: The artifacts produced by the job
         tag:
           type: boolean
           description: Indicates if the job is tagged
+          example: true
         web_url:
           type: string
           description: The URL for accessing the job in the web interface
+          example: https://gitlab.com/example
         project:
           type: object
           properties:

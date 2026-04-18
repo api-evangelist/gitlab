@@ -1,0 +1,12 @@
+{
+  "ci_pipeline_size": 0,
+  "ci_active_jobs": 0,
+  "ci_project_subscriptions": 2,
+  "ci_pipeline_schedules": 10,
+  "ci_needs_size_limit": 50,
+  "ci_registered_group_runners": 1000,
+  "ci_registered_project_runners": 1000,
+  "conan_max_file_size": 3221225472,
+  "enforcement_limit": 15000,
+  "generic_packages_max_file_size": 5368709120
+}

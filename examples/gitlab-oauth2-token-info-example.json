@@ -1,0 +1,11 @@
+{
+  "resource_owner_id": 42,
+  "application": {
+    "uid": "123456"
+  },
+  "scope": [
+    "example_value"
+  ],
+  "expires_in_seconds": 42,
+  "created_at": 42.5
+}

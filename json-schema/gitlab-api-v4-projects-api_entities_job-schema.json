@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-schema/gitlab-api-v4-projects-api_entities_job-schema.json",
+  "title": "API_Entities_Job",
+  "description": "API_Entities_Job model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The ID of the job",
+      "example": 42
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the job",
+      "example": "Example Project"
+    },
+    "status": {
+      "type": "string",
+      "description": "The current status of the job",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "stage": {
+      "type": "string",
+      "description": "The stage of the job in the CI/CD pipeline",
+      "example": "example_value"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2016-01-11T10:13:33.506Z",
+      "description": "The creation time of the job"
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2016-01-11T10:13:33.506Z",
+      "description": "The start time of the job"
+    },
+    "finished_at": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2016-01-11T10:13:33.506Z",
+      "description": "The finish time of the job"
+    },
+    "commit": {
+      "$ref": "#/components/schemas/API_Entities_Commit"
+    },
+    "archived": {
+      "type": "boolean",
+      "description": "Indicates if the job is archived",
+      "example": true
+    },
+    "allow_failure": {
+      "type": "boolean",
+      "description": "Indicates if the job is allowed to fail",
+      "example": true
+    },
+    "erased_at": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2016-01-11T10:13:33.506Z",
+      "description": "The time when the job was erased, if applicable"
+    },
+    "duration": {
+      "type": "integer",
+      "description": "The duration of the job in seconds",
+      "example": 42
+    },
+    "queued_duration": {
+      "type": "number",
+      "description": "The duration the job was queued before execution, in seconds",
+      "example": 42.5
+    },
+    "ref": {
+      "type": "string",
+      "description": "The reference for the job",
+      "example": "main"
+    },
+    "artifacts": {
+      "type": "array",
+      "description": "The artifacts produced by the job"
+    },
+    "tag": {
+      "type": "boolean",
+      "description": "Indicates if the job is tagged",
+      "example": true
+    },
+    "web_url": {
+      "type": "string",
+      "description": "The URL for accessing the job in the web interface",
+      "example": "https://gitlab.com/example"
+    },
+    "project": {
+      "type": "object",
+      "properties": {
+        "ci_job_token_scope_enabled": {
+          "type": "boolean",
+          "description": "Indicates if the CI/CD job token scope setting is enabled for the project"
+        }
+      }
+    },
+    "user": {
+      "$ref": "#/components/schemas/API_Entities_UserBasic",
+      "description": "The user that started the job"
+    }
+  }
+}

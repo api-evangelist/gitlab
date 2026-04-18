@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-schema/gitlab-api-v4-application-api_entities_appearance-schema.json",
+  "title": "API_Entities_Appearance",
+  "description": "API_Entities_Appearance model",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "description": {
+      "type": "string",
+      "example": "Example description"
+    },
+    "pwa_name": {
+      "type": "string",
+      "example": "Example Project"
+    },
+    "pwa_short_name": {
+      "type": "string",
+      "example": "Example Project"
+    },
+    "pwa_description": {
+      "type": "string",
+      "example": "Example description"
+    },
+    "logo": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "pwa_icon": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "header_logo": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "favicon": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "new_project_guidelines": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "profile_image_guidelines": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "header_message": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "footer_message": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "message_background_color": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "message_font_color": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "email_header_and_footer_enabled": {
+      "type": "string",
+      "example": "user@example.com"
+    }
+  }
+}

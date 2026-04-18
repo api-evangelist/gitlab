@@ -1,0 +1,12 @@
+{
+  "id": 42,
+  "name": "Example Project",
+  "status": "2026-04-17T12:00:00Z",
+  "stage": "example_value",
+  "created_at": "2016-01-11T10:13:33.506Z",
+  "started_at": "2016-01-11T10:13:33.506Z",
+  "finished_at": "2016-01-11T10:13:33.506Z",
+  "commit": "example_value",
+  "archived": true,
+  "allow_failure": true
+}

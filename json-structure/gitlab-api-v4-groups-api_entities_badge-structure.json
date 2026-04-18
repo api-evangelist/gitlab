@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-api-v4-groups-api_entities_badge-structure.json",
+  "name": "API_Entities_Badge",
+  "description": "API_Entities_Badge model",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Example Project"
+    },
+    "link_url": {
+      "type": "string",
+      "example": "https://gitlab.com/example"
+    },
+    "image_url": {
+      "type": "string",
+      "example": "https://gitlab.com/example"
+    },
+    "rendered_link_url": {
+      "type": "string",
+      "example": "https://gitlab.com/example"
+    },
+    "rendered_image_url": {
+      "type": "string",
+      "example": "https://gitlab.com/example"
+    },
+    "id": {
+      "type": "string",
+      "example": "123456"
+    },
+    "kind": {
+      "type": "string",
+      "example": "example_value"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-api-v4-avatar-api_entities_avatar-structure.json",
+  "name": "API_Entities_Avatar",
+  "description": "API_Entities_Avatar model",
+  "type": "object",
+  "properties": {
+    "avatar_url": {
+      "type": "string",
+      "example": "https://gitlab.com/example"
+    }
+  }
+}

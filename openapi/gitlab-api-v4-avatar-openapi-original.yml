@@ -8,31 +8,33 @@ info:
     name: CC BY-SA 4.0
     url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
 servers:
-  - url: https://www.gitlab.com/api/
+- url: https://www.gitlab.com/api/
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
 tags:
-  - name: Avatar
+- name: Avatar
 paths:
   /api/v4/avatar:
     get:
       tags:
-        - Avatar
+      - Avatar
       description: Return avatar url for a user
       operationId: getApiV4Avatar
       parameters:
-        - name: email
-          in: query
-          description: Public email address of the user
-          required: true
-          schema:
-            type: string
-        - name: size
-          in: query
-          description: Single pixel dimension for Gravatar images
-          schema:
-            type: integer
-            format: int32
+      - name: email
+        in: query
+        description: Public email address of the user
+        required: true
+        schema:
+          type: string
+        example: user@example.com
+      - name: size
+        in: query
+        description: Single pixel dimension for Gravatar images
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Return avatar url for a user
@@ -40,6 +42,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Avatar'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     API_Entities_Avatar:
@@ -47,4 +52,5 @@ components:
       properties:
         avatar_url:
           type: string
+          example: https://gitlab.com/example
       description: API_Entities_Avatar model

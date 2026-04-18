@@ -19,15 +19,15 @@ apis:
         type: Deprecation
       - url: >-
           https://docs.gitlab.com/ee/api/graphql/#deprecation-and-removal-process
-        type: Breaking Changes
+        type: Documentation
       - url: https://docs.gitlab.com/ee/api/graphql/#limits
-        type: Rate Limits
+        type: RateLimits
       - url: https://docs.gitlab.com/api/rest/authentication/
         type: Authentication
       - url: https://docs.gitlab.com/api/graphql/reference/
-        type: Reference
+        type: APIReference
       - url: https://docs.gitlab.com/api/graphql/getting_started/
-        type: Getting Started
+        type: GettingStarted
     description: >-
       GraphQL is a query language for APIs. You can use it to request the exact data
       you need, and therefore limit the number of requests you need. GraphQL data
@@ -277,11 +277,11 @@ apis:
       - url: https://docs.gitlab.com/api/rest/authentication/
         type: Authentication
       - url: https://docs.gitlab.com/api/rest/third_party_clients/
-        type: Client Libraries
+        type: SDK
       - url: https://docs.gitlab.com/api/api_resources/
-        type: Reference
+        type: APIReference
       - url: https://docs.gitlab.com/security/rate_limits/
-        type: Rate Limits
+        type: RateLimits
       - url: https://docs.gitlab.com/api/openapi/openapi_interactive/
         type: Interactive Documentation
     description: >-
@@ -331,7 +331,7 @@ apis:
       - url: https://docs.gitlab.com/user/project/integrations/webhooks.html
         type: Documentation
       - url: https://docs.gitlab.com/api/project_webhooks/
-        type: Reference
+        type: APIReference
     description: >-
       GitLab Webhooks allow you to receive real-time HTTP POST notifications
       when events occur in GitLab projects or groups. Webhooks can be configured
@@ -897,46 +897,46 @@ common:
     url: https://github.com/gitlabhq
   - type: Blog
     url: https://about.gitlab.com/blog/
-  - type: Status
+  - type: StatusPage
     url: https://status.gitlab.com/
   - type: Pricing
     url: https://about.gitlab.com/pricing/
   - url: https://about.gitlab.com/terms/
-    type: Terms of Service
+    type: TermsOfService
   - url: https://about.gitlab.com/privacy/
-    type: Privacy Policy
+    type: PrivacyPolicy
   - url: https://about.gitlab.com/company/contact/
-    type: Contact
+    type: Support
   - url: https://docs.gitlab.com/ee/editor_extensions/
-    type: IDE
+    type: IDESupport
   - url: https://about.gitlab.com/releases/categories/releases/
-    type: Whats New
+    type: ReleaseNotes
   - url: https://developer.gitlab.com/
     type: Portal
   - url: https://docs.gitlab.com/
     type: Documentation
   - url: https://about.gitlab.com/get-started/
-    type: Getting Started
+    type: GettingStarted
   - url: https://status.gitlab.com/
-    type: Status
+    type: StatusPage
   - url: https://gitlab.com/users/sign_up
-    type: Sign Up
+    type: SignUp
   - url: https://about.gitlab.com/blog/
     type: Blog
   - url: https://about.gitlab.com/support/
     type: Support
   - url: https://gitlab.com/gitlab-org/gitlab/blob/master/CHANGELOG.md
-    type: Change Log
+    type: ChangeLog
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
   - url: https://docs.gitlab.com/api/rest/third_party_clients/
-    type: Client Libraries
+    type: SDK
   - url: https://forum.gitlab.com/
-    type: Community
+    type: Support
   - url: https://docs.gitlab.com/security/rate_limits/
-    type: Rate Limits
+    type: RateLimits
   - url: json-ld/gitlab-context.jsonld
-    type: JSON-LD
+    type: JSONLD
   - url: json-schema/gitlab-project-schema.json
     type: JSONSchema
   - url: json-schema/gitlab-merge-request-schema.json
@@ -950,23 +950,77 @@ common:
   - url: https://about.gitlab.com/security/
     type: Security
   - url: https://about.gitlab.com/security/disclosure/
-    type: Security Disclosure
+    type: Security
   - url: https://about.gitlab.com/direction/
-    type: Roadmap
+    type: Documentation
   - url: https://about.gitlab.com/integrations/
     type: Integrations
   - url: https://about.gitlab.com/partners/technology-partners/
     type: Partners
   - url: https://about.gitlab.com/solutions/open-source/
-    type: Open Source
+    type: Documentation
   - url: https://marketplace.gitlab.com/
     type: Marketplace
   - url: https://docs.gitlab.com/api/openapi/openapi_interactive/
-    type: Interactive Documentation
+    type: Tools
   - url: https://gitlab.com/gitlab-org/gitlab
-    type: GitRepository
+    type: GitHubRepository
+  - type: Features
+    data:
+      - name: REST API v4
+        description: Comprehensive REST API for managing projects, groups, users, issues, merge requests, pipelines, and all GitLab resources.
+      - name: GraphQL API
+        description: Flexible query language API for requesting exactly the data you need with a versionless, non-breaking schema.
+      - name: CI/CD Pipelines
+        description: Programmatically manage pipelines, jobs, runners, and deployment workflows.
+      - name: Container Registry
+        description: Manage container images and repositories for Docker image lifecycle management.
+      - name: Package Registry
+        description: Publish and manage packages across npm, Maven, PyPI, NuGet, Conan, and other formats.
+      - name: Webhooks
+        description: Receive real-time notifications for events across projects, groups, and system-level actions.
+      - name: OAuth 2.0 Authentication
+        description: Standards-based OAuth 2.0 and OpenID Connect authentication for third-party applications.
+      - name: Security Scanning
+        description: Access SAST, DAST, dependency scanning, and container scanning results through APIs.
+      - name: Merge Request Management
+        description: Full lifecycle management of merge requests including creation, review, approval, and merge.
+      - name: Issue Tracking
+        description: Create, manage, and query issues with labels, milestones, weights, and custom fields.
+      - name: Repository Management
+        description: Manage repository files, branches, tags, commits, and merge operations.
+      - name: Group and Project Management
+        description: Create and configure groups, subgroups, and projects with membership and permissions.
+  - type: UseCases
+    data:
+      - name: DevOps Automation
+        description: Automate CI/CD pipeline creation, runner management, and deployment workflows.
+      - name: Project Management
+        description: Programmatically manage issues, milestones, boards, and merge requests.
+      - name: Infrastructure as Code
+        description: Manage GitLab configuration, groups, projects, and settings through APIs.
+      - name: Security and Compliance
+        description: Access vulnerability reports, security scan results, and compliance data.
+      - name: Migration and Integration
+        description: Bulk import projects, users, and data from other platforms.
+      - name: Custom Tooling
+        description: Build custom developer tools, dashboards, and bots for GitLab workflows.
+      - name: Container Management
+        description: Manage Docker images, Kubernetes clusters, and container deployments.
+      - name: Analytics and Reporting
+        description: Extract project analytics, contribution data, and productivity metrics.
+  - type: Solutions
+    data:
+      - name: GitLab Free
+        description: Core DevOps platform with unlimited repositories, CI/CD, issue tracking, and API access.
+      - name: GitLab Premium
+        description: Advanced DevOps with merge request approvals, code owners, and priority support.
+      - name: GitLab Ultimate
+        description: Enterprise DevOps with security scanning, compliance, and advanced API features.
+      - name: GitLab Dedicated
+        description: Single-tenant SaaS deployment with dedicated infrastructure and enhanced security.
 created: 2023/11/10
-modified: '2026-04-01'
+modified: '2026-04-17'
 position: Consuming
 description: >-
   GitLab Inc. is an open-core company that develops GitLab, a DevOps software
@@ -980,4 +1034,4 @@ maintainers:
   - FN: Kin Lane
     url: http://apievangelist.com
     email: kin@apievangelist.com
-specificationVersion: '0.16'
+specificationVersion: '0.19'

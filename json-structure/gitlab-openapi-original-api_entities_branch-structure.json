@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-openapi-original-api_entities_branch-structure.json",
+  "name": "API_Entities_Branch",
+  "description": "API_Entities_Branch model",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "master"
+    },
+    "commit": {
+      "$ref": "#/components/schemas/API_Entities_Commit"
+    },
+    "merged": {
+      "type": "boolean",
+      "example": true
+    },
+    "protected": {
+      "type": "boolean",
+      "example": true
+    },
+    "developers_can_push": {
+      "type": "boolean",
+      "example": true
+    },
+    "developers_can_merge": {
+      "type": "boolean",
+      "example": true
+    },
+    "can_push": {
+      "type": "boolean",
+      "example": true
+    },
+    "default": {
+      "type": "boolean",
+      "example": true
+    },
+    "web_url": {
+      "type": "string",
+      "example": "https://gitlab.example.com/Commit921/the-dude/-/tree/master"
+    }
+  }
+}

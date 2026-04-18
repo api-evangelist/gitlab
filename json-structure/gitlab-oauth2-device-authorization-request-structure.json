@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-oauth2-device-authorization-request-structure.json",
+  "name": "DeviceAuthorizationRequest",
+  "description": "DeviceAuthorizationRequest from GitLab API",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "The application ID registered in GitLab.",
+      "example": "123456"
+    },
+    "scope": {
+      "type": "string",
+      "description": "Space-separated list of requested scopes.",
+      "example": "example_value"
+    }
+  },
+  "required": [
+    "client_id"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "sub": "example_value",
+  "name": "Example Project",
+  "nickname": "Example Project",
+  "email": "user@example.com",
+  "email_verified": true,
+  "profile": "example_value",
+  "picture": "example_value",
+  "groups": [
+    "example_value"
+  ]
+}

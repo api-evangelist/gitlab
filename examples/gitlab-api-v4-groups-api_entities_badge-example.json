@@ -1,0 +1,9 @@
+{
+  "name": "Example Project",
+  "link_url": "https://gitlab.com/example",
+  "image_url": "https://gitlab.com/example",
+  "rendered_link_url": "https://gitlab.com/example",
+  "rendered_image_url": "https://gitlab.com/example",
+  "id": "123456",
+  "kind": "example_value"
+}

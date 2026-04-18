@@ -8,17 +8,17 @@ info:
     name: CC BY-SA 4.0
     url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
 servers:
-  - url: https://www.gitlab.com/api/
+- url: https://www.gitlab.com/api/
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
 tags:
-  - name: Version
+- name: Version
 paths:
   /api/v4/version:
     get:
       tags:
-        - Version
-      summary: Retrieves version information for the GitLab instance
+      - Version
+      summary: GitLab Retrieves Version Information for the GitLab Instance
       description: >-
         This feature was introduced in GitLab 8.13 and deprecated in 15.5. We
         recommend you instead use the Metadata API.
@@ -33,6 +33,9 @@ paths:
         '401':
           description: Unauthorized
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     API_Entities_Metadata:
@@ -57,4 +60,5 @@ components:
               example: 15.0.0
         enterprise:
           type: boolean
+          example: true
       description: API_Entities_Metadata model

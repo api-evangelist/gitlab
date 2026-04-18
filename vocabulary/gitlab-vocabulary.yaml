@@ -1,0 +1,149 @@
+vocabulary: 1.0.0
+info:
+  provider: GitLab
+  description: Vocabulary for the GitLab API ecosystem covering 41 APIs across REST
+    v4, GraphQL, OAuth2, and Webhooks.
+  created: '2026-04-17'
+  modified: '2026-04-17'
+operational:
+  apis:
+  - name: GitLab GraphQL API
+    namespace: gitlab-graphql
+    baseUrl: https://gitlab.com/api/graphql
+    status: active
+  - name: GitLab REST API v4
+    namespace: gitlab-rest-v4
+    baseUrl: https://gitlab.com/api/v4
+    status: active
+  - name: GitLab OAuth2 API
+    namespace: gitlab-oauth2
+    baseUrl: https://gitlab.com/oauth
+    status: active
+  - name: GitLab Webhooks
+    namespace: gitlab-webhooks
+    baseUrl: https://gitlab.com
+    status: active
+  resources:
+  - name: projects
+    description: GitLab projects with repositories and CI/CD.
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: groups
+    description: Organizational groups containing projects.
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: users
+    description: User accounts with profiles and permissions.
+    actions:
+    - list
+    - get
+    - create
+    - update
+  - name: issues
+    description: Issue tracking for bugs and features.
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: merge-requests
+    description: Code review and merge operations.
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - merge
+    - approve
+  - name: pipelines
+    description: CI/CD pipeline executions.
+    actions:
+    - list
+    - get
+    - create
+    - retry
+    - cancel
+  - name: jobs
+    description: CI/CD jobs within pipelines.
+    actions:
+    - list
+    - get
+    - retry
+    - cancel
+  - name: runners
+    description: CI/CD execution agents.
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: packages
+    description: Package registry artifacts.
+    actions:
+    - list
+    - get
+    - delete
+  - name: container-images
+    description: Docker images in registry.
+    actions:
+    - list
+    - get
+    - delete
+  - name: vulnerabilities
+    description: Security scan results.
+    actions:
+    - list
+    - get
+    - update
+  - name: webhooks
+    description: Event notification endpoints.
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+capability:
+  personas:
+  - id: developer
+    name: Developer
+  - id: devops-engineer
+    name: DevOps Engineer
+  - id: project-manager
+    name: Project Manager
+  - id: security-engineer
+    name: Security Engineer
+  - id: admin
+    name: Administrator
+  - id: platform-engineer
+    name: Platform Engineer
+  domains:
+  - name: source-control
+    resources:
+    - merge-requests
+  - name: ci-cd
+    resources:
+    - pipelines
+    - jobs
+    - runners
+  - name: project-management
+    resources:
+    - issues
+    - projects
+  - name: security
+    resources:
+    - vulnerabilities
+  - name: packages
+    resources:
+    - packages
+    - container-images

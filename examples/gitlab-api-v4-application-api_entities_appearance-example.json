@@ -1,0 +1,12 @@
+{
+  "title": "example_value",
+  "description": "Example description",
+  "pwa_name": "Example Project",
+  "pwa_short_name": "Example Project",
+  "pwa_description": "Example description",
+  "logo": "example_value",
+  "pwa_icon": "example_value",
+  "header_logo": "example_value",
+  "favicon": "example_value",
+  "new_project_guidelines": "example_value"
+}

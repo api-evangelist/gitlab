@@ -1,0 +1,9 @@
+{
+  "cluster_id": "123456",
+  "status_name": "Example Project",
+  "gcp_project_id": "123456",
+  "zone": "example_value",
+  "machine_type": "example_value",
+  "num_nodes": "example_value",
+  "endpoint": "example_value"
+}

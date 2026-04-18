@@ -1,0 +1,12 @@
+{
+  "id": 42,
+  "iid": 42,
+  "project_id": 42,
+  "name": "example-project",
+  "status": "waiting_for_resource",
+  "source": "parent_pipeline",
+  "ref": "main",
+  "sha": "abc123def456",
+  "tag": true,
+  "yaml_errors": "example_value"
+}

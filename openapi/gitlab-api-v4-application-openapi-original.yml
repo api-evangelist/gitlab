@@ -8,37 +8,41 @@ info:
     name: CC BY-SA 4.0
     url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
 servers:
-  - url: https://www.gitlab.com/api/
+- url: https://www.gitlab.com/api/
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
 tags:
-  - name: Application
-  - name: Applications
+- name: Application
+- name: Applications
 paths:
   /api/v4/applications/{id}:
     delete:
       tags:
-        - Applications
-      summary: GitLab Delete an application
+      - Applications
+      summary: GitLab Delete an Application
       description: Delete a specific application
       operationId: deleteApiV4ApplicationsId
       parameters:
-        - name: id
-          in: path
-          description: The ID of the application (not the application_id)
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The ID of the application (not the application_id)
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Delete an application
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/applications:
     get:
       tags:
-        - Applications
-      summary: GitLab Get applications
+      - Applications
+      summary: GitLab Get Applications
       description: List all registered applications
       operationId: getApiV4Applications
       responses:
@@ -50,10 +54,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/API_Entities_Application'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Applications
-      summary: GitLab Create a new application
+      - Applications
+      summary: GitLab Create a New Application
       description: This feature was introduced in GitLab 10.5
       operationId: postApiV4Applications
       requestBody:
@@ -61,9 +68,9 @@ paths:
           application/json:
             schema:
               required:
-                - name
-                - redirect_uri
-                - scopes
+              - name
+              - redirect_uri
+              - scopes
               properties:
                 name:
                   type: string
@@ -92,10 +99,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_ApplicationWithSecret'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/application/appearance:
     get:
       tags:
-        - Application
+      - Application
       description: Get the current appearance
       operationId: getApiV4ApplicationAppearance
       responses:
@@ -105,9 +115,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Appearance'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Application
+      - Application
       description: Modify appearance
       operationId: putApiV4ApplicationAppearance
       requestBody:
@@ -174,31 +187,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Appearance'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/application/plan_limits:
     get:
       tags:
-        - Application
-      summary: GitLab Get current plan limits
+      - Application
+      summary: GitLab Get Current Plan Limits
       description: List the current limits of a plan on the GitLab instance.
       operationId: getApiV4ApplicationPlanLimits
       parameters:
-        - name: plan_name
-          in: query
-          description: 'Name of the plan to get the limits from. Default: default.'
-          schema:
-            type: string
-            default: default
-            enum:
-              - default
-              - free
-              - bronze
-              - silver
-              - premium
-              - gold
-              - ultimate
-              - ultimate_trial
-              - premium_trial
-              - opensource
+      - name: plan_name
+        in: query
+        description: 'Name of the plan to get the limits from. Default: default.'
+        schema:
+          type: string
+          default: default
+          enum:
+          - default
+          - free
+          - bronze
+          - silver
+          - premium
+          - gold
+          - ultimate
+          - ultimate_trial
+          - premium_trial
+          - opensource
+        example: default
       responses:
         '200':
           description: Get current plan limits
@@ -212,10 +229,13 @@ paths:
         '403':
           description: Forbidden
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Application
-      summary: GitLab Change plan limits
+      - Application
+      summary: GitLab Change Plan Limits
       description: Modify the limits of a plan on the GitLab instance.
       operationId: putApiV4ApplicationPlanLimits
       requestBody:
@@ -223,22 +243,22 @@ paths:
           application/json:
             schema:
               required:
-                - plan_name
+              - plan_name
               properties:
                 plan_name:
                   type: string
                   description: Name of the plan to update
                   enum:
-                    - default
-                    - free
-                    - bronze
-                    - silver
-                    - premium
-                    - gold
-                    - ultimate
-                    - ultimate_trial
-                    - premium_trial
-                    - opensource
+                  - default
+                  - free
+                  - bronze
+                  - silver
+                  - premium
+                  - gold
+                  - ultimate
+                  - ultimate_trial
+                  - premium_trial
+                  - opensource
                 ci_pipeline_size:
                   type: integer
                   description: Maximum number of jobs in a single pipeline
@@ -340,6 +360,9 @@ paths:
         '403':
           description: Forbidden
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     API_Entities_ApplicationWithSecret:
@@ -347,6 +370,7 @@ components:
       properties:
         id:
           type: string
+          example: '123456'
         application_id:
           type: string
           example: 5832fc6e14300a0d962240a8144466eef4ee93ef0d218477e55f11cf12fc3737
@@ -368,36 +392,52 @@ components:
       properties:
         title:
           type: string
+          example: example_value
         description:
           type: string
+          example: Example description
         pwa_name:
           type: string
+          example: Example Project
         pwa_short_name:
           type: string
+          example: Example Project
         pwa_description:
           type: string
+          example: Example description
         logo:
           type: string
+          example: example_value
         pwa_icon:
           type: string
+          example: example_value
         header_logo:
           type: string
+          example: example_value
         favicon:
           type: string
+          example: example_value
         new_project_guidelines:
           type: string
+          example: example_value
         profile_image_guidelines:
           type: string
+          example: example_value
         header_message:
           type: string
+          example: example_value
         footer_message:
           type: string
+          example: example_value
         message_background_color:
           type: string
+          example: example_value
         message_font_color:
           type: string
+          example: example_value
         email_header_and_footer_enabled:
           type: string
+          example: user@example.com
       description: API_Entities_Appearance model
     API_Entities_PlanLimit:
       type: object

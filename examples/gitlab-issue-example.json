@@ -1,0 +1,14 @@
+{
+  "id": 42,
+  "iid": 42,
+  "project_id": 42,
+  "title": "example_value",
+  "description": "example_value",
+  "state": "closed",
+  "issue_type": "task",
+  "type": "example_value",
+  "labels": [
+    "example_value"
+  ],
+  "milestone": "example_value"
+}

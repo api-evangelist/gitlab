@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-schema/gitlab-api-v4-broadcast-messages-api_entities_broadcast-message-schema.json",
+  "title": "API_Entities_BroadcastMessage",
+  "description": "API_Entities_BroadcastMessage model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "123456"
+    },
+    "message": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "starts_at": {
+      "type": "string",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "ends_at": {
+      "type": "string",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "color": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "font": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "target_access_levels": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "target_path": {
+      "type": "string",
+      "example": "my-group/my-project"
+    },
+    "broadcast_type": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "dismissable": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "active": {
+      "type": "string",
+      "example": "example_value"
+    }
+  }
+}

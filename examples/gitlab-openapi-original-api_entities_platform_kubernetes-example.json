@@ -1,0 +1,6 @@
+{
+  "api_url": "https://gitlab.com/example",
+  "namespace": "Example Project",
+  "authorization_type": "2026-04-17T12:00:00Z",
+  "ca_cert": "example_value"
+}

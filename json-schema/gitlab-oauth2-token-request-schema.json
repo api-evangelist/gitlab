@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-schema/gitlab-oauth2-token-request-schema.json",
+  "title": "TokenRequest",
+  "description": "TokenRequest from GitLab API",
+  "type": "object",
+  "properties": {
+    "grant_type": {
+      "type": "string",
+      "enum": [
+        "authorization_code",
+        "refresh_token",
+        "device_code",
+        "password"
+      ],
+      "description": "The grant type for the token request.",
+      "example": "authorization_code"
+    },
+    "client_id": {
+      "type": "string",
+      "description": "The application ID registered in GitLab.",
+      "example": "123456"
+    },
+    "client_secret": {
+      "type": "string",
+      "description": "The application secret. Required for confidential clients using authorization_code or refresh_token grant types.",
+      "example": "example_value"
+    },
+    "code": {
+      "type": "string",
+      "description": "The authorization code received from the authorize endpoint.",
+      "example": "example_value"
+    },
+    "redirect_uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "The redirect URI used in the original authorization request.",
+      "example": "example_value"
+    },
+    "code_verifier": {
+      "type": "string",
+      "description": "The PKCE code verifier corresponding to the code_challenge.",
+      "example": "example_value"
+    },
+    "refresh_token": {
+      "type": "string",
+      "description": "The refresh token to exchange for a new access token.",
+      "example": "main"
+    },
+    "device_code": {
+      "type": "string",
+      "description": "The device code from the device authorization response.",
+      "example": "example_value"
+    },
+    "username": {
+      "type": "string",
+      "description": "Resource owner username. Only for password grant type.",
+      "example": "Example Project"
+    },
+    "password": {
+      "type": "string",
+      "description": "Resource owner password. Only for password grant type.",
+      "example": "example_value"
+    }
+  },
+  "required": [
+    "grant_type",
+    "client_id"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-schema/gitlab-api-v4-admin-api_entities_batched-background-migration-schema.json",
+  "title": "API_Entities_BatchedBackgroundMigration",
+  "description": "API_Entities_BatchedBackgroundMigration model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "1234"
+    },
+    "job_class_name": {
+      "type": "string",
+      "example": "CopyColumnUsingBackgroundMigrationJob"
+    },
+    "table_name": {
+      "type": "string",
+      "example": "events"
+    },
+    "status": {
+      "type": "string",
+      "example": "active"
+    },
+    "progress": {
+      "type": "number",
+      "format": "float",
+      "example": 50
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-11-28T14:26:39.000Z"
+    }
+  }
+}

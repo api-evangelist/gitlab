@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-schema/gitlab-openapi-original-api_entities_project-identity-schema.json",
+  "title": "API_Entities_ProjectIdentity",
+  "description": "API_Entities_ProjectIdentity from GitLab API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "description": {
+      "type": "string",
+      "example": "desc"
+    },
+    "name": {
+      "type": "string",
+      "example": "project1"
+    },
+    "name_with_namespace": {
+      "type": "string",
+      "example": "John Doe / project1"
+    },
+    "path": {
+      "type": "string",
+      "example": "project1"
+    },
+    "path_with_namespace": {
+      "type": "string",
+      "example": "namespace1/project1"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-05-07 04:27:17.016000+00:00"
+    }
+  }
+}

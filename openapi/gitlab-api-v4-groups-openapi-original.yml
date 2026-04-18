@@ -8,35 +8,37 @@ info:
     name: CC BY-SA 4.0
     url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
 servers:
-  - url: https://www.gitlab.com/api/
+- url: https://www.gitlab.com/api/
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
 tags:
-  - name: Groups
+- name: Groups
 paths:
   /api/v4/groups/{id}/badges/{badge_id}:
     get:
       tags:
-        - Groups
-      summary: GitLab Gets a badge of a group.
+      - Groups
+      summary: GitLab Gets a Badge of a Group.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadgesBadgeId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: badge_id
-          in: path
-          description: The badge ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: badge_id
+        in: path
+        description: The badge ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Gets a badge of a group.
@@ -44,27 +46,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Groups
-      summary: GitLab Updates a badge of a group.
+      - Groups
+      summary: GitLab Updates a Badge of a Group.
       description: This feature was introduced in GitLab 10.6.
       operationId: putApiV4GroupsIdBadgesBadgeId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: badge_id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: badge_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -86,67 +93,79 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       tags:
-        - Groups
-      summary: GitLab Removes a badge from the group.
+      - Groups
+      summary: GitLab Removes a Badge from the Group.
       description: This feature was introduced in GitLab 10.6.
       operationId: deleteApiV4GroupsIdBadgesBadgeId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: badge_id
-          in: path
-          description: The badge ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: badge_id
+        in: path
+        description: The badge ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Removes a badge from the group.
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/groups/{id}/badges:
     get:
       tags:
-        - Groups
-      summary: GitLab Gets a list of group badges viewable by the authenticated user.
+      - Groups
+      summary: GitLab Gets a List of Group Badges Viewable by the Authenticated User.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadges
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
-        - name: name
-          in: query
-          description: Name for the badge
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
+      - name: name
+        in: query
+        description: Name for the badge
+        schema:
+          type: string
+        example: Example Project
       responses:
         '200':
           description: Gets a list of group badges viewable by the authenticated user.
@@ -156,28 +175,32 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Groups
-      summary: GitLab Adds a badge to a group.
+      - Groups
+      summary: GitLab Adds a Badge to a Group.
       description: This feature was introduced in GitLab 10.6.
       operationId: postApiV4GroupsIdBadges
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
       requestBody:
         content:
           application/json:
             schema:
               required:
-                - image_url
-                - link_url
+              - image_url
+              - link_url
               properties:
                 link_url:
                   type: string
@@ -196,34 +219,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Badge'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/groups/{id}/badges/render:
     get:
       tags:
-        - Groups
-      summary: GitLab Preview a badge from a group.
+      - Groups
+      summary: GitLab Preview a Badge from a Group.
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadgesRender
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user.
-          required: true
-          schema:
-            type: string
-        - name: link_url
-          in: query
-          description: URL of the badge link
-          required: true
-          schema:
-            type: string
-        - name: image_url
-          in: query
-          description: URL of the badge image
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user.
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: link_url
+        in: query
+        description: URL of the badge link
+        required: true
+        schema:
+          type: string
+        example: https://gitlab.com/example
+      - name: image_url
+        in: query
+        description: URL of the badge image
+        required: true
+        schema:
+          type: string
+        example: https://gitlab.com/example
       responses:
         '200':
           description: Preview a badge from a group.
@@ -231,56 +260,66 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_BasicBadgeDetails'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/groups/{id}/access_requests/{user_id}:
     delete:
       tags:
-        - Groups
-      summary: GitLab Denies an access request for the given user.
+      - Groups
+      summary: GitLab Denies an Access Request for the Given User.
       description: This feature was introduced in GitLab 8.11.
       operationId: deleteApiV4GroupsIdAccessRequestsUserId
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
-        - name: user_id
-          in: path
-          description: The user ID of the access requester
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: user_id
+        in: path
+        description: The user ID of the access requester
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Denies an access request for the given user.
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/groups/{id}/access_requests/{user_id}/approve:
     put:
       tags:
-        - Groups
-      summary: GitLab Approves an access request for the given user.
+      - Groups
+      summary: GitLab Approves an Access Request for the Given User.
       description: This feature was introduced in GitLab 8.11.
       operationId: putApiV4GroupsIdAccessRequestsUserIdApprove
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
-        - name: user_id
-          in: path
-          description: The user ID of the access requester
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: user_id
+        in: path
+        description: The user ID of the access requester
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -306,36 +345,42 @@ paths:
                 state: active
                 created_at: '2012-10-22T14:13:35.000Z'
                 access_level: 20
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/groups/{id}/access_requests:
     get:
       tags:
-        - Groups
-      summary: GitLab Gets a list of access requests for a group.
+      - Groups
+      summary: GitLab Gets a List of Access Requests for a Group.
       description: This feature was introduced in GitLab 8.11.
       operationId: getApiV4GroupsIdAccessRequests
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
       responses:
         '200':
           description: Gets a list of access requests for a group.
@@ -343,21 +388,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_AccessRequester'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Groups
-      summary: GitLab Requests access for the authenticated user to a group.
+      - Groups
+      summary: GitLab Requests Access for the Authenticated User to a Group.
       description: This feature was introduced in GitLab 8.11.
       operationId: postApiV4GroupsIdAccessRequests
       parameters:
-        - name: id
-          in: path
-          description: >-
-            The ID or URL-encoded path of the group owned by the authenticated
-            user
-          required: true
-          schema:
-            type: string
+      - name: id
+        in: path
+        description: >-
+          The ID or URL-encoded path of the group owned by the authenticated
+          user
+        required: true
+        schema:
+          type: string
+        example: '123456'
       responses:
         '200':
           description: successful operation
@@ -373,6 +422,9 @@ paths:
                 state: active
                 created_at: '2012-10-22T14:13:35.000Z'
                 access_level: 20
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     API_Entities_Badge:
@@ -380,32 +432,44 @@ components:
       properties:
         name:
           type: string
+          example: Example Project
         link_url:
           type: string
+          example: https://gitlab.com/example
         image_url:
           type: string
+          example: https://gitlab.com/example
         rendered_link_url:
           type: string
+          example: https://gitlab.com/example
         rendered_image_url:
           type: string
+          example: https://gitlab.com/example
         id:
           type: string
+          example: '123456'
         kind:
           type: string
+          example: example_value
       description: API_Entities_Badge model
     API_Entities_BasicBadgeDetails:
       type: object
       properties:
         name:
           type: string
+          example: Example Project
         link_url:
           type: string
+          example: https://gitlab.com/example
         image_url:
           type: string
+          example: https://gitlab.com/example
         rendered_link_url:
           type: string
+          example: https://gitlab.com/example
         rendered_image_url:
           type: string
+          example: https://gitlab.com/example
       description: API_Entities_BasicBadgeDetails model
     API_Entities_AccessRequester:
       type: object
@@ -438,6 +502,8 @@ components:
           example: https://gitlab.example.com/root
         email:
           type: string
+          example: user@example.com
         requested_at:
           type: string
+          example: '2026-04-17T12:00:00Z'
       description: API_Entities_AccessRequester model

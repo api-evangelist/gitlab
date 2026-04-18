@@ -8,38 +8,40 @@ info:
     name: CC BY-SA 4.0
     url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
 servers:
-  - url: https://www.gitlab.com/api/
+- url: https://www.gitlab.com/api/
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
 tags:
-  - name: Admin
+- name: Admin
 paths:
   /api/v4/admin/batched_background_migrations/{id}:
     get:
       tags:
-        - Admin
+      - Admin
       description: Retrieve a batched background migration
       operationId: getApiV4AdminBatchedBackgroundMigrationsId
       parameters:
-        - name: database
-          in: query
-          description: The name of the database
-          schema:
-            type: string
-            default: main
-            enum:
-              - main
-              - ci
-              - embedding
-              - main_clusterwide
-              - geo
-        - name: id
-          in: path
-          description: The batched background migration id
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: database
+        in: query
+        description: The name of the database
+        schema:
+          type: string
+          default: main
+          enum:
+          - main
+          - ci
+          - embedding
+          - main_clusterwide
+          - geo
+        example: main
+      - name: id
+        in: path
+        description: The batched background migration id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Retrieve a batched background migration
@@ -56,25 +58,29 @@ paths:
         '404':
           description: 404 Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/batched_background_migrations:
     get:
       tags:
-        - Admin
+      - Admin
       description: Get the list of batched background migrations
       operationId: getApiV4AdminBatchedBackgroundMigrations
       parameters:
-        - name: database
-          in: query
-          description: The name of the database, the default `main`
-          schema:
-            type: string
-            default: main
-            enum:
-              - main
-              - ci
-              - embedding
-              - main_clusterwide
-              - geo
+      - name: database
+        in: query
+        description: The name of the database, the default `main`
+        schema:
+          type: string
+          default: main
+          enum:
+          - main
+          - ci
+          - embedding
+          - main_clusterwide
+          - geo
+        example: main
       responses:
         '200':
           description: Get the list of batched background migrations
@@ -90,20 +96,24 @@ paths:
         '403':
           description: 403 Forbidden
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/batched_background_migrations/{id}/resume:
     put:
       tags:
-        - Admin
+      - Admin
       description: Resume a batched background migration
       operationId: putApiV4AdminBatchedBackgroundMigrationsIdResume
       parameters:
-        - name: id
-          in: path
-          description: The batched background migration id
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The batched background migration id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -114,11 +124,11 @@ paths:
                   description: The name of the database
                   default: main
                   enum:
-                    - main
-                    - ci
-                    - embedding
-                    - main_clusterwide
-                    - geo
+                  - main
+                  - ci
+                  - embedding
+                  - main_clusterwide
+                  - geo
       responses:
         '200':
           description: Resume a batched background migration
@@ -138,20 +148,24 @@ paths:
         '422':
           description: You can resume only `paused` batched background migrations.
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/batched_background_migrations/{id}/pause:
     put:
       tags:
-        - Admin
+      - Admin
       description: Pause a batched background migration
       operationId: putApiV4AdminBatchedBackgroundMigrationsIdPause
       parameters:
-        - name: id
-          in: path
-          description: The batched background migration id
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The batched background migration id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -162,11 +176,11 @@ paths:
                   description: The name of the database
                   default: main
                   enum:
-                    - main
-                    - ci
-                    - embedding
-                    - main_clusterwide
-                    - geo
+                  - main
+                  - ci
+                  - embedding
+                  - main_clusterwide
+                  - geo
       responses:
         '200':
           description: Pause a batched background migration
@@ -186,19 +200,23 @@ paths:
         '422':
           description: You can pause only `active` batched background migrations.
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/ci/variables/{key}:
     get:
       tags:
-        - Admin
+      - Admin
       description: Get the details of a specific instance-level variable
       operationId: getApiV4AdminCiVariablesKey
       parameters:
-        - name: key
-          in: path
-          description: The key of a variable
-          required: true
-          schema:
-            type: string
+      - name: key
+        in: path
+        description: The key of a variable
+        required: true
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Get the details of a specific instance-level variable
@@ -209,18 +227,22 @@ paths:
         '404':
           description: Instance Variable Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Admin
+      - Admin
       description: Update an instance-level variable
       operationId: putApiV4AdminCiVariablesKey
       parameters:
-        - name: key
-          in: path
-          description: The key of a variable
-          required: true
-          schema:
-            type: string
+      - name: key
+        in: path
+        description: The key of a variable
+        required: true
+        schema:
+          type: string
+        example: example_value
       requestBody:
         content:
           application/json:
@@ -244,8 +266,8 @@ paths:
                     The type of a variable. Available types are: env_var
                     (default) and file
                   enum:
-                    - env_var
-                    - file
+                  - env_var
+                  - file
       responses:
         '200':
           description: Update an instance-level variable
@@ -256,18 +278,22 @@ paths:
         '404':
           description: Instance Variable Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       tags:
-        - Admin
+      - Admin
       description: Delete an existing instance-level variable
       operationId: deleteApiV4AdminCiVariablesKey
       parameters:
-        - name: key
-          in: path
-          description: The key of a variable
-          required: true
-          schema:
-            type: string
+      - name: key
+        in: path
+        description: The key of a variable
+        required: true
+        schema:
+          type: string
+        example: example_value
       responses:
         '204':
           description: Delete an existing instance-level variable
@@ -278,27 +304,32 @@ paths:
         '404':
           description: Instance Variable Not Found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/ci/variables:
     get:
       tags:
-        - Admin
+      - Admin
       description: List all instance-level variables
       operationId: getApiV4AdminCiVariables
       parameters:
-        - name: page
-          in: query
-          description: Current page number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: per_page
-          in: query
-          description: Number of items per page
-          schema:
-            type: integer
-            format: int32
-            default: 20
+      - name: page
+        in: query
+        description: Current page number
+        schema:
+          type: integer
+          format: int32
+          default: 1
+        example: 42
+      - name: per_page
+        in: query
+        description: Number of items per page
+        schema:
+          type: integer
+          format: int32
+          default: 20
+        example: 42
       responses:
         '200':
           description: List all instance-level variables
@@ -306,9 +337,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_Ci_Variable'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Admin
+      - Admin
       description: Create a new instance-level variable
       operationId: postApiV4AdminCiVariables
       requestBody:
@@ -316,8 +350,8 @@ paths:
           application/json:
             schema:
               required:
-                - key
-                - value
+              - key
+              - value
               properties:
                 key:
                   type: string
@@ -340,8 +374,8 @@ paths:
                     The type of a variable. Available types are: env_var
                     (default) and file
                   enum:
-                    - env_var
-                    - file
+                  - env_var
+                  - file
         required: true
       responses:
         '201':
@@ -353,28 +387,33 @@ paths:
         '400':
           description: 400 Bad Request
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/databases/{database_name}/dictionary/tables/{table_name}:
     get:
       tags:
-        - Admin
+      - Admin
       description: Retrieve dictionary details
       operationId: getApiV4AdminDatabasesDatabaseNameDictionaryTablesTableName
       parameters:
-        - name: database_name
-          in: path
-          description: The database name
-          required: true
-          schema:
-            type: string
-            enum:
-              - main
-              - ci
-        - name: table_name
-          in: path
-          description: The table name
-          required: true
-          schema:
-            type: string
+      - name: database_name
+        in: path
+        description: The database name
+        required: true
+        schema:
+          type: string
+          enum:
+          - main
+          - ci
+        example: main
+      - name: table_name
+        in: path
+        description: The table name
+        required: true
+        schema:
+          type: string
+        example: Example Project
       responses:
         '200':
           description: Retrieve dictionary details
@@ -391,23 +430,27 @@ paths:
         '404':
           description: 404 Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/clusters/{cluster_id}:
     get:
       tags:
-        - Admin
-      summary: GitLab Get a single instance cluster
+      - Admin
+      summary: GitLab Get a Single Instance Cluster
       description: >-
         This feature was introduced in GitLab 13.2. Returns a single instance
         cluster.
       operationId: getApiV4AdminClustersClusterId
       parameters:
-        - name: cluster_id
-          in: path
-          description: The cluster ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: cluster_id
+        in: path
+        description: The cluster ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '200':
           description: Get a single instance cluster
@@ -421,22 +464,26 @@ paths:
         '404':
           description: Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       tags:
-        - Admin
-      summary: GitLab Edit instance cluster
+      - Admin
+      summary: GitLab Edit Instance Cluster
       description: >-
         This feature was introduced in GitLab 13.2. Updates an existing instance
         cluster.
       operationId: putApiV4AdminClustersClusterId
       parameters:
-        - name: cluster_id
-          in: path
-          description: The cluster ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: cluster_id
+        in: path
+        description: The cluster ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -499,23 +546,27 @@ paths:
         '404':
           description: Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       tags:
-        - Admin
-      summary: GitLab Delete instance cluster
+      - Admin
+      summary: GitLab Delete Instance Cluster
       description: >-
         This feature was introduced in GitLab 13.2. Deletes an existing instance
         cluster. Does not remove existing resources within the connected
         Kubernetes cluster.
       operationId: deleteApiV4AdminClustersClusterId
       parameters:
-        - name: cluster_id
-          in: path
-          description: The cluster ID
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: cluster_id
+        in: path
+        description: The cluster ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Delete instance cluster
@@ -529,11 +580,14 @@ paths:
         '404':
           description: Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/clusters/add:
     post:
       tags:
-        - Admin
-      summary: GitLab Add existing instance cluster
+      - Admin
+      summary: GitLab Add Existing Instance Cluster
       description: >-
         This feature was introduced in GitLab 13.2. Adds an existing Kubernetes
         instance cluster.
@@ -543,9 +597,9 @@ paths:
           application/json:
             schema:
               required:
-                - name
-                - platform_kubernetes_attributes[api_url]
-                - platform_kubernetes_attributes[token]
+              - name
+              - platform_kubernetes_attributes[api_url]
+              - platform_kubernetes_attributes[token]
               properties:
                 name:
                   type: string
@@ -594,9 +648,9 @@ paths:
                   description: Cluster authorization type, defaults to RBAC
                   default: rbac
                   enum:
-                    - unknown_authorization
-                    - rbac
-                    - abac
+                  - unknown_authorization
+                  - rbac
+                  - abac
         required: true
       responses:
         '201':
@@ -614,11 +668,14 @@ paths:
         '404':
           description: Not found
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/clusters:
     get:
       tags:
-        - Admin
-      summary: GitLab List instance clusters
+      - Admin
+      summary: GitLab List Instance Clusters
       description: >-
         This feature was introduced in GitLab 13.2. Returns a list of instance
         clusters.
@@ -635,20 +692,24 @@ paths:
         '403':
           description: Forbidden
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/admin/migrations/{timestamp}/mark:
     post:
       tags:
-        - Admin
+      - Admin
       description: Mark the migration as successfully executed
       operationId: postApiV4AdminMigrationsTimestampMark
       parameters:
-        - name: timestamp
-          in: path
-          description: The migration version timestamp
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: timestamp
+        in: path
+        description: The migration version timestamp
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       requestBody:
         content:
           application/json:
@@ -659,11 +720,11 @@ paths:
                   description: The name of the database
                   default: main
                   enum:
-                    - main
-                    - ci
-                    - embedding
-                    - main_clusterwide
-                    - geo
+                  - main
+                  - ci
+                  - embedding
+                  - main_clusterwide
+                  - geo
       responses:
         '201':
           description: 201 Created
@@ -680,6 +741,9 @@ paths:
         '422':
           description: You can mark only pending migrations
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     API_Entities_BatchedBackgroundMigration:
@@ -720,10 +784,13 @@ components:
           example: TEST_1
         protected:
           type: boolean
+          example: true
         masked:
           type: boolean
+          example: true
         raw:
           type: boolean
+          example: true
         environment_scope:
           type: string
           example: '*'
@@ -745,26 +812,37 @@ components:
       properties:
         id:
           type: string
+          example: '123456'
         name:
           type: string
+          example: Example Project
         created_at:
           type: string
+          example: '2026-04-17T12:00:00Z'
         domain:
           type: string
+          example: example_value
         enabled:
           type: string
+          example: example_value
         managed:
           type: string
+          example: example_value
         provider_type:
           type: string
+          example: example_value
         platform_type:
           type: string
+          example: '2026-04-17T12:00:00Z'
         environment_scope:
           type: string
+          example: example_value
         cluster_type:
           type: string
+          example: example_value
         namespace_per_environment:
           type: string
+          example: Example Project
         user:
           $ref: '#/components/schemas/API_Entities_UserBasic'
         platform_kubernetes:

@@ -16,103 +16,114 @@ externalDocs:
   description: GitLab OAuth 2.0 API Documentation
   url: https://docs.gitlab.com/api/oauth2/
 servers:
-  - url: https://gitlab.com
-    description: GitLab.com Production Server
+- url: https://gitlab.com
+  description: GitLab.com Production Server
 tags:
-  - name: Authorization
-    description: Endpoints for initiating OAuth authorization flows.
-  - name: Tokens
-    description: Endpoints for exchanging, refreshing, and revoking OAuth tokens.
-  - name: User Info
-    description: Endpoints for retrieving authenticated user information via OAuth.
+- name: Authorization
+  description: Endpoints for initiating OAuth authorization flows.
+- name: Tokens
+  description: Endpoints for exchanging, refreshing, and revoking OAuth tokens.
+- name: User Info
+  description: Endpoints for retrieving authenticated user information via OAuth.
 paths:
   /oauth/authorize:
     get:
       operationId: authorizeOAuth
-      summary: GitLab Authorize OAuth application
+      summary: GitLab Authorize OAuth Application
       description: >-
         Initiates the OAuth 2.0 authorization code flow. Redirects the user to
         the GitLab authorization page where they can grant access to the
         application. Supports PKCE for public clients by including the
         code_challenge and code_challenge_method parameters.
       tags:
-        - Authorization
+      - Authorization
       parameters:
-        - name: client_id
-          in: query
-          required: true
-          description: The application ID registered in GitLab.
-          schema:
-            type: string
-        - name: redirect_uri
-          in: query
-          required: true
-          description: The URI to redirect to after authorization.
-          schema:
-            type: string
-            format: uri
-        - name: response_type
-          in: query
-          required: true
-          description: Must be set to code for the authorization code flow.
-          schema:
-            type: string
-            enum:
-              - code
-        - name: state
-          in: query
-          required: true
-          description: >-
-            A random, unguessable string used to protect against CSRF attacks.
-            Must be returned unchanged in the redirect response.
-          schema:
-            type: string
-        - name: scope
-          in: query
-          required: false
-          description: >-
-            Space-separated list of scopes to request. Available scopes include
-            api, read_api, read_user, read_repository, write_repository, and others.
-          schema:
-            type: string
-        - name: code_challenge
-          in: query
-          required: false
-          description: >-
-            A Base64 URL-encoded SHA-256 hash of the code_verifier. Required
-            when using PKCE for public clients.
-          schema:
-            type: string
-        - name: code_challenge_method
-          in: query
-          required: false
-          description: The method used to generate the code_challenge. Must be S256.
-          schema:
-            type: string
-            enum:
-              - S256
-        - name: root_namespace_id
-          in: query
-          required: false
-          description: >-
-            Optional. Limits group access token creation to a specific namespace.
-          schema:
-            type: integer
+      - name: client_id
+        in: query
+        required: true
+        description: The application ID registered in GitLab.
+        schema:
+          type: string
+        example: '123456'
+      - name: redirect_uri
+        in: query
+        required: true
+        description: The URI to redirect to after authorization.
+        schema:
+          type: string
+          format: uri
+        example: example_value
+      - name: response_type
+        in: query
+        required: true
+        description: Must be set to code for the authorization code flow.
+        schema:
+          type: string
+          enum:
+          - code
+        example: code
+      - name: state
+        in: query
+        required: true
+        description: >-
+          A random, unguessable string used to protect against CSRF attacks.
+          Must be returned unchanged in the redirect response.
+        schema:
+          type: string
+        example: '2026-04-17T12:00:00Z'
+      - name: scope
+        in: query
+        required: false
+        description: >-
+          Space-separated list of scopes to request. Available scopes include
+          api, read_api, read_user, read_repository, write_repository, and others.
+        schema:
+          type: string
+        example: example_value
+      - name: code_challenge
+        in: query
+        required: false
+        description: >-
+          A Base64 URL-encoded SHA-256 hash of the code_verifier. Required
+          when using PKCE for public clients.
+        schema:
+          type: string
+        example: example_value
+      - name: code_challenge_method
+        in: query
+        required: false
+        description: The method used to generate the code_challenge. Must be S256.
+        schema:
+          type: string
+          enum:
+          - S256
+        example: S256
+      - name: root_namespace_id
+        in: query
+        required: false
+        description: >-
+          Optional. Limits group access token creation to a specific namespace.
+        schema:
+          type: integer
+        example: 42
       responses:
         '302':
           description: Redirect to the specified redirect_uri with the authorization code.
         '400':
           description: Bad request due to missing or invalid parameters.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /oauth/authorize_device:
     post:
       operationId: authorizeDevice
-      summary: GitLab Initiate device authorization grant
+      summary: GitLab Initiate Device Authorization Grant
       description: >-
         Initiates the OAuth 2.0 device authorization grant flow for
         input-constrained devices. Returns a device code and user code
         that the user enters on a secondary device to authorize access.
       tags:
-        - Authorization
+      - Authorization
       requestBody:
         required: true
         content:
@@ -128,17 +139,20 @@ paths:
                 $ref: '#/components/schemas/DeviceAuthorizationResponse'
         '400':
           description: Bad request due to invalid client credentials.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /oauth/token:
     post:
       operationId: exchangeToken
-      summary: GitLab Exchange code for access token
+      summary: GitLab Exchange Code for Access Token
       description: >-
         Exchanges an authorization code, device code, or refresh token for an
         OAuth 2.0 access token. Supports authorization_code, refresh_token,
         device_code, and password grant types. Access tokens are valid for
         two hours. Includes CORS support for browser-based applications.
       tags:
-        - Tokens
+      - Tokens
       requestBody:
         required: true
         content:
@@ -156,16 +170,19 @@ paths:
           description: Invalid grant or request parameters.
         '401':
           description: Invalid client credentials.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /oauth/revoke:
     post:
       operationId: revokeToken
-      summary: GitLab Revoke an OAuth token
+      summary: GitLab Revoke an OAuth Token
       description: >-
         Revokes an existing OAuth access token or refresh token. After
         revocation the token can no longer be used to access GitLab resources.
         Supports CORS for browser-based applications.
       tags:
-        - Tokens
+      - Tokens
       requestBody:
         required: true
         content:
@@ -177,18 +194,21 @@ paths:
           description: Token revoked successfully.
         '401':
           description: Invalid or expired token.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /oauth/token/info:
     get:
       operationId: getTokenInfo
-      summary: GitLab Get token information
+      summary: GitLab Get Token Information
       description: >-
         Returns information about the current OAuth access token, including
         the scopes it was granted and its expiration time. Useful for
         validating that a token is still active.
       tags:
-        - Tokens
+      - Tokens
       security:
-        - oauthToken: []
+      - oauthToken: []
       responses:
         '200':
           description: Token information returned successfully.
@@ -198,18 +218,21 @@ paths:
                 $ref: '#/components/schemas/TokenInfo'
         '401':
           description: Invalid or expired token.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /oauth/userinfo:
     get:
       operationId: getUserInfo
-      summary: GitLab Get authenticated user information
+      summary: GitLab Get Authenticated User Information
       description: >-
         Returns profile information about the currently authenticated user
         based on the OAuth token's scopes. Implements the OpenID Connect
         UserInfo endpoint. Supports CORS for browser-based applications.
       tags:
-        - User Info
+      - User Info
       security:
-        - oauthToken: []
+      - oauthToken: []
       responses:
         '200':
           description: User information returned successfully.
@@ -219,6 +242,9 @@ paths:
                 $ref: '#/components/schemas/UserInfo'
         '401':
           description: Invalid or expired token.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     oauthToken:
@@ -229,124 +255,152 @@ components:
     DeviceAuthorizationRequest:
       type: object
       required:
-        - client_id
+      - client_id
       properties:
         client_id:
           type: string
           description: The application ID registered in GitLab.
+          example: '123456'
         scope:
           type: string
           description: Space-separated list of requested scopes.
+          example: example_value
     DeviceAuthorizationResponse:
       type: object
       properties:
         device_code:
           type: string
           description: The device verification code used to poll for the access token.
+          example: example_value
         user_code:
           type: string
           description: The end-user verification code to enter on the authorization page.
+          example: example_value
         verification_uri:
           type: string
           format: uri
           description: The end-user verification URI on the authorization server.
+          example: '2026-04-17T12:00:00Z'
         verification_uri_complete:
           type: string
           format: uri
           description: The verification URI that includes the user_code.
+          example: '2026-04-17T12:00:00Z'
         expires_in:
           type: integer
           description: The lifetime in seconds of the device_code and user_code.
+          example: 42
         interval:
           type: integer
           description: Minimum number of seconds between polling requests.
+          example: 42
     TokenRequest:
       type: object
       required:
-        - grant_type
-        - client_id
+      - grant_type
+      - client_id
       properties:
         grant_type:
           type: string
           enum:
-            - authorization_code
-            - refresh_token
-            - device_code
-            - password
+          - authorization_code
+          - refresh_token
+          - device_code
+          - password
           description: The grant type for the token request.
+          example: authorization_code
         client_id:
           type: string
           description: The application ID registered in GitLab.
+          example: '123456'
         client_secret:
           type: string
           description: >-
             The application secret. Required for confidential clients using
             authorization_code or refresh_token grant types.
+          example: example_value
         code:
           type: string
           description: The authorization code received from the authorize endpoint.
+          example: example_value
         redirect_uri:
           type: string
           format: uri
           description: The redirect URI used in the original authorization request.
+          example: example_value
         code_verifier:
           type: string
           description: The PKCE code verifier corresponding to the code_challenge.
+          example: example_value
         refresh_token:
           type: string
           description: The refresh token to exchange for a new access token.
+          example: main
         device_code:
           type: string
           description: The device code from the device authorization response.
+          example: example_value
         username:
           type: string
           description: Resource owner username. Only for password grant type.
+          example: Example Project
         password:
           type: string
           description: Resource owner password. Only for password grant type.
+          example: example_value
     TokenResponse:
       type: object
       properties:
         access_token:
           type: string
           description: The OAuth 2.0 access token.
+          example: glpat-example-token
         token_type:
           type: string
           description: The type of token. Always Bearer.
+          example: glpat-example-token
         expires_in:
           type: integer
           description: Token lifetime in seconds. Typically 7200 (2 hours).
+          example: 42
         refresh_token:
           type: string
           description: The refresh token for obtaining new access tokens.
+          example: main
         scope:
           type: string
           description: Space-separated list of granted scopes.
+          example: example_value
         created_at:
           type: integer
           description: Unix timestamp of when the token was created.
+          example: 42
     RevokeTokenRequest:
       type: object
       required:
-        - client_id
-        - client_secret
-        - token
+      - client_id
+      - client_secret
+      - token
       properties:
         client_id:
           type: string
           description: The application ID registered in GitLab.
+          example: '123456'
         client_secret:
           type: string
           description: The application secret.
+          example: example_value
         token:
           type: string
           description: The access token or refresh token to revoke.
+          example: glpat-example-token
     TokenInfo:
       type: object
       properties:
         resource_owner_id:
           type: integer
           description: The ID of the user who authorized the token.
+          example: 42
         application:
           type: object
           description: Information about the OAuth application.
@@ -362,36 +416,45 @@ components:
         expires_in_seconds:
           type: integer
           description: Remaining lifetime of the token in seconds.
+          example: 42
         created_at:
           type: number
           description: Unix timestamp of when the token was created.
+          example: 42.5
     UserInfo:
       type: object
       properties:
         sub:
           type: string
           description: Subject identifier. Unique to the user within the provider.
+          example: example_value
         name:
           type: string
           description: Full name of the user.
+          example: Example Project
         nickname:
           type: string
           description: The user's GitLab username.
+          example: Example Project
         email:
           type: string
           format: email
           description: The user's email address. Requires the email scope.
+          example: user@example.com
         email_verified:
           type: boolean
           description: Whether the user's email address has been verified.
+          example: true
         profile:
           type: string
           format: uri
           description: URL to the user's GitLab profile page.
+          example: example_value
         picture:
           type: string
           format: uri
           description: URL to the user's avatar image.
+          example: example_value
         groups:
           type: array
           description: List of groups the user belongs to.

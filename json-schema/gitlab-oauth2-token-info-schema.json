@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-schema/gitlab-oauth2-token-info-schema.json",
+  "title": "TokenInfo",
+  "description": "TokenInfo from GitLab API",
+  "type": "object",
+  "properties": {
+    "resource_owner_id": {
+      "type": "integer",
+      "description": "The ID of the user who authorized the token.",
+      "example": 42
+    },
+    "application": {
+      "type": "object",
+      "description": "Information about the OAuth application.",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The application client ID."
+        }
+      }
+    },
+    "scope": {
+      "type": "array",
+      "description": "List of scopes the token has been granted.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expires_in_seconds": {
+      "type": "integer",
+      "description": "Remaining lifetime of the token in seconds.",
+      "example": 42
+    },
+    "created_at": {
+      "type": "number",
+      "description": "Unix timestamp of when the token was created.",
+      "example": 42.5
+    }
+  }
+}

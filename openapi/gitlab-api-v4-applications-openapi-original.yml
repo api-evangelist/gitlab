@@ -8,36 +8,40 @@ info:
     name: CC BY-SA 4.0
     url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
 servers:
-  - url: https://www.gitlab.com/api/
+- url: https://www.gitlab.com/api/
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
 tags:
-  - name: Applications
+- name: Applications
 paths:
   /api/v4/applications/{id}:
     delete:
       tags:
-        - Applications
-      summary: GitLab Delete an application
+      - Applications
+      summary: GitLab Delete an Application
       description: Delete a specific application
       operationId: deleteApiV4ApplicationsId
       parameters:
-        - name: id
-          in: path
-          description: The ID of the application (not the application_id)
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        description: The ID of the application (not the application_id)
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 42
       responses:
         '204':
           description: Delete an application
           content: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/v4/applications:
     get:
       tags:
-        - Applications
-      summary: GitLab Get applications
+      - Applications
+      summary: GitLab Get Applications
       description: List all registered applications
       operationId: getApiV4Applications
       responses:
@@ -49,10 +53,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/API_Entities_Application'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       tags:
-        - Applications
-      summary: GitLab Create a new application
+      - Applications
+      summary: GitLab Create a New Application
       description: This feature was introduced in GitLab 10.5
       operationId: postApiV4Applications
       requestBody:
@@ -60,9 +67,9 @@ paths:
           application/json:
             schema:
               required:
-                - name
-                - redirect_uri
-                - scopes
+              - name
+              - redirect_uri
+              - scopes
               properties:
                 name:
                   type: string
@@ -91,6 +98,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/API_Entities_ApplicationWithSecret'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     API_Entities_ApplicationWithSecret:
@@ -98,6 +108,7 @@ components:
       properties:
         id:
           type: string
+          example: '123456'
         application_id:
           type: string
           example: 5832fc6e14300a0d962240a8144466eef4ee93ef0d218477e55f11cf12fc3737

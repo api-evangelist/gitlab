@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-schema/gitlab-api-v4-bulk-imports-api_entities_bulk-imports-schema.json",
+  "title": "API_Entities_BulkImports",
+  "description": "API_Entities_BulkImports model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "bulk_import_id": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "status": {
+      "type": "string",
+      "example": "created",
+      "enum": [
+        "created",
+        "started",
+        "finished",
+        "timeout",
+        "failed"
+      ]
+    },
+    "entity_type": {
+      "type": "string",
+      "enum": [
+        "group",
+        "project"
+      ],
+      "example": "group"
+    },
+    "source_full_path": {
+      "type": "string",
+      "example": "source_group"
+    },
+    "destination_full_path": {
+      "type": "string",
+      "example": "some_group/source_project"
+    },
+    "destination_name": {
+      "type": "string",
+      "example": "destination_slug"
+    },
+    "destination_slug": {
+      "type": "string",
+      "example": "destination_slug"
+    },
+    "destination_namespace": {
+      "type": "string",
+      "example": "destination_path"
+    },
+    "parent_id": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "namespace_id": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "project_id": {
+      "type": "integer",
+      "format": "int32",
+      "example": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2012-05-28T11:42:42.000Z"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2012-05-28T11:42:42.000Z"
+    },
+    "failures": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/API_Entities_BulkImports_EntityFailure"
+      }
+    },
+    "migrate_projects": {
+      "type": "boolean",
+      "example": true
+    }
+  }
+}

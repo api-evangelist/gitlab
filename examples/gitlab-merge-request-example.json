@@ -1,0 +1,12 @@
+{
+  "id": 42,
+  "iid": 42,
+  "project_id": 42,
+  "title": "example_value",
+  "description": "example_value",
+  "state": "closed",
+  "draft": true,
+  "source_branch": "example_value",
+  "target_branch": "example_value",
+  "source_project_id": 42
+}

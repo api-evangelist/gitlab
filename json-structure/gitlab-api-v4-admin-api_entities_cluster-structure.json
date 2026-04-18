@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/refs/heads/main/json-structure/gitlab-api-v4-admin-api_entities_cluster-structure.json",
+  "name": "API_Entities_Cluster",
+  "description": "API_Entities_Cluster model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "123456"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Project"
+    },
+    "created_at": {
+      "type": "string",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "domain": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "enabled": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "managed": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "provider_type": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "platform_type": {
+      "type": "string",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "environment_scope": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "cluster_type": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "namespace_per_environment": {
+      "type": "string",
+      "example": "Example Project"
+    },
+    "user": {
+      "$ref": "#/components/schemas/API_Entities_UserBasic"
+    },
+    "platform_kubernetes": {
+      "$ref": "#/components/schemas/API_Entities_Platform_Kubernetes"
+    },
+    "provider_gcp": {
+      "$ref": "#/components/schemas/API_Entities_Provider_Gcp"
+    },
+    "management_project": {
+      "$ref": "#/components/schemas/API_Entities_ProjectIdentity"
+    }
+  }
+}
