@@ -1,0 +1,47 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: GitLab
+providerId: gitlab
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Rate Limiting
+  - DevOps
+description: GitLab.com rate limits enforced per user/IP/endpoint.
+sources:
+  - https://about.gitlab.com/pricing/
+  - https://docs.gitlab.com/ee/user/gitlab_com/index.html#gitlabcom-specific-rate-limits
+headers:
+  limit: RateLimit-Limit
+  remaining: RateLimit-Remaining
+  reset: RateLimit-Reset
+responseCodes:
+  throttled: 429
+limits:
+  - name: Authenticated API
+    scope: user
+    metric: requests_per_minute
+    limit: 2000
+    timeFrame: minute
+  - name: Unauthenticated API
+    scope: ip
+    metric: requests_per_minute
+    limit: 500
+    timeFrame: minute
+  - name: Search API
+    scope: user
+    metric: requests_per_minute
+    limit: 30
+    timeFrame: minute
+  - name: Web requests
+    scope: user
+    metric: requests_per_minute
+    limit: 1500
+    timeFrame: minute
+  - name: GitLab Pages
+    scope: ip
+    metric: requests_per_minute
+    limit: 1000
+    timeFrame: minute
