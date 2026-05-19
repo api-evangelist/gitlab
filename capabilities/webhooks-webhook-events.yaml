@@ -1,0 +1,155 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: GitLab Webhooks API — Webhook Events
+  description: 'GitLab Webhooks API — Webhook Events. 3 operations. Lead operation: GitLab List Webhook Events. Self-contained
+    Naftiko capability covering one Gitlab business surface.'
+  tags:
+  - Gitlab
+  - Webhook Events
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GITLAB_API_KEY: GITLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: webhooks-webhook-events
+    baseUri: https://gitlab.com/api/v4
+    description: GitLab Webhooks API — Webhook Events business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-id-hooks-hook_id-events
+      path: /projects/{id}/hooks/{hook_id}/events
+      operations:
+      - name: listprojectwebhookevents
+        method: GET
+        description: GitLab List Webhook Events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-id-hooks-hook_id-events-hook_event_id-resend
+      path: /projects/{id}/hooks/{hook_id}/events/{hook_event_id}/resend
+      operations:
+      - name: resendwebhookevent
+        method: POST
+        description: GitLab Resend a Webhook Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hook_event_id
+          in: path
+          type: integer
+          description: The ID of the webhook event to resend.
+          required: true
+    - name: projects-id-hooks-hook_id-test-trigger
+      path: /projects/{id}/hooks/{hook_id}/test/{trigger}
+      operations:
+      - name: testprojectwebhook
+        method: POST
+        description: GitLab Test a Webhook Trigger
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: trigger
+          in: path
+          type: string
+          description: The event type to simulate. Supported values include push_events, tag_push_events, issues_events, confidential_issues_events,
+            note_events, merge_requests_events
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GITLAB_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: webhooks-webhook-events-rest
+    port: 8080
+    description: REST adapter for GitLab Webhooks API — Webhook Events. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects/{id}/hooks/{hook-id}/events
+      name: projects-id-hooks-hook-id-events
+      description: REST surface for projects-id-hooks-hook_id-events.
+      operations:
+      - method: GET
+        name: listprojectwebhookevents
+        description: GitLab List Webhook Events
+        call: webhooks-webhook-events.listprojectwebhookevents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{id}/hooks/{hook-id}/events/{hook-event-id}/resend
+      name: projects-id-hooks-hook-id-events-hook-event-id-resend
+      description: REST surface for projects-id-hooks-hook_id-events-hook_event_id-resend.
+      operations:
+      - method: POST
+        name: resendwebhookevent
+        description: GitLab Resend a Webhook Event
+        call: webhooks-webhook-events.resendwebhookevent
+        with:
+          hook_event_id: rest.hook_event_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{id}/hooks/{hook-id}/test/{trigger}
+      name: projects-id-hooks-hook-id-test-trigger
+      description: REST surface for projects-id-hooks-hook_id-test-trigger.
+      operations:
+      - method: POST
+        name: testprojectwebhook
+        description: GitLab Test a Webhook Trigger
+        call: webhooks-webhook-events.testprojectwebhook
+        with:
+          trigger: rest.trigger
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: webhooks-webhook-events-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for GitLab Webhooks API — Webhook Events. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: gitlab-list-webhook-events
+      description: GitLab List Webhook Events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: webhooks-webhook-events.listprojectwebhookevents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-resend-webhook-event
+      description: GitLab Resend a Webhook Event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: webhooks-webhook-events.resendwebhookevent
+      with:
+        hook_event_id: tools.hook_event_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-test-webhook-trigger
+      description: GitLab Test a Webhook Trigger
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: webhooks-webhook-events.testprojectwebhook
+      with:
+        trigger: tools.trigger
+      outputParameters:
+      - type: object
+        mapping: $.

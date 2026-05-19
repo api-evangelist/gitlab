@@ -1,0 +1,1343 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: GitLab api/v4/projects — Projects
+  description: 'GitLab api/v4/projects — Projects. 26 operations. Lead operation: GitLab Gets a List of Access Requests for
+    a Project.. Self-contained Naftiko capability covering one Gitlab business surface.'
+  tags:
+  - Gitlab
+  - Projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GITLAB_API_KEY: GITLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: api-v4-projects-projects
+    baseUri: https://www.gitlab.com/api
+    description: GitLab api/v4/projects — Projects business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v4-projects-id-access_requests
+      path: /api/v4/projects/{id}/access_requests
+      operations:
+      - name: getapiv4projectsidaccessrequests
+        method: GET
+        description: GitLab Gets a List of Access Requests for a Project.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+        - name: page
+          in: query
+          type: integer
+          description: Current page number
+        - name: per_page
+          in: query
+          type: integer
+          description: Number of items per page
+      - name: postapiv4projectsidaccessrequests
+        method: POST
+        description: GitLab Requests Access for the Authenticated User to a Project.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+    - name: api-v4-projects-id-access_requests-user_id
+      path: /api/v4/projects/{id}/access_requests/{user_id}
+      operations:
+      - name: deleteapiv4projectsidaccessrequestsuserid
+        method: DELETE
+        description: GitLab Denies an Access Request for the Given User.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+        - name: user_id
+          in: path
+          type: integer
+          description: The user ID of the access requester
+          required: true
+    - name: api-v4-projects-id-access_requests-user_id-approve
+      path: /api/v4/projects/{id}/access_requests/{user_id}/approve
+      operations:
+      - name: putapiv4projectsidaccessrequestsuseridapprove
+        method: PUT
+        description: GitLab Approves an Access Request for the Given User.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+        - name: user_id
+          in: path
+          type: integer
+          description: The user ID of the access requester
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v4-projects-id-alert_management_alerts-alert_iid-metric_images
+      path: /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images
+      operations:
+      - name: getapiv4projectsidalertmanagementalertsalertiidmetricimages
+        method: GET
+        description: Metric Images for alert
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: alert_iid
+          in: path
+          type: integer
+          description: The IID of the Alert
+          required: true
+      - name: postapiv4projectsidalertmanagementalertsalertiidmetricimages
+        method: POST
+        description: Upload a metric image for an alert
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: alert_iid
+          in: path
+          type: integer
+          description: The IID of the Alert
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v4-projects-id-alert_management_alerts-alert_iid-metric_images-authorize
+      path: /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images/authorize
+      operations:
+      - name: postapiv4projectsidalertmanagementalertsalertiidmetricimagesauthorize
+        method: POST
+        description: Workhorse authorize metric image file upload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: alert_iid
+          in: path
+          type: integer
+          description: The IID of the Alert
+          required: true
+    - name: api-v4-projects-id-alert_management_alerts-alert_iid-metric_images-metric_image_
+      path: /api/v4/projects/{id}/alert_management_alerts/{alert_iid}/metric_images/{metric_image_id}
+      operations:
+      - name: putapiv4projectsidalertmanagementalertsalertiidmetricimagesmetricimageid
+        method: PUT
+        description: Update a metric image for an alert
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: alert_iid
+          in: path
+          type: integer
+          description: The IID of the Alert
+          required: true
+        - name: metric_image_id
+          in: path
+          type: integer
+          description: The ID of metric image
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteapiv4projectsidalertmanagementalertsalertiidmetricimagesmetricimageid
+        method: DELETE
+        description: Remove a metric image for an alert
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: alert_iid
+          in: path
+          type: integer
+          description: The IID of the Alert
+          required: true
+        - name: metric_image_id
+          in: path
+          type: integer
+          description: The ID of metric image
+          required: true
+    - name: api-v4-projects-id-badges
+      path: /api/v4/projects/{id}/badges
+      operations:
+      - name: getapiv4projectsidbadges
+        method: GET
+        description: GitLab Gets a List of Project Badges Viewable by the Authenticated User.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+        - name: page
+          in: query
+          type: integer
+          description: Current page number
+        - name: per_page
+          in: query
+          type: integer
+          description: Number of items per page
+        - name: name
+          in: query
+          type: string
+          description: Name for the badge
+      - name: postapiv4projectsidbadges
+        method: POST
+        description: GitLab Adds a Badge to a Project.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v4-projects-id-badges-render
+      path: /api/v4/projects/{id}/badges/render
+      operations:
+      - name: getapiv4projectsidbadgesrender
+        method: GET
+        description: GitLab Preview a Badge from a Project.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+        - name: link_url
+          in: query
+          type: string
+          description: URL of the badge link
+          required: true
+        - name: image_url
+          in: query
+          type: string
+          description: URL of the badge image
+          required: true
+    - name: api-v4-projects-id-badges-badge_id
+      path: /api/v4/projects/{id}/badges/{badge_id}
+      operations:
+      - name: getapiv4projectsidbadgesbadgeid
+        method: GET
+        description: GitLab Gets a Badge of a Project.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+        - name: badge_id
+          in: path
+          type: integer
+          description: The badge ID
+          required: true
+      - name: putapiv4projectsidbadgesbadgeid
+        method: PUT
+        description: GitLab Updates a Badge of a Project.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+        - name: badge_id
+          in: path
+          type: integer
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteapiv4projectsidbadgesbadgeid
+        method: DELETE
+        description: GitLab Removes a Badge from the Project.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+        - name: badge_id
+          in: path
+          type: integer
+          description: The badge ID
+          required: true
+    - name: api-v4-projects-id-jobs
+      path: /api/v4/projects/{id}/jobs
+      operations:
+      - name: listprojectjobs
+        method: GET
+        description: GitLab List Jobs for a Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: The ID of the project
+          required: true
+        - name: scope
+          in: query
+          type: array
+          description: Return all jobs with the specified statuses
+    - name: api-v4-projects-id-jobs-job_id
+      path: /api/v4/projects/{id}/jobs/{job_id}
+      operations:
+      - name: getsinglejob
+        method: GET
+        description: GitLab Get a Single Job by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: The ID of the project
+          required: true
+        - name: job_id
+          in: path
+          type: integer
+          description: The ID of the job
+          required: true
+    - name: api-v4-projects-id-jobs-job_id-play
+      path: /api/v4/projects/{id}/jobs/{job_id}/play
+      operations:
+      - name: triggermanualjob
+        method: POST
+        description: GitLab Run a Manual Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: The ID of the project
+          required: true
+        - name: job_id
+          in: path
+          type: integer
+          description: The ID of the manual job to run
+          required: true
+        - name: job_variables_attributes
+          in: query
+          type: array
+          description: An array containing the custom variables available to the job
+    - name: api-v4-projects-id-repository-branches
+      path: /api/v4/projects/{id}/repository/branches
+      operations:
+      - name: getapiv4projectsidrepositorybranches
+        method: GET
+        description: Get a project repository branches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: page
+          in: query
+          type: integer
+          description: Current page number
+        - name: per_page
+          in: query
+          type: integer
+          description: Number of items per page
+        - name: search
+          in: query
+          type: string
+          description: Return list of branches matching the search criteria
+        - name: regex
+          in: query
+          type: string
+          description: Return list of branches matching the regex
+        - name: sort
+          in: query
+          type: string
+          description: Return list of branches sorted by the given field
+        - name: page_token
+          in: query
+          type: string
+          description: Name of branch to start the pagination from
+      - name: postapiv4projectsidrepositorybranches
+        method: POST
+        description: Create branch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: branch
+          in: query
+          type: string
+          description: The name of the branch
+          required: true
+        - name: ref
+          in: query
+          type: string
+          description: Create branch from commit sha or existing branch
+          required: true
+    - name: api-v4-projects-id-repository-branches-branch
+      path: /api/v4/projects/{id}/repository/branches/{branch}
+      operations:
+      - name: getapiv4projectsidrepositorybranchesbranch
+        method: GET
+        description: Get a single repository branch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: branch
+          in: path
+          type: integer
+          required: true
+      - name: deleteapiv4projectsidrepositorybranchesbranch
+        method: DELETE
+        description: Delete a branch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: branch
+          in: path
+          type: string
+          description: The name of the branch
+          required: true
+      - name: headapiv4projectsidrepositorybranchesbranch
+        method: HEAD
+        description: Check if a branch exists
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: branch
+          in: path
+          type: string
+          description: The name of the branch
+          required: true
+    - name: api-v4-projects-id-repository-branches-branch-protect
+      path: /api/v4/projects/{id}/repository/branches/{branch}/protect
+      operations:
+      - name: putapiv4projectsidrepositorybranchesbranchprotect
+        method: PUT
+        description: Protect a single branch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: branch
+          in: path
+          type: string
+          description: The name of the branch
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v4-projects-id-repository-branches-branch-unprotect
+      path: /api/v4/projects/{id}/repository/branches/{branch}/unprotect
+      operations:
+      - name: putapiv4projectsidrepositorybranchesbranchunprotect
+        method: PUT
+        description: Unprotect a single branch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+        - name: branch
+          in: path
+          type: string
+          description: The name of the branch
+          required: true
+    - name: api-v4-projects-id-repository-merged_branches
+      path: /api/v4/projects/{id}/repository/merged_branches
+      operations:
+      - name: deleteapiv4projectsidrepositorymergedbranches
+        method: DELETE
+        description: Delete all merged branches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID or URL-encoded path of the project
+          required: true
+  exposes:
+  - type: rest
+    namespace: api-v4-projects-projects-rest
+    port: 8080
+    description: REST adapter for GitLab api/v4/projects — Projects. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v4/projects/{id}/access-requests
+      name: api-v4-projects-id-access-requests
+      description: REST surface for api-v4-projects-id-access_requests.
+      operations:
+      - method: GET
+        name: getapiv4projectsidaccessrequests
+        description: GitLab Gets a List of Access Requests for a Project.
+        call: api-v4-projects-projects.getapiv4projectsidaccessrequests
+        with:
+          id: rest.id
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postapiv4projectsidaccessrequests
+        description: GitLab Requests Access for the Authenticated User to a Project.
+        call: api-v4-projects-projects.postapiv4projectsidaccessrequests
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/access-requests/{user-id}
+      name: api-v4-projects-id-access-requests-user-id
+      description: REST surface for api-v4-projects-id-access_requests-user_id.
+      operations:
+      - method: DELETE
+        name: deleteapiv4projectsidaccessrequestsuserid
+        description: GitLab Denies an Access Request for the Given User.
+        call: api-v4-projects-projects.deleteapiv4projectsidaccessrequestsuserid
+        with:
+          id: rest.id
+          user_id: rest.user_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/access-requests/{user-id}/approve
+      name: api-v4-projects-id-access-requests-user-id-approve
+      description: REST surface for api-v4-projects-id-access_requests-user_id-approve.
+      operations:
+      - method: PUT
+        name: putapiv4projectsidaccessrequestsuseridapprove
+        description: GitLab Approves an Access Request for the Given User.
+        call: api-v4-projects-projects.putapiv4projectsidaccessrequestsuseridapprove
+        with:
+          id: rest.id
+          user_id: rest.user_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/alert-management-alerts/{alert-iid}/metric-images
+      name: api-v4-projects-id-alert-management-alerts-alert-iid-metric-images
+      description: REST surface for api-v4-projects-id-alert_management_alerts-alert_iid-metric_images.
+      operations:
+      - method: GET
+        name: getapiv4projectsidalertmanagementalertsalertiidmetricimages
+        description: Metric Images for alert
+        call: api-v4-projects-projects.getapiv4projectsidalertmanagementalertsalertiidmetricimages
+        with:
+          id: rest.id
+          alert_iid: rest.alert_iid
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postapiv4projectsidalertmanagementalertsalertiidmetricimages
+        description: Upload a metric image for an alert
+        call: api-v4-projects-projects.postapiv4projectsidalertmanagementalertsalertiidmetricimages
+        with:
+          id: rest.id
+          alert_iid: rest.alert_iid
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/alert-management-alerts/{alert-iid}/metric-images/authorize
+      name: api-v4-projects-id-alert-management-alerts-alert-iid-metric-images-authorize
+      description: REST surface for api-v4-projects-id-alert_management_alerts-alert_iid-metric_images-authorize.
+      operations:
+      - method: POST
+        name: postapiv4projectsidalertmanagementalertsalertiidmetricimagesauthorize
+        description: Workhorse authorize metric image file upload
+        call: api-v4-projects-projects.postapiv4projectsidalertmanagementalertsalertiidmetricimagesauthorize
+        with:
+          id: rest.id
+          alert_iid: rest.alert_iid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/alert-management-alerts/{alert-iid}/metric-images/{metric-image-id}
+      name: api-v4-projects-id-alert-management-alerts-alert-iid-metric-images-metric-image
+      description: REST surface for api-v4-projects-id-alert_management_alerts-alert_iid-metric_images-metric_image_.
+      operations:
+      - method: PUT
+        name: putapiv4projectsidalertmanagementalertsalertiidmetricimagesmetricimageid
+        description: Update a metric image for an alert
+        call: api-v4-projects-projects.putapiv4projectsidalertmanagementalertsalertiidmetricimagesmetricimageid
+        with:
+          id: rest.id
+          alert_iid: rest.alert_iid
+          metric_image_id: rest.metric_image_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteapiv4projectsidalertmanagementalertsalertiidmetricimagesmetricimageid
+        description: Remove a metric image for an alert
+        call: api-v4-projects-projects.deleteapiv4projectsidalertmanagementalertsalertiidmetricimagesmetricimageid
+        with:
+          id: rest.id
+          alert_iid: rest.alert_iid
+          metric_image_id: rest.metric_image_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/badges
+      name: api-v4-projects-id-badges
+      description: REST surface for api-v4-projects-id-badges.
+      operations:
+      - method: GET
+        name: getapiv4projectsidbadges
+        description: GitLab Gets a List of Project Badges Viewable by the Authenticated User.
+        call: api-v4-projects-projects.getapiv4projectsidbadges
+        with:
+          id: rest.id
+          page: rest.page
+          per_page: rest.per_page
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postapiv4projectsidbadges
+        description: GitLab Adds a Badge to a Project.
+        call: api-v4-projects-projects.postapiv4projectsidbadges
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/badges/render
+      name: api-v4-projects-id-badges-render
+      description: REST surface for api-v4-projects-id-badges-render.
+      operations:
+      - method: GET
+        name: getapiv4projectsidbadgesrender
+        description: GitLab Preview a Badge from a Project.
+        call: api-v4-projects-projects.getapiv4projectsidbadgesrender
+        with:
+          id: rest.id
+          link_url: rest.link_url
+          image_url: rest.image_url
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/badges/{badge-id}
+      name: api-v4-projects-id-badges-badge-id
+      description: REST surface for api-v4-projects-id-badges-badge_id.
+      operations:
+      - method: GET
+        name: getapiv4projectsidbadgesbadgeid
+        description: GitLab Gets a Badge of a Project.
+        call: api-v4-projects-projects.getapiv4projectsidbadgesbadgeid
+        with:
+          id: rest.id
+          badge_id: rest.badge_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putapiv4projectsidbadgesbadgeid
+        description: GitLab Updates a Badge of a Project.
+        call: api-v4-projects-projects.putapiv4projectsidbadgesbadgeid
+        with:
+          id: rest.id
+          badge_id: rest.badge_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteapiv4projectsidbadgesbadgeid
+        description: GitLab Removes a Badge from the Project.
+        call: api-v4-projects-projects.deleteapiv4projectsidbadgesbadgeid
+        with:
+          id: rest.id
+          badge_id: rest.badge_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/jobs
+      name: api-v4-projects-id-jobs
+      description: REST surface for api-v4-projects-id-jobs.
+      operations:
+      - method: GET
+        name: listprojectjobs
+        description: GitLab List Jobs for a Project
+        call: api-v4-projects-projects.listprojectjobs
+        with:
+          id: rest.id
+          scope: rest.scope
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/jobs/{job-id}
+      name: api-v4-projects-id-jobs-job-id
+      description: REST surface for api-v4-projects-id-jobs-job_id.
+      operations:
+      - method: GET
+        name: getsinglejob
+        description: GitLab Get a Single Job by ID
+        call: api-v4-projects-projects.getsinglejob
+        with:
+          id: rest.id
+          job_id: rest.job_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/jobs/{job-id}/play
+      name: api-v4-projects-id-jobs-job-id-play
+      description: REST surface for api-v4-projects-id-jobs-job_id-play.
+      operations:
+      - method: POST
+        name: triggermanualjob
+        description: GitLab Run a Manual Job
+        call: api-v4-projects-projects.triggermanualjob
+        with:
+          id: rest.id
+          job_id: rest.job_id
+          job_variables_attributes: rest.job_variables_attributes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/repository/branches
+      name: api-v4-projects-id-repository-branches
+      description: REST surface for api-v4-projects-id-repository-branches.
+      operations:
+      - method: GET
+        name: getapiv4projectsidrepositorybranches
+        description: Get a project repository branches
+        call: api-v4-projects-projects.getapiv4projectsidrepositorybranches
+        with:
+          id: rest.id
+          page: rest.page
+          per_page: rest.per_page
+          search: rest.search
+          regex: rest.regex
+          sort: rest.sort
+          page_token: rest.page_token
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postapiv4projectsidrepositorybranches
+        description: Create branch
+        call: api-v4-projects-projects.postapiv4projectsidrepositorybranches
+        with:
+          id: rest.id
+          branch: rest.branch
+          ref: rest.ref
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/repository/branches/{branch}
+      name: api-v4-projects-id-repository-branches-branch
+      description: REST surface for api-v4-projects-id-repository-branches-branch.
+      operations:
+      - method: GET
+        name: getapiv4projectsidrepositorybranchesbranch
+        description: Get a single repository branch
+        call: api-v4-projects-projects.getapiv4projectsidrepositorybranchesbranch
+        with:
+          id: rest.id
+          branch: rest.branch
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteapiv4projectsidrepositorybranchesbranch
+        description: Delete a branch
+        call: api-v4-projects-projects.deleteapiv4projectsidrepositorybranchesbranch
+        with:
+          id: rest.id
+          branch: rest.branch
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: HEAD
+        name: headapiv4projectsidrepositorybranchesbranch
+        description: Check if a branch exists
+        call: api-v4-projects-projects.headapiv4projectsidrepositorybranchesbranch
+        with:
+          id: rest.id
+          branch: rest.branch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/repository/branches/{branch}/protect
+      name: api-v4-projects-id-repository-branches-branch-protect
+      description: REST surface for api-v4-projects-id-repository-branches-branch-protect.
+      operations:
+      - method: PUT
+        name: putapiv4projectsidrepositorybranchesbranchprotect
+        description: Protect a single branch
+        call: api-v4-projects-projects.putapiv4projectsidrepositorybranchesbranchprotect
+        with:
+          id: rest.id
+          branch: rest.branch
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/repository/branches/{branch}/unprotect
+      name: api-v4-projects-id-repository-branches-branch-unprotect
+      description: REST surface for api-v4-projects-id-repository-branches-branch-unprotect.
+      operations:
+      - method: PUT
+        name: putapiv4projectsidrepositorybranchesbranchunprotect
+        description: Unprotect a single branch
+        call: api-v4-projects-projects.putapiv4projectsidrepositorybranchesbranchunprotect
+        with:
+          id: rest.id
+          branch: rest.branch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/projects/{id}/repository/merged-branches
+      name: api-v4-projects-id-repository-merged-branches
+      description: REST surface for api-v4-projects-id-repository-merged_branches.
+      operations:
+      - method: DELETE
+        name: deleteapiv4projectsidrepositorymergedbranches
+        description: Delete all merged branches
+        call: api-v4-projects-projects.deleteapiv4projectsidrepositorymergedbranches
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: api-v4-projects-projects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for GitLab api/v4/projects — Projects. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: gitlab-gets-list-access-requests
+      description: GitLab Gets a List of Access Requests for a Project.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.getapiv4projectsidaccessrequests
+      with:
+        id: tools.id
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-requests-access-authenticated-user
+      description: GitLab Requests Access for the Authenticated User to a Project.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-v4-projects-projects.postapiv4projectsidaccessrequests
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-denies-access-request-given
+      description: GitLab Denies an Access Request for the Given User.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: api-v4-projects-projects.deleteapiv4projectsidaccessrequestsuserid
+      with:
+        id: tools.id
+        user_id: tools.user_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-approves-access-request-given
+      description: GitLab Approves an Access Request for the Given User.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.putapiv4projectsidaccessrequestsuseridapprove
+      with:
+        id: tools.id
+        user_id: tools.user_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: metric-images-alert
+      description: Metric Images for alert
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.getapiv4projectsidalertmanagementalertsalertiidmetricimages
+      with:
+        id: tools.id
+        alert_iid: tools.alert_iid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: upload-metric-image-alert
+      description: Upload a metric image for an alert
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-v4-projects-projects.postapiv4projectsidalertmanagementalertsalertiidmetricimages
+      with:
+        id: tools.id
+        alert_iid: tools.alert_iid
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: workhorse-authorize-metric-image-file
+      description: Workhorse authorize metric image file upload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-v4-projects-projects.postapiv4projectsidalertmanagementalertsalertiidmetricimagesauthorize
+      with:
+        id: tools.id
+        alert_iid: tools.alert_iid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-metric-image-alert
+      description: Update a metric image for an alert
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.putapiv4projectsidalertmanagementalertsalertiidmetricimagesmetricimageid
+      with:
+        id: tools.id
+        alert_iid: tools.alert_iid
+        metric_image_id: tools.metric_image_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-metric-image-alert
+      description: Remove a metric image for an alert
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: api-v4-projects-projects.deleteapiv4projectsidalertmanagementalertsalertiidmetricimagesmetricimageid
+      with:
+        id: tools.id
+        alert_iid: tools.alert_iid
+        metric_image_id: tools.metric_image_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-gets-list-project-badges
+      description: GitLab Gets a List of Project Badges Viewable by the Authenticated User.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.getapiv4projectsidbadges
+      with:
+        id: tools.id
+        page: tools.page
+        per_page: tools.per_page
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-adds-badge-project
+      description: GitLab Adds a Badge to a Project.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-v4-projects-projects.postapiv4projectsidbadges
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-preview-badge-project
+      description: GitLab Preview a Badge from a Project.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.getapiv4projectsidbadgesrender
+      with:
+        id: tools.id
+        link_url: tools.link_url
+        image_url: tools.image_url
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-gets-badge-project
+      description: GitLab Gets a Badge of a Project.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.getapiv4projectsidbadgesbadgeid
+      with:
+        id: tools.id
+        badge_id: tools.badge_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-updates-badge-project
+      description: GitLab Updates a Badge of a Project.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.putapiv4projectsidbadgesbadgeid
+      with:
+        id: tools.id
+        badge_id: tools.badge_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-removes-badge-project
+      description: GitLab Removes a Badge from the Project.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: api-v4-projects-projects.deleteapiv4projectsidbadgesbadgeid
+      with:
+        id: tools.id
+        badge_id: tools.badge_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-list-jobs-project
+      description: GitLab List Jobs for a Project
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.listprojectjobs
+      with:
+        id: tools.id
+        scope: tools.scope
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-get-single-job-id
+      description: GitLab Get a Single Job by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.getsinglejob
+      with:
+        id: tools.id
+        job_id: tools.job_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-run-manual-job
+      description: GitLab Run a Manual Job
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-v4-projects-projects.triggermanualjob
+      with:
+        id: tools.id
+        job_id: tools.job_id
+        job_variables_attributes: tools.job_variables_attributes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-project-repository-branches
+      description: Get a project repository branches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.getapiv4projectsidrepositorybranches
+      with:
+        id: tools.id
+        page: tools.page
+        per_page: tools.per_page
+        search: tools.search
+        regex: tools.regex
+        sort: tools.sort
+        page_token: tools.page_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-branch
+      description: Create branch
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-v4-projects-projects.postapiv4projectsidrepositorybranches
+      with:
+        id: tools.id
+        branch: tools.branch
+        ref: tools.ref
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-single-repository-branch
+      description: Get a single repository branch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.getapiv4projectsidrepositorybranchesbranch
+      with:
+        id: tools.id
+        branch: tools.branch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-branch
+      description: Delete a branch
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: api-v4-projects-projects.deleteapiv4projectsidrepositorybranchesbranch
+      with:
+        id: tools.id
+        branch: tools.branch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: check-if-branch-exists
+      description: Check if a branch exists
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: api-v4-projects-projects.headapiv4projectsidrepositorybranchesbranch
+      with:
+        id: tools.id
+        branch: tools.branch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: protect-single-branch
+      description: Protect a single branch
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.putapiv4projectsidrepositorybranchesbranchprotect
+      with:
+        id: tools.id
+        branch: tools.branch
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: unprotect-single-branch
+      description: Unprotect a single branch
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: api-v4-projects-projects.putapiv4projectsidrepositorybranchesbranchunprotect
+      with:
+        id: tools.id
+        branch: tools.branch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-all-merged-branches
+      description: Delete all merged branches
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: api-v4-projects-projects.deleteapiv4projectsidrepositorymergedbranches
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: GitLab API — Version
+  description: 'GitLab API — Version. 1 operations. Lead operation: GitLab Retrieves Version Information for the GitLab Instance.
+    Self-contained Naftiko capability covering one Gitlab business surface.'
+  tags:
+  - Gitlab
+  - Version
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GITLAB_API_KEY: GITLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gitlab-version
+    baseUri: https://www.gitlab.com/api
+    description: GitLab API — Version business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v4-version
+      path: /api/v4/version
+      operations:
+      - name: getapiv4version
+        method: GET
+        description: GitLab Retrieves Version Information for the GitLab Instance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Private-Token
+      value: '{{env.GITLAB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: gitlab-version-rest
+    port: 8080
+    description: REST adapter for GitLab API — Version. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/v4/version
+      name: api-v4-version
+      description: REST surface for api-v4-version.
+      operations:
+      - method: GET
+        name: getapiv4version
+        description: GitLab Retrieves Version Information for the GitLab Instance
+        call: gitlab-version.getapiv4version
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gitlab-version-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for GitLab API — Version. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: gitlab-retrieves-version-information-gitlab
+      description: GitLab Retrieves Version Information for the GitLab Instance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gitlab-version.getapiv4version
+      outputParameters:
+      - type: object
+        mapping: $.

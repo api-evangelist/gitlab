@@ -1,0 +1,719 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: GitLab API — Admin
+  description: 'GitLab API — Admin. 16 operations. Lead operation: GitLab List Instance Clusters. Self-contained Naftiko capability
+    covering one Gitlab business surface.'
+  tags:
+  - Gitlab
+  - Admin
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GITLAB_API_KEY: GITLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gitlab-admin
+    baseUri: https://www.gitlab.com/api
+    description: GitLab API — Admin business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v4-admin-batched_background_migrations
+      path: /api/v4/admin/batched_background_migrations
+      operations:
+      - name: getapiv4adminbatchedbackgroundmigrations
+        method: GET
+        description: Get the list of batched background migrations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: database
+          in: query
+          type: string
+          description: The name of the database, the default `main`
+    - name: api-v4-admin-batched_background_migrations-id
+      path: /api/v4/admin/batched_background_migrations/{id}
+      operations:
+      - name: getapiv4adminbatchedbackgroundmigrationsid
+        method: GET
+        description: Retrieve a batched background migration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: database
+          in: query
+          type: string
+          description: The name of the database
+        - name: id
+          in: path
+          type: integer
+          description: The batched background migration id
+          required: true
+    - name: api-v4-admin-batched_background_migrations-id-pause
+      path: /api/v4/admin/batched_background_migrations/{id}/pause
+      operations:
+      - name: putapiv4adminbatchedbackgroundmigrationsidpause
+        method: PUT
+        description: Pause a batched background migration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: The batched background migration id
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v4-admin-batched_background_migrations-id-resume
+      path: /api/v4/admin/batched_background_migrations/{id}/resume
+      operations:
+      - name: putapiv4adminbatchedbackgroundmigrationsidresume
+        method: PUT
+        description: Resume a batched background migration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: The batched background migration id
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v4-admin-ci-variables
+      path: /api/v4/admin/ci/variables
+      operations:
+      - name: getapiv4admincivariables
+        method: GET
+        description: List all instance-level variables
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          description: Current page number
+        - name: per_page
+          in: query
+          type: integer
+          description: Number of items per page
+      - name: postapiv4admincivariables
+        method: POST
+        description: Create a new instance-level variable
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v4-admin-ci-variables-key
+      path: /api/v4/admin/ci/variables/{key}
+      operations:
+      - name: getapiv4admincivariableskey
+        method: GET
+        description: Get the details of a specific instance-level variable
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key
+          in: path
+          type: string
+          description: The key of a variable
+          required: true
+      - name: putapiv4admincivariableskey
+        method: PUT
+        description: Update an instance-level variable
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key
+          in: path
+          type: string
+          description: The key of a variable
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteapiv4admincivariableskey
+        method: DELETE
+        description: Delete an existing instance-level variable
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key
+          in: path
+          type: string
+          description: The key of a variable
+          required: true
+    - name: api-v4-admin-clusters
+      path: /api/v4/admin/clusters
+      operations:
+      - name: getapiv4adminclusters
+        method: GET
+        description: GitLab List Instance Clusters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v4-admin-clusters-add
+      path: /api/v4/admin/clusters/add
+      operations:
+      - name: postapiv4adminclustersadd
+        method: POST
+        description: GitLab Add Existing Instance Cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v4-admin-clusters-cluster_id
+      path: /api/v4/admin/clusters/{cluster_id}
+      operations:
+      - name: getapiv4adminclustersclusterid
+        method: GET
+        description: GitLab Get a Single Instance Cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cluster_id
+          in: path
+          type: integer
+          description: The cluster ID
+          required: true
+      - name: putapiv4adminclustersclusterid
+        method: PUT
+        description: GitLab Edit Instance Cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cluster_id
+          in: path
+          type: integer
+          description: The cluster ID
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteapiv4adminclustersclusterid
+        method: DELETE
+        description: GitLab Delete Instance Cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cluster_id
+          in: path
+          type: integer
+          description: The cluster ID
+          required: true
+    - name: api-v4-admin-databases-database_name-dictionary-tables-table_name
+      path: /api/v4/admin/databases/{database_name}/dictionary/tables/{table_name}
+      operations:
+      - name: getapiv4admindatabasesdatabasenamedictionarytablestablename
+        method: GET
+        description: Retrieve dictionary details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: database_name
+          in: path
+          type: string
+          description: The database name
+          required: true
+        - name: table_name
+          in: path
+          type: string
+          description: The table name
+          required: true
+    - name: api-v4-admin-migrations-timestamp-mark
+      path: /api/v4/admin/migrations/{timestamp}/mark
+      operations:
+      - name: postapiv4adminmigrationstimestampmark
+        method: POST
+        description: Mark the migration as successfully executed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: timestamp
+          in: path
+          type: integer
+          description: The migration version timestamp
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Private-Token
+      value: '{{env.GITLAB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: gitlab-admin-rest
+    port: 8080
+    description: REST adapter for GitLab API — Admin. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/v4/admin/batched-background-migrations
+      name: api-v4-admin-batched-background-migrations
+      description: REST surface for api-v4-admin-batched_background_migrations.
+      operations:
+      - method: GET
+        name: getapiv4adminbatchedbackgroundmigrations
+        description: Get the list of batched background migrations
+        call: gitlab-admin.getapiv4adminbatchedbackgroundmigrations
+        with:
+          database: rest.database
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/admin/batched-background-migrations/{id}
+      name: api-v4-admin-batched-background-migrations-id
+      description: REST surface for api-v4-admin-batched_background_migrations-id.
+      operations:
+      - method: GET
+        name: getapiv4adminbatchedbackgroundmigrationsid
+        description: Retrieve a batched background migration
+        call: gitlab-admin.getapiv4adminbatchedbackgroundmigrationsid
+        with:
+          database: rest.database
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/admin/batched-background-migrations/{id}/pause
+      name: api-v4-admin-batched-background-migrations-id-pause
+      description: REST surface for api-v4-admin-batched_background_migrations-id-pause.
+      operations:
+      - method: PUT
+        name: putapiv4adminbatchedbackgroundmigrationsidpause
+        description: Pause a batched background migration
+        call: gitlab-admin.putapiv4adminbatchedbackgroundmigrationsidpause
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/admin/batched-background-migrations/{id}/resume
+      name: api-v4-admin-batched-background-migrations-id-resume
+      description: REST surface for api-v4-admin-batched_background_migrations-id-resume.
+      operations:
+      - method: PUT
+        name: putapiv4adminbatchedbackgroundmigrationsidresume
+        description: Resume a batched background migration
+        call: gitlab-admin.putapiv4adminbatchedbackgroundmigrationsidresume
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/admin/ci/variables
+      name: api-v4-admin-ci-variables
+      description: REST surface for api-v4-admin-ci-variables.
+      operations:
+      - method: GET
+        name: getapiv4admincivariables
+        description: List all instance-level variables
+        call: gitlab-admin.getapiv4admincivariables
+        with:
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postapiv4admincivariables
+        description: Create a new instance-level variable
+        call: gitlab-admin.postapiv4admincivariables
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/admin/ci/variables/{key}
+      name: api-v4-admin-ci-variables-key
+      description: REST surface for api-v4-admin-ci-variables-key.
+      operations:
+      - method: GET
+        name: getapiv4admincivariableskey
+        description: Get the details of a specific instance-level variable
+        call: gitlab-admin.getapiv4admincivariableskey
+        with:
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putapiv4admincivariableskey
+        description: Update an instance-level variable
+        call: gitlab-admin.putapiv4admincivariableskey
+        with:
+          key: rest.key
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteapiv4admincivariableskey
+        description: Delete an existing instance-level variable
+        call: gitlab-admin.deleteapiv4admincivariableskey
+        with:
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/admin/clusters
+      name: api-v4-admin-clusters
+      description: REST surface for api-v4-admin-clusters.
+      operations:
+      - method: GET
+        name: getapiv4adminclusters
+        description: GitLab List Instance Clusters
+        call: gitlab-admin.getapiv4adminclusters
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/admin/clusters/add
+      name: api-v4-admin-clusters-add
+      description: REST surface for api-v4-admin-clusters-add.
+      operations:
+      - method: POST
+        name: postapiv4adminclustersadd
+        description: GitLab Add Existing Instance Cluster
+        call: gitlab-admin.postapiv4adminclustersadd
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/admin/clusters/{cluster-id}
+      name: api-v4-admin-clusters-cluster-id
+      description: REST surface for api-v4-admin-clusters-cluster_id.
+      operations:
+      - method: GET
+        name: getapiv4adminclustersclusterid
+        description: GitLab Get a Single Instance Cluster
+        call: gitlab-admin.getapiv4adminclustersclusterid
+        with:
+          cluster_id: rest.cluster_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putapiv4adminclustersclusterid
+        description: GitLab Edit Instance Cluster
+        call: gitlab-admin.putapiv4adminclustersclusterid
+        with:
+          cluster_id: rest.cluster_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteapiv4adminclustersclusterid
+        description: GitLab Delete Instance Cluster
+        call: gitlab-admin.deleteapiv4adminclustersclusterid
+        with:
+          cluster_id: rest.cluster_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/admin/databases/{database-name}/dictionary/tables/{table-name}
+      name: api-v4-admin-databases-database-name-dictionary-tables-table-name
+      description: REST surface for api-v4-admin-databases-database_name-dictionary-tables-table_name.
+      operations:
+      - method: GET
+        name: getapiv4admindatabasesdatabasenamedictionarytablestablename
+        description: Retrieve dictionary details
+        call: gitlab-admin.getapiv4admindatabasesdatabasenamedictionarytablestablename
+        with:
+          database_name: rest.database_name
+          table_name: rest.table_name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/admin/migrations/{timestamp}/mark
+      name: api-v4-admin-migrations-timestamp-mark
+      description: REST surface for api-v4-admin-migrations-timestamp-mark.
+      operations:
+      - method: POST
+        name: postapiv4adminmigrationstimestampmark
+        description: Mark the migration as successfully executed
+        call: gitlab-admin.postapiv4adminmigrationstimestampmark
+        with:
+          timestamp: rest.timestamp
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gitlab-admin-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for GitLab API — Admin. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-list-batched-background-migrations
+      description: Get the list of batched background migrations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gitlab-admin.getapiv4adminbatchedbackgroundmigrations
+      with:
+        database: tools.database
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-batched-background-migration
+      description: Retrieve a batched background migration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gitlab-admin.getapiv4adminbatchedbackgroundmigrationsid
+      with:
+        database: tools.database
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pause-batched-background-migration
+      description: Pause a batched background migration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: gitlab-admin.putapiv4adminbatchedbackgroundmigrationsidpause
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: resume-batched-background-migration
+      description: Resume a batched background migration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: gitlab-admin.putapiv4adminbatchedbackgroundmigrationsidresume
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-all-instance-level-variables
+      description: List all instance-level variables
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gitlab-admin.getapiv4admincivariables
+      with:
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-new-instance-level-variable
+      description: Create a new instance-level variable
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gitlab-admin.postapiv4admincivariables
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-details-specific-instance-level
+      description: Get the details of a specific instance-level variable
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gitlab-admin.getapiv4admincivariableskey
+      with:
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-instance-level-variable
+      description: Update an instance-level variable
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: gitlab-admin.putapiv4admincivariableskey
+      with:
+        key: tools.key
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-existing-instance-level-variable
+      description: Delete an existing instance-level variable
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: gitlab-admin.deleteapiv4admincivariableskey
+      with:
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-list-instance-clusters
+      description: GitLab List Instance Clusters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gitlab-admin.getapiv4adminclusters
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-add-existing-instance-cluster
+      description: GitLab Add Existing Instance Cluster
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gitlab-admin.postapiv4adminclustersadd
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-get-single-instance-cluster
+      description: GitLab Get a Single Instance Cluster
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gitlab-admin.getapiv4adminclustersclusterid
+      with:
+        cluster_id: tools.cluster_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-edit-instance-cluster
+      description: GitLab Edit Instance Cluster
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: gitlab-admin.putapiv4adminclustersclusterid
+      with:
+        cluster_id: tools.cluster_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-delete-instance-cluster
+      description: GitLab Delete Instance Cluster
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: gitlab-admin.deleteapiv4adminclustersclusterid
+      with:
+        cluster_id: tools.cluster_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-dictionary-details
+      description: Retrieve dictionary details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gitlab-admin.getapiv4admindatabasesdatabasenamedictionarytablestablename
+      with:
+        database_name: tools.database_name
+        table_name: tools.table_name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mark-migration-successfully-executed
+      description: Mark the migration as successfully executed
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gitlab-admin.postapiv4adminmigrationstimestampmark
+      with:
+        timestamp: tools.timestamp
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,178 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: GitLab api/v4/application — Application
+  description: 'GitLab api/v4/application — Application. 4 operations. Lead operation: GitLab Get Current Plan Limits. Self-contained
+    Naftiko capability covering one Gitlab business surface.'
+  tags:
+  - Gitlab
+  - Application
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GITLAB_API_KEY: GITLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: api-v4-application-application
+    baseUri: https://www.gitlab.com/api
+    description: GitLab api/v4/application — Application business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v4-application-appearance
+      path: /api/v4/application/appearance
+      operations:
+      - name: getapiv4applicationappearance
+        method: GET
+        description: Get the current appearance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putapiv4applicationappearance
+        method: PUT
+        description: Modify appearance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v4-application-plan_limits
+      path: /api/v4/application/plan_limits
+      operations:
+      - name: getapiv4applicationplanlimits
+        method: GET
+        description: GitLab Get Current Plan Limits
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: plan_name
+          in: query
+          type: string
+          description: 'Name of the plan to get the limits from. Default: default.'
+      - name: putapiv4applicationplanlimits
+        method: PUT
+        description: GitLab Change Plan Limits
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: api-v4-application-application-rest
+    port: 8080
+    description: REST adapter for GitLab api/v4/application — Application. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v4/application/appearance
+      name: api-v4-application-appearance
+      description: REST surface for api-v4-application-appearance.
+      operations:
+      - method: GET
+        name: getapiv4applicationappearance
+        description: Get the current appearance
+        call: api-v4-application-application.getapiv4applicationappearance
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putapiv4applicationappearance
+        description: Modify appearance
+        call: api-v4-application-application.putapiv4applicationappearance
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v4/application/plan-limits
+      name: api-v4-application-plan-limits
+      description: REST surface for api-v4-application-plan_limits.
+      operations:
+      - method: GET
+        name: getapiv4applicationplanlimits
+        description: GitLab Get Current Plan Limits
+        call: api-v4-application-application.getapiv4applicationplanlimits
+        with:
+          plan_name: rest.plan_name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putapiv4applicationplanlimits
+        description: GitLab Change Plan Limits
+        call: api-v4-application-application.putapiv4applicationplanlimits
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: api-v4-application-application-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for GitLab api/v4/application — Application. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-current-appearance
+      description: Get the current appearance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-application-application.getapiv4applicationappearance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: modify-appearance
+      description: Modify appearance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: api-v4-application-application.putapiv4applicationappearance
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-get-current-plan-limits
+      description: GitLab Get Current Plan Limits
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-application-application.getapiv4applicationplanlimits
+      with:
+        plan_name: tools.plan_name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gitlab-change-plan-limits
+      description: GitLab Change Plan Limits
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: api-v4-application-application.putapiv4applicationplanlimits
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

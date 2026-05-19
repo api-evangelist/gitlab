@@ -1,0 +1,83 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: GitLab api/v4/avatar — Avatar
+  description: 'GitLab api/v4/avatar — Avatar. 1 operations. Lead operation: Avatar. Self-contained Naftiko capability covering
+    one Gitlab business surface.'
+  tags:
+  - Gitlab
+  - Avatar
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GITLAB_API_KEY: GITLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: api-v4-avatar-avatar
+    baseUri: https://www.gitlab.com/api
+    description: GitLab api/v4/avatar — Avatar business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v4-avatar
+      path: /api/v4/avatar
+      operations:
+      - name: getapiv4avatar
+        method: GET
+        description: Return avatar url for a user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: email
+          in: query
+          type: string
+          description: Public email address of the user
+          required: true
+        - name: size
+          in: query
+          type: integer
+          description: Single pixel dimension for Gravatar images
+  exposes:
+  - type: rest
+    namespace: api-v4-avatar-avatar-rest
+    port: 8080
+    description: REST adapter for GitLab api/v4/avatar — Avatar. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v4/avatar
+      name: api-v4-avatar
+      description: REST surface for api-v4-avatar.
+      operations:
+      - method: GET
+        name: getapiv4avatar
+        description: Return avatar url for a user
+        call: api-v4-avatar-avatar.getapiv4avatar
+        with:
+          email: rest.email
+          size: rest.size
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: api-v4-avatar-avatar-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for GitLab api/v4/avatar — Avatar. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: return-avatar-url-user
+      description: Return avatar url for a user
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-avatar-avatar.getapiv4avatar
+      with:
+        email: tools.email
+        size: tools.size
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: GitLab api/v4/metadata — Metadata
+  description: 'GitLab api/v4/metadata — Metadata. 1 operations. Lead operation: GitLab Retrieve Metadata Information for
+    This GitLab Instance. Self-contained Naftiko capability covering one Gitlab business surface.'
+  tags:
+  - Gitlab
+  - Metadata
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GITLAB_API_KEY: GITLAB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: api-v4-metadata-metadata
+    baseUri: https://www.gitlab.com/api
+    description: GitLab api/v4/metadata — Metadata business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v4-metadata
+      path: /api/v4/metadata
+      operations:
+      - name: getapiv4metadata
+        method: GET
+        description: GitLab Retrieve Metadata Information for This GitLab Instance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: api-v4-metadata-metadata-rest
+    port: 8080
+    description: REST adapter for GitLab api/v4/metadata — Metadata. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v4/metadata
+      name: api-v4-metadata
+      description: REST surface for api-v4-metadata.
+      operations:
+      - method: GET
+        name: getapiv4metadata
+        description: GitLab Retrieve Metadata Information for This GitLab Instance
+        call: api-v4-metadata-metadata.getapiv4metadata
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: api-v4-metadata-metadata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for GitLab api/v4/metadata — Metadata. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: gitlab-retrieve-metadata-information-this
+      description: GitLab Retrieve Metadata Information for This GitLab Instance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-v4-metadata-metadata.getapiv4metadata
+      outputParameters:
+      - type: object
+        mapping: $.
