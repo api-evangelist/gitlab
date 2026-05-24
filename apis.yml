@@ -981,6 +981,8 @@ common:
     description: Enterprise DevOps with security scanning, compliance, and advanced API features.
   - name: GitLab Dedicated
     description: Single-tenant SaaS deployment with dedicated infrastructure and enhanced security.
+- type: LLMsTxt
+  url: https://docs.gitlab.com/llms.txt
 created: 2023/11/10
 modified: '2026-05-19'
 position: Consuming
