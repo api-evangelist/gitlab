@@ -1,0 +1,75 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Retire an Instance-Level CI Variable
+  summary: Confirm an instance CI variable exists, then delete it.
+  description: >-
+    An admin CI cleanup flow. The workflow reads an instance-level CI/CD variable
+    by key to confirm it exists, branches on the result, and deletes it when
+    present. When the variable is already absent the flow ends without action.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabAdminApi
+  url: ../openapi/gitlab-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: retire-instance-ci-variable
+  summary: Delete an instance-level CI/CD variable after confirming it exists.
+  description: >-
+    Reads the instance variable by key; on 200 it deletes the variable, and on
+    404 it ends because there is nothing to retire.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - key
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      key:
+        type: string
+        description: The key of the instance-level variable to retire.
+  steps:
+  - stepId: getVariable
+    description: >-
+      Read the instance variable by key to confirm it exists before deleting.
+    operationId: getApiV4AdminCiVariablesKey
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: key
+      in: path
+      value: $inputs.key
+    successCriteria:
+    - condition: $statusCode == 200 || $statusCode == 404
+    outputs:
+      currentValue: $response.body#/value
+    onSuccess:
+    - name: exists
+      type: goto
+      stepId: deleteVariable
+      criteria:
+      - condition: $statusCode == 200
+    - name: absent
+      type: end
+      criteria:
+      - condition: $statusCode == 404
+  - stepId: deleteVariable
+    description: Delete the confirmed instance-level variable.
+    operationId: deleteApiV4AdminCiVariablesKey
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: key
+      in: path
+      value: $inputs.key
+    successCriteria:
+    - condition: $statusCode == 204
+    outputs:
+      deletedKey: $response.body#/key
+  outputs:
+    deletedKey: $steps.deleteVariable.outputs.deletedKey

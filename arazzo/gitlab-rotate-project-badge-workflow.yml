@@ -1,0 +1,103 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Rotate a Project Badge by Name
+  summary: Find an existing project badge by name and update its link and image.
+  description: >-
+    A badge maintenance flow. The workflow looks up the project badges filtered
+    by name, branches on whether a match exists, and when it does it updates that
+    badge's link and image URLs. When no badge matches the name the flow ends
+    without changes. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabProjectsApi
+  url: ../openapi/gitlab-api-v4-projects-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: rotate-project-badge
+  summary: Update an existing project badge's URLs, matched by name.
+  description: >-
+    Lists project badges by name, and when a match is found updates that badge's
+    link and image URLs in place.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - projectId
+    - name
+    - newLinkUrl
+    - newImageUrl
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      projectId:
+        type: string
+        description: The ID or URL-encoded path of the project.
+      name:
+        type: string
+        description: The badge name to locate.
+      newLinkUrl:
+        type: string
+        description: The new badge link URL.
+      newImageUrl:
+        type: string
+        description: The new badge image URL.
+  steps:
+  - stepId: findBadge
+    description: List badges filtered by name to locate the badge to rotate.
+    operationId: getApiV4ProjectsIdBadges
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: name
+      in: query
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      matchedBadgeId: $response.body#/0/id
+    onSuccess:
+    - name: found
+      type: goto
+      stepId: updateBadge
+      criteria:
+      - context: $response.body
+        condition: $.length > 0
+        type: jsonpath
+    - name: notFound
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.length == 0
+        type: jsonpath
+  - stepId: updateBadge
+    description: Update the matched badge with the new link and image URLs.
+    operationId: putApiV4ProjectsIdBadgesBadgeId
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: badge_id
+      in: path
+      value: $steps.findBadge.outputs.matchedBadgeId
+    requestBody:
+      contentType: application/json
+      payload:
+        link_url: $inputs.newLinkUrl
+        image_url: $inputs.newImageUrl
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      updatedBadgeId: $response.body#/id
+      renderedImageUrl: $response.body#/rendered_image_url
+  outputs:
+    badgeId: $steps.updateBadge.outputs.updatedBadgeId
+    renderedImageUrl: $steps.updateBadge.outputs.renderedImageUrl

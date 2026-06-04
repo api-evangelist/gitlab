@@ -1,0 +1,90 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Create a Feature Branch from the Default Branch
+  summary: Resolve the default branch tip and cut a new feature branch from it.
+  description: >-
+    A foundational GitLab repository flow. The workflow reads the project's
+    branch list to discover the default branch and its latest commit, then
+    creates a new branch pointed at that same ref so feature work starts from a
+    known-good base. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabProjectsApi
+  url: ../openapi/gitlab-api-v4-projects-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: create-branch-from-default
+  summary: Create a new branch in a project from the default branch ref.
+  description: >-
+    Lists the project's repository branches to find the default branch, then
+    creates a new branch that references the default branch so the new branch
+    inherits the latest commit.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - projectId
+    - newBranch
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      projectId:
+        type: string
+        description: The ID or URL-encoded path of the project.
+      newBranch:
+        type: string
+        description: The name of the new branch to create (e.g. feature/login).
+      ref:
+        type: string
+        description: Optional ref to branch from; defaults to the default branch name.
+        default: main
+  steps:
+  - stepId: listBranches
+    description: >-
+      List the repository branches so the default branch and its current commit
+      can be identified before branching.
+    operationId: getApiV4ProjectsIdRepositoryBranches
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: per_page
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      defaultBranchName: $response.body#/0/name
+      defaultBranchCommit: $response.body#/0/commit/id
+  - stepId: createBranch
+    description: >-
+      Create the new branch referencing the supplied ref (defaulting to the
+      project default branch) so it starts from the latest commit.
+    operationId: postApiV4ProjectsIdRepositoryBranches
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: branch
+      in: query
+      value: $inputs.newBranch
+    - name: ref
+      in: query
+      value: $inputs.ref
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      branchName: $response.body#/name
+      branchWebUrl: $response.body#/web_url
+      merged: $response.body#/merged
+  outputs:
+    createdBranch: $steps.createBranch.outputs.branchName
+    createdBranchUrl: $steps.createBranch.outputs.branchWebUrl

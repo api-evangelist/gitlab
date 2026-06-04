@@ -1,0 +1,85 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Publish and Verify a Broadcast Message
+  summary: Create a broadcast banner, then read it back to confirm it was stored.
+  description: >-
+    An instance announcement flow. The workflow creates a broadcast message with
+    a window and styling, captures the new message id, and reads the message back
+    to confirm it was persisted as expected. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabAdminApi
+  url: ../openapi/gitlab-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: publish-broadcast-message
+  summary: Create a broadcast message and confirm it by reading it back.
+  description: >-
+    Creates a broadcast message, then fetches the same message by id to verify it
+    was stored.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - message
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      message:
+        type: string
+        description: The message text to display.
+      startsAt:
+        type: string
+        description: Starting time (ISO 8601 date-time).
+        default: '2026-06-04T00:00:00Z'
+      endsAt:
+        type: string
+        description: Ending time (ISO 8601 date-time).
+        default: '2026-06-11T00:00:00Z'
+      broadcastType:
+        type: string
+        description: Broadcast type, banner or notification.
+        default: banner
+  steps:
+  - stepId: createMessage
+    description: Create the broadcast message with the supplied window and type.
+    operationId: postApiV4BroadcastMessages
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    requestBody:
+      contentType: application/json
+      payload:
+        message: $inputs.message
+        starts_at: $inputs.startsAt
+        ends_at: $inputs.endsAt
+        broadcast_type: $inputs.broadcastType
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      messageId: $response.body#/id
+      messageText: $response.body#/message
+  - stepId: confirmMessage
+    description: Read the broadcast message back by id to confirm it persisted.
+    operationId: getApiV4BroadcastMessagesId
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $steps.createMessage.outputs.messageId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      confirmedId: $response.body#/id
+      confirmedMessage: $response.body#/message
+      startsAt: $response.body#/starts_at
+      endsAt: $response.body#/ends_at
+  outputs:
+    messageId: $steps.confirmMessage.outputs.confirmedId
+    confirmedMessage: $steps.confirmMessage.outputs.confirmedMessage

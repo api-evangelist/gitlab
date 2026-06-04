@@ -1,0 +1,107 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Attach a Metric Image to an Alert
+  summary: Authorize an upload, attach a metric image to an alert, then list images.
+  description: >-
+    An incident-enrichment flow. The workflow first asks GitLab Workhorse to
+    authorize a metric image upload for an alert, uploads the image file with an
+    optional reference URL, and then lists the alert's metric images to confirm
+    the attachment. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabProjectsApi
+  url: ../openapi/gitlab-api-v4-projects-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: attach-alert-metric-image
+  summary: Authorize, upload, and confirm a metric image on an alert.
+  description: >-
+    Authorizes the upload via Workhorse, uploads the metric image to the alert,
+    then lists the alert's metric images to verify it was attached.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - projectId
+    - alertIid
+    - file
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      projectId:
+        type: string
+        description: The ID or URL-encoded path of the project.
+      alertIid:
+        type: integer
+        description: The IID of the alert.
+      file:
+        type: string
+        description: The metric image file to upload.
+      url:
+        type: string
+        description: Optional URL to view more metric info.
+        default: ''
+      urlText:
+        type: string
+        description: Optional description of the image or URL.
+        default: ''
+  steps:
+  - stepId: authorizeUpload
+    description: Ask Workhorse to authorize the metric image file upload.
+    operationId: postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesAuthorize
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: alert_iid
+      in: path
+      value: $inputs.alertIid
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: uploadImage
+    description: Upload the metric image to the alert.
+    operationId: postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImages
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: alert_iid
+      in: path
+      value: $inputs.alertIid
+    requestBody:
+      contentType: multipart/form-data
+      payload:
+        file: $inputs.file
+        url: $inputs.url
+        url_text: $inputs.urlText
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      metricImageId: $response.body#/id
+  - stepId: listImages
+    description: List the alert's metric images to confirm the attachment.
+    operationId: getApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImages
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: alert_iid
+      in: path
+      value: $inputs.alertIid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstImageId: $response.body#/0/id
+  outputs:
+    metricImageId: $steps.uploadImage.outputs.metricImageId

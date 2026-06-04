@@ -1,0 +1,74 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Prune Stale Merged Branches
+  summary: Survey the branch list, then bulk-delete all merged branches.
+  description: >-
+    A repository tidy-up flow. The workflow first lists branches matching a
+    search term to report how many candidates exist, then triggers GitLab's bulk
+    delete of all merged branches in the project. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabProjectsApi
+  url: ../openapi/gitlab-api-v4-projects-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: prune-stale-branches
+  summary: Report branch candidates and then delete all merged branches.
+  description: >-
+    Searches the project branches for context, then invokes the bulk delete of
+    all merged branches.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - projectId
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      projectId:
+        type: string
+        description: The ID or URL-encoded path of the project.
+      search:
+        type: string
+        description: Optional search filter for the branch survey.
+        default: ''
+  steps:
+  - stepId: surveyBranches
+    description: List branches matching the optional search term for visibility.
+    operationId: getApiV4ProjectsIdRepositoryBranches
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: search
+      in: query
+      value: $inputs.search
+    - name: per_page
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstBranchName: $response.body#/0/name
+  - stepId: deleteMergedBranches
+    description: >-
+      Trigger the asynchronous bulk delete of all merged branches in the
+      project.
+    operationId: deleteApiV4ProjectsIdRepositoryMergedBranches
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    successCriteria:
+    - condition: $statusCode == 202
+  outputs:
+    sampleBranch: $steps.surveyBranches.outputs.firstBranchName

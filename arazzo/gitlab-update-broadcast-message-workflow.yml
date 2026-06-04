@@ -1,0 +1,86 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Reschedule a Broadcast Message
+  summary: Read an existing broadcast message, then update its window and text.
+  description: >-
+    A broadcast maintenance flow. The workflow reads an existing broadcast
+    message to confirm it exists, then updates its message text and active window
+    so an announcement can be extended or revised. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabAdminApi
+  url: ../openapi/gitlab-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: reschedule-broadcast-message
+  summary: Update an existing broadcast message's text and active window.
+  description: >-
+    Reads the broadcast message by id, then updates its message and start/end
+    times.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - messageId
+    - message
+    - startsAt
+    - endsAt
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      messageId:
+        type: integer
+        description: The broadcast message ID to update.
+      message:
+        type: string
+        description: The revised message text.
+      startsAt:
+        type: string
+        description: New starting time (ISO 8601 date-time).
+      endsAt:
+        type: string
+        description: New ending time (ISO 8601 date-time).
+  steps:
+  - stepId: getMessage
+    description: Read the existing broadcast message to confirm it exists.
+    operationId: getApiV4BroadcastMessagesId
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.messageId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentMessage: $response.body#/message
+  - stepId: updateMessage
+    description: Update the broadcast message text and active window.
+    operationId: putApiV4BroadcastMessagesId
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.messageId
+    requestBody:
+      contentType: application/json
+      payload:
+        message: $inputs.message
+        starts_at: $inputs.startsAt
+        ends_at: $inputs.endsAt
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      updatedId: $response.body#/id
+      updatedMessage: $response.body#/message
+      startsAt: $response.body#/starts_at
+      endsAt: $response.body#/ends_at
+  outputs:
+    updatedId: $steps.updateMessage.outputs.updatedId
+    updatedMessage: $steps.updateMessage.outputs.updatedMessage

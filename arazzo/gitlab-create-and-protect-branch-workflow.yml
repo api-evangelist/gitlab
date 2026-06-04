@@ -1,0 +1,98 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Create and Protect a Release Branch
+  summary: Cut a new branch from a ref and immediately apply push/merge protection.
+  description: >-
+    A release-hardening flow. The workflow creates a branch from the supplied
+    ref and then protects it, controlling whether developers may push or merge,
+    so the branch is guarded the moment it is created. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabProjectsApi
+  url: ../openapi/gitlab-api-v4-projects-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: create-and-protect-branch
+  summary: Create a branch and then protect it in a single flow.
+  description: >-
+    Creates a branch from the supplied ref, then applies branch protection with
+    the requested developer push and merge permissions.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - projectId
+    - branch
+    - ref
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      projectId:
+        type: string
+        description: The ID or URL-encoded path of the project.
+      branch:
+        type: string
+        description: The name of the branch to create and protect.
+      ref:
+        type: string
+        description: The ref (branch name or commit sha) to create the branch from.
+      developersCanPush:
+        type: boolean
+        description: Whether developers can push to the protected branch.
+        default: false
+      developersCanMerge:
+        type: boolean
+        description: Whether developers can merge into the protected branch.
+        default: true
+  steps:
+  - stepId: createBranch
+    description: Create the branch from the supplied ref.
+    operationId: postApiV4ProjectsIdRepositoryBranches
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: branch
+      in: query
+      value: $inputs.branch
+    - name: ref
+      in: query
+      value: $inputs.ref
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      branchName: $response.body#/name
+  - stepId: protectBranch
+    description: >-
+      Protect the freshly created branch, setting whether developers may push
+      and merge.
+    operationId: putApiV4ProjectsIdRepositoryBranchesBranchProtect
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: branch
+      in: path
+      value: $steps.createBranch.outputs.branchName
+    requestBody:
+      contentType: application/json
+      payload:
+        developers_can_push: $inputs.developersCanPush
+        developers_can_merge: $inputs.developersCanMerge
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      protectedBranch: $response.body#/name
+      isProtected: $response.body#/protected
+  outputs:
+    branch: $steps.protectBranch.outputs.protectedBranch
+    protected: $steps.protectBranch.outputs.isProtected

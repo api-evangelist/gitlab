@@ -1,0 +1,99 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Track a Migration's Entities
+  summary: Read a migration's summary, then drill into a specific entity's detail.
+  description: >-
+    A migration observability flow. The workflow reads a bulk import's overall
+    status, lists the entities being migrated under it, and then fetches the full
+    detail of the first entity so a caller can monitor per-entity progress. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabAdminApi
+  url: ../openapi/gitlab-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: track-migration-entities
+  summary: Inspect a migration and the detail of its first entity.
+  description: >-
+    Reads the bulk import summary, lists its entities, and pulls the full detail
+    of the first entity.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - importId
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      importId:
+        type: integer
+        description: The ID of the bulk import (GitLab Migration).
+  steps:
+  - stepId: getImport
+    description: Read the bulk import summary and overall status.
+    operationId: getApiV4BulkImportsImportId
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: import_id
+      in: path
+      value: $inputs.importId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      importStatus: $response.body#/status
+  - stepId: listEntities
+    description: List the entities being migrated under the import.
+    operationId: getApiV4BulkImportsImportIdEntities
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: import_id
+      in: path
+      value: $inputs.importId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstEntityId: $response.body#/0/id
+    onSuccess:
+    - name: hasEntities
+      type: goto
+      stepId: getEntity
+      criteria:
+      - context: $response.body
+        condition: $.length > 0
+        type: jsonpath
+    - name: noEntities
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.length == 0
+        type: jsonpath
+  - stepId: getEntity
+    description: Fetch the full detail of the first migration entity.
+    operationId: getApiV4BulkImportsImportIdEntitiesEntityId
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: import_id
+      in: path
+      value: $inputs.importId
+    - name: entity_id
+      in: path
+      value: $steps.listEntities.outputs.firstEntityId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      entityStatus: $response.body#/status
+      entityType: $response.body#/entity_type
+      sourceFullPath: $response.body#/source_full_path
+      destinationFullPath: $response.body#/destination_full_path
+  outputs:
+    importStatus: $steps.getImport.outputs.importStatus
+    entityStatus: $steps.getEntity.outputs.entityStatus

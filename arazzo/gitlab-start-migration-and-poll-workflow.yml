@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Start a Migration and Poll to Completion
+  summary: Kick off a direct-transfer migration, then poll the import until it finishes.
+  description: >-
+    A GitLab-to-GitLab migration flow. The workflow starts a bulk import of a
+    group or project from a source instance, then repeatedly reads the import
+    status, looping while it is still in progress and ending once it reaches a
+    terminal status. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabAdminApi
+  url: ../openapi/gitlab-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: start-migration-and-poll
+  summary: Begin a bulk import and poll its status until it reaches a terminal state.
+  description: >-
+    Submits a bulk import request, then polls the import by id, looping while it
+    is created or started and ending when finished, failed, or timed out.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - sourceUrl
+    - sourceAccessToken
+    - sourceFullPath
+    - destinationNamespace
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the destination API.
+      sourceUrl:
+        type: string
+        description: Source GitLab instance URL.
+      sourceAccessToken:
+        type: string
+        description: Access token to the source GitLab instance.
+      sourceFullPath:
+        type: string
+        description: Relative path of the source entity to import.
+      destinationNamespace:
+        type: string
+        description: Destination namespace for the entity.
+      sourceType:
+        type: string
+        description: Source entity type (group_entity or project_entity).
+        default: group_entity
+  steps:
+  - stepId: startImport
+    description: >-
+      Start the bulk import of the source entity into the destination namespace.
+    operationId: postApiV4BulkImports
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        configuration[url]: $inputs.sourceUrl
+        configuration[access_token]: $inputs.sourceAccessToken
+        entities[source_type]: $inputs.sourceType
+        entities[source_full_path]: $inputs.sourceFullPath
+        entities[destination_namespace]: $inputs.destinationNamespace
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      importId: $response.body#/id
+      initialStatus: $response.body#/status
+  - stepId: pollImport
+    description: >-
+      Read the import status; loop while created or started, otherwise finish.
+    operationId: getApiV4BulkImportsImportId
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: import_id
+      in: path
+      value: $steps.startImport.outputs.importId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/status
+      updatedAt: $response.body#/updated_at
+    onSuccess:
+    - name: inProgress
+      type: goto
+      stepId: pollImport
+      criteria:
+      - context: $response.body
+        condition: $.status == 'created' || $.status == 'started'
+        type: jsonpath
+    - name: terminal
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status == 'finished' || $.status == 'failed' || $.status == 'timeout'
+        type: jsonpath
+  outputs:
+    importId: $steps.startImport.outputs.importId
+    finalStatus: $steps.pollImport.outputs.status

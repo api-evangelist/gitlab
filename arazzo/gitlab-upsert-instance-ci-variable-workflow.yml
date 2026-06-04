@@ -1,0 +1,117 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Upsert an Instance-Level CI Variable
+  summary: Look up an instance CI variable and update it or create it if missing.
+  description: >-
+    An admin CI configuration flow. The workflow reads an instance-level CI/CD
+    variable by key and branches: when the variable exists it updates the value
+    and protection flags, and when it is missing it creates a new variable. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabAdminApi
+  url: ../openapi/gitlab-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: upsert-instance-ci-variable
+  summary: Create or update an instance-level CI/CD variable by key.
+  description: >-
+    Gets the instance variable by key; on 200 it updates the variable, and on 404
+    it creates a new variable with the supplied key and value.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - key
+    - value
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      key:
+        type: string
+        description: The key of the instance-level variable.
+      value:
+        type: string
+        description: The value to set on the variable.
+      protected:
+        type: boolean
+        description: Whether the variable is protected.
+        default: false
+      masked:
+        type: boolean
+        description: Whether the variable is masked.
+        default: false
+  steps:
+  - stepId: getVariable
+    description: >-
+      Read the instance variable by key. A 200 means it exists; a 404 means it
+      must be created.
+    operationId: getApiV4AdminCiVariablesKey
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: key
+      in: path
+      value: $inputs.key
+    successCriteria:
+    - condition: $statusCode == 200 || $statusCode == 404
+    onSuccess:
+    - name: exists
+      type: goto
+      stepId: updateVariable
+      criteria:
+      - condition: $statusCode == 200
+    - name: missing
+      type: goto
+      stepId: createVariable
+      criteria:
+      - condition: $statusCode == 404
+  - stepId: updateVariable
+    description: Update the existing variable's value and protection flags.
+    operationId: putApiV4AdminCiVariablesKey
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: key
+      in: path
+      value: $inputs.key
+    requestBody:
+      contentType: application/json
+      payload:
+        value: $inputs.value
+        protected: $inputs.protected
+        masked: $inputs.masked
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      variableKey: $response.body#/key
+      variableValue: $response.body#/value
+    onSuccess:
+    - name: done
+      type: end
+  - stepId: createVariable
+    description: Create a new instance-level variable with the supplied key and value.
+    operationId: postApiV4AdminCiVariables
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    requestBody:
+      contentType: application/json
+      payload:
+        key: $inputs.key
+        value: $inputs.value
+        protected: $inputs.protected
+        masked: $inputs.masked
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      variableKey: $response.body#/key
+      variableValue: $response.body#/value
+  outputs:
+    updatedKey: $steps.updateVariable.outputs.variableKey
+    createdKey: $steps.createVariable.outputs.variableKey

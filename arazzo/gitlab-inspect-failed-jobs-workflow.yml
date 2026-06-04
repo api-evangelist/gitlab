@@ -1,0 +1,89 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Inspect a Failed CI Job
+  summary: List failed jobs in a project and fetch full detail for the first one.
+  description: >-
+    A CI triage flow. The workflow lists jobs scoped to the failed status,
+    captures the first failed job, and retrieves its full detail so a caller can
+    review the failure metadata. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabProjectsApi
+  url: ../openapi/gitlab-api-v4-projects-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: inspect-failed-jobs
+  summary: Find the most recent failed job and pull its full details.
+  description: >-
+    Lists failed jobs, picks the first one, and reads the single-job endpoint for
+    its complete record.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - projectId
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      projectId:
+        type: integer
+        description: The ID of the project.
+  steps:
+  - stepId: listFailedJobs
+    description: List jobs scoped to the failed status.
+    operationId: listProjectJobs
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: scope
+      in: query
+      value:
+      - failed
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      failedJobId: $response.body#/0/id
+    onSuccess:
+    - name: hasFailure
+      type: goto
+      stepId: getJobDetail
+      criteria:
+      - context: $response.body
+        condition: $.length > 0
+        type: jsonpath
+    - name: noFailures
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.length == 0
+        type: jsonpath
+  - stepId: getJobDetail
+    description: Retrieve the full detail for the first failed job.
+    operationId: getSingleJob
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: job_id
+      in: path
+      value: $steps.listFailedJobs.outputs.failedJobId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobName: $response.body#/name
+      jobStatus: $response.body#/status
+      jobStage: $response.body#/stage
+      startedAt: $response.body#/started_at
+  outputs:
+    failedJobName: $steps.getJobDetail.outputs.jobName
+    failedJobStage: $steps.getJobDetail.outputs.jobStage

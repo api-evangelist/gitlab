@@ -1,0 +1,90 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Trigger a Manual CI Job and Poll to Completion
+  summary: Start a manual CI job, then poll its status until it finishes.
+  description: >-
+    A CI/CD driver flow. The workflow runs a manual job in a project pipeline and
+    then repeatedly reads the job until it leaves the running state, branching to
+    re-poll while still running and ending once a terminal status is reached.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabProjectsApi
+  url: ../openapi/gitlab-api-v4-projects-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: trigger-manual-job-and-poll
+  summary: Run a manual CI job and poll its status until it completes.
+  description: >-
+    Triggers a manual job, then polls the single-job endpoint, looping while the
+    job is still running and ending when it reaches a terminal status.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - projectId
+    - jobId
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      projectId:
+        type: integer
+        description: The ID of the project.
+      jobId:
+        type: integer
+        description: The ID of the manual job to run.
+  steps:
+  - stepId: playJob
+    description: Trigger the manual job so it starts running.
+    operationId: triggerManualJob
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: job_id
+      in: path
+      value: $inputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: pollJob
+    description: >-
+      Read the job status; if still running, loop back to poll again, otherwise
+      finish.
+    operationId: getSingleJob
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: job_id
+      in: path
+      value: $inputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobStatus: $response.body#/status
+      finishedAt: $response.body#/finished_at
+    onSuccess:
+    - name: stillRunning
+      type: goto
+      stepId: pollJob
+      criteria:
+      - context: $response.body
+        condition: $.status == 'running' || $.status == 'pending' || $.status == 'created'
+        type: jsonpath
+    - name: terminal
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status != 'running' && $.status != 'pending' && $.status != 'created'
+        type: jsonpath
+  outputs:
+    finalStatus: $steps.pollJob.outputs.jobStatus
+    finishedAt: $steps.pollJob.outputs.finishedAt

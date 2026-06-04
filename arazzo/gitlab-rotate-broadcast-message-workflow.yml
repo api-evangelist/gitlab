@@ -1,0 +1,88 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Rotate the Active Broadcast Message
+  summary: Retire the current broadcast message and publish a replacement.
+  description: >-
+    A broadcast rollover flow. The workflow lists existing broadcast messages,
+    deletes the most recent one to retire it, and then creates a fresh broadcast
+    message in its place so only the current announcement remains. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabAdminApi
+  url: ../openapi/gitlab-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: rotate-broadcast-message
+  summary: Delete the current broadcast message and create a replacement.
+  description: >-
+    Lists broadcast messages, deletes the first returned message, then creates a
+    new broadcast message.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - messageId
+    - newMessage
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      messageId:
+        type: integer
+        description: The broadcast message ID to retire.
+      newMessage:
+        type: string
+        description: The replacement message text.
+      broadcastType:
+        type: string
+        description: Broadcast type, banner or notification.
+        default: banner
+  steps:
+  - stepId: listMessages
+    description: List broadcast messages for visibility before rotating.
+    operationId: getApiV4BroadcastMessages
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: per_page
+      in: query
+      value: 20
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: deleteMessage
+    description: Delete the broadcast message being retired.
+    operationId: deleteApiV4BroadcastMessagesId
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.messageId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      retiredId: $response.body#/id
+  - stepId: createMessage
+    description: Create the replacement broadcast message.
+    operationId: postApiV4BroadcastMessages
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    requestBody:
+      contentType: application/json
+      payload:
+        message: $inputs.newMessage
+        broadcast_type: $inputs.broadcastType
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      newId: $response.body#/id
+      newMessage: $response.body#/message
+  outputs:
+    retiredId: $steps.deleteMessage.outputs.retiredId
+    newMessageId: $steps.createMessage.outputs.newId

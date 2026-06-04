@@ -1,0 +1,78 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Request and Approve Project Access
+  summary: Request access to a project, then approve that same requester.
+  description: >-
+    A two-actor onboarding flow. The workflow first submits an access request for
+    the authenticated user to a project, captures the resulting requester id, and
+    then approves that requester at the supplied access level. Every step spells
+    out its request inline so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabProjectsApi
+  url: ../openapi/gitlab-api-v4-projects-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: request-and-approve-project-access
+  summary: Submit a project access request and approve it.
+  description: >-
+    Creates an access request for the project, then approves the returned
+    requester at the requested access level.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - projectId
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      projectId:
+        type: string
+        description: The ID or URL-encoded path of the project.
+      accessLevel:
+        type: integer
+        description: A valid access level (30 is the Developer role).
+        default: 30
+  steps:
+  - stepId: requestAccess
+    description: Submit an access request for the authenticated user to the project.
+    operationId: postApiV4ProjectsIdAccessRequests
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      requesterId: $response.body#/id
+      requesterUsername: $response.body#/username
+  - stepId: approveAccess
+    description: Approve the requester returned by the access request step.
+    operationId: putApiV4ProjectsIdAccessRequestsUserIdApprove
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: user_id
+      in: path
+      value: $steps.requestAccess.outputs.requesterId
+    requestBody:
+      contentType: application/json
+      payload:
+        access_level: $inputs.accessLevel
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      approvedUserId: $response.body#/id
+      state: $response.body#/state
+  outputs:
+    approvedUserId: $steps.approveAccess.outputs.approvedUserId
+    requesterUsername: $steps.requestAccess.outputs.requesterUsername

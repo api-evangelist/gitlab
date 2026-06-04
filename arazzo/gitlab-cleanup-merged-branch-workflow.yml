@@ -1,0 +1,105 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Clean Up a Merged Branch
+  summary: Verify a branch has been merged, then unprotect and delete it.
+  description: >-
+    A post-merge housekeeping flow. The workflow inspects a branch and only
+    proceeds when it is flagged as merged; it then unprotects the branch so it
+    can be removed and deletes it. When the branch is not yet merged the flow
+    ends without deleting anything. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabProjectsApi
+  url: ../openapi/gitlab-api-v4-projects-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: cleanup-merged-branch
+  summary: Delete a branch only after confirming it has been merged.
+  description: >-
+    Reads the branch to confirm its merged flag, branches on the result, and for
+    merged branches unprotects then deletes them.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - projectId
+    - branch
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      projectId:
+        type: string
+        description: The ID or URL-encoded path of the project.
+      branch:
+        type: string
+        description: The branch name to clean up.
+  steps:
+  - stepId: getBranch
+    description: Read the branch and capture whether it has been merged.
+    operationId: getApiV4ProjectsIdRepositoryBranchesBranch
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: branch
+      in: path
+      value: $inputs.branch
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      merged: $response.body#/merged
+      protected: $response.body#/protected
+    onSuccess:
+    - name: isMerged
+      type: goto
+      stepId: unprotectBranch
+      criteria:
+      - context: $response.body
+        condition: $.merged == true
+        type: jsonpath
+    - name: notMerged
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.merged == false
+        type: jsonpath
+  - stepId: unprotectBranch
+    description: Unprotect the branch so it can be deleted.
+    operationId: putApiV4ProjectsIdRepositoryBranchesBranchUnprotect
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: branch
+      in: path
+      value: $inputs.branch
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      unprotectedBranch: $response.body#/name
+  - stepId: deleteBranch
+    description: Delete the now-unprotected, merged branch.
+    operationId: deleteApiV4ProjectsIdRepositoryBranchesBranch
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: branch
+      in: path
+      value: $inputs.branch
+    successCriteria:
+    - condition: $statusCode == 204
+  outputs:
+    deletedBranch: $steps.unprotectBranch.outputs.unprotectedBranch

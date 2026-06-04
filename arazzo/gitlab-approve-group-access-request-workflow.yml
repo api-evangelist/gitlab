@@ -1,0 +1,79 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Approve a Pending Group Access Request
+  summary: List a group's access requests and approve the first pending requester.
+  description: >-
+    A group membership onboarding flow. The workflow lists the pending access
+    requests for a group, picks the first requester, and approves them at the
+    supplied access level so they gain group membership across its projects.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabGroupsApi
+  url: ../openapi/gitlab-api-v4-groups-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: approve-group-access-request
+  summary: Approve the first pending access request for a group.
+  description: >-
+    Reads the group's access requests, captures the first requester id, and
+    approves them at the requested access level.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - groupId
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      groupId:
+        type: string
+        description: The ID or URL-encoded path of the group.
+      accessLevel:
+        type: integer
+        description: A valid access level (30 is the Developer role).
+        default: 30
+  steps:
+  - stepId: listAccessRequests
+    description: List the pending access requests for the group.
+    operationId: getApiV4GroupsIdAccessRequests
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.groupId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      requesterId: $response.body#/0/id
+      requesterName: $response.body#/0/name
+  - stepId: approveRequest
+    description: Approve the first requester at the supplied access level.
+    operationId: putApiV4GroupsIdAccessRequestsUserIdApprove
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.groupId
+    - name: user_id
+      in: path
+      value: $steps.listAccessRequests.outputs.requesterId
+    requestBody:
+      contentType: application/json
+      payload:
+        access_level: $inputs.accessLevel
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      approvedUserId: $response.body#/id
+      approvedUsername: $response.body#/username
+      state: $response.body#/state
+  outputs:
+    approvedUserId: $steps.approveRequest.outputs.approvedUserId
+    approvedUsername: $steps.approveRequest.outputs.approvedUsername

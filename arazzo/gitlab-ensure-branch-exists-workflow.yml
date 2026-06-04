@@ -1,0 +1,96 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Ensure a Branch Exists
+  summary: Check whether a branch exists and create it from a ref only when missing.
+  description: >-
+    An idempotent branch provisioning flow. The workflow probes the project for
+    a named branch and branches on the result: when the branch already exists it
+    returns the existing branch details, and when it is missing it creates the
+    branch from the supplied ref. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabProjectsApi
+  url: ../openapi/gitlab-api-v4-projects-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: ensure-branch-exists
+  summary: Create a branch only when it does not already exist.
+  description: >-
+    Reads a single branch by name; when it is found the flow ends with the
+    existing branch, and when it is not found the flow creates the branch from
+    the supplied ref.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - projectId
+    - branch
+    - ref
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      projectId:
+        type: string
+        description: The ID or URL-encoded path of the project.
+      branch:
+        type: string
+        description: The branch name to ensure exists.
+      ref:
+        type: string
+        description: The ref (branch name or commit sha) to create the branch from.
+  steps:
+  - stepId: getBranch
+    description: >-
+      Look up the branch by name. A 200 means it already exists; a 404 means it
+      must be created.
+    operationId: getApiV4ProjectsIdRepositoryBranchesBranch
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: branch
+      in: path
+      value: $inputs.branch
+    successCriteria:
+    - condition: $statusCode == 200 || $statusCode == 404
+    outputs:
+      existingBranchName: $response.body#/name
+    onSuccess:
+    - name: alreadyExists
+      type: end
+      criteria:
+      - condition: $statusCode == 200
+    - name: needsCreate
+      type: goto
+      stepId: createBranch
+      criteria:
+      - condition: $statusCode == 404
+  - stepId: createBranch
+    description: Create the missing branch from the supplied ref.
+    operationId: postApiV4ProjectsIdRepositoryBranches
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: branch
+      in: query
+      value: $inputs.branch
+    - name: ref
+      in: query
+      value: $inputs.ref
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      createdBranchName: $response.body#/name
+      createdBranchUrl: $response.body#/web_url
+  outputs:
+    branchName: $steps.createBranch.outputs.createdBranchName

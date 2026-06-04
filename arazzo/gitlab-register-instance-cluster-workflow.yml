@@ -1,0 +1,79 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Register an Existing Instance Cluster
+  summary: Add an existing Kubernetes cluster, then confirm it in the cluster list.
+  description: >-
+    An admin Kubernetes integration flow. The workflow registers an existing
+    Kubernetes cluster at the instance level with its API URL and token, then
+    lists the instance clusters to confirm the new cluster was added. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabAdminApi
+  url: ../openapi/gitlab-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: register-instance-cluster
+  summary: Add an existing instance cluster and confirm it via the cluster list.
+  description: >-
+    Adds an existing Kubernetes cluster at the instance level, then lists
+    instance clusters to verify it was registered.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - name
+    - apiUrl
+    - token
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      name:
+        type: string
+        description: Cluster name.
+      apiUrl:
+        type: string
+        description: URL to access the Kubernetes API.
+      token:
+        type: string
+        description: Token to authenticate against Kubernetes.
+      domain:
+        type: string
+        description: Optional cluster base domain.
+        default: ''
+  steps:
+  - stepId: addCluster
+    description: Register the existing Kubernetes cluster at the instance level.
+    operationId: postApiV4AdminClustersAdd
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.name
+        domain: $inputs.domain
+        platform_kubernetes_attributes[api_url]: $inputs.apiUrl
+        platform_kubernetes_attributes[token]: $inputs.token
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      clusterId: $response.body#/id
+      clusterName: $response.body#/name
+  - stepId: listClusters
+    description: List instance clusters to confirm the new cluster is registered.
+    operationId: getApiV4AdminClusters
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstClusterId: $response.body#/0/id
+  outputs:
+    clusterId: $steps.addCluster.outputs.clusterId
+    clusterName: $steps.addCluster.outputs.clusterName

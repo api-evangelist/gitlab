@@ -1,0 +1,86 @@
+arazzo: 1.0.1
+info:
+  title: GitLab Retire a Project Badge by Name
+  summary: Find a project badge by name and remove it when present.
+  description: >-
+    A badge cleanup flow. The workflow lists the project badges filtered by name,
+    branches on whether a match exists, and removes the matched badge from the
+    project. When no badge matches the name the flow ends without changes. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: gitlabProjectsApi
+  url: ../openapi/gitlab-api-v4-projects-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: retire-project-badge
+  summary: Remove a project badge matched by name.
+  description: >-
+    Lists project badges by name, and when a match is found removes that badge
+    from the project.
+  inputs:
+    type: object
+    required:
+    - privateToken
+    - projectId
+    - name
+    properties:
+      privateToken:
+        type: string
+        description: GitLab Private-Token used to authenticate the API calls.
+      projectId:
+        type: string
+        description: The ID or URL-encoded path of the project.
+      name:
+        type: string
+        description: The badge name to locate and remove.
+  steps:
+  - stepId: findBadge
+    description: List project badges filtered by name to locate the badge to remove.
+    operationId: getApiV4ProjectsIdBadges
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: name
+      in: query
+      value: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      matchedBadgeId: $response.body#/0/id
+    onSuccess:
+    - name: found
+      type: goto
+      stepId: deleteBadge
+      criteria:
+      - context: $response.body
+        condition: $.length > 0
+        type: jsonpath
+    - name: notFound
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.length == 0
+        type: jsonpath
+  - stepId: deleteBadge
+    description: Remove the matched badge from the project.
+    operationId: deleteApiV4ProjectsIdBadgesBadgeId
+    parameters:
+    - name: Private-Token
+      in: header
+      value: $inputs.privateToken
+    - name: id
+      in: path
+      value: $inputs.projectId
+    - name: badge_id
+      in: path
+      value: $steps.findBadge.outputs.matchedBadgeId
+    successCriteria:
+    - condition: $statusCode == 204
+  outputs:
+    retiredBadgeId: $steps.findBadge.outputs.matchedBadgeId
