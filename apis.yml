@@ -26,10 +26,13 @@ apis:
     type: APIReference
   - url: https://docs.gitlab.com/api/graphql/getting_started/
     type: GettingStarted
-  description: GraphQL is a query language for APIs. You can use it to request the exact data you need, and therefore limit
-    the number of requests you need. GraphQL data is arranged in types, so your client can use client-side GraphQL libraries
-    to consume the API and avoid manual parsing. There are no fixed endpoints and no data model, so you can add to the API
-    without creating breaking changes. This enables us to have a versionless API.
+  - url: graphql/gitlab-graphql.md
+    type: GraphQL
+  description: >-
+    GraphQL is a query language for APIs. You can use it to request the exact data you need, and therefore limit the
+    number of requests you need. GraphQL data is arranged in types, so your client can use client-side GraphQL
+    libraries to consume the API and avoid manual parsing. There are no fixed endpoints and no data model, so you can
+    add to the API without creating breaking changes. This enables us to have a versionless API.
 - aid: gitlab:apiv4groups
   name: GitLab Groups API
   tags:
@@ -49,11 +52,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  - type: NaftikoCapability
-    url: capabilities/api-v4-groups-groups.yaml
-  description: The GitLab Groups API allows you to create, read, update, and delete groups and subgroups. Groups are used
-    to manage access control and organize projects within a GitLab instance, enabling teams to collaborate with shared access
-    permissions and settings.
+  description: >-
+    The GitLab Groups API allows you to create, read, update, and delete groups and subgroups. Groups are used to
+    manage access control and organize projects within a GitLab instance, enabling teams to collaborate with shared
+    access permissions and settings.
 - aid: gitlab:apiv4projects
   name: GitLab Projects API
   tags:
@@ -73,11 +75,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  - type: NaftikoCapability
-    url: capabilities/api-v4-projects-projects.yaml
-  description: The GitLab Projects API provides programmatic access to GitLab projects, enabling you to create, list, update,
-    and delete projects. It supports managing project settings, members, forks, stars, and other project-level resources across
-    GitLab.com and self-managed instances.
+  description: >-
+    The GitLab Projects API provides programmatic access to GitLab projects, enabling you to create, list, update, and
+    delete projects. It supports managing project settings, members, forks, stars, and other project-level resources
+    across GitLab.com and self-managed instances.
 - aid: gitlab:apiv4admin
   name: GitLab Admin API
   tags:
@@ -95,11 +96,10 @@ apis:
     type: OpenAPI
   - url: https://docs.gitlab.com/api/admin/
     type: Documentation
-  - type: NaftikoCapability
-    url: capabilities/api-v4-admin-admin.yaml
-  description: The GitLab Admin API provides administrative endpoints for managing a GitLab instance. It includes operations
-    for managing runners, CI/CD variables, Sidekiq queues, and other instance-level administrative tasks that require administrator
-    privileges.
+  description: >-
+    The GitLab Admin API provides administrative endpoints for managing a GitLab instance. It includes operations for
+    managing runners, CI/CD variables, Sidekiq queues, and other instance-level administrative tasks that require
+    administrator privileges.
 - aid: gitlab:apiv4applications
   name: GitLab Applications API
   tags:
@@ -117,11 +117,10 @@ apis:
     type: OpenAPI
   - url: https://docs.gitlab.com/api/applications/
     type: Documentation
-  - type: NaftikoCapability
-    url: capabilities/api-v4-applications-applications.yaml
-  description: The GitLab Applications API allows you to manage OAuth applications registered in GitLab. You can create, list,
-    and delete OAuth applications that enable third-party services to access GitLab resources on behalf of users using the
-    OAuth 2.0 protocol.
+  description: >-
+    The GitLab Applications API allows you to manage OAuth applications registered in GitLab. You can create, list,
+    and delete OAuth applications that enable third-party services to access GitLab resources on behalf of users using
+    the OAuth 2.0 protocol.
 - aid: gitlab:apiv4avatar
   name: GitLab Avatar API
   tags:
@@ -139,10 +138,10 @@ apis:
     type: OpenAPI
   - url: https://docs.gitlab.com/api/avatar/
     type: Documentation
-  - type: NaftikoCapability
-    url: capabilities/api-v4-avatar-avatar.yaml
-  description: The GitLab Avatar API allows you to retrieve avatar images for users and groups. It returns avatar URLs based
-    on user email addresses, enabling applications to display profile images for GitLab users without requiring authentication.
+  description: >-
+    The GitLab Avatar API allows you to retrieve avatar images for users and groups. It returns avatar URLs based on
+    user email addresses, enabling applications to display profile images for GitLab users without requiring
+    authentication.
 - aid: gitlab:apiv4broadcast-messages
   name: GitLab Broadcast Messages API
   tags:
@@ -160,11 +159,10 @@ apis:
     type: OpenAPI
   - url: https://docs.gitlab.com/api/broadcast_messages/
     type: Documentation
-  - type: NaftikoCapability
-    url: capabilities/api-v4-broadcast-messages-broadcast-messages.yaml
-  description: The GitLab Broadcast Messages API allows administrators to create and manage broadcast messages that appear
-    as banners across all GitLab pages. These messages are used to communicate announcements, maintenance notices, and other
-    important information to all users of a GitLab instance.
+  description: >-
+    The GitLab Broadcast Messages API allows administrators to create and manage broadcast messages that appear as
+    banners across all GitLab pages. These messages are used to communicate announcements, maintenance notices, and
+    other important information to all users of a GitLab instance.
 - aid: gitlab:apiv4bulk-imports
   name: GitLab Bulk Imports API
   tags:
@@ -182,11 +180,10 @@ apis:
     type: OpenAPI
   - url: https://docs.gitlab.com/api/bulk_imports/
     type: Documentation
-  - type: NaftikoCapability
-    url: capabilities/api-v4-bulk-imports-bulk-imports.yaml
-  description: The GitLab Bulk Imports API enables migration of groups and projects between GitLab instances. It provides
-    endpoints for initiating bulk import operations and tracking their progress, facilitating large-scale data migrations
-    between GitLab environments.
+  description: >-
+    The GitLab Bulk Imports API enables migration of groups and projects between GitLab instances. It provides
+    endpoints for initiating bulk import operations and tracking their progress, facilitating large-scale data
+    migrations between GitLab environments.
 - aid: gitlab:apiv4application
   name: GitLab Application Settings API
   tags:
@@ -204,13 +201,10 @@ apis:
     type: OpenAPI
   - url: https://docs.gitlab.com/api/settings/
     type: Documentation
-  - type: NaftikoCapability
-    url: capabilities/api-v4-application-application.yaml
-  - type: NaftikoCapability
-    url: capabilities/api-v4-application-applications.yaml
-  description: The GitLab Application Settings API provides access to instance-wide configuration settings for a GitLab installation.
-    Administrators can retrieve and modify application settings such as sign-up restrictions, default project visibility,
-    and other instance-level preferences.
+  description: >-
+    The GitLab Application Settings API provides access to instance-wide configuration settings for a GitLab
+    installation. Administrators can retrieve and modify application settings such as sign-up restrictions, default
+    project visibility, and other instance-level preferences.
 - aid: gitlab:apiv4metadata
   name: GitLab Metadata API
   tags:
@@ -228,11 +222,10 @@ apis:
     type: OpenAPI
   - url: https://docs.gitlab.com/api/metadata/
     type: Documentation
-  - type: NaftikoCapability
-    url: capabilities/api-v4-metadata-metadata.yaml
-  description: The GitLab Metadata API provides information about the GitLab instance, including the version, revision, and
-    other metadata about the running installation. It is useful for verifying connectivity and identifying the version of
-    a GitLab instance programmatically.
+  description: >-
+    The GitLab Metadata API provides information about the GitLab instance, including the version, revision, and other
+    metadata about the running installation. It is useful for verifying connectivity and identifying the version of a
+    GitLab instance programmatically.
 - aid: gitlab:apiv4version
   name: GitLab Version API
   tags:
@@ -250,11 +243,10 @@ apis:
     type: OpenAPI
   - url: https://docs.gitlab.com/api/version/
     type: Documentation
-  - type: NaftikoCapability
-    url: capabilities/api-v4-version-version.yaml
-  description: The GitLab Version API returns version and revision information for the GitLab instance. This endpoint is useful
-    for verifying what version of GitLab is running and for checking compatibility with specific API features before making
-    requests.
+  description: >-
+    The GitLab Version API returns version and revision information for the GitLab instance. This endpoint is useful
+    for verifying what version of GitLab is running and for checking compatibility with specific API features before
+    making requests.
 - aid: gitlab:gitlab-rest-api
   name: GitLab REST API
   tags:
@@ -280,29 +272,10 @@ apis:
     type: RateLimits
   - url: https://docs.gitlab.com/api/openapi/openapi_interactive/
     type: Interactive Documentation
-  - type: NaftikoCapability
-    url: capabilities/gitlab-admin.yaml
-  - type: NaftikoCapability
-    url: capabilities/gitlab-application.yaml
-  - type: NaftikoCapability
-    url: capabilities/gitlab-applications.yaml
-  - type: NaftikoCapability
-    url: capabilities/gitlab-avatar.yaml
-  - type: NaftikoCapability
-    url: capabilities/gitlab-broadcast-messages.yaml
-  - type: NaftikoCapability
-    url: capabilities/gitlab-bulk-imports.yaml
-  - type: NaftikoCapability
-    url: capabilities/gitlab-groups.yaml
-  - type: NaftikoCapability
-    url: capabilities/gitlab-metadata.yaml
-  - type: NaftikoCapability
-    url: capabilities/gitlab-projects.yaml
-  - type: NaftikoCapability
-    url: capabilities/gitlab-version.yaml
-  description: The GitLab REST API provides programmatic access to GitLab resources, enabling you to build integrations, automate
-    repetitive tasks, and extract data for custom reports. The API supports projects, groups, issues, merge requests, CI/CD
-    pipelines, and many other GitLab features through standard HTTP methods and JSON responses.
+  description: >-
+    The GitLab REST API provides programmatic access to GitLab resources, enabling you to build integrations, automate
+    repetitive tasks, and extract data for custom reports. The API supports projects, groups, issues, merge requests,
+    CI/CD pipelines, and many other GitLab features through standard HTTP methods and JSON responses.
 - aid: gitlab:gitlab-oauth2-api
   name: GitLab OAuth 2.0 API
   tags:
@@ -320,15 +293,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/integration/oauth_provider/
     type: Authentication
-  - type: NaftikoCapability
-    url: capabilities/oauth2-authorization.yaml
-  - type: NaftikoCapability
-    url: capabilities/oauth2-tokens.yaml
-  - type: NaftikoCapability
-    url: capabilities/oauth2-user-info.yaml
-  description: The GitLab OAuth 2.0 API enables third-party services to access GitLab resources on behalf of users using the
-    OAuth 2.0 protocol. It supports authorization code with PKCE, device authorization grant, and resource owner password
-    credentials flows, allowing secure delegation of access to GitLab resources.
+  description: >-
+    The GitLab OAuth 2.0 API enables third-party services to access GitLab resources on behalf of users using the
+    OAuth 2.0 protocol. It supports authorization code with PKCE, device authorization grant, and resource owner
+    password credentials flows, allowing secure delegation of access to GitLab resources.
 - aid: gitlab:gitlab-webhooks
   name: GitLab Webhooks
   tags:
@@ -348,14 +316,9 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/project_webhooks/
     type: APIReference
-  - type: NaftikoCapability
-    url: capabilities/webhooks-project-webhooks.yaml
-  - type: NaftikoCapability
-    url: capabilities/webhooks-webhook-configuration.yaml
-  - type: NaftikoCapability
-    url: capabilities/webhooks-webhook-events.yaml
-  description: GitLab Webhooks allow you to receive real-time HTTP POST notifications when events occur in GitLab projects
-    or groups. Webhooks can be configured to trigger on events such as push events, merge requests, issues, comments, and
+  description: >-
+    GitLab Webhooks allow you to receive real-time HTTP POST notifications when events occur in GitLab projects or
+    groups. Webhooks can be configured to trigger on events such as push events, merge requests, issues, comments, and
     pipeline status changes, enabling integrations with external systems.
 - aid: gitlab:apiv4issues
   name: GitLab Issues API
@@ -372,9 +335,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Issues API provides programmatic access to manage issues across projects and groups. It supports
-    creating, listing, updating, and deleting issues, as well as managing issue assignments, labels, milestones, and related
-    metadata for tracking work in GitLab.
+  description: >-
+    The GitLab Issues API provides programmatic access to manage issues across projects and groups. It supports
+    creating, listing, updating, and deleting issues, as well as managing issue assignments, labels, milestones, and
+    related metadata for tracking work in GitLab.
 - aid: gitlab:apiv4merge-requests
   name: GitLab Merge Requests API
   tags:
@@ -390,9 +354,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Merge Requests API enables programmatic management of merge requests across projects and groups.
-    It supports creating, listing, updating, approving, and merging merge requests, as well as managing reviewers, assignees,
-    and merge request metadata for code review workflows.
+  description: >-
+    The GitLab Merge Requests API enables programmatic management of merge requests across projects and groups. It
+    supports creating, listing, updating, approving, and merging merge requests, as well as managing reviewers,
+    assignees, and merge request metadata for code review workflows.
 - aid: gitlab:apiv4pipelines
   name: GitLab Pipelines API
   tags:
@@ -408,9 +373,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Pipelines API provides programmatic access to CI/CD pipelines in GitLab projects. It supports listing,
-    creating, retrying, and canceling pipelines, as well as retrieving pipeline details and variables for automating continuous
-    integration and delivery workflows.
+  description: >-
+    The GitLab Pipelines API provides programmatic access to CI/CD pipelines in GitLab projects. It supports listing,
+    creating, retrying, and canceling pipelines, as well as retrieving pipeline details and variables for automating
+    continuous integration and delivery workflows.
 - aid: gitlab:apiv4jobs
   name: GitLab Jobs API
   tags:
@@ -426,9 +392,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Jobs API allows you to interact with CI/CD jobs in GitLab projects. It supports listing, retrieving,
-    canceling, retrying, and erasing jobs, as well as downloading job artifacts and viewing job logs for build and deployment
-    automation.
+  description: >-
+    The GitLab Jobs API allows you to interact with CI/CD jobs in GitLab projects. It supports listing, retrieving,
+    canceling, retrying, and erasing jobs, as well as downloading job artifacts and viewing job logs for build and
+    deployment automation.
 - aid: gitlab:apiv4runners
   name: GitLab Runners API
   tags:
@@ -444,9 +411,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Runners API provides endpoints for managing CI/CD runners registered to a GitLab instance. It supports
-    listing, registering, updating, and deleting runners, as well as managing runner configurations and viewing jobs assigned
-    to specific runners.
+  description: >-
+    The GitLab Runners API provides endpoints for managing CI/CD runners registered to a GitLab instance. It supports
+    listing, registering, updating, and deleting runners, as well as managing runner configurations and viewing jobs
+    assigned to specific runners.
 - aid: gitlab:apiv4users
   name: GitLab Users API
   tags:
@@ -462,9 +430,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Users API provides programmatic access to manage user accounts on a GitLab instance. It supports
-    listing, creating, updating, and deleting users, managing SSH keys and GPG keys, viewing user activity, and administering
-    user-level settings and permissions.
+  description: >-
+    The GitLab Users API provides programmatic access to manage user accounts on a GitLab instance. It supports
+    listing, creating, updating, and deleting users, managing SSH keys and GPG keys, viewing user activity, and
+    administering user-level settings and permissions.
 - aid: gitlab:apiv4repositories
   name: GitLab Repositories API
   tags:
@@ -480,9 +449,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Repositories API provides access to Git repository data within GitLab projects. It supports listing
-    repository tree structures, retrieving file contents, comparing branches and tags, downloading archives, and accessing
-    contributor statistics.
+  description: >-
+    The GitLab Repositories API provides access to Git repository data within GitLab projects. It supports listing
+    repository tree structures, retrieving file contents, comparing branches and tags, downloading archives, and
+    accessing contributor statistics.
 - aid: gitlab:apiv4commits
   name: GitLab Commits API
   tags:
@@ -498,9 +468,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Commits API provides programmatic access to Git commits within GitLab projects. It supports listing,
-    creating, and retrieving commits, viewing commit diffs and comments, cherry-picking commits, and accessing commit status
-    information for CI/CD integration.
+  description: >-
+    The GitLab Commits API provides programmatic access to Git commits within GitLab projects. It supports listing,
+    creating, and retrieving commits, viewing commit diffs and comments, cherry-picking commits, and accessing commit
+    status information for CI/CD integration.
 - aid: gitlab:apiv4branches
   name: GitLab Branches API
   tags:
@@ -516,9 +487,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Branches API enables programmatic management of Git branches within GitLab projects. It supports
-    listing, creating, and deleting branches, as well as retrieving branch details including the latest commit and protection
-    status.
+  description: >-
+    The GitLab Branches API enables programmatic management of Git branches within GitLab projects. It supports
+    listing, creating, and deleting branches, as well as retrieving branch details including the latest commit and
+    protection status.
 - aid: gitlab:apiv4tags
   name: GitLab Tags API
   tags:
@@ -533,7 +505,8 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Tags API provides programmatic access to manage Git tags within GitLab projects. It supports listing,
+  description: >-
+    The GitLab Tags API provides programmatic access to manage Git tags within GitLab projects. It supports listing,
     creating, and deleting tags, as well as retrieving tag details for version management and release workflows.
 - aid: gitlab:apiv4releases
   name: GitLab Releases API
@@ -550,9 +523,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Releases API enables programmatic management of project releases. It supports creating, listing,
-    updating, and deleting releases, as well as managing release assets and links for distributing software versions and release
-    notes.
+  description: >-
+    The GitLab Releases API enables programmatic management of project releases. It supports creating, listing,
+    updating, and deleting releases, as well as managing release assets and links for distributing software versions
+    and release notes.
 - aid: gitlab:apiv4environments
   name: GitLab Environments API
   tags:
@@ -568,9 +542,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Environments API provides programmatic access to manage deployment environments within GitLab projects.
-    It supports creating, listing, updating, stopping, and deleting environments used to track deployments across different
-    stages such as staging and production.
+  description: >-
+    The GitLab Environments API provides programmatic access to manage deployment environments within GitLab projects.
+    It supports creating, listing, updating, stopping, and deleting environments used to track deployments across
+    different stages such as staging and production.
 - aid: gitlab:apiv4deployments
   name: GitLab Deployments API
   tags:
@@ -586,9 +561,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Deployments API enables programmatic access to deployment records in GitLab projects. It supports
-    listing, creating, and updating deployments, as well as retrieving deployment details and merge requests associated with
-    specific deployments.
+  description: >-
+    The GitLab Deployments API enables programmatic access to deployment records in GitLab projects. It supports
+    listing, creating, and updating deployments, as well as retrieving deployment details and merge requests
+    associated with specific deployments.
 - aid: gitlab:apiv4pipeline-schedules
   name: GitLab Pipeline Schedules API
   tags:
@@ -604,9 +580,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Pipeline Schedules API provides programmatic access to manage scheduled CI/CD pipelines. It supports
-    creating, listing, updating, and deleting pipeline schedules, as well as managing schedule variables and triggering scheduled
-    pipeline runs.
+  description: >-
+    The GitLab Pipeline Schedules API provides programmatic access to manage scheduled CI/CD pipelines. It supports
+    creating, listing, updating, and deleting pipeline schedules, as well as managing schedule variables and
+    triggering scheduled pipeline runs.
 - aid: gitlab:apiv4labels
   name: GitLab Labels API
   tags:
@@ -622,8 +599,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Labels API provides programmatic access to manage project labels. It supports creating, listing,
-    updating, deleting, and subscribing to labels used for categorizing issues, merge requests, and other project resources.
+  description: >-
+    The GitLab Labels API provides programmatic access to manage project labels. It supports creating, listing,
+    updating, deleting, and subscribing to labels used for categorizing issues, merge requests, and other project
+    resources.
 - aid: gitlab:apiv4milestones
   name: GitLab Milestones API
   tags:
@@ -639,9 +618,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Milestones API provides programmatic access to manage project milestones. It supports creating,
-    listing, updating, and deleting milestones, as well as retrieving issues and merge requests associated with specific milestones
-    for sprint and release planning.
+  description: >-
+    The GitLab Milestones API provides programmatic access to manage project milestones. It supports creating,
+    listing, updating, and deleting milestones, as well as retrieving issues and merge requests associated with
+    specific milestones for sprint and release planning.
 - aid: gitlab:apiv4notes
   name: GitLab Notes API
   tags:
@@ -657,9 +637,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Notes API provides programmatic access to manage comments and system notes on issues, merge requests,
-    epics, and snippets. It supports creating, listing, updating, and deleting notes for collaboration and discussion within
-    GitLab resources.
+  description: >-
+    The GitLab Notes API provides programmatic access to manage comments and system notes on issues, merge requests,
+    epics, and snippets. It supports creating, listing, updating, and deleting notes for collaboration and discussion
+    within GitLab resources.
 - aid: gitlab:apiv4snippets
   name: GitLab Snippets API
   tags:
@@ -675,9 +656,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Snippets API provides programmatic access to manage code snippets. It supports creating, listing,
-    updating, and deleting both personal and project snippets, enabling sharing of code fragments and configuration examples
-    across teams and projects.
+  description: >-
+    The GitLab Snippets API provides programmatic access to manage code snippets. It supports creating, listing,
+    updating, and deleting both personal and project snippets, enabling sharing of code fragments and configuration
+    examples across teams and projects.
 - aid: gitlab:apiv4packages
   name: GitLab Packages API
   tags:
@@ -693,9 +675,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Packages API provides programmatic access to the GitLab Package Registry. It supports listing, retrieving,
-    and deleting packages across projects and groups, with support for multiple package formats including NPM, Maven, PyPI,
-    NuGet, Conan, Helm, and more.
+  description: >-
+    The GitLab Packages API provides programmatic access to the GitLab Package Registry. It supports listing,
+    retrieving, and deleting packages across projects and groups, with support for multiple package formats including
+    NPM, Maven, PyPI, NuGet, Conan, Helm, and more.
 - aid: gitlab:apiv4container-registry
   name: GitLab Container Registry API
   tags:
@@ -711,9 +694,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Container Registry API provides programmatic access to manage container images stored in the GitLab
-    Container Registry. It supports listing repositories and tags, deleting images, and managing registry visibility settings
-    for containerized application deployments.
+  description: >-
+    The GitLab Container Registry API provides programmatic access to manage container images stored in the GitLab
+    Container Registry. It supports listing repositories and tags, deleting images, and managing registry visibility
+    settings for containerized application deployments.
 - aid: gitlab:apiv4vulnerabilities
   name: GitLab Vulnerabilities API
   tags:
@@ -729,9 +713,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Vulnerabilities API provides programmatic access to manage security vulnerabilities detected in
-    GitLab projects. It supports retrieving, confirming, resolving, and dismissing vulnerabilities found by SAST, DAST, container
-    scanning, and dependency scanning tools.
+  description: >-
+    The GitLab Vulnerabilities API provides programmatic access to manage security vulnerabilities detected in GitLab
+    projects. It supports retrieving, confirming, resolving, and dismissing vulnerabilities found by SAST, DAST,
+    container scanning, and dependency scanning tools.
 - aid: gitlab:apiv4deploy-keys
   name: GitLab Deploy Keys API
   tags:
@@ -747,9 +732,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Deploy Keys API provides programmatic access to manage deploy keys for GitLab projects. It supports
-    listing, creating, updating, and deleting SSH deploy keys that grant read-only or read-write access to repositories for
-    automated deployment workflows.
+  description: >-
+    The GitLab Deploy Keys API provides programmatic access to manage deploy keys for GitLab projects. It supports
+    listing, creating, updating, and deleting SSH deploy keys that grant read-only or read-write access to
+    repositories for automated deployment workflows.
 - aid: gitlab:apiv4protected-branches
   name: GitLab Protected Branches API
   tags:
@@ -765,9 +751,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Protected Branches API provides programmatic access to manage branch protection rules. It supports
-    listing, creating, updating, and removing protection settings that control who can push, merge, and force push to specific
-    branches in a project.
+  description: >-
+    The GitLab Protected Branches API provides programmatic access to manage branch protection rules. It supports
+    listing, creating, updating, and removing protection settings that control who can push, merge, and force push to
+    specific branches in a project.
 - aid: gitlab:apiv4wikis
   name: GitLab Wikis API
   tags:
@@ -783,9 +770,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Wikis API provides programmatic access to manage project wiki pages. It supports listing, creating,
-    updating, and deleting wiki pages, as well as uploading attachments, enabling teams to maintain project documentation
-    programmatically.
+  description: >-
+    The GitLab Wikis API provides programmatic access to manage project wiki pages. It supports listing, creating,
+    updating, and deleting wiki pages, as well as uploading attachments, enabling teams to maintain project
+    documentation programmatically.
 - aid: gitlab:apiv4events
   name: GitLab Events API
   tags:
@@ -801,9 +789,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Events API provides programmatic access to review event activity across GitLab. It supports listing
-    all events, retrieving user contribution events, and viewing project-specific events such as pushes, comments, issue updates,
-    and merge request actions.
+  description: >-
+    The GitLab Events API provides programmatic access to review event activity across GitLab. It supports listing all
+    events, retrieving user contribution events, and viewing project-specific events such as pushes, comments, issue
+    updates, and merge request actions.
 - aid: gitlab:apiv4search
   name: GitLab Search API
   tags:
@@ -819,9 +808,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Search API enables programmatic search across a GitLab instance, group, or project. It supports
-    searching for projects, issues, merge requests, milestones, code blobs, commits, notes, wiki pages, and users with scope-based
-    filtering.
+  description: >-
+    The GitLab Search API enables programmatic search across a GitLab instance, group, or project. It supports
+    searching for projects, issues, merge requests, milestones, code blobs, commits, notes, wiki pages, and users with
+    scope-based filtering.
 - aid: gitlab:apiv4namespaces
   name: GitLab Namespaces API
   tags:
@@ -837,9 +827,10 @@ apis:
     type: Documentation
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
-  description: The GitLab Namespaces API provides programmatic access to manage namespaces in GitLab. It supports listing
-    namespaces, retrieving namespace details, and verifying namespace existence, which is essential for organizing projects
-    and groups within the GitLab hierarchy.
+  description: >-
+    The GitLab Namespaces API provides programmatic access to manage namespaces in GitLab. It supports listing
+    namespaces, retrieving namespace details, and verifying namespace existence, which is essential for organizing
+    projects and groups within the GitLab hierarchy.
 name: GitLab
 tags:
 - Code
@@ -850,6 +841,8 @@ kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/gitlab/overview
 - type: ArazzoWorkflows
   url: arazzo/
   workflows:
@@ -1061,10 +1054,12 @@ common:
 created: 2023/11/10
 modified: '2026-05-19'
 position: Consuming
-description: GitLab Inc. is an open-core company that develops GitLab, a DevOps software platform for building, securing,
-  and managing applications. Created by Ukrainian developer Dmytro Zaporozhets and Dutch developer Sytse Sijbrandij, GitLab
-  became the first partly-Ukrainian unicorn in 2018. Known for promoting remote work, it is one of the largest all-remote
-  companies globally. GitLab has approximately 30 million registered users, including 1 million active licensed users.
+description: >-
+  GitLab Inc. is an open-core company that develops GitLab, a DevOps software platform for building, securing, and
+  managing applications. Created by Ukrainian developer Dmytro Zaporozhets and Dutch developer Sytse Sijbrandij, GitLab
+  became the first partly-Ukrainian unicorn in 2018. Known for promoting remote work, it is one of the largest
+  all-remote companies globally. GitLab has approximately 30 million registered users, including 1 million active
+  licensed users.
 maintainers:
 - FN: Kin Lane
   url: http://apievangelist.com
