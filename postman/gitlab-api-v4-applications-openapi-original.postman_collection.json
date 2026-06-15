@@ -1,0 +1,300 @@
+{
+  "info": {
+    "_postman_id": "8f640ec2-612f-4292-af21-9e5903ae3589",
+    "name": "GitLab api/v4/applications",
+    "description": "Needs description.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:15:41.000Z",
+    "updatedAt": "2026-06-05T13:15:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8f640ec2-612f-4292-af21-9e5903ae3589"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v4",
+          "item": [
+            {
+              "name": "applications",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "GitLab Delete an Application",
+                      "id": "b5140bc1-0205-4118-8765-e1ef7bbad780",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/applications/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "applications",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4303c5e4-51a3-465d-967d-80950cc4348d",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) The ID of the application (not the application_id)"
+                            }
+                          ]
+                        },
+                        "description": "Delete a specific application"
+                      },
+                      "response": [
+                        {
+                          "id": "058a8a00-bf49-41f9-ab96-b6a3d940154e",
+                          "name": "Delete an application",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/applications/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "applications",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:15:42.000Z",
+                          "updatedAt": "2026-06-05T13:15:42.000Z",
+                          "uid": "35240-058a8a00-bf49-41f9-ab96-b6a3d940154e"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:15:42.000Z",
+                      "updatedAt": "2026-06-05T13:15:42.000Z",
+                      "uid": "35240-b5140bc1-0205-4118-8765-e1ef7bbad780"
+                    }
+                  ],
+                  "id": "f00f8a4b-cb40-48b1-820a-c1a4b50d1070",
+                  "createdAt": "2026-06-05T13:15:42.000Z",
+                  "updatedAt": "2026-06-05T13:15:42.000Z",
+                  "uid": "35240-f00f8a4b-cb40-48b1-820a-c1a4b50d1070"
+                },
+                {
+                  "name": "GitLab Get Applications",
+                  "id": "16353828-cc5c-41b3-9ab6-f99112bbf1d7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v4/applications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v4",
+                        "applications"
+                      ]
+                    },
+                    "description": "List all registered applications"
+                  },
+                  "response": [
+                    {
+                      "id": "f905fbf2-e7ce-47da-9631-e611db1c9f3a",
+                      "name": "Get applications",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/applications",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "applications"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"value\": \"reference #/components/schemas/API_Entities_Application not found in the OpenAPI spec\"\n  },\n  {\n    \"value\": \"reference #/components/schemas/API_Entities_Application not found in the OpenAPI spec\"\n  }\n]",
+                      "createdAt": "2026-06-05T13:15:42.000Z",
+                      "updatedAt": "2026-06-05T13:15:42.000Z",
+                      "uid": "35240-f905fbf2-e7ce-47da-9631-e611db1c9f3a"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:15:42.000Z",
+                  "updatedAt": "2026-06-05T13:15:42.000Z",
+                  "uid": "35240-16353828-cc5c-41b3-9ab6-f99112bbf1d7"
+                },
+                {
+                  "name": "GitLab Create a New Application",
+                  "id": "db10c3c7-c9b8-4b25-9de2-399d1647341e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"scopes\": \"<string>\",\n  \"confidential\": true\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v4/applications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v4",
+                        "applications"
+                      ]
+                    },
+                    "description": "This feature was introduced in GitLab 10.5"
+                  },
+                  "response": [
+                    {
+                      "id": "7677fee0-3e23-4d6b-95f7-834be218d5ee",
+                      "name": "Create a new application",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"scopes\": \"<string>\",\n  \"confidential\": true\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/applications",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "applications"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"application_id\": \"<string>\",\n  \"application_name\": \"<string>\",\n  \"callback_url\": \"<string>\",\n  \"confidential\": \"<boolean>\",\n  \"secret\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T13:15:42.000Z",
+                      "updatedAt": "2026-06-05T13:15:42.000Z",
+                      "uid": "35240-7677fee0-3e23-4d6b-95f7-834be218d5ee"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:15:42.000Z",
+                  "updatedAt": "2026-06-05T13:15:42.000Z",
+                  "uid": "35240-db10c3c7-c9b8-4b25-9de2-399d1647341e"
+                }
+              ],
+              "id": "cb909dab-1272-4fc1-8e2e-d8eb3d90b648",
+              "createdAt": "2026-06-05T13:15:42.000Z",
+              "updatedAt": "2026-06-05T13:15:42.000Z",
+              "uid": "35240-cb909dab-1272-4fc1-8e2e-d8eb3d90b648"
+            }
+          ],
+          "id": "4a5e6ed2-5f25-472f-8e13-5ca155dee7cd",
+          "createdAt": "2026-06-05T13:15:42.000Z",
+          "updatedAt": "2026-06-05T13:15:42.000Z",
+          "uid": "35240-4a5e6ed2-5f25-472f-8e13-5ca155dee7cd"
+        }
+      ],
+      "id": "a58745c4-8aa8-4be4-9854-7a56e9e4dfb9",
+      "createdAt": "2026-06-05T13:15:42.000Z",
+      "updatedAt": "2026-06-05T13:15:42.000Z",
+      "uid": "35240-a58745c4-8aa8-4be4-9854-7a56e9e4dfb9"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.gitlab.com/api/"
+    }
+  ]
+}

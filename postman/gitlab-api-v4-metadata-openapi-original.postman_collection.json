@@ -1,0 +1,148 @@
+{
+  "info": {
+    "_postman_id": "8410a653-b45a-402e-a09c-d410092e7213",
+    "name": "GitLab api/v4/metadata",
+    "description": "Needs description.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:15:51.000Z",
+    "updatedAt": "2026-06-05T13:15:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8410a653-b45a-402e-a09c-d410092e7213"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v4",
+          "item": [
+            {
+              "name": "metadata",
+              "item": [
+                {
+                  "name": "GitLab Retrieve Metadata Information for This GitLab Instance",
+                  "id": "88f54b3f-9af0-4bdc-8df5-1570c8a54a9b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v4/metadata",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v4",
+                        "metadata"
+                      ]
+                    },
+                    "description": "This feature was introduced in GitLab 15.2."
+                  },
+                  "response": [
+                    {
+                      "id": "3e37f150-a425-429d-a359-1ac892e2c963",
+                      "name": "Retrieve metadata information for this GitLab instance",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "metadata"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"version\": \"<string>\",\n  \"revision\": \"<string>\",\n  \"kas\": {\n    \"enabled\": \"<boolean>\",\n    \"externalUrl\": \"<string>\",\n    \"version\": \"<string>\"\n  },\n  \"enterprise\": \"<boolean>\"\n}",
+                      "createdAt": "2026-06-05T13:15:51.000Z",
+                      "updatedAt": "2026-06-05T13:15:51.000Z",
+                      "uid": "35240-3e37f150-a425-429d-a359-1ac892e2c963"
+                    },
+                    {
+                      "id": "843b62a0-fe85-47e7-b6c4-ede21ab40d24",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "metadata"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:15:51.000Z",
+                      "updatedAt": "2026-06-05T13:15:51.000Z",
+                      "uid": "35240-843b62a0-fe85-47e7-b6c4-ede21ab40d24"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:15:51.000Z",
+                  "updatedAt": "2026-06-05T13:15:51.000Z",
+                  "uid": "35240-88f54b3f-9af0-4bdc-8df5-1570c8a54a9b"
+                }
+              ],
+              "id": "e64a0211-5c7b-4781-86dc-a5a44e095c70",
+              "createdAt": "2026-06-05T13:15:51.000Z",
+              "updatedAt": "2026-06-05T13:15:51.000Z",
+              "uid": "35240-e64a0211-5c7b-4781-86dc-a5a44e095c70"
+            }
+          ],
+          "id": "f7898d4b-55aa-484e-8b5b-84def1953c07",
+          "createdAt": "2026-06-05T13:15:51.000Z",
+          "updatedAt": "2026-06-05T13:15:51.000Z",
+          "uid": "35240-f7898d4b-55aa-484e-8b5b-84def1953c07"
+        }
+      ],
+      "id": "b2f314ab-e6fa-4fc0-867e-c6a61c38826b",
+      "createdAt": "2026-06-05T13:15:51.000Z",
+      "updatedAt": "2026-06-05T13:15:51.000Z",
+      "uid": "35240-b2f314ab-e6fa-4fc0-867e-c6a61c38826b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.gitlab.com/api/"
+    }
+  ]
+}

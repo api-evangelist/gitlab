@@ -1,0 +1,2822 @@
+{
+  "info": {
+    "_postman_id": "f5f18e5a-4dc3-48ab-ad58-b06a8e45779c",
+    "name": "GitLab Webhooks API",
+    "description": "The GitLab Webhooks API provides REST endpoints for managing project and group webhooks. Webhooks can be configured to send HTTP POST requests to external URLs when events occur in GitLab, such as pushes, merge requests, issues, pipelines, and deployments. This API covers webhook configuration, event history, and test trigger operations.\n\nContact Support:\n Name: GitLab Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:16:12.000Z",
+    "updatedAt": "2026-06-05T13:16:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f5f18e5a-4dc3-48ab-ad58-b06a8e45779c"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "hooks",
+              "item": [
+                {
+                  "name": "{hook_id}",
+                  "item": [
+                    {
+                      "name": "events",
+                      "item": [
+                        {
+                          "name": "{hook_event_id}",
+                          "item": [
+                            {
+                              "name": "resend",
+                              "item": [
+                                {
+                                  "name": "GitLab Resend a Webhook Event",
+                                  "id": "0764ff17-cffa-49bc-9dc2-c7cccc60303d",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/events/:hook_event_id/resend",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "events",
+                                        ":hook_event_id",
+                                        "resend"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "f1ec5410-9fba-4cce-8614-c3d3b5ab2799",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                                        },
+                                        {
+                                          "id": "af97d9a1-74bc-431b-ae2b-6aae2b3cb97e",
+                                          "key": "hook_id",
+                                          "value": "<integer>",
+                                          "description": "(Required) The ID of the webhook."
+                                        },
+                                        {
+                                          "id": "f8504816-ca5f-4c15-920c-ede2e4e89c16",
+                                          "key": "hook_event_id",
+                                          "value": "<integer>",
+                                          "description": "(Required) The ID of the webhook event to resend."
+                                        }
+                                      ]
+                                    },
+                                    "description": "Resends a previously triggered webhook event to the configured URL. Useful for retrying failed deliveries or for debugging webhook configurations."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "29496fd3-339f-43da-aea1-84592bffff23",
+                                      "name": "Webhook event resent successfully.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "PRIVATE-TOKEN",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/events/:hook_event_id/resend",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":id",
+                                            "hooks",
+                                            ":hook_id",
+                                            "events",
+                                            ":hook_event_id",
+                                            "resend"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "hook_id"
+                                            },
+                                            {
+                                              "key": "hook_event_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Created",
+                                      "code": 201,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-06-05T13:16:13.000Z",
+                                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                                      "uid": "35240-29496fd3-339f-43da-aea1-84592bffff23"
+                                    },
+                                    {
+                                      "id": "b209c5f6-ff5b-415f-bad7-494db2d10e77",
+                                      "name": "Authentication required.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "PRIVATE-TOKEN",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/events/:hook_event_id/resend",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":id",
+                                            "hooks",
+                                            ":hook_id",
+                                            "events",
+                                            ":hook_event_id",
+                                            "resend"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "hook_id"
+                                            },
+                                            {
+                                              "key": "hook_event_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-06-05T13:16:13.000Z",
+                                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                                      "uid": "35240-b209c5f6-ff5b-415f-bad7-494db2d10e77"
+                                    },
+                                    {
+                                      "id": "6da2a775-8485-4fa3-a3c0-86bbdb96e64c",
+                                      "name": "Project, webhook, or event not found.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "PRIVATE-TOKEN",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/events/:hook_event_id/resend",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":id",
+                                            "hooks",
+                                            ":hook_id",
+                                            "events",
+                                            ":hook_event_id",
+                                            "resend"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "hook_id"
+                                            },
+                                            {
+                                              "key": "hook_event_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-06-05T13:16:13.000Z",
+                                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                                      "uid": "35240-6da2a775-8485-4fa3-a3c0-86bbdb96e64c"
+                                    }
+                                  ],
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-0764ff17-cffa-49bc-9dc2-c7cccc60303d"
+                                }
+                              ],
+                              "id": "95dedc42-a465-4827-b247-5efa83542522",
+                              "createdAt": "2026-06-05T13:16:13.000Z",
+                              "updatedAt": "2026-06-05T13:16:13.000Z",
+                              "uid": "35240-95dedc42-a465-4827-b247-5efa83542522"
+                            }
+                          ],
+                          "id": "9b2709bf-341a-410c-b85d-c0d5b5217184",
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-9b2709bf-341a-410c-b85d-c0d5b5217184"
+                        },
+                        {
+                          "name": "GitLab List Webhook Events",
+                          "id": "5036999e-9e90-41c8-9c03-7506bb88b4a3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/events",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "hooks",
+                                ":hook_id",
+                                "events"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "82dc22e3-25a7-484f-b157-1b940fada7a0",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                                },
+                                {
+                                  "id": "8984e339-32e7-45aa-901d-b956a21351d1",
+                                  "key": "hook_id",
+                                  "value": "<integer>",
+                                  "description": "(Required) The ID of the webhook."
+                                }
+                              ]
+                            },
+                            "description": "Returns a list of all delivery events for a specified project webhook from the past 7 days. Each event includes the trigger type, response status code, request and response headers, and payload body."
+                          },
+                          "response": [
+                            {
+                              "id": "08f4952d-a34c-4851-a078-15d4bc791bcd",
+                              "name": "Webhook events returned successfully.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "PRIVATE-TOKEN",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/events",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":id",
+                                    "hooks",
+                                    ":hook_id",
+                                    "events"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "hook_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"trigger\": \"<string>\",\n    \"request_headers\": {\n      \"Excepteur9_\": \"<string>\",\n      \"Excepteurbb\": \"<string>\"\n    },\n    \"request_data\": \"<string>\",\n    \"response_headers\": {\n      \"consectetur94\": \"<string>\",\n      \"ametc\": \"<string>\"\n    },\n    \"response_body\": \"<string>\",\n    \"response_status\": \"<string>\",\n    \"execution_duration\": \"<number>\",\n    \"created_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"trigger\": \"<string>\",\n    \"request_headers\": {\n      \"irure_7d\": \"<string>\"\n    },\n    \"request_data\": \"<string>\",\n    \"response_headers\": {\n      \"qui_6c\": \"<string>\",\n      \"dolore57\": \"<string>\"\n    },\n    \"response_body\": \"<string>\",\n    \"response_status\": \"<string>\",\n    \"execution_duration\": \"<number>\",\n    \"created_at\": \"<dateTime>\"\n  }\n]",
+                              "createdAt": "2026-06-05T13:16:13.000Z",
+                              "updatedAt": "2026-06-05T13:16:13.000Z",
+                              "uid": "35240-08f4952d-a34c-4851-a078-15d4bc791bcd"
+                            },
+                            {
+                              "id": "affe86ac-d513-4301-b004-7fe5b5805f41",
+                              "name": "Authentication required.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "PRIVATE-TOKEN",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/events",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":id",
+                                    "hooks",
+                                    ":hook_id",
+                                    "events"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "hook_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-06-05T13:16:13.000Z",
+                              "updatedAt": "2026-06-05T13:16:13.000Z",
+                              "uid": "35240-affe86ac-d513-4301-b004-7fe5b5805f41"
+                            },
+                            {
+                              "id": "49302885-978c-4085-aa80-9b80fb7f49d5",
+                              "name": "Project or webhook not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "PRIVATE-TOKEN",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/events",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":id",
+                                    "hooks",
+                                    ":hook_id",
+                                    "events"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "hook_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-06-05T13:16:13.000Z",
+                              "updatedAt": "2026-06-05T13:16:13.000Z",
+                              "uid": "35240-49302885-978c-4085-aa80-9b80fb7f49d5"
+                            }
+                          ],
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-5036999e-9e90-41c8-9c03-7506bb88b4a3"
+                        }
+                      ],
+                      "id": "3e73c2a8-88fd-467f-a2dc-4f90c582e3b5",
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-3e73c2a8-88fd-467f-a2dc-4f90c582e3b5"
+                    },
+                    {
+                      "name": "test",
+                      "item": [
+                        {
+                          "name": "{trigger}",
+                          "item": [
+                            {
+                              "name": "GitLab Test a Webhook Trigger",
+                              "id": "93cd7d02-619b-47d5-8f2d-4ed8f3ce487a",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/test/:trigger",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":id",
+                                    "hooks",
+                                    ":hook_id",
+                                    "test",
+                                    ":trigger"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "f423fc17-0744-4dd1-9046-7c6b289f46cc",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                                    },
+                                    {
+                                      "id": "6233ad0b-ab41-426b-a3e0-7c283eac857b",
+                                      "key": "hook_id",
+                                      "value": "<integer>",
+                                      "description": "(Required) The ID of the webhook."
+                                    },
+                                    {
+                                      "id": "56744748-d80c-4703-aad7-f810122174ff",
+                                      "key": "trigger",
+                                      "value": "<string>",
+                                      "description": "(Required) The event type to simulate. Supported values include push_events, tag_push_events, issues_events, confidential_issues_events, note_events, merge_requests_events, job_events, pipeline_events, wiki_page_events, releases_events, and member_events."
+                                    }
+                                  ]
+                                },
+                                "description": "Sends a test webhook payload of the specified trigger type to the configured webhook URL. Use this to verify the webhook endpoint is reachable and handling payloads correctly."
+                              },
+                              "response": [
+                                {
+                                  "id": "2d72ecc2-1fef-4c13-8bf2-58ef0b31306d",
+                                  "name": "Test event sent successfully.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/test/:trigger",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "test",
+                                        ":trigger"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "trigger"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Created",
+                                  "code": 201,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-2d72ecc2-1fef-4c13-8bf2-58ef0b31306d"
+                                },
+                                {
+                                  "id": "ee648c46-4c3a-4cf1-a23e-57f367e5b3d5",
+                                  "name": "Trigger type not supported or webhook could not be tested.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/test/:trigger",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "test",
+                                        ":trigger"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "trigger"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-ee648c46-4c3a-4cf1-a23e-57f367e5b3d5"
+                                },
+                                {
+                                  "id": "135f4e42-6719-4015-99ef-e5abd4954098",
+                                  "name": "Authentication required.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/test/:trigger",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "test",
+                                        ":trigger"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "trigger"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-135f4e42-6719-4015-99ef-e5abd4954098"
+                                },
+                                {
+                                  "id": "c73962b2-8340-4459-9c4c-e66c40a19595",
+                                  "name": "Project or webhook not found.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/test/:trigger",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "test",
+                                        ":trigger"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "trigger"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-c73962b2-8340-4459-9c4c-e66c40a19595"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T13:16:13.000Z",
+                              "updatedAt": "2026-06-05T13:16:13.000Z",
+                              "uid": "35240-93cd7d02-619b-47d5-8f2d-4ed8f3ce487a"
+                            }
+                          ],
+                          "id": "f4116bc7-fc9f-40b1-885a-29af73e998de",
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-f4116bc7-fc9f-40b1-885a-29af73e998de"
+                        }
+                      ],
+                      "id": "d81b9a25-769c-4337-90c7-6e3294f57bd6",
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-d81b9a25-769c-4337-90c7-6e3294f57bd6"
+                    },
+                    {
+                      "name": "custom_headers",
+                      "item": [
+                        {
+                          "name": "{key}",
+                          "item": [
+                            {
+                              "name": "GitLab Set a Webhook Custom Header",
+                              "id": "6dec193d-bb17-4097-8dac-6a7eb6ff6778",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/custom_headers/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":id",
+                                    "hooks",
+                                    ":hook_id",
+                                    "custom_headers",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "396a29c8-87b6-42fd-8dd4-4445c00ba159",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                                    },
+                                    {
+                                      "id": "77fb44f7-528b-46aa-9032-9df18901187e",
+                                      "key": "hook_id",
+                                      "value": "<integer>",
+                                      "description": "(Required) The ID of the webhook."
+                                    },
+                                    {
+                                      "id": "ef35a0fc-fdbb-4005-831d-4578d9b6676d",
+                                      "key": "key",
+                                      "value": "<string>",
+                                      "description": "(Required) The name of the custom header."
+                                    }
+                                  ]
+                                },
+                                "description": "Adds or updates a custom HTTP header sent with every webhook delivery for the specified webhook. Custom headers are useful for authentication or routing at the receiving endpoint."
+                              },
+                              "response": [
+                                {
+                                  "id": "c51d0c6c-624f-4b33-a6b9-daded0077e30",
+                                  "name": "Custom header set successfully.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"value\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/custom_headers/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "custom_headers",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-c51d0c6c-624f-4b33-a6b9-daded0077e30"
+                                },
+                                {
+                                  "id": "11088a0b-3c7f-4c2f-bee1-284b1ae4d0eb",
+                                  "name": "Authentication required.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"value\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/custom_headers/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "custom_headers",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-11088a0b-3c7f-4c2f-bee1-284b1ae4d0eb"
+                                },
+                                {
+                                  "id": "1eca7c85-6eca-40ac-9413-f05473b56b1e",
+                                  "name": "Project or webhook not found.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"value\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/custom_headers/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "custom_headers",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-1eca7c85-6eca-40ac-9413-f05473b56b1e"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T13:16:13.000Z",
+                              "updatedAt": "2026-06-05T13:16:13.000Z",
+                              "uid": "35240-6dec193d-bb17-4097-8dac-6a7eb6ff6778"
+                            },
+                            {
+                              "name": "GitLab Delete a Webhook Custom Header",
+                              "id": "8973dd4c-bec3-4be4-8dae-edcb6a60f967",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/custom_headers/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":id",
+                                    "hooks",
+                                    ":hook_id",
+                                    "custom_headers",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "5bbaf953-d174-456f-8fdd-982f37488435",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                                    },
+                                    {
+                                      "id": "534427b5-641b-4f02-bde8-af91a62cad39",
+                                      "key": "hook_id",
+                                      "value": "<integer>",
+                                      "description": "(Required) The ID of the webhook."
+                                    },
+                                    {
+                                      "id": "44a3b725-5796-44b3-b71e-8b740166e464",
+                                      "key": "key",
+                                      "value": "<string>",
+                                      "description": "(Required) The name of the custom header to delete."
+                                    }
+                                  ]
+                                },
+                                "description": "Removes a custom HTTP header from the specified webhook. The header will no longer be included in future webhook deliveries."
+                              },
+                              "response": [
+                                {
+                                  "id": "ca49bd03-d0df-4eec-aaf4-17a60c8e725e",
+                                  "name": "Custom header deleted successfully.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/custom_headers/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "custom_headers",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-ca49bd03-d0df-4eec-aaf4-17a60c8e725e"
+                                },
+                                {
+                                  "id": "1f3e8249-17b8-4b73-89b8-c919fe4d5571",
+                                  "name": "Authentication required.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/custom_headers/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "custom_headers",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-1f3e8249-17b8-4b73-89b8-c919fe4d5571"
+                                },
+                                {
+                                  "id": "d9fa7496-c071-40b2-9cbe-34e127a29485",
+                                  "name": "Project, webhook, or header not found.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/custom_headers/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "custom_headers",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-d9fa7496-c071-40b2-9cbe-34e127a29485"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T13:16:13.000Z",
+                              "updatedAt": "2026-06-05T13:16:13.000Z",
+                              "uid": "35240-8973dd4c-bec3-4be4-8dae-edcb6a60f967"
+                            }
+                          ],
+                          "id": "d82486f8-16d8-4659-b4ba-dd4d9628754a",
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-d82486f8-16d8-4659-b4ba-dd4d9628754a"
+                        }
+                      ],
+                      "id": "441428d8-94f8-4753-8b89-9948ecfcd1b6",
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-441428d8-94f8-4753-8b89-9948ecfcd1b6"
+                    },
+                    {
+                      "name": "url_variables",
+                      "item": [
+                        {
+                          "name": "{key}",
+                          "item": [
+                            {
+                              "name": "GitLab Set a Webhook URL Variable",
+                              "id": "c4cb7886-3c02-4888-9b5a-c5831908e658",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/url_variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":id",
+                                    "hooks",
+                                    ":hook_id",
+                                    "url_variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "76b0dd2e-d59d-4a0f-93ab-35819d1a9a95",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                                    },
+                                    {
+                                      "id": "f0cdb345-f78d-4ba9-ac3c-5f21af5fa7e9",
+                                      "key": "hook_id",
+                                      "value": "<integer>",
+                                      "description": "(Required) The ID of the webhook."
+                                    },
+                                    {
+                                      "id": "ddaaceb3-583d-4751-b157-c33182d171c3",
+                                      "key": "key",
+                                      "value": "<string>",
+                                      "description": "(Required) The name of the URL variable."
+                                    }
+                                  ]
+                                },
+                                "description": "Adds or updates a URL variable for the specified webhook. URL variables allow dynamic substitution in the webhook URL, enabling reuse of the same webhook configuration with different target endpoints."
+                              },
+                              "response": [
+                                {
+                                  "id": "b13c92cf-0a1e-4404-9628-0760aa12256d",
+                                  "name": "URL variable set successfully.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"value\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/url_variables/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "url_variables",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-b13c92cf-0a1e-4404-9628-0760aa12256d"
+                                },
+                                {
+                                  "id": "4f6641b6-f810-4bdb-bc4f-1e167d2fb273",
+                                  "name": "Authentication required.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"value\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/url_variables/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "url_variables",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-4f6641b6-f810-4bdb-bc4f-1e167d2fb273"
+                                },
+                                {
+                                  "id": "87c48b46-14e2-4e96-95eb-701eae4b4486",
+                                  "name": "Project or webhook not found.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"value\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/url_variables/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "url_variables",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-87c48b46-14e2-4e96-95eb-701eae4b4486"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T13:16:13.000Z",
+                              "updatedAt": "2026-06-05T13:16:13.000Z",
+                              "uid": "35240-c4cb7886-3c02-4888-9b5a-c5831908e658"
+                            },
+                            {
+                              "name": "GitLab Delete a Webhook URL Variable",
+                              "id": "66b939a4-966d-489c-9f6f-c5b3af9d860f",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/url_variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":id",
+                                    "hooks",
+                                    ":hook_id",
+                                    "url_variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "5feb2d68-414b-4251-ad30-0bb1e562eb5a",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                                    },
+                                    {
+                                      "id": "41d3f3f4-700b-4803-994c-444db4e6114f",
+                                      "key": "hook_id",
+                                      "value": "<integer>",
+                                      "description": "(Required) The ID of the webhook."
+                                    },
+                                    {
+                                      "id": "1d7bbf3f-71e0-494c-9cc7-c1a176596a3f",
+                                      "key": "key",
+                                      "value": "<string>",
+                                      "description": "(Required) The name of the URL variable to delete."
+                                    }
+                                  ]
+                                },
+                                "description": "Removes a URL variable from the specified webhook. The variable will no longer be substituted in future webhook deliveries."
+                              },
+                              "response": [
+                                {
+                                  "id": "1a60ac24-ce5e-4636-9a97-5bddc2be5891",
+                                  "name": "URL variable deleted successfully.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/url_variables/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "url_variables",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-1a60ac24-ce5e-4636-9a97-5bddc2be5891"
+                                },
+                                {
+                                  "id": "3b654271-8a34-4c39-8742-6de391badfb0",
+                                  "name": "Authentication required.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/url_variables/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "url_variables",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-3b654271-8a34-4c39-8742-6de391badfb0"
+                                },
+                                {
+                                  "id": "1bbb33cc-5f62-498d-ad19-b4b65fad9280",
+                                  "name": "Project, webhook, or variable not found.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "PRIVATE-TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id/url_variables/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":id",
+                                        "hooks",
+                                        ":hook_id",
+                                        "url_variables",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "hook_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:16:13.000Z",
+                                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                                  "uid": "35240-1bbb33cc-5f62-498d-ad19-b4b65fad9280"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T13:16:13.000Z",
+                              "updatedAt": "2026-06-05T13:16:13.000Z",
+                              "uid": "35240-66b939a4-966d-489c-9f6f-c5b3af9d860f"
+                            }
+                          ],
+                          "id": "22c64c55-fc97-4175-a50d-59f9de924922",
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-22c64c55-fc97-4175-a50d-59f9de924922"
+                        }
+                      ],
+                      "id": "05fd007d-ecbd-4706-b49a-41c1e71ff26f",
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-05fd007d-ecbd-4706-b49a-41c1e71ff26f"
+                    },
+                    {
+                      "name": "GitLab Get a Project Webhook",
+                      "id": "1047504b-4ad8-4b4c-a7da-0c227ea84f86",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "hooks",
+                            ":hook_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f674b321-2cc8-4a50-83f6-f1a35bd360aa",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                            },
+                            {
+                              "id": "a26c1580-e3d3-4b0a-8b4e-e4cf99dcb9d8",
+                              "key": "hook_id",
+                              "value": "<integer>",
+                              "description": "(Required) The ID of the webhook."
+                            }
+                          ]
+                        },
+                        "description": "Returns configuration details for a specific webhook in a project, including the URL, enabled triggers, and SSL verification setting."
+                      },
+                      "response": [
+                        {
+                          "id": "b4798b72-3ee1-4ef8-afc7-683cd54e714e",
+                          "name": "Webhook configuration returned successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "PRIVATE-TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "hooks",
+                                ":hook_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "hook_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"project_id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\",\n  \"branch_filter_strategy\": \"wildcard\",\n  \"alert_status\": \"<string>\",\n  \"disabled_until\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-b4798b72-3ee1-4ef8-afc7-683cd54e714e"
+                        },
+                        {
+                          "id": "2843f86d-40b9-4709-8f20-75b2efc13af9",
+                          "name": "Authentication required.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "PRIVATE-TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "hooks",
+                                ":hook_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "hook_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-2843f86d-40b9-4709-8f20-75b2efc13af9"
+                        },
+                        {
+                          "id": "9dea1f16-084c-425d-889e-719941d6d67e",
+                          "name": "Project or webhook not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "PRIVATE-TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "hooks",
+                                ":hook_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "hook_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-9dea1f16-084c-425d-889e-719941d6d67e"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-1047504b-4ad8-4b4c-a7da-0c227ea84f86"
+                    },
+                    {
+                      "name": "GitLab Update a Project Webhook",
+                      "id": "c0a32bda-3d17-434b-92af-d4da100a4006",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "hooks",
+                            ":hook_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "053c5ac2-3940-416c-abee-1a4892ac3acd",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                            },
+                            {
+                              "id": "62fc8696-5357-40d4-b77e-5377ee4354e2",
+                              "key": "hook_id",
+                              "value": "<integer>",
+                              "description": "(Required) The ID of the webhook."
+                            }
+                          ]
+                        },
+                        "description": "Modifies the configuration of an existing project webhook. You can update the URL, secret token, SSL verification setting, and which events trigger the webhook."
+                      },
+                      "response": [
+                        {
+                          "id": "c1d7a75a-84a5-4292-99f2-e7b6c3f41b4b",
+                          "name": "Webhook updated successfully.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "PRIVATE-TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "hooks",
+                                ":hook_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "hook_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"project_id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\",\n  \"branch_filter_strategy\": \"wildcard\",\n  \"alert_status\": \"<string>\",\n  \"disabled_until\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-c1d7a75a-84a5-4292-99f2-e7b6c3f41b4b"
+                        },
+                        {
+                          "id": "f019b308-02b3-47ab-b6e0-735d37b17c51",
+                          "name": "Invalid parameters.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "PRIVATE-TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "hooks",
+                                ":hook_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "hook_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-f019b308-02b3-47ab-b6e0-735d37b17c51"
+                        },
+                        {
+                          "id": "5b227820-883f-400a-8717-5f889fde5b0e",
+                          "name": "Authentication required.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "PRIVATE-TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "hooks",
+                                ":hook_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "hook_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-5b227820-883f-400a-8717-5f889fde5b0e"
+                        },
+                        {
+                          "id": "8382df89-c7e3-454f-8185-4e6b06a3dfcb",
+                          "name": "Project or webhook not found.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "PRIVATE-TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "hooks",
+                                ":hook_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "hook_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-8382df89-c7e3-454f-8185-4e6b06a3dfcb"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-c0a32bda-3d17-434b-92af-d4da100a4006"
+                    },
+                    {
+                      "name": "GitLab Delete a Project Webhook",
+                      "id": "5c5cb60a-d510-40ae-8659-b4be64971c82",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "hooks",
+                            ":hook_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a449587d-613b-41cc-8cba-e02618e10ff4",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                            },
+                            {
+                              "id": "67c13e52-18ad-4a07-8677-7c01959581ee",
+                              "key": "hook_id",
+                              "value": "<integer>",
+                              "description": "(Required) The ID of the webhook."
+                            }
+                          ]
+                        },
+                        "description": "Removes a webhook from the specified project. Deleted webhooks will no longer receive event deliveries."
+                      },
+                      "response": [
+                        {
+                          "id": "fb472065-8df0-4000-ab4d-7db2e7d92e42",
+                          "name": "Webhook deleted successfully.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "PRIVATE-TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "hooks",
+                                ":hook_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "hook_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-fb472065-8df0-4000-ab4d-7db2e7d92e42"
+                        },
+                        {
+                          "id": "1cf4ac81-f934-4e7c-8a42-2c5a23d8424e",
+                          "name": "Authentication required.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "PRIVATE-TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "hooks",
+                                ":hook_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "hook_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-1cf4ac81-f934-4e7c-8a42-2c5a23d8424e"
+                        },
+                        {
+                          "id": "062e3b9b-62b5-4bf8-9cad-c0e3e5403d9b",
+                          "name": "Project or webhook not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "PRIVATE-TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:id/hooks/:hook_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":id",
+                                "hooks",
+                                ":hook_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "hook_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:16:13.000Z",
+                          "updatedAt": "2026-06-05T13:16:13.000Z",
+                          "uid": "35240-062e3b9b-62b5-4bf8-9cad-c0e3e5403d9b"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-5c5cb60a-d510-40ae-8659-b4be64971c82"
+                    }
+                  ],
+                  "id": "0d0bbf2d-bb58-40a9-89d5-b35c0901d773",
+                  "createdAt": "2026-06-05T13:16:13.000Z",
+                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                  "uid": "35240-0d0bbf2d-bb58-40a9-89d5-b35c0901d773"
+                },
+                {
+                  "name": "GitLab List Project Webhooks",
+                  "id": "61b013b7-f2ed-4b3b-a459-8fbbe9b809e8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:id/hooks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":id",
+                        "hooks"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9e3b544e-1cf1-4f89-9b8e-19b1e72fbc08",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of all webhooks configured for the specified project. Each webhook entry includes its URL, enabled event triggers, and SSL verification settings."
+                  },
+                  "response": [
+                    {
+                      "id": "682e0fad-ede6-46d3-a3e3-ca03f147e010",
+                      "name": "List of project webhooks returned successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "PRIVATE-TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/hooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "hooks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"project_id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"push_events\": \"<boolean>\",\n    \"tag_push_events\": \"<boolean>\",\n    \"issues_events\": \"<boolean>\",\n    \"confidential_issues_events\": \"<boolean>\",\n    \"merge_requests_events\": \"<boolean>\",\n    \"note_events\": \"<boolean>\",\n    \"confidential_note_events\": \"<boolean>\",\n    \"job_events\": \"<boolean>\",\n    \"pipeline_events\": \"<boolean>\",\n    \"wiki_page_events\": \"<boolean>\",\n    \"deployment_events\": \"<boolean>\",\n    \"releases_events\": \"<boolean>\",\n    \"member_events\": \"<boolean>\",\n    \"enable_ssl_verification\": \"<boolean>\",\n    \"push_events_branch_filter\": \"<string>\",\n    \"branch_filter_strategy\": \"regex\",\n    \"alert_status\": \"<string>\",\n    \"disabled_until\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"url\": \"<uri>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"project_id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"push_events\": \"<boolean>\",\n    \"tag_push_events\": \"<boolean>\",\n    \"issues_events\": \"<boolean>\",\n    \"confidential_issues_events\": \"<boolean>\",\n    \"merge_requests_events\": \"<boolean>\",\n    \"note_events\": \"<boolean>\",\n    \"confidential_note_events\": \"<boolean>\",\n    \"job_events\": \"<boolean>\",\n    \"pipeline_events\": \"<boolean>\",\n    \"wiki_page_events\": \"<boolean>\",\n    \"deployment_events\": \"<boolean>\",\n    \"releases_events\": \"<boolean>\",\n    \"member_events\": \"<boolean>\",\n    \"enable_ssl_verification\": \"<boolean>\",\n    \"push_events_branch_filter\": \"<string>\",\n    \"branch_filter_strategy\": \"wildcard\",\n    \"alert_status\": \"<string>\",\n    \"disabled_until\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-682e0fad-ede6-46d3-a3e3-ca03f147e010"
+                    },
+                    {
+                      "id": "55b83213-6aff-4dcc-bb13-cf5aad47e67c",
+                      "name": "Authentication required.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "PRIVATE-TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/hooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "hooks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-55b83213-6aff-4dcc-bb13-cf5aad47e67c"
+                    },
+                    {
+                      "id": "b4fe34d3-8b40-43cb-ae45-d37022cf3bdc",
+                      "name": "Project not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "PRIVATE-TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/hooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "hooks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-b4fe34d3-8b40-43cb-ae45-d37022cf3bdc"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:16:13.000Z",
+                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                  "uid": "35240-61b013b7-f2ed-4b3b-a459-8fbbe9b809e8"
+                },
+                {
+                  "name": "GitLab Add a Webhook to a Project",
+                  "id": "65d54bd1-46ec-4dde-82df-e7110997a720",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:id/hooks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":id",
+                        "hooks"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a85d658e-8f7d-4745-8197-fe9d2879c7f4",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                        }
+                      ]
+                    },
+                    "description": "Creates a new webhook for the specified project. The webhook will receive HTTP POST requests for the configured event triggers. A secret token can be specified for payload verification."
+                  },
+                  "response": [
+                    {
+                      "id": "a2cd756f-1d1c-475e-8cc8-6d8b3dbdaf86",
+                      "name": "Webhook created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "PRIVATE-TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/hooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "hooks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"project_id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\",\n  \"branch_filter_strategy\": \"wildcard\",\n  \"alert_status\": \"<string>\",\n  \"disabled_until\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-a2cd756f-1d1c-475e-8cc8-6d8b3dbdaf86"
+                    },
+                    {
+                      "id": "c3c6c00a-29e1-44de-8cc6-c8206c72fed4",
+                      "name": "Invalid parameters.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "PRIVATE-TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/hooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "hooks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-c3c6c00a-29e1-44de-8cc6-c8206c72fed4"
+                    },
+                    {
+                      "id": "da40aa29-56b1-4a11-9974-71f77db07386",
+                      "name": "Authentication required.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "PRIVATE-TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/hooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "hooks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-da40aa29-56b1-4a11-9974-71f77db07386"
+                    },
+                    {
+                      "id": "c695a941-8db8-45d6-ae63-dd5982dc3b5b",
+                      "name": "Project not found.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "PRIVATE-TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:id/hooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":id",
+                            "hooks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:16:13.000Z",
+                      "updatedAt": "2026-06-05T13:16:13.000Z",
+                      "uid": "35240-c695a941-8db8-45d6-ae63-dd5982dc3b5b"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:16:13.000Z",
+                  "updatedAt": "2026-06-05T13:16:13.000Z",
+                  "uid": "35240-65d54bd1-46ec-4dde-82df-e7110997a720"
+                }
+              ],
+              "id": "84e051da-29ab-4c46-ad78-86ac316aaf05",
+              "createdAt": "2026-06-05T13:16:13.000Z",
+              "updatedAt": "2026-06-05T13:16:13.000Z",
+              "uid": "35240-84e051da-29ab-4c46-ad78-86ac316aaf05"
+            }
+          ],
+          "id": "857b08a5-7908-4bc8-b722-f65c04893173",
+          "createdAt": "2026-06-05T13:16:13.000Z",
+          "updatedAt": "2026-06-05T13:16:13.000Z",
+          "uid": "35240-857b08a5-7908-4bc8-b722-f65c04893173"
+        }
+      ],
+      "id": "10912d92-3fd4-43ab-adce-25e67b6b48dd",
+      "createdAt": "2026-06-05T13:16:13.000Z",
+      "updatedAt": "2026-06-05T13:16:13.000Z",
+      "uid": "35240-10912d92-3fd4-43ab-adce-25e67b6b48dd"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "PRIVATE-TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://gitlab.com/api/v4"
+    }
+  ]
+}

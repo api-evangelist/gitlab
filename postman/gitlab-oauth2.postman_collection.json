@@ -1,0 +1,1211 @@
+{
+  "info": {
+    "_postman_id": "60611ac2-2e92-42a1-810c-d0146524b3d0",
+    "name": "GitLab OAuth 2.0 API",
+    "description": "The GitLab OAuth 2.0 API enables third-party services to access GitLab resources on behalf of users using the OAuth 2.0 protocol. It supports authorization code with PKCE, device authorization grant, and resource owner password credentials flows. Applications must first be registered in GitLab user settings before using these endpoints.\n\nContact Support:\n Name: GitLab Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:16:01.000Z",
+    "updatedAt": "2026-06-05T13:16:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-60611ac2-2e92-42a1-810c-d0146524b3d0"
+  },
+  "item": [
+    {
+      "name": "oauth",
+      "item": [
+        {
+          "name": "authorize",
+          "item": [
+            {
+              "name": "GitLab Authorize OAuth Application",
+              "id": "893753de-cf18-4a7e-99a2-96604f90192b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/oauth/authorize?client_id=<string>&redirect_uri=<uri>&response_type=code&state=<string>&scope=<string>&code_challenge=<string>&code_challenge_method=S256&root_namespace_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth",
+                    "authorize"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The application ID registered in GitLab.",
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The URI to redirect to after authorization.",
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "(Required) Must be set to code for the authorization code flow.",
+                      "key": "response_type",
+                      "value": "code"
+                    },
+                    {
+                      "description": "(Required) A random, unguessable string used to protect against CSRF attacks. Must be returned unchanged in the redirect response.",
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Space-separated list of scopes to request. Available scopes include api, read_api, read_user, read_repository, write_repository, and others.",
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A Base64 URL-encoded SHA-256 hash of the code_verifier. Required when using PKCE for public clients.",
+                      "key": "code_challenge",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The method used to generate the code_challenge. Must be S256.",
+                      "key": "code_challenge_method",
+                      "value": "S256"
+                    },
+                    {
+                      "description": "Optional. Limits group access token creation to a specific namespace.",
+                      "key": "root_namespace_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Initiates the OAuth 2.0 authorization code flow. Redirects the user to the GitLab authorization page where they can grant access to the application. Supports PKCE for public clients by including the code_challenge and code_challenge_method parameters."
+              },
+              "response": [
+                {
+                  "id": "e7f2fbb6-cad9-4cfb-9ddc-68aef83d7272",
+                  "name": "Redirect to the specified redirect_uri with the authorization code.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/authorize?client_id=<string>&redirect_uri=<uri>&response_type=code&state=<string>&scope=<string>&code_challenge=<string>&code_challenge_method=S256&root_namespace_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "authorize"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The application ID registered in GitLab.",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The URI to redirect to after authorization.",
+                          "key": "redirect_uri",
+                          "value": "<uri>"
+                        },
+                        {
+                          "description": "(Required) Must be set to code for the authorization code flow.",
+                          "key": "response_type",
+                          "value": "code"
+                        },
+                        {
+                          "description": "(Required) A random, unguessable string used to protect against CSRF attacks. Must be returned unchanged in the redirect response.",
+                          "key": "state",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Space-separated list of scopes to request. Available scopes include api, read_api, read_user, read_repository, write_repository, and others.",
+                          "key": "scope",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A Base64 URL-encoded SHA-256 hash of the code_verifier. Required when using PKCE for public clients.",
+                          "key": "code_challenge",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The method used to generate the code_challenge. Must be S256.",
+                          "key": "code_challenge_method",
+                          "value": "S256"
+                        },
+                        {
+                          "description": "Optional. Limits group access token creation to a specific namespace.",
+                          "key": "root_namespace_id",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Found",
+                  "code": 302,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-e7f2fbb6-cad9-4cfb-9ddc-68aef83d7272"
+                },
+                {
+                  "id": "c747c462-2452-417f-a9fe-df046a9f4328",
+                  "name": "Bad request due to missing or invalid parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/authorize?client_id=<string>&redirect_uri=<uri>&response_type=code&state=<string>&scope=<string>&code_challenge=<string>&code_challenge_method=S256&root_namespace_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "authorize"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The application ID registered in GitLab.",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The URI to redirect to after authorization.",
+                          "key": "redirect_uri",
+                          "value": "<uri>"
+                        },
+                        {
+                          "description": "(Required) Must be set to code for the authorization code flow.",
+                          "key": "response_type",
+                          "value": "code"
+                        },
+                        {
+                          "description": "(Required) A random, unguessable string used to protect against CSRF attacks. Must be returned unchanged in the redirect response.",
+                          "key": "state",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Space-separated list of scopes to request. Available scopes include api, read_api, read_user, read_repository, write_repository, and others.",
+                          "key": "scope",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A Base64 URL-encoded SHA-256 hash of the code_verifier. Required when using PKCE for public clients.",
+                          "key": "code_challenge",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The method used to generate the code_challenge. Must be S256.",
+                          "key": "code_challenge_method",
+                          "value": "S256"
+                        },
+                        {
+                          "description": "Optional. Limits group access token creation to a specific namespace.",
+                          "key": "root_namespace_id",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-c747c462-2452-417f-a9fe-df046a9f4328"
+                }
+              ],
+              "createdAt": "2026-06-05T13:16:02.000Z",
+              "updatedAt": "2026-06-05T13:16:02.000Z",
+              "uid": "35240-893753de-cf18-4a7e-99a2-96604f90192b"
+            }
+          ],
+          "id": "01d2ecb7-d8c9-4a5b-85e5-7ae6ac032adc",
+          "createdAt": "2026-06-05T13:16:02.000Z",
+          "updatedAt": "2026-06-05T13:16:02.000Z",
+          "uid": "35240-01d2ecb7-d8c9-4a5b-85e5-7ae6ac032adc"
+        },
+        {
+          "name": "authorize_device",
+          "item": [
+            {
+              "name": "GitLab Initiate Device Authorization Grant",
+              "id": "994d6087-4de2-4433-86db-b1f6aa81c675",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The application ID registered in GitLab.",
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Space-separated list of requested scopes.",
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/oauth/authorize_device",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth",
+                    "authorize_device"
+                  ]
+                },
+                "description": "Initiates the OAuth 2.0 device authorization grant flow for input-constrained devices. Returns a device code and user code that the user enters on a secondary device to authorize access."
+              },
+              "response": [
+                {
+                  "id": "9801d133-038f-45c4-b3d6-f724934ac629",
+                  "name": "Device authorization initiated successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The application ID registered in GitLab.",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Space-separated list of requested scopes.",
+                          "key": "scope",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/authorize_device",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "authorize_device"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"device_code\": \"<string>\",\n  \"user_code\": \"<string>\",\n  \"verification_uri\": \"<uri>\",\n  \"verification_uri_complete\": \"<uri>\",\n  \"expires_in\": \"<integer>\",\n  \"interval\": \"<integer>\"\n}",
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-9801d133-038f-45c4-b3d6-f724934ac629"
+                },
+                {
+                  "id": "31dd5be0-1723-4631-aace-9a11dca08ce2",
+                  "name": "Bad request due to invalid client credentials.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The application ID registered in GitLab.",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Space-separated list of requested scopes.",
+                          "key": "scope",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/authorize_device",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "authorize_device"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-31dd5be0-1723-4631-aace-9a11dca08ce2"
+                }
+              ],
+              "createdAt": "2026-06-05T13:16:02.000Z",
+              "updatedAt": "2026-06-05T13:16:02.000Z",
+              "uid": "35240-994d6087-4de2-4433-86db-b1f6aa81c675"
+            }
+          ],
+          "id": "ea1d958a-dc9e-4987-be4a-90fdb1858123",
+          "createdAt": "2026-06-05T13:16:02.000Z",
+          "updatedAt": "2026-06-05T13:16:02.000Z",
+          "uid": "35240-ea1d958a-dc9e-4987-be4a-90fdb1858123"
+        },
+        {
+          "name": "token",
+          "item": [
+            {
+              "name": "info",
+              "item": [
+                {
+                  "name": "GitLab Get Token Information",
+                  "id": "cc9d5c33-bafb-4c63-b0b6-c81687d39712",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/token/info",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "token",
+                        "info"
+                      ]
+                    },
+                    "description": "Returns information about the current OAuth access token, including the scopes it was granted and its expiration time. Useful for validating that a token is still active."
+                  },
+                  "response": [
+                    {
+                      "id": "eec97b64-7c89-4ee0-9abd-6f9441d2e3d5",
+                      "name": "Token information returned successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/oauth/token/info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oauth",
+                            "token",
+                            "info"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"resource_owner_id\": \"<integer>\",\n  \"application\": {\n    \"uid\": \"<string>\"\n  },\n  \"scope\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"expires_in_seconds\": \"<integer>\",\n  \"created_at\": \"<number>\"\n}",
+                      "createdAt": "2026-06-05T13:16:02.000Z",
+                      "updatedAt": "2026-06-05T13:16:02.000Z",
+                      "uid": "35240-eec97b64-7c89-4ee0-9abd-6f9441d2e3d5"
+                    },
+                    {
+                      "id": "ee72376e-2819-4e1a-b570-e2d2330d26a7",
+                      "name": "Invalid or expired token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/oauth/token/info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oauth",
+                            "token",
+                            "info"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:16:02.000Z",
+                      "updatedAt": "2026-06-05T13:16:02.000Z",
+                      "uid": "35240-ee72376e-2819-4e1a-b570-e2d2330d26a7"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-cc9d5c33-bafb-4c63-b0b6-c81687d39712"
+                }
+              ],
+              "id": "a68bea39-5a45-4d77-b65b-4d04d0e1ce0e",
+              "createdAt": "2026-06-05T13:16:02.000Z",
+              "updatedAt": "2026-06-05T13:16:02.000Z",
+              "uid": "35240-a68bea39-5a45-4d77-b65b-4d04d0e1ce0e"
+            },
+            {
+              "name": "GitLab Exchange Code for Access Token",
+              "id": "c4e1b9f8-7d19-48dc-8098-753d880a12b1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The grant type for the token request.",
+                      "key": "grant_type",
+                      "value": "authorization_code"
+                    },
+                    {
+                      "description": "(Required) The application ID registered in GitLab.",
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The application secret. Required for confidential clients using authorization_code or refresh_token grant types.",
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The authorization code received from the authorize endpoint.",
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The redirect URI used in the original authorization request.",
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "The PKCE code verifier corresponding to the code_challenge.",
+                      "key": "code_verifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The refresh token to exchange for a new access token.",
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device code from the device authorization response.",
+                      "key": "device_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Resource owner username. Only for password grant type.",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Resource owner password. Only for password grant type.",
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/oauth/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth",
+                    "token"
+                  ]
+                },
+                "description": "Exchanges an authorization code, device code, or refresh token for an OAuth 2.0 access token. Supports authorization_code, refresh_token, device_code, and password grant types. Access tokens are valid for two hours. Includes CORS support for browser-based applications."
+              },
+              "response": [
+                {
+                  "id": "eab53db2-a3cd-4a8f-9220-e893e1467aeb",
+                  "name": "Token issued successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The grant type for the token request.",
+                          "key": "grant_type",
+                          "value": "authorization_code"
+                        },
+                        {
+                          "description": "(Required) The application ID registered in GitLab.",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The application secret. Required for confidential clients using authorization_code or refresh_token grant types.",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The authorization code received from the authorize endpoint.",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The redirect URI used in the original authorization request.",
+                          "key": "redirect_uri",
+                          "value": "<uri>"
+                        },
+                        {
+                          "description": "The PKCE code verifier corresponding to the code_challenge.",
+                          "key": "code_verifier",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The refresh token to exchange for a new access token.",
+                          "key": "refresh_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The device code from the device authorization response.",
+                          "key": "device_code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resource owner username. Only for password grant type.",
+                          "key": "username",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resource owner password. Only for password grant type.",
+                          "key": "password",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"access_token\": \"<string>\",\n  \"token_type\": \"<string>\",\n  \"expires_in\": \"<integer>\",\n  \"refresh_token\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"created_at\": \"<integer>\"\n}",
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-eab53db2-a3cd-4a8f-9220-e893e1467aeb"
+                },
+                {
+                  "id": "3f3bf6d6-5e41-4b15-bc23-d011435d7508",
+                  "name": "Invalid grant or request parameters.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The grant type for the token request.",
+                          "key": "grant_type",
+                          "value": "authorization_code"
+                        },
+                        {
+                          "description": "(Required) The application ID registered in GitLab.",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The application secret. Required for confidential clients using authorization_code or refresh_token grant types.",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The authorization code received from the authorize endpoint.",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The redirect URI used in the original authorization request.",
+                          "key": "redirect_uri",
+                          "value": "<uri>"
+                        },
+                        {
+                          "description": "The PKCE code verifier corresponding to the code_challenge.",
+                          "key": "code_verifier",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The refresh token to exchange for a new access token.",
+                          "key": "refresh_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The device code from the device authorization response.",
+                          "key": "device_code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resource owner username. Only for password grant type.",
+                          "key": "username",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resource owner password. Only for password grant type.",
+                          "key": "password",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-3f3bf6d6-5e41-4b15-bc23-d011435d7508"
+                },
+                {
+                  "id": "f0d43c1c-7997-4e40-baf9-ec62e9148e0d",
+                  "name": "Invalid client credentials.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The grant type for the token request.",
+                          "key": "grant_type",
+                          "value": "authorization_code"
+                        },
+                        {
+                          "description": "(Required) The application ID registered in GitLab.",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The application secret. Required for confidential clients using authorization_code or refresh_token grant types.",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The authorization code received from the authorize endpoint.",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The redirect URI used in the original authorization request.",
+                          "key": "redirect_uri",
+                          "value": "<uri>"
+                        },
+                        {
+                          "description": "The PKCE code verifier corresponding to the code_challenge.",
+                          "key": "code_verifier",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The refresh token to exchange for a new access token.",
+                          "key": "refresh_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The device code from the device authorization response.",
+                          "key": "device_code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resource owner username. Only for password grant type.",
+                          "key": "username",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resource owner password. Only for password grant type.",
+                          "key": "password",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-f0d43c1c-7997-4e40-baf9-ec62e9148e0d"
+                }
+              ],
+              "createdAt": "2026-06-05T13:16:02.000Z",
+              "updatedAt": "2026-06-05T13:16:02.000Z",
+              "uid": "35240-c4e1b9f8-7d19-48dc-8098-753d880a12b1"
+            }
+          ],
+          "id": "8d191695-bbf9-4cd5-8285-5603a904d14b",
+          "createdAt": "2026-06-05T13:16:02.000Z",
+          "updatedAt": "2026-06-05T13:16:02.000Z",
+          "uid": "35240-8d191695-bbf9-4cd5-8285-5603a904d14b"
+        },
+        {
+          "name": "revoke",
+          "item": [
+            {
+              "name": "GitLab Revoke an OAuth Token",
+              "id": "6d10ebf1-5a51-4793-ad1c-6904ce0e7633",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The application ID registered in GitLab.",
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The application secret.",
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The access token or refresh token to revoke.",
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/oauth/revoke",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth",
+                    "revoke"
+                  ]
+                },
+                "description": "Revokes an existing OAuth access token or refresh token. After revocation the token can no longer be used to access GitLab resources. Supports CORS for browser-based applications."
+              },
+              "response": [
+                {
+                  "id": "39997b61-4b12-4b4e-b5ff-7c00955fb489",
+                  "name": "Token revoked successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The application ID registered in GitLab.",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The application secret.",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The access token or refresh token to revoke.",
+                          "key": "token",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/revoke",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "revoke"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-39997b61-4b12-4b4e-b5ff-7c00955fb489"
+                },
+                {
+                  "id": "1fae0b2a-ae74-4dc5-bfc6-9c354325bae4",
+                  "name": "Invalid or expired token.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The application ID registered in GitLab.",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The application secret.",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The access token or refresh token to revoke.",
+                          "key": "token",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/revoke",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "revoke"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-1fae0b2a-ae74-4dc5-bfc6-9c354325bae4"
+                }
+              ],
+              "createdAt": "2026-06-05T13:16:02.000Z",
+              "updatedAt": "2026-06-05T13:16:02.000Z",
+              "uid": "35240-6d10ebf1-5a51-4793-ad1c-6904ce0e7633"
+            }
+          ],
+          "id": "aa7c8054-8462-4491-96c5-c4df3dc60421",
+          "createdAt": "2026-06-05T13:16:02.000Z",
+          "updatedAt": "2026-06-05T13:16:02.000Z",
+          "uid": "35240-aa7c8054-8462-4491-96c5-c4df3dc60421"
+        },
+        {
+          "name": "userinfo",
+          "item": [
+            {
+              "name": "GitLab Get Authenticated User Information",
+              "id": "5ba183b7-19af-412b-a9dd-f72c7ffe85ef",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/oauth/userinfo",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth",
+                    "userinfo"
+                  ]
+                },
+                "description": "Returns profile information about the currently authenticated user based on the OAuth token's scopes. Implements the OpenID Connect UserInfo endpoint. Supports CORS for browser-based applications."
+              },
+              "response": [
+                {
+                  "id": "f6f9fda9-bea3-4cc0-aea0-92a3ef77aa0d",
+                  "name": "User information returned successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/userinfo",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "userinfo"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"sub\": \"<string>\",\n  \"name\": \"<string>\",\n  \"nickname\": \"<string>\",\n  \"email\": \"<email>\",\n  \"email_verified\": \"<boolean>\",\n  \"profile\": \"<uri>\",\n  \"picture\": \"<uri>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-f6f9fda9-bea3-4cc0-aea0-92a3ef77aa0d"
+                },
+                {
+                  "id": "d6e6fdd8-899b-4507-b7f5-4f491bf5b433",
+                  "name": "Invalid or expired token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/userinfo",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "userinfo"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:16:02.000Z",
+                  "updatedAt": "2026-06-05T13:16:02.000Z",
+                  "uid": "35240-d6e6fdd8-899b-4507-b7f5-4f491bf5b433"
+                }
+              ],
+              "createdAt": "2026-06-05T13:16:02.000Z",
+              "updatedAt": "2026-06-05T13:16:02.000Z",
+              "uid": "35240-5ba183b7-19af-412b-a9dd-f72c7ffe85ef"
+            }
+          ],
+          "id": "04e62284-7c0a-4a94-bc6d-9e061fc05d34",
+          "createdAt": "2026-06-05T13:16:02.000Z",
+          "updatedAt": "2026-06-05T13:16:02.000Z",
+          "uid": "35240-04e62284-7c0a-4a94-bc6d-9e061fc05d34"
+        }
+      ],
+      "id": "b7033e35-3869-4c1b-afe8-d720e5b437cc",
+      "createdAt": "2026-06-05T13:16:02.000Z",
+      "updatedAt": "2026-06-05T13:16:02.000Z",
+      "uid": "35240-b7033e35-3869-4c1b-afe8-d720e5b437cc"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://gitlab.com"
+    }
+  ]
+}

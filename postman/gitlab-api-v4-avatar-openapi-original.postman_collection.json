@@ -1,0 +1,143 @@
+{
+  "info": {
+    "_postman_id": "a10c1b8c-a653-4a26-a0ed-e1bec87c7a6e",
+    "name": "GitLab api/v4/avatar",
+    "description": "Needs description.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:15:43.000Z",
+    "updatedAt": "2026-06-05T13:15:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a10c1b8c-a653-4a26-a0ed-e1bec87c7a6e"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v4",
+          "item": [
+            {
+              "name": "avatar",
+              "item": [
+                {
+                  "name": "get Api V4Avatar",
+                  "id": "b6716e50-19e5-435a-8343-358ef8b36c33",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v4/avatar?email=<string>&size=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v4",
+                        "avatar"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Public email address of the user",
+                          "key": "email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Single pixel dimension for Gravatar images",
+                          "key": "size",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Return avatar url for a user"
+                  },
+                  "response": [
+                    {
+                      "id": "857562ee-b195-41ef-b441-0fa8692b5980",
+                      "name": "Return avatar url for a user",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/avatar?email=<string>&size=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "avatar"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Public email address of the user",
+                              "key": "email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Single pixel dimension for Gravatar images",
+                              "key": "size",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"avatar_url\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T13:15:43.000Z",
+                      "updatedAt": "2026-06-05T13:15:43.000Z",
+                      "uid": "35240-857562ee-b195-41ef-b441-0fa8692b5980"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:15:43.000Z",
+                  "updatedAt": "2026-06-05T13:15:43.000Z",
+                  "uid": "35240-b6716e50-19e5-435a-8343-358ef8b36c33"
+                }
+              ],
+              "id": "d3ea4854-b56a-47bd-b77f-caffd84b5ca6",
+              "createdAt": "2026-06-05T13:15:43.000Z",
+              "updatedAt": "2026-06-05T13:15:43.000Z",
+              "uid": "35240-d3ea4854-b56a-47bd-b77f-caffd84b5ca6"
+            }
+          ],
+          "id": "808c3981-47b2-4078-9684-e4bfd16c83b5",
+          "createdAt": "2026-06-05T13:15:43.000Z",
+          "updatedAt": "2026-06-05T13:15:43.000Z",
+          "uid": "35240-808c3981-47b2-4078-9684-e4bfd16c83b5"
+        }
+      ],
+      "id": "87dece34-4a11-49c5-bd76-c92dd019e97a",
+      "createdAt": "2026-06-05T13:15:43.000Z",
+      "updatedAt": "2026-06-05T13:15:43.000Z",
+      "uid": "35240-87dece34-4a11-49c5-bd76-c92dd019e97a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.gitlab.com/api/"
+    }
+  ]
+}

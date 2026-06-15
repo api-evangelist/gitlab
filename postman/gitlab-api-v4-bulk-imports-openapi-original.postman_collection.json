@@ -1,0 +1,2095 @@
+{
+  "info": {
+    "_postman_id": "15ba3eba-e8e0-48f2-8e41-1e6d8cf8d266",
+    "name": "GitLab api/v4/bulk imports",
+    "description": "Needs description.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:15:46.000Z",
+    "updatedAt": "2026-06-05T13:15:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-15ba3eba-e8e0-48f2-8e41-1e6d8cf8d266"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v4",
+          "item": [
+            {
+              "name": "bulk_imports",
+              "item": [
+                {
+                  "name": "{import_id}",
+                  "item": [
+                    {
+                      "name": "entities",
+                      "item": [
+                        {
+                          "name": "{entity_id}",
+                          "item": [
+                            {
+                              "name": "GitLab Get GitLab Migration Entity Details",
+                              "id": "6c8b0539-0a9f-4504-b0ce-9a39e2013b06",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id/entities/:entity_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "bulk_imports",
+                                    ":import_id",
+                                    "entities",
+                                    ":entity_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "4ef9268e-b074-427b-8786-798366c70ed0",
+                                      "key": "import_id",
+                                      "value": "<integer>",
+                                      "description": "(Required) The ID of user's GitLab Migration"
+                                    },
+                                    {
+                                      "id": "1d0eef69-629e-47aa-8d76-8c6795679657",
+                                      "key": "entity_id",
+                                      "value": "<integer>",
+                                      "description": "(Required) The ID of GitLab Migration entity"
+                                    }
+                                  ]
+                                },
+                                "description": "This feature was introduced in GitLab 14.1."
+                              },
+                              "response": [
+                                {
+                                  "id": "d4bb2cc3-98d4-475e-9824-d2493589dc08",
+                                  "name": "Get GitLab Migration entity details",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id/entities/:entity_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v4",
+                                        "bulk_imports",
+                                        ":import_id",
+                                        "entities",
+                                        ":entity_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "import_id"
+                                        },
+                                        {
+                                          "key": "entity_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<integer>\",\n  \"bulk_import_id\": \"<integer>\",\n  \"status\": \"finished\",\n  \"entity_type\": \"group\",\n  \"source_full_path\": \"<string>\",\n  \"destination_full_path\": \"<string>\",\n  \"destination_name\": \"<string>\",\n  \"destination_slug\": \"<string>\",\n  \"destination_namespace\": \"<string>\",\n  \"parent_id\": \"<integer>\",\n  \"namespace_id\": \"<integer>\",\n  \"project_id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"failures\": [\n    {\n      \"value\": \"reference #/components/schemas/API_Entities_BulkImports_EntityFailure not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/API_Entities_BulkImports_EntityFailure not found in the OpenAPI spec\"\n    }\n  ],\n  \"migrate_projects\": \"<boolean>\"\n}",
+                                  "createdAt": "2026-06-05T13:15:47.000Z",
+                                  "updatedAt": "2026-06-05T13:15:47.000Z",
+                                  "uid": "35240-d4bb2cc3-98d4-475e-9824-d2493589dc08"
+                                },
+                                {
+                                  "id": "8a2b86fd-1d55-4270-931a-ec6a31618663",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id/entities/:entity_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v4",
+                                        "bulk_imports",
+                                        ":import_id",
+                                        "entities",
+                                        ":entity_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "import_id"
+                                        },
+                                        {
+                                          "key": "entity_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:15:47.000Z",
+                                  "updatedAt": "2026-06-05T13:15:47.000Z",
+                                  "uid": "35240-8a2b86fd-1d55-4270-931a-ec6a31618663"
+                                },
+                                {
+                                  "id": "f139463f-afd7-44c5-b0ac-1e8896c4776b",
+                                  "name": "Not found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id/entities/:entity_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v4",
+                                        "bulk_imports",
+                                        ":import_id",
+                                        "entities",
+                                        ":entity_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "import_id"
+                                        },
+                                        {
+                                          "key": "entity_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:15:47.000Z",
+                                  "updatedAt": "2026-06-05T13:15:47.000Z",
+                                  "uid": "35240-f139463f-afd7-44c5-b0ac-1e8896c4776b"
+                                },
+                                {
+                                  "id": "e739e689-2d89-4d92-902f-8c06180eb747",
+                                  "name": "Service unavailable",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id/entities/:entity_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v4",
+                                        "bulk_imports",
+                                        ":import_id",
+                                        "entities",
+                                        ":entity_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "import_id"
+                                        },
+                                        {
+                                          "key": "entity_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Service Unavailable",
+                                  "code": 503,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:15:47.000Z",
+                                  "updatedAt": "2026-06-05T13:15:47.000Z",
+                                  "uid": "35240-e739e689-2d89-4d92-902f-8c06180eb747"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T13:15:47.000Z",
+                              "updatedAt": "2026-06-05T13:15:47.000Z",
+                              "uid": "35240-6c8b0539-0a9f-4504-b0ce-9a39e2013b06"
+                            }
+                          ],
+                          "id": "8b45562a-f29a-48f8-83e0-17ef33d1e898",
+                          "createdAt": "2026-06-05T13:15:47.000Z",
+                          "updatedAt": "2026-06-05T13:15:47.000Z",
+                          "uid": "35240-8b45562a-f29a-48f8-83e0-17ef33d1e898"
+                        },
+                        {
+                          "name": "GitLab List GitLab Migration Entities",
+                          "id": "99426d32-ebd7-49dd-b3c4-1529c04782ce",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id/entities?status=created&page=1&per_page=20",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "bulk_imports",
+                                ":import_id",
+                                "entities"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Return import entities with specified status",
+                                  "key": "status",
+                                  "value": "created"
+                                },
+                                {
+                                  "description": "Current page number",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of items per page",
+                                  "key": "per_page",
+                                  "value": "20"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "8b6cf0d2-9623-4a0c-b1d3-6a68c5930a19",
+                                  "key": "import_id",
+                                  "value": "<integer>",
+                                  "description": "(Required) The ID of user's GitLab Migration"
+                                }
+                              ]
+                            },
+                            "description": "This feature was introduced in GitLab 14.1."
+                          },
+                          "response": [
+                            {
+                              "id": "c2c8dacf-f6f0-4597-9dc3-c52ac5033de4",
+                              "name": "List GitLab Migration entities",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id/entities?status=created&page=1&per_page=20",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "bulk_imports",
+                                    ":import_id",
+                                    "entities"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Return import entities with specified status",
+                                      "key": "status",
+                                      "value": "created"
+                                    },
+                                    {
+                                      "description": "Current page number",
+                                      "key": "page",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "Number of items per page",
+                                      "key": "per_page",
+                                      "value": "20"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "import_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"bulk_import_id\": \"<integer>\",\n    \"status\": \"created\",\n    \"entity_type\": \"group\",\n    \"source_full_path\": \"<string>\",\n    \"destination_full_path\": \"<string>\",\n    \"destination_name\": \"<string>\",\n    \"destination_slug\": \"<string>\",\n    \"destination_namespace\": \"<string>\",\n    \"parent_id\": \"<integer>\",\n    \"namespace_id\": \"<integer>\",\n    \"project_id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"failures\": [\n      {\n        \"value\": \"reference #/components/schemas/API_Entities_BulkImports_EntityFailure not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/components/schemas/API_Entities_BulkImports_EntityFailure not found in the OpenAPI spec\"\n      }\n    ],\n    \"migrate_projects\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"bulk_import_id\": \"<integer>\",\n    \"status\": \"finished\",\n    \"entity_type\": \"group\",\n    \"source_full_path\": \"<string>\",\n    \"destination_full_path\": \"<string>\",\n    \"destination_name\": \"<string>\",\n    \"destination_slug\": \"<string>\",\n    \"destination_namespace\": \"<string>\",\n    \"parent_id\": \"<integer>\",\n    \"namespace_id\": \"<integer>\",\n    \"project_id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"failures\": [\n      {\n        \"value\": \"reference #/components/schemas/API_Entities_BulkImports_EntityFailure not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/components/schemas/API_Entities_BulkImports_EntityFailure not found in the OpenAPI spec\"\n      }\n    ],\n    \"migrate_projects\": \"<boolean>\"\n  }\n]",
+                              "createdAt": "2026-06-05T13:15:47.000Z",
+                              "updatedAt": "2026-06-05T13:15:47.000Z",
+                              "uid": "35240-c2c8dacf-f6f0-4597-9dc3-c52ac5033de4"
+                            },
+                            {
+                              "id": "90e4e8a9-e327-42d7-9f84-aa4fd93c6db7",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id/entities?status=created&page=1&per_page=20",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "bulk_imports",
+                                    ":import_id",
+                                    "entities"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Return import entities with specified status",
+                                      "key": "status",
+                                      "value": "created"
+                                    },
+                                    {
+                                      "description": "Current page number",
+                                      "key": "page",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "Number of items per page",
+                                      "key": "per_page",
+                                      "value": "20"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "import_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-06-05T13:15:47.000Z",
+                              "updatedAt": "2026-06-05T13:15:47.000Z",
+                              "uid": "35240-90e4e8a9-e327-42d7-9f84-aa4fd93c6db7"
+                            },
+                            {
+                              "id": "7ca7c2f4-9290-4973-a373-238ba033c3f9",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id/entities?status=created&page=1&per_page=20",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "bulk_imports",
+                                    ":import_id",
+                                    "entities"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Return import entities with specified status",
+                                      "key": "status",
+                                      "value": "created"
+                                    },
+                                    {
+                                      "description": "Current page number",
+                                      "key": "page",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "Number of items per page",
+                                      "key": "per_page",
+                                      "value": "20"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "import_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-06-05T13:15:47.000Z",
+                              "updatedAt": "2026-06-05T13:15:47.000Z",
+                              "uid": "35240-7ca7c2f4-9290-4973-a373-238ba033c3f9"
+                            },
+                            {
+                              "id": "108c489d-8388-43de-bfb2-ea9c7a46f062",
+                              "name": "Service unavailable",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id/entities?status=created&page=1&per_page=20",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "bulk_imports",
+                                    ":import_id",
+                                    "entities"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Return import entities with specified status",
+                                      "key": "status",
+                                      "value": "created"
+                                    },
+                                    {
+                                      "description": "Current page number",
+                                      "key": "page",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "Number of items per page",
+                                      "key": "per_page",
+                                      "value": "20"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "import_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Service Unavailable",
+                              "code": 503,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-06-05T13:15:47.000Z",
+                              "updatedAt": "2026-06-05T13:15:47.000Z",
+                              "uid": "35240-108c489d-8388-43de-bfb2-ea9c7a46f062"
+                            }
+                          ],
+                          "createdAt": "2026-06-05T13:15:47.000Z",
+                          "updatedAt": "2026-06-05T13:15:47.000Z",
+                          "uid": "35240-99426d32-ebd7-49dd-b3c4-1529c04782ce"
+                        }
+                      ],
+                      "id": "f728ab03-c997-4b3b-8156-28d9317d4d18",
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-f728ab03-c997-4b3b-8156-28d9317d4d18"
+                    },
+                    {
+                      "name": "GitLab Get GitLab Migration Details",
+                      "id": "787de137-aa74-42a5-afad-5a52b84a0774",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports",
+                            ":import_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9ab3cfec-0dbe-4996-b606-445c181cfd7c",
+                              "key": "import_id",
+                              "value": "<integer>",
+                              "description": "(Required) The ID of user's GitLab Migration"
+                            }
+                          ]
+                        },
+                        "description": "This feature was introduced in GitLab 14.1."
+                      },
+                      "response": [
+                        {
+                          "id": "2af19a5c-ebd6-4ca0-8dbb-d6fcdcf680b2",
+                          "name": "Get GitLab Migration details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "bulk_imports",
+                                ":import_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "import_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"status\": \"timeout\",\n  \"source_type\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-06-05T13:15:47.000Z",
+                          "updatedAt": "2026-06-05T13:15:47.000Z",
+                          "uid": "35240-2af19a5c-ebd6-4ca0-8dbb-d6fcdcf680b2"
+                        },
+                        {
+                          "id": "11effa7a-1459-430e-977d-3154c02fe2d4",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "bulk_imports",
+                                ":import_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "import_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:15:47.000Z",
+                          "updatedAt": "2026-06-05T13:15:47.000Z",
+                          "uid": "35240-11effa7a-1459-430e-977d-3154c02fe2d4"
+                        },
+                        {
+                          "id": "c53cb147-c169-4aa4-a30a-5002ea26747a",
+                          "name": "Not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "bulk_imports",
+                                ":import_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "import_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:15:47.000Z",
+                          "updatedAt": "2026-06-05T13:15:47.000Z",
+                          "uid": "35240-c53cb147-c169-4aa4-a30a-5002ea26747a"
+                        },
+                        {
+                          "id": "3669730c-37a6-4e6a-8845-3429712d7553",
+                          "name": "Service unavailable",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/bulk_imports/:import_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "bulk_imports",
+                                ":import_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "import_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:15:47.000Z",
+                          "updatedAt": "2026-06-05T13:15:47.000Z",
+                          "uid": "35240-3669730c-37a6-4e6a-8845-3429712d7553"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-787de137-aa74-42a5-afad-5a52b84a0774"
+                    }
+                  ],
+                  "id": "f347c778-d221-4db6-8f6f-8f798a0156eb",
+                  "createdAt": "2026-06-05T13:15:47.000Z",
+                  "updatedAt": "2026-06-05T13:15:47.000Z",
+                  "uid": "35240-f347c778-d221-4db6-8f6f-8f798a0156eb"
+                },
+                {
+                  "name": "entities",
+                  "item": [
+                    {
+                      "name": "GitLab List All GitLab Migrations' Entities",
+                      "id": "39e43eb1-27a4-4cff-a200-74b3e4a52411",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports/entities?page=1&per_page=20&sort=desc&status=created",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports",
+                            "entities"
+                          ],
+                          "query": [
+                            {
+                              "description": "Current page number",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of items per page",
+                              "key": "per_page",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order.",
+                              "key": "sort",
+                              "value": "desc"
+                            },
+                            {
+                              "description": "Return all GitLab Migrations' entities with specified status",
+                              "key": "status",
+                              "value": "created"
+                            }
+                          ]
+                        },
+                        "description": "This feature was introduced in GitLab 14.1."
+                      },
+                      "response": [
+                        {
+                          "id": "7e1d8824-e903-4cce-996c-0b101d5502ef",
+                          "name": "List all GitLab Migrations' entities",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/bulk_imports/entities?page=1&per_page=20&sort=desc&status=created",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "bulk_imports",
+                                "entities"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Current page number",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of items per page",
+                                  "key": "per_page",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order.",
+                                  "key": "sort",
+                                  "value": "desc"
+                                },
+                                {
+                                  "description": "Return all GitLab Migrations' entities with specified status",
+                                  "key": "status",
+                                  "value": "created"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"bulk_import_id\": \"<integer>\",\n    \"status\": \"created\",\n    \"entity_type\": \"group\",\n    \"source_full_path\": \"<string>\",\n    \"destination_full_path\": \"<string>\",\n    \"destination_name\": \"<string>\",\n    \"destination_slug\": \"<string>\",\n    \"destination_namespace\": \"<string>\",\n    \"parent_id\": \"<integer>\",\n    \"namespace_id\": \"<integer>\",\n    \"project_id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"failures\": [\n      {\n        \"value\": \"reference #/components/schemas/API_Entities_BulkImports_EntityFailure not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/components/schemas/API_Entities_BulkImports_EntityFailure not found in the OpenAPI spec\"\n      }\n    ],\n    \"migrate_projects\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"bulk_import_id\": \"<integer>\",\n    \"status\": \"finished\",\n    \"entity_type\": \"group\",\n    \"source_full_path\": \"<string>\",\n    \"destination_full_path\": \"<string>\",\n    \"destination_name\": \"<string>\",\n    \"destination_slug\": \"<string>\",\n    \"destination_namespace\": \"<string>\",\n    \"parent_id\": \"<integer>\",\n    \"namespace_id\": \"<integer>\",\n    \"project_id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"failures\": [\n      {\n        \"value\": \"reference #/components/schemas/API_Entities_BulkImports_EntityFailure not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/components/schemas/API_Entities_BulkImports_EntityFailure not found in the OpenAPI spec\"\n      }\n    ],\n    \"migrate_projects\": \"<boolean>\"\n  }\n]",
+                          "createdAt": "2026-06-05T13:15:47.000Z",
+                          "updatedAt": "2026-06-05T13:15:47.000Z",
+                          "uid": "35240-7e1d8824-e903-4cce-996c-0b101d5502ef"
+                        },
+                        {
+                          "id": "15fec617-bd18-4d7b-a003-b60df8d7cbf6",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/bulk_imports/entities?page=1&per_page=20&sort=desc&status=created",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "bulk_imports",
+                                "entities"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Current page number",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of items per page",
+                                  "key": "per_page",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order.",
+                                  "key": "sort",
+                                  "value": "desc"
+                                },
+                                {
+                                  "description": "Return all GitLab Migrations' entities with specified status",
+                                  "key": "status",
+                                  "value": "created"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:15:47.000Z",
+                          "updatedAt": "2026-06-05T13:15:47.000Z",
+                          "uid": "35240-15fec617-bd18-4d7b-a003-b60df8d7cbf6"
+                        },
+                        {
+                          "id": "92ae3a88-950c-4dbe-baeb-8a1d65e459f1",
+                          "name": "Not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/bulk_imports/entities?page=1&per_page=20&sort=desc&status=created",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "bulk_imports",
+                                "entities"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Current page number",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of items per page",
+                                  "key": "per_page",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order.",
+                                  "key": "sort",
+                                  "value": "desc"
+                                },
+                                {
+                                  "description": "Return all GitLab Migrations' entities with specified status",
+                                  "key": "status",
+                                  "value": "created"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:15:47.000Z",
+                          "updatedAt": "2026-06-05T13:15:47.000Z",
+                          "uid": "35240-92ae3a88-950c-4dbe-baeb-8a1d65e459f1"
+                        },
+                        {
+                          "id": "a4a08179-68e5-448d-8773-4358a98c092f",
+                          "name": "Service unavailable",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/bulk_imports/entities?page=1&per_page=20&sort=desc&status=created",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "bulk_imports",
+                                "entities"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Current page number",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of items per page",
+                                  "key": "per_page",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order.",
+                                  "key": "sort",
+                                  "value": "desc"
+                                },
+                                {
+                                  "description": "Return all GitLab Migrations' entities with specified status",
+                                  "key": "status",
+                                  "value": "created"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:15:47.000Z",
+                          "updatedAt": "2026-06-05T13:15:47.000Z",
+                          "uid": "35240-a4a08179-68e5-448d-8773-4358a98c092f"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-39e43eb1-27a4-4cff-a200-74b3e4a52411"
+                    }
+                  ],
+                  "id": "85a14886-0025-403e-9948-42ed1c0dcec3",
+                  "createdAt": "2026-06-05T13:15:47.000Z",
+                  "updatedAt": "2026-06-05T13:15:47.000Z",
+                  "uid": "35240-85a14886-0025-403e-9948-42ed1c0dcec3"
+                },
+                {
+                  "name": "GitLab List All GitLab Migrations",
+                  "id": "78600cc2-c728-40ee-87f4-f2a4ad5f108d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v4/bulk_imports?page=1&per_page=20&sort=desc&status=created",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v4",
+                        "bulk_imports"
+                      ],
+                      "query": [
+                        {
+                          "description": "Current page number",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of items per page",
+                          "key": "per_page",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order.",
+                          "key": "sort",
+                          "value": "desc"
+                        },
+                        {
+                          "description": "Return GitLab Migrations with specified status",
+                          "key": "status",
+                          "value": "created"
+                        }
+                      ]
+                    },
+                    "description": "This feature was introduced in GitLab 14.1."
+                  },
+                  "response": [
+                    {
+                      "id": "9ca5c325-17ec-4e31-8edb-7ad6f3f8e14e",
+                      "name": "List all GitLab Migrations",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports?page=1&per_page=20&sort=desc&status=created",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports"
+                          ],
+                          "query": [
+                            {
+                              "description": "Current page number",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of items per page",
+                              "key": "per_page",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order.",
+                              "key": "sort",
+                              "value": "desc"
+                            },
+                            {
+                              "description": "Return GitLab Migrations with specified status",
+                              "key": "status",
+                              "value": "created"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"status\": \"finished\",\n    \"source_type\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"status\": \"failed\",\n    \"source_type\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-9ca5c325-17ec-4e31-8edb-7ad6f3f8e14e"
+                    },
+                    {
+                      "id": "1ce5c588-570a-4b9e-996c-f7968185dae2",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports?page=1&per_page=20&sort=desc&status=created",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports"
+                          ],
+                          "query": [
+                            {
+                              "description": "Current page number",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of items per page",
+                              "key": "per_page",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order.",
+                              "key": "sort",
+                              "value": "desc"
+                            },
+                            {
+                              "description": "Return GitLab Migrations with specified status",
+                              "key": "status",
+                              "value": "created"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-1ce5c588-570a-4b9e-996c-f7968185dae2"
+                    },
+                    {
+                      "id": "0c021040-3bb5-49b1-8a1f-c60f34029a28",
+                      "name": "Not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports?page=1&per_page=20&sort=desc&status=created",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports"
+                          ],
+                          "query": [
+                            {
+                              "description": "Current page number",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of items per page",
+                              "key": "per_page",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order.",
+                              "key": "sort",
+                              "value": "desc"
+                            },
+                            {
+                              "description": "Return GitLab Migrations with specified status",
+                              "key": "status",
+                              "value": "created"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-0c021040-3bb5-49b1-8a1f-c60f34029a28"
+                    },
+                    {
+                      "id": "1bc67d68-4343-465b-9528-5ba99f4c5e7a",
+                      "name": "Service unavailable",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports?page=1&per_page=20&sort=desc&status=created",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports"
+                          ],
+                          "query": [
+                            {
+                              "description": "Current page number",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of items per page",
+                              "key": "per_page",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order.",
+                              "key": "sort",
+                              "value": "desc"
+                            },
+                            {
+                              "description": "Return GitLab Migrations with specified status",
+                              "key": "status",
+                              "value": "created"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-1bc67d68-4343-465b-9528-5ba99f4c5e7a"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:15:47.000Z",
+                  "updatedAt": "2026-06-05T13:15:47.000Z",
+                  "uid": "35240-78600cc2-c728-40ee-87f4-f2a4ad5f108d"
+                },
+                {
+                  "name": "GitLab Start a New GitLab Migration",
+                  "id": "043b18a0-e1ab-4b6b-bf10-44ceaed0f324",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Access token to the source GitLab instance",
+                          "key": "configuration[access_token]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Source GitLab instance URL",
+                          "key": "configuration[url]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Destination namespace for the entity",
+                          "key": "entities[destination_namespace]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Destination namespace for the entity",
+                          "key": "entities[destination_namespace]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Relative path of the source entity to import",
+                          "key": "entities[source_full_path]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Relative path of the source entity to import",
+                          "key": "entities[source_full_path]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Source entity type",
+                          "key": "entities[source_type]",
+                          "value": "project_entity"
+                        },
+                        {
+                          "description": "(Required) Source entity type",
+                          "key": "entities[source_type]",
+                          "value": "project_entity"
+                        },
+                        {
+                          "description": "Destination slug for the entity",
+                          "key": "entities[destination_slug]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Destination slug for the entity",
+                          "key": "entities[destination_slug]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                          "key": "entities[destination_name]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                          "key": "entities[destination_name]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Indicates group migration should include nested projects",
+                          "key": "entities[migrate_projects]",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Indicates group migration should include nested projects",
+                          "key": "entities[migrate_projects]",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v4/bulk_imports",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v4",
+                        "bulk_imports"
+                      ]
+                    },
+                    "description": "This feature was introduced in GitLab 14.2."
+                  },
+                  "response": [
+                    {
+                      "id": "29592b33-0832-4aac-9f6e-fcb783c26bf3",
+                      "name": "Start a new GitLab Migration",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Access token to the source GitLab instance",
+                              "key": "configuration[access_token]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source GitLab instance URL",
+                              "key": "configuration[url]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"status\": \"timeout\",\n  \"source_type\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-29592b33-0832-4aac-9f6e-fcb783c26bf3"
+                    },
+                    {
+                      "id": "3cb98ef0-0eaf-44ea-9edf-13302319b475",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Access token to the source GitLab instance",
+                              "key": "configuration[access_token]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source GitLab instance URL",
+                              "key": "configuration[url]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-3cb98ef0-0eaf-44ea-9edf-13302319b475"
+                    },
+                    {
+                      "id": "ca87972a-5692-47ac-95e5-8c7387f5878c",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Access token to the source GitLab instance",
+                              "key": "configuration[access_token]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source GitLab instance URL",
+                              "key": "configuration[url]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-ca87972a-5692-47ac-95e5-8c7387f5878c"
+                    },
+                    {
+                      "id": "3755807f-4b89-463a-87de-915619f4f75c",
+                      "name": "Not found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Access token to the source GitLab instance",
+                              "key": "configuration[access_token]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source GitLab instance URL",
+                              "key": "configuration[url]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-3755807f-4b89-463a-87de-915619f4f75c"
+                    },
+                    {
+                      "id": "5cc5a75c-5b35-4660-8ebd-d679cba6f2ad",
+                      "name": "Unprocessable entity",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Access token to the source GitLab instance",
+                              "key": "configuration[access_token]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source GitLab instance URL",
+                              "key": "configuration[url]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports"
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-5cc5a75c-5b35-4660-8ebd-d679cba6f2ad"
+                    },
+                    {
+                      "id": "5ea843c9-6734-4d74-841b-74b7bd521944",
+                      "name": "Service unavailable",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Access token to the source GitLab instance",
+                              "key": "configuration[access_token]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source GitLab instance URL",
+                              "key": "configuration[url]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Destination namespace for the entity",
+                              "key": "entities[destination_namespace]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative path of the source entity to import",
+                              "key": "entities[source_full_path]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "(Required) Source entity type",
+                              "key": "entities[source_type]",
+                              "value": "project_entity"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Destination slug for the entity",
+                              "key": "entities[destination_slug]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated: Use :destination_slug instead. Destination slug for the entity",
+                              "key": "entities[destination_name]",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Indicates group migration should include nested projects",
+                              "key": "entities[migrate_projects]",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v4/bulk_imports",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v4",
+                            "bulk_imports"
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:15:47.000Z",
+                      "updatedAt": "2026-06-05T13:15:47.000Z",
+                      "uid": "35240-5ea843c9-6734-4d74-841b-74b7bd521944"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:15:47.000Z",
+                  "updatedAt": "2026-06-05T13:15:47.000Z",
+                  "uid": "35240-043b18a0-e1ab-4b6b-bf10-44ceaed0f324"
+                }
+              ],
+              "id": "a4ff6c39-2999-4d22-928d-8f034e70513a",
+              "createdAt": "2026-06-05T13:15:47.000Z",
+              "updatedAt": "2026-06-05T13:15:47.000Z",
+              "uid": "35240-a4ff6c39-2999-4d22-928d-8f034e70513a"
+            }
+          ],
+          "id": "b9a78dfa-653a-4921-bbee-f586592224e0",
+          "createdAt": "2026-06-05T13:15:47.000Z",
+          "updatedAt": "2026-06-05T13:15:47.000Z",
+          "uid": "35240-b9a78dfa-653a-4921-bbee-f586592224e0"
+        }
+      ],
+      "id": "d1e6b5b1-9e55-4552-bcc7-efe4f5ddd72e",
+      "createdAt": "2026-06-05T13:15:47.000Z",
+      "updatedAt": "2026-06-05T13:15:47.000Z",
+      "uid": "35240-d1e6b5b1-9e55-4552-bcc7-efe4f5ddd72e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.gitlab.com/api/"
+    }
+  ]
+}

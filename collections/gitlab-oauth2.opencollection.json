@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab OAuth 2.0 API",
+    "version": "4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authorization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Authorize OAuth Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitlab.com/oauth/authorize",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "123456",
+                "type": "query",
+                "description": "The application ID registered in GitLab."
+              },
+              {
+                "name": "redirect_uri",
+                "value": "example_value",
+                "type": "query",
+                "description": "The URI to redirect to after authorization."
+              },
+              {
+                "name": "response_type",
+                "value": "code",
+                "type": "query",
+                "description": "Must be set to code for the authorization code flow."
+              },
+              {
+                "name": "state",
+                "value": "2026-04-17T12:00:00Z",
+                "type": "query",
+                "description": "A random, unguessable string used to protect against CSRF attacks. Must be returned unchanged in the redirect response."
+              },
+              {
+                "name": "scope",
+                "value": "example_value",
+                "type": "query",
+                "description": "Space-separated list of scopes to request. Available scopes include api, read_api, read_user, read_repository, write_repository, and others."
+              },
+              {
+                "name": "code_challenge",
+                "value": "example_value",
+                "type": "query",
+                "description": "A Base64 URL-encoded SHA-256 hash of the code_verifier. Required when using PKCE for public clients."
+              },
+              {
+                "name": "code_challenge_method",
+                "value": "S256",
+                "type": "query",
+                "description": "The method used to generate the code_challenge. Must be S256."
+              },
+              {
+                "name": "root_namespace_id",
+                "value": "42",
+                "type": "query",
+                "description": "Optional. Limits group access token creation to a specific namespace."
+              }
+            ]
+          },
+          "docs": "Initiates the OAuth 2.0 authorization code flow. Redirects the user to the GitLab authorization page where they can grant access to the application. Supports PKCE for public clients by including the code_challenge and code_challenge_method parameters."
+        },
+        {
+          "info": {
+            "name": "GitLab Initiate Device Authorization Grant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gitlab.com/oauth/authorize_device",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Initiates the OAuth 2.0 device authorization grant flow for input-constrained devices. Returns a device code and user code that the user enters on a secondary device to authorize access."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Exchange Code for Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gitlab.com/oauth/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Exchanges an authorization code, device code, or refresh token for an OAuth 2.0 access token. Supports authorization_code, refresh_token, device_code, and password grant types. Access tokens are valid for two hours. Includes CORS support for browser-based applications."
+        },
+        {
+          "info": {
+            "name": "GitLab Revoke an OAuth Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gitlab.com/oauth/revoke",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Revokes an existing OAuth access token or refresh token. After revocation the token can no longer be used to access GitLab resources. Supports CORS for browser-based applications."
+        },
+        {
+          "info": {
+            "name": "GitLab Get Token Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitlab.com/oauth/token/info",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns information about the current OAuth access token, including the scopes it was granted and its expiration time. Useful for validating that a token is still active."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "User Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Get Authenticated User Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gitlab.com/oauth/userinfo",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns profile information about the currently authenticated user based on the OAuth token's scopes. Implements the OpenID Connect UserInfo endpoint. Supports CORS for browser-based applications."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1195 @@
+{
+  "info": {
+    "_postman_id": "7ed156c9-e8df-43e6-8e40-bcf767c1b43b",
+    "name": "GitLab api/v4/groups",
+    "description": "Needs description.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:15:33.000Z",
+    "updatedAt": "2026-06-05T13:15:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7ed156c9-e8df-43e6-8e40-bcf767c1b43b"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v4",
+          "item": [
+            {
+              "name": "groups",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "badges",
+                      "item": [
+                        {
+                          "name": "{badge_id}",
+                          "item": [
+                            {
+                              "name": "GitLab Gets a Badge of a Group.",
+                              "id": "4ec1ed9d-e5d6-486f-937f-f69f3d249130",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/groups/:id/badges/:badge_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "groups",
+                                    ":id",
+                                    "badges",
+                                    ":badge_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "4e5a608b-b421-474e-9b78-c134e0102c60",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID or URL-encoded path of the group owned by the authenticated user."
+                                    },
+                                    {
+                                      "id": "dcc2ae7b-30df-4922-b987-a55ff4475b3f",
+                                      "key": "badge_id",
+                                      "value": "<integer>",
+                                      "description": "(Required) The badge ID"
+                                    }
+                                  ]
+                                },
+                                "description": "This feature was introduced in GitLab 10.6."
+                              },
+                              "response": [
+                                {
+                                  "id": "fd542ad5-03d0-4829-8768-ffbe88abad21",
+                                  "name": "Gets a badge of a group.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v4/groups/:id/badges/:badge_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v4",
+                                        "groups",
+                                        ":id",
+                                        "badges",
+                                        ":badge_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "badge_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"link_url\": \"<string>\",\n  \"image_url\": \"<string>\",\n  \"rendered_link_url\": \"<string>\",\n  \"rendered_image_url\": \"<string>\",\n  \"id\": \"<string>\",\n  \"kind\": \"<string>\"\n}",
+                                  "createdAt": "2026-06-05T13:15:34.000Z",
+                                  "updatedAt": "2026-06-05T13:15:34.000Z",
+                                  "uid": "35240-fd542ad5-03d0-4829-8768-ffbe88abad21"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T13:15:34.000Z",
+                              "updatedAt": "2026-06-05T13:15:34.000Z",
+                              "uid": "35240-4ec1ed9d-e5d6-486f-937f-f69f3d249130"
+                            },
+                            {
+                              "name": "GitLab Updates a Badge of a Group.",
+                              "id": "8182fd6a-67e7-4adc-8da8-686761ffd791",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"link_url\": \"<string>\",\n  \"image_url\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/groups/:id/badges/:badge_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "groups",
+                                    ":id",
+                                    "badges",
+                                    ":badge_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "42fd04a4-3279-43b7-a09d-7515d1c5ffdb",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID or URL-encoded path of the group owned by the authenticated user."
+                                    },
+                                    {
+                                      "id": "e7eafe8e-f569-4041-8ac5-65500bdee9b2",
+                                      "key": "badge_id",
+                                      "value": "<integer>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "This feature was introduced in GitLab 10.6."
+                              },
+                              "response": [
+                                {
+                                  "id": "fb9c66a2-dd7e-4ff1-8b9d-63b0bab793f8",
+                                  "name": "Updates a badge of a group.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"link_url\": \"<string>\",\n  \"image_url\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v4/groups/:id/badges/:badge_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v4",
+                                        "groups",
+                                        ":id",
+                                        "badges",
+                                        ":badge_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "badge_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"link_url\": \"<string>\",\n  \"image_url\": \"<string>\",\n  \"rendered_link_url\": \"<string>\",\n  \"rendered_image_url\": \"<string>\",\n  \"id\": \"<string>\",\n  \"kind\": \"<string>\"\n}",
+                                  "createdAt": "2026-06-05T13:15:34.000Z",
+                                  "updatedAt": "2026-06-05T13:15:34.000Z",
+                                  "uid": "35240-fb9c66a2-dd7e-4ff1-8b9d-63b0bab793f8"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T13:15:34.000Z",
+                              "updatedAt": "2026-06-05T13:15:34.000Z",
+                              "uid": "35240-8182fd6a-67e7-4adc-8da8-686761ffd791"
+                            },
+                            {
+                              "name": "GitLab Removes a Badge from the Group.",
+                              "id": "ef1edbcf-3b58-42c0-8d70-1ed3cbd69ee0",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/groups/:id/badges/:badge_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "groups",
+                                    ":id",
+                                    "badges",
+                                    ":badge_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "a3dfcf26-2f02-46f0-b9af-a558bd096361",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID or URL-encoded path of the group owned by the authenticated user."
+                                    },
+                                    {
+                                      "id": "9cee0943-5201-40be-8668-7448ca43d1a6",
+                                      "key": "badge_id",
+                                      "value": "<integer>",
+                                      "description": "(Required) The badge ID"
+                                    }
+                                  ]
+                                },
+                                "description": "This feature was introduced in GitLab 10.6."
+                              },
+                              "response": [
+                                {
+                                  "id": "8fc2c236-bf9e-466f-a2bb-e78739ab67e1",
+                                  "name": "Removes a badge from the group.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v4/groups/:id/badges/:badge_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v4",
+                                        "groups",
+                                        ":id",
+                                        "badges",
+                                        ":badge_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "badge_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:15:34.000Z",
+                                  "updatedAt": "2026-06-05T13:15:34.000Z",
+                                  "uid": "35240-8fc2c236-bf9e-466f-a2bb-e78739ab67e1"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T13:15:34.000Z",
+                              "updatedAt": "2026-06-05T13:15:34.000Z",
+                              "uid": "35240-ef1edbcf-3b58-42c0-8d70-1ed3cbd69ee0"
+                            }
+                          ],
+                          "id": "230535d1-6ae7-414f-82de-487ed96eb4be",
+                          "createdAt": "2026-06-05T13:15:34.000Z",
+                          "updatedAt": "2026-06-05T13:15:34.000Z",
+                          "uid": "35240-230535d1-6ae7-414f-82de-487ed96eb4be"
+                        },
+                        {
+                          "name": "render",
+                          "item": [
+                            {
+                              "name": "GitLab Preview a Badge from a Group.",
+                              "id": "b86a0364-ad2e-4ff3-aae6-a2f131100511",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/groups/:id/badges/render?link_url=<string>&image_url=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "groups",
+                                    ":id",
+                                    "badges",
+                                    "render"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) URL of the badge link",
+                                      "key": "link_url",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "(Required) URL of the badge image",
+                                      "key": "image_url",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "38ea66c5-bbee-44a3-b172-afd9ae9d2421",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID or URL-encoded path of the group owned by the authenticated user."
+                                    }
+                                  ]
+                                },
+                                "description": "This feature was introduced in GitLab 10.6."
+                              },
+                              "response": [
+                                {
+                                  "id": "188e5f94-9d1d-4116-80ec-192dba929e1a",
+                                  "name": "Preview a badge from a group.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v4/groups/:id/badges/render?link_url=<string>&image_url=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v4",
+                                        "groups",
+                                        ":id",
+                                        "badges",
+                                        "render"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) URL of the badge link",
+                                          "key": "link_url",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "(Required) URL of the badge image",
+                                          "key": "image_url",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"link_url\": \"<string>\",\n  \"image_url\": \"<string>\",\n  \"rendered_link_url\": \"<string>\",\n  \"rendered_image_url\": \"<string>\"\n}",
+                                  "createdAt": "2026-06-05T13:15:34.000Z",
+                                  "updatedAt": "2026-06-05T13:15:34.000Z",
+                                  "uid": "35240-188e5f94-9d1d-4116-80ec-192dba929e1a"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T13:15:34.000Z",
+                              "updatedAt": "2026-06-05T13:15:34.000Z",
+                              "uid": "35240-b86a0364-ad2e-4ff3-aae6-a2f131100511"
+                            }
+                          ],
+                          "id": "209f3404-9f91-4b98-be66-70e402fbcb9e",
+                          "createdAt": "2026-06-05T13:15:34.000Z",
+                          "updatedAt": "2026-06-05T13:15:34.000Z",
+                          "uid": "35240-209f3404-9f91-4b98-be66-70e402fbcb9e"
+                        },
+                        {
+                          "name": "GitLab Gets a List of Group Badges Viewable by the Authenticated User.",
+                          "id": "8c1b2903-c3d9-4bb1-a6c7-e353ef5b1b79",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/groups/:id/badges?page=1&per_page=20&name=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "groups",
+                                ":id",
+                                "badges"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Current page number",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of items per page",
+                                  "key": "per_page",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Name for the badge",
+                                  "key": "name",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "68239588-64f3-47c5-a648-dc11743c5e78",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID or URL-encoded path of the group owned by the authenticated user."
+                                }
+                              ]
+                            },
+                            "description": "This feature was introduced in GitLab 10.6."
+                          },
+                          "response": [
+                            {
+                              "id": "2a7d47ed-25b8-4290-95d8-26d55308e494",
+                              "name": "Gets a list of group badges viewable by the authenticated user.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/groups/:id/badges?page=1&per_page=20&name=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "groups",
+                                    ":id",
+                                    "badges"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Current page number",
+                                      "key": "page",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "Number of items per page",
+                                      "key": "per_page",
+                                      "value": "20"
+                                    },
+                                    {
+                                      "description": "Name for the badge",
+                                      "key": "name",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"name\": \"<string>\",\n    \"link_url\": \"<string>\",\n    \"image_url\": \"<string>\",\n    \"rendered_link_url\": \"<string>\",\n    \"rendered_image_url\": \"<string>\",\n    \"id\": \"<string>\",\n    \"kind\": \"<string>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"link_url\": \"<string>\",\n    \"image_url\": \"<string>\",\n    \"rendered_link_url\": \"<string>\",\n    \"rendered_image_url\": \"<string>\",\n    \"id\": \"<string>\",\n    \"kind\": \"<string>\"\n  }\n]",
+                              "createdAt": "2026-06-05T13:15:34.000Z",
+                              "updatedAt": "2026-06-05T13:15:34.000Z",
+                              "uid": "35240-2a7d47ed-25b8-4290-95d8-26d55308e494"
+                            }
+                          ],
+                          "createdAt": "2026-06-05T13:15:34.000Z",
+                          "updatedAt": "2026-06-05T13:15:34.000Z",
+                          "uid": "35240-8c1b2903-c3d9-4bb1-a6c7-e353ef5b1b79"
+                        },
+                        {
+                          "name": "GitLab Adds a Badge to a Group.",
+                          "id": "c6e540ec-bb4d-4bf8-bdf4-684cdae54cc5",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"image_url\": \"<string>\",\n  \"link_url\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/groups/:id/badges",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "groups",
+                                ":id",
+                                "badges"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d48e0c4d-86d6-41c3-b64e-3774c2919073",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID or URL-encoded path of the group owned by the authenticated user."
+                                }
+                              ]
+                            },
+                            "description": "This feature was introduced in GitLab 10.6."
+                          },
+                          "response": [
+                            {
+                              "id": "6911de95-4072-422b-a8e0-a666d951f51e",
+                              "name": "Adds a badge to a group.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"image_url\": \"<string>\",\n  \"link_url\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/groups/:id/badges",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "groups",
+                                    ":id",
+                                    "badges"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"link_url\": \"<string>\",\n  \"image_url\": \"<string>\",\n  \"rendered_link_url\": \"<string>\",\n  \"rendered_image_url\": \"<string>\",\n  \"id\": \"<string>\",\n  \"kind\": \"<string>\"\n}",
+                              "createdAt": "2026-06-05T13:15:34.000Z",
+                              "updatedAt": "2026-06-05T13:15:34.000Z",
+                              "uid": "35240-6911de95-4072-422b-a8e0-a666d951f51e"
+                            }
+                          ],
+                          "createdAt": "2026-06-05T13:15:34.000Z",
+                          "updatedAt": "2026-06-05T13:15:34.000Z",
+                          "uid": "35240-c6e540ec-bb4d-4bf8-bdf4-684cdae54cc5"
+                        }
+                      ],
+                      "id": "af838211-e256-4b1e-b50d-1a544427af97",
+                      "createdAt": "2026-06-05T13:15:34.000Z",
+                      "updatedAt": "2026-06-05T13:15:34.000Z",
+                      "uid": "35240-af838211-e256-4b1e-b50d-1a544427af97"
+                    },
+                    {
+                      "name": "access_requests",
+                      "item": [
+                        {
+                          "name": "{user_id}",
+                          "item": [
+                            {
+                              "name": "approve",
+                              "item": [
+                                {
+                                  "name": "GitLab Approves an Access Request for the Given User.",
+                                  "id": "7d13ea9d-fbff-47b7-b965-0fe4fe2de0d0",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"access_level\": 30\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v4/groups/:id/access_requests/:user_id/approve",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v4",
+                                        "groups",
+                                        ":id",
+                                        "access_requests",
+                                        ":user_id",
+                                        "approve"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "da83f5b4-c75a-4a61-807f-382ee477630d",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) The ID or URL-encoded path of the group owned by the authenticated user"
+                                        },
+                                        {
+                                          "id": "b0d95c76-3a67-41c3-850b-525a9e3253aa",
+                                          "key": "user_id",
+                                          "value": "<integer>",
+                                          "description": "(Required) The user ID of the access requester"
+                                        }
+                                      ]
+                                    },
+                                    "description": "This feature was introduced in GitLab 8.11."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "28f03f8a-8f3c-4a63-be03-930f2ec10013",
+                                      "name": "successful operation",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"access_level\": 30\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v4/groups/:id/access_requests/:user_id/approve",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v4",
+                                            "groups",
+                                            ":id",
+                                            "access_requests",
+                                            ":user_id",
+                                            "approve"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "user_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"name\": \"<string>\",\n  \"state\": \"<string>\",\n  \"avatar_url\": \"<string>\",\n  \"avatar_path\": \"<string>\",\n  \"custom_attributes\": [\n    {\n      \"value\": \"reference #/components/schemas/API_Entities_CustomAttribute not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/API_Entities_CustomAttribute not found in the OpenAPI spec\"\n    }\n  ],\n  \"web_url\": \"<string>\",\n  \"email\": \"<string>\",\n  \"requested_at\": \"<string>\"\n}",
+                                      "createdAt": "2026-06-05T13:15:34.000Z",
+                                      "updatedAt": "2026-06-05T13:15:34.000Z",
+                                      "uid": "35240-28f03f8a-8f3c-4a63-be03-930f2ec10013"
+                                    }
+                                  ],
+                                  "createdAt": "2026-06-05T13:15:34.000Z",
+                                  "updatedAt": "2026-06-05T13:15:34.000Z",
+                                  "uid": "35240-7d13ea9d-fbff-47b7-b965-0fe4fe2de0d0"
+                                }
+                              ],
+                              "id": "ffba486d-77e3-4dcd-8c90-9774b6418897",
+                              "createdAt": "2026-06-05T13:15:34.000Z",
+                              "updatedAt": "2026-06-05T13:15:34.000Z",
+                              "uid": "35240-ffba486d-77e3-4dcd-8c90-9774b6418897"
+                            },
+                            {
+                              "name": "GitLab Denies an Access Request for the Given User.",
+                              "id": "2d42439e-9e02-424d-9892-84bd484dc8df",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/groups/:id/access_requests/:user_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "groups",
+                                    ":id",
+                                    "access_requests",
+                                    ":user_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "1e5d066f-d709-47ff-ac26-b9970d91f213",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID or URL-encoded path of the group owned by the authenticated user"
+                                    },
+                                    {
+                                      "id": "19cd7b9f-29f4-4d38-a8e0-7dd58ce51d84",
+                                      "key": "user_id",
+                                      "value": "<integer>",
+                                      "description": "(Required) The user ID of the access requester"
+                                    }
+                                  ]
+                                },
+                                "description": "This feature was introduced in GitLab 8.11."
+                              },
+                              "response": [
+                                {
+                                  "id": "2061a40d-b73f-433c-9a9e-43c23a933643",
+                                  "name": "Denies an access request for the given user.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v4/groups/:id/access_requests/:user_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v4",
+                                        "groups",
+                                        ":id",
+                                        "access_requests",
+                                        ":user_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "user_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-06-05T13:15:34.000Z",
+                                  "updatedAt": "2026-06-05T13:15:34.000Z",
+                                  "uid": "35240-2061a40d-b73f-433c-9a9e-43c23a933643"
+                                }
+                              ],
+                              "createdAt": "2026-06-05T13:15:34.000Z",
+                              "updatedAt": "2026-06-05T13:15:34.000Z",
+                              "uid": "35240-2d42439e-9e02-424d-9892-84bd484dc8df"
+                            }
+                          ],
+                          "id": "f7fdd897-8405-487f-9ab4-19d2e59ebd32",
+                          "createdAt": "2026-06-05T13:15:34.000Z",
+                          "updatedAt": "2026-06-05T13:15:34.000Z",
+                          "uid": "35240-f7fdd897-8405-487f-9ab4-19d2e59ebd32"
+                        },
+                        {
+                          "name": "GitLab Gets a List of Access Requests for a Group.",
+                          "id": "656f31c0-51ed-4d65-8091-79f60552297d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/groups/:id/access_requests?page=1&per_page=20",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "groups",
+                                ":id",
+                                "access_requests"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Current page number",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of items per page",
+                                  "key": "per_page",
+                                  "value": "20"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f54e1f7b-3aa6-48f2-bbca-3c2cb6fad27d",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID or URL-encoded path of the group owned by the authenticated user"
+                                }
+                              ]
+                            },
+                            "description": "This feature was introduced in GitLab 8.11."
+                          },
+                          "response": [
+                            {
+                              "id": "1c2ca3f3-b484-4a3a-b094-edcba50d578c",
+                              "name": "Gets a list of access requests for a group.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/groups/:id/access_requests?page=1&per_page=20",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "groups",
+                                    ":id",
+                                    "access_requests"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Current page number",
+                                      "key": "page",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "Number of items per page",
+                                      "key": "per_page",
+                                      "value": "20"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"name\": \"<string>\",\n  \"state\": \"<string>\",\n  \"avatar_url\": \"<string>\",\n  \"avatar_path\": \"<string>\",\n  \"custom_attributes\": [\n    {\n      \"value\": \"reference #/components/schemas/API_Entities_CustomAttribute not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/API_Entities_CustomAttribute not found in the OpenAPI spec\"\n    }\n  ],\n  \"web_url\": \"<string>\",\n  \"email\": \"<string>\",\n  \"requested_at\": \"<string>\"\n}",
+                              "createdAt": "2026-06-05T13:15:34.000Z",
+                              "updatedAt": "2026-06-05T13:15:34.000Z",
+                              "uid": "35240-1c2ca3f3-b484-4a3a-b094-edcba50d578c"
+                            }
+                          ],
+                          "createdAt": "2026-06-05T13:15:34.000Z",
+                          "updatedAt": "2026-06-05T13:15:34.000Z",
+                          "uid": "35240-656f31c0-51ed-4d65-8091-79f60552297d"
+                        },
+                        {
+                          "name": "GitLab Requests Access for the Authenticated User to a Group.",
+                          "id": "445132b1-ff6a-4cc8-bc9b-2ddfa9742e05",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v4/groups/:id/access_requests",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v4",
+                                "groups",
+                                ":id",
+                                "access_requests"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "83e3659c-6b59-44a7-b674-23eacbb1bb56",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID or URL-encoded path of the group owned by the authenticated user"
+                                }
+                              ]
+                            },
+                            "description": "This feature was introduced in GitLab 8.11."
+                          },
+                          "response": [
+                            {
+                              "id": "f765cdd2-1dc5-4764-b25d-bc58505f589c",
+                              "name": "successful operation",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v4/groups/:id/access_requests",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v4",
+                                    "groups",
+                                    ":id",
+                                    "access_requests"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"name\": \"<string>\",\n  \"state\": \"<string>\",\n  \"avatar_url\": \"<string>\",\n  \"avatar_path\": \"<string>\",\n  \"custom_attributes\": [\n    {\n      \"value\": \"reference #/components/schemas/API_Entities_CustomAttribute not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/API_Entities_CustomAttribute not found in the OpenAPI spec\"\n    }\n  ],\n  \"web_url\": \"<string>\",\n  \"email\": \"<string>\",\n  \"requested_at\": \"<string>\"\n}",
+                              "createdAt": "2026-06-05T13:15:34.000Z",
+                              "updatedAt": "2026-06-05T13:15:34.000Z",
+                              "uid": "35240-f765cdd2-1dc5-4764-b25d-bc58505f589c"
+                            }
+                          ],
+                          "createdAt": "2026-06-05T13:15:34.000Z",
+                          "updatedAt": "2026-06-05T13:15:34.000Z",
+                          "uid": "35240-445132b1-ff6a-4cc8-bc9b-2ddfa9742e05"
+                        }
+                      ],
+                      "id": "f9b6b34e-4be8-4903-9b5e-d902edd17bcd",
+                      "createdAt": "2026-06-05T13:15:34.000Z",
+                      "updatedAt": "2026-06-05T13:15:34.000Z",
+                      "uid": "35240-f9b6b34e-4be8-4903-9b5e-d902edd17bcd"
+                    }
+                  ],
+                  "id": "320236f8-18d2-4710-8e87-ff2f0e25bbe6",
+                  "createdAt": "2026-06-05T13:15:34.000Z",
+                  "updatedAt": "2026-06-05T13:15:34.000Z",
+                  "uid": "35240-320236f8-18d2-4710-8e87-ff2f0e25bbe6"
+                }
+              ],
+              "id": "ec448ec0-77f6-4b69-8e67-1ee48b86e3d5",
+              "createdAt": "2026-06-05T13:15:34.000Z",
+              "updatedAt": "2026-06-05T13:15:34.000Z",
+              "uid": "35240-ec448ec0-77f6-4b69-8e67-1ee48b86e3d5"
+            }
+          ],
+          "id": "cb58f1da-dc11-475d-be3c-c21bbbc524de",
+          "createdAt": "2026-06-05T13:15:34.000Z",
+          "updatedAt": "2026-06-05T13:15:34.000Z",
+          "uid": "35240-cb58f1da-dc11-475d-be3c-c21bbbc524de"
+        }
+      ],
+      "id": "170fc1a9-8eeb-426f-8198-4e17c0ddc03c",
+      "createdAt": "2026-06-05T13:15:34.000Z",
+      "updatedAt": "2026-06-05T13:15:34.000Z",
+      "uid": "35240-170fc1a9-8eeb-426f-8198-4e17c0ddc03c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.gitlab.com/api/"
+    }
+  ]
+}
