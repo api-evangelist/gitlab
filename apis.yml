@@ -7,7 +7,7 @@ apis:
   - Data
   - GraphQL
   - Query Language
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/graphql
   humanURL: https://docs.gitlab.com/ee/api/graphql/
   overlays: []
@@ -39,7 +39,7 @@ apis:
   - Access Control
   - Groups
   - Organizations
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/groups/
   overlays:
@@ -62,7 +62,7 @@ apis:
   - Projects
   - Repositories
   - Source Control
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/projects/
   overlays:
@@ -85,7 +85,7 @@ apis:
   - Admin
   - Administration
   - Management
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/admin/
   overlays:
@@ -106,7 +106,7 @@ apis:
   - Applications
   - Authentication
   - OAuth
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/applications/
   overlays:
@@ -127,7 +127,7 @@ apis:
   - Avatars
   - Profile
   - Users
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/avatar/
   overlays:
@@ -148,7 +148,7 @@ apis:
   - Administration
   - Broadcast Messages
   - Notifications
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/broadcast_messages/
   overlays:
@@ -169,7 +169,7 @@ apis:
   - Bulk Imports
   - Data Transfer
   - Migration
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/bulk_imports/
   overlays:
@@ -190,7 +190,7 @@ apis:
   - Administration
   - Application Settings
   - Configuration
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/settings/
   overlays:
@@ -211,7 +211,7 @@ apis:
   - Instance Information
   - Metadata
   - System
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/metadata/
   overlays:
@@ -232,7 +232,7 @@ apis:
   - Instance Information
   - System
   - Version
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/version/
   overlays:
@@ -253,7 +253,7 @@ apis:
   - DevOps
   - Integration
   - REST
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/rest/
   overlays: []
@@ -282,7 +282,7 @@ apis:
   - Authentication
   - Authorization
   - OAuth
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com
   humanURL: https://docs.gitlab.com/api/oauth2/
   overlays: []
@@ -303,7 +303,7 @@ apis:
   - Events
   - Integrations
   - Webhooks
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/user/project/integrations/webhooks.html
   overlays: []
@@ -326,7 +326,7 @@ apis:
   - Bug Tracking
   - Issues
   - Project Management
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/issues/
   overlays: []
@@ -345,7 +345,7 @@ apis:
   - Code Review
   - Collaboration
   - Merge Requests
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/merge_requests/
   overlays: []
@@ -364,7 +364,7 @@ apis:
   - CI/CD
   - Continuous Integration
   - Pipelines
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/pipelines/
   overlays: []
@@ -383,7 +383,7 @@ apis:
   - Build
   - CI/CD
   - Jobs
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/jobs/
   overlays: []
@@ -402,7 +402,7 @@ apis:
   - CI/CD
   - Infrastructure
   - Runners
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/runners/
   overlays: []
@@ -421,7 +421,7 @@ apis:
   - Access Management
   - Identity
   - Users
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/users/
   overlays: []
@@ -440,7 +440,7 @@ apis:
   - Git
   - Repositories
   - Source Control
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/repositories/
   overlays: []
@@ -459,7 +459,7 @@ apis:
   - Commits
   - Git
   - Source Control
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/commits/
   overlays: []
@@ -478,7 +478,7 @@ apis:
   - Branches
   - Git
   - Source Control
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/branches/
   overlays: []
@@ -496,7 +496,7 @@ apis:
   tags:
   - Git
   - Source Control
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/tags/
   overlays: []
@@ -514,7 +514,7 @@ apis:
   - Distribution
   - Releases
   - Versioning
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/releases/
   overlays: []
@@ -533,7 +533,7 @@ apis:
   - CI/CD
   - Deployments
   - Environments
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/environments/
   overlays: []
@@ -552,7 +552,7 @@ apis:
   - CI/CD
   - Deployments
   - Release Management
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/deployments/
   overlays: []
@@ -571,7 +571,7 @@ apis:
   - Automation
   - CI/CD
   - Pipeline Schedules
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/pipeline_schedules/
   overlays: []
@@ -590,7 +590,7 @@ apis:
   - Labels
   - Organization
   - Project Management
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/labels/
   overlays: []
@@ -609,7 +609,7 @@ apis:
   - Milestones
   - Planning
   - Project Management
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/milestones/
   overlays: []
@@ -628,7 +628,7 @@ apis:
   - Collaboration
   - Comments
   - Notes
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/notes/
   overlays: []
@@ -647,7 +647,7 @@ apis:
   - Code Sharing
   - Collaboration
   - Snippets
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/snippets/
   overlays: []
@@ -666,7 +666,7 @@ apis:
   - Artifacts
   - Package Registry
   - Packages
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/packages/
   overlays: []
@@ -685,7 +685,7 @@ apis:
   - Container Registry
   - Containers
   - Docker
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/container_registry/
   overlays: []
@@ -704,7 +704,7 @@ apis:
   - DevSecOps
   - Security
   - Vulnerabilities
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/vulnerabilities/
   overlays: []
@@ -723,7 +723,7 @@ apis:
   - Deploy Keys
   - Security
   - SSH
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/deploy_keys/
   overlays: []
@@ -742,7 +742,7 @@ apis:
   - Access Control
   - Protected Branches
   - Source Control
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/protected_branches/
   overlays: []
@@ -761,7 +761,7 @@ apis:
   - Documentation
   - Knowledge Base
   - Wikis
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/wikis/
   overlays: []
@@ -780,7 +780,7 @@ apis:
   - Activity
   - Audit
   - Events
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/events/
   overlays: []
@@ -799,7 +799,7 @@ apis:
   - Discovery
   - Query
   - Search
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/search/
   overlays: []
@@ -818,7 +818,7 @@ apis:
   - Namespaces
   - Organization
   - Structure
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/namespaces/
   overlays: []
@@ -838,7 +838,7 @@ tags:
 - Software Development
 - Source Control
 kind: contract
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
 - type: PostmanWorkspace
