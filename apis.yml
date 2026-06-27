@@ -265,7 +265,7 @@ apis:
   - url: https://docs.gitlab.com/api/rest/authentication/
     type: Authentication
   - url: https://docs.gitlab.com/api/rest/third_party_clients/
-    type: SDK
+    type: SDKs
   - url: https://docs.gitlab.com/api/api_resources/
     type: APIReference
   - url: https://docs.gitlab.com/security/rate_limits/
@@ -843,81 +843,78 @@ access: 3rd-Party
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/gitlab/overview
-- type: ArazzoWorkflows
-  url: arazzo/
-  workflows:
-  - url: arazzo/gitlab-add-group-badge-workflow.yml
-    name: GitLab Add and Preview a Group Badge
-    summary: Render a group badge preview, add it to the group, and confirm the list.
-  - url: arazzo/gitlab-add-project-badge-workflow.yml
-    name: GitLab Add and Preview a Project Badge
-    summary: Render a badge preview, then add it to a project and confirm the list.
-  - url: arazzo/gitlab-approve-group-access-request-workflow.yml
-    name: GitLab Approve a Pending Group Access Request
-    summary: List a group's access requests and approve the first pending requester.
-  - url: arazzo/gitlab-approve-project-access-request-workflow.yml
-    name: GitLab Approve a Pending Project Access Request
-    summary: List a project's access requests and approve the first pending requester.
-  - url: arazzo/gitlab-attach-alert-metric-image-workflow.yml
-    name: GitLab Attach a Metric Image to an Alert
-    summary: Authorize an upload, attach a metric image to an alert, then list images.
-  - url: arazzo/gitlab-cleanup-merged-branch-workflow.yml
-    name: GitLab Clean Up a Merged Branch
-    summary: Verify a branch has been merged, then unprotect and delete it.
-  - url: arazzo/gitlab-create-and-protect-branch-workflow.yml
-    name: GitLab Create and Protect a Release Branch
-    summary: Cut a new branch from a ref and immediately apply push/merge protection.
-  - url: arazzo/gitlab-create-branch-from-default-workflow.yml
-    name: GitLab Create a Feature Branch from the Default Branch
-    summary: Resolve the default branch tip and cut a new feature branch from it.
-  - url: arazzo/gitlab-ensure-branch-exists-workflow.yml
-    name: GitLab Ensure a Branch Exists
-    summary: Check whether a branch exists and create it from a ref only when missing.
-  - url: arazzo/gitlab-find-and-run-manual-job-workflow.yml
-    name: GitLab Find and Run a Pending Manual Job
-    summary: List project jobs, pick the first manual job, and trigger it.
-  - url: arazzo/gitlab-inspect-failed-jobs-workflow.yml
-    name: GitLab Inspect a Failed CI Job
-    summary: List failed jobs in a project and fetch full detail for the first one.
-  - url: arazzo/gitlab-prune-stale-branches-workflow.yml
-    name: GitLab Prune Stale Merged Branches
-    summary: Survey the branch list, then bulk-delete all merged branches.
-  - url: arazzo/gitlab-publish-broadcast-message-workflow.yml
-    name: GitLab Publish and Verify a Broadcast Message
-    summary: Create a broadcast banner, then read it back to confirm it was stored.
-  - url: arazzo/gitlab-register-instance-cluster-workflow.yml
-    name: GitLab Register an Existing Instance Cluster
-    summary: Add an existing Kubernetes cluster, then confirm it in the cluster list.
-  - url: arazzo/gitlab-request-and-self-approve-project-access-workflow.yml
-    name: GitLab Request and Approve Project Access
-    summary: Request access to a project, then approve that same requester.
-  - url: arazzo/gitlab-retire-instance-ci-variable-workflow.yml
-    name: GitLab Retire an Instance-Level CI Variable
-    summary: Confirm an instance CI variable exists, then delete it.
-  - url: arazzo/gitlab-retire-project-badge-workflow.yml
-    name: GitLab Retire a Project Badge by Name
-    summary: Find a project badge by name and remove it when present.
-  - url: arazzo/gitlab-rotate-broadcast-message-workflow.yml
-    name: GitLab Rotate the Active Broadcast Message
-    summary: Retire the current broadcast message and publish a replacement.
-  - url: arazzo/gitlab-rotate-project-badge-workflow.yml
-    name: GitLab Rotate a Project Badge by Name
-    summary: Find an existing project badge by name and update its link and image.
-  - url: arazzo/gitlab-start-migration-and-poll-workflow.yml
-    name: GitLab Start a Migration and Poll to Completion
-    summary: Kick off a direct-transfer migration, then poll the import until it finishes.
-  - url: arazzo/gitlab-track-migration-entities-workflow.yml
-    name: GitLab Track a Migration's Entities
-    summary: Read a migration's summary, then drill into a specific entity's detail.
-  - url: arazzo/gitlab-trigger-manual-job-and-poll-workflow.yml
-    name: GitLab Trigger a Manual CI Job and Poll to Completion
-    summary: Start a manual CI job, then poll its status until it finishes.
-  - url: arazzo/gitlab-update-broadcast-message-workflow.yml
-    name: GitLab Reschedule a Broadcast Message
-    summary: Read an existing broadcast message, then update its window and text.
-  - url: arazzo/gitlab-upsert-instance-ci-variable-workflow.yml
-    name: GitLab Upsert an Instance-Level CI Variable
-    summary: Look up an instance CI variable and update it or create it if missing.
+- type: Arazzo
+  url: arazzo/gitlab-add-group-badge-workflow.yml
+  name: GitLab Add and Preview a Group Badge
+- type: Arazzo
+  url: arazzo/gitlab-add-project-badge-workflow.yml
+  name: GitLab Add and Preview a Project Badge
+- type: Arazzo
+  url: arazzo/gitlab-approve-group-access-request-workflow.yml
+  name: GitLab Approve a Pending Group Access Request
+- type: Arazzo
+  url: arazzo/gitlab-approve-project-access-request-workflow.yml
+  name: GitLab Approve a Pending Project Access Request
+- type: Arazzo
+  url: arazzo/gitlab-attach-alert-metric-image-workflow.yml
+  name: GitLab Attach a Metric Image to an Alert
+- type: Arazzo
+  url: arazzo/gitlab-cleanup-merged-branch-workflow.yml
+  name: GitLab Clean Up a Merged Branch
+- type: Arazzo
+  url: arazzo/gitlab-create-and-protect-branch-workflow.yml
+  name: GitLab Create and Protect a Release Branch
+- type: Arazzo
+  url: arazzo/gitlab-create-branch-from-default-workflow.yml
+  name: GitLab Create a Feature Branch from the Default Branch
+- type: Arazzo
+  url: arazzo/gitlab-ensure-branch-exists-workflow.yml
+  name: GitLab Ensure a Branch Exists
+- type: Arazzo
+  url: arazzo/gitlab-find-and-run-manual-job-workflow.yml
+  name: GitLab Find and Run a Pending Manual Job
+- type: Arazzo
+  url: arazzo/gitlab-inspect-failed-jobs-workflow.yml
+  name: GitLab Inspect a Failed CI Job
+- type: Arazzo
+  url: arazzo/gitlab-prune-stale-branches-workflow.yml
+  name: GitLab Prune Stale Merged Branches
+- type: Arazzo
+  url: arazzo/gitlab-publish-broadcast-message-workflow.yml
+  name: GitLab Publish and Verify a Broadcast Message
+- type: Arazzo
+  url: arazzo/gitlab-register-instance-cluster-workflow.yml
+  name: GitLab Register an Existing Instance Cluster
+- type: Arazzo
+  url: arazzo/gitlab-request-and-self-approve-project-access-workflow.yml
+  name: GitLab Request and Approve Project Access
+- type: Arazzo
+  url: arazzo/gitlab-retire-instance-ci-variable-workflow.yml
+  name: GitLab Retire an Instance-Level CI Variable
+- type: Arazzo
+  url: arazzo/gitlab-retire-project-badge-workflow.yml
+  name: GitLab Retire a Project Badge by Name
+- type: Arazzo
+  url: arazzo/gitlab-rotate-broadcast-message-workflow.yml
+  name: GitLab Rotate the Active Broadcast Message
+- type: Arazzo
+  url: arazzo/gitlab-rotate-project-badge-workflow.yml
+  name: GitLab Rotate a Project Badge by Name
+- type: Arazzo
+  url: arazzo/gitlab-start-migration-and-poll-workflow.yml
+  name: GitLab Start a Migration and Poll to Completion
+- type: Arazzo
+  url: arazzo/gitlab-track-migration-entities-workflow.yml
+  name: GitLab Track a Migration's Entities
+- type: Arazzo
+  url: arazzo/gitlab-trigger-manual-job-and-poll-workflow.yml
+  name: GitLab Trigger a Manual CI Job and Poll to Completion
+- type: Arazzo
+  url: arazzo/gitlab-update-broadcast-message-workflow.yml
+  name: GitLab Reschedule a Broadcast Message
+- type: Arazzo
+  url: arazzo/gitlab-upsert-instance-ci-variable-workflow.yml
+  name: GitLab Upsert an Instance-Level CI Variable
 - type: LinkedIn
   url: https://www.linkedin.com/company/gitlab-com
 - type: Website
@@ -955,7 +952,7 @@ common:
 - url: https://status.gitlab.com/
   type: StatusPage
 - url: https://gitlab.com/users/sign_up
-  type: SignUp
+  type: Signup
 - url: https://about.gitlab.com/blog/
   type: Blog
 - url: https://about.gitlab.com/support/
@@ -965,7 +962,7 @@ common:
 - url: https://docs.gitlab.com/api/rest/authentication/
   type: Authentication
 - url: https://docs.gitlab.com/api/rest/third_party_clients/
-  type: SDK
+  type: SDKs
 - url: https://forum.gitlab.com/
   type: Support
 - url: https://docs.gitlab.com/security/rate_limits/
@@ -1049,7 +1046,7 @@ common:
     description: Enterprise DevOps with security scanning, compliance, and advanced API features.
   - name: GitLab Dedicated
     description: Single-tenant SaaS deployment with dedicated infrastructure and enhanced security.
-- type: LLMsTxt
+- type: LlmsText
   url: https://docs.gitlab.com/llms.txt
 created: 2023/11/10
 modified: '2026-05-19'
