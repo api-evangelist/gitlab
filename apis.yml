@@ -841,6 +841,14 @@ kind: contract
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+- type: DomainSecurity
+  url: security/gitlab-domain-security.yml
+- type: TrustCenter
+  url: security/gitlab-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/gitlab-vulnerability-disclosure.yml
+- type: Authentication
+  url: authentication/gitlab-authentication.yml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/gitlab/overview
 - type: Arazzo

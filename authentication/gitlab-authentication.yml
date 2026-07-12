@@ -1,0 +1,30 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/gitlab-oauth2-openapi.yml, openapi/gitlab-openapi-original.yml, openapi/gitlab-webhooks-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: oauthToken
+  type: http
+  scheme: bearer
+  description: OAuth 2.0 access token obtained via the authorization flow.
+  sources:
+  - openapi/gitlab-oauth2-openapi.yml
+  - openapi/gitlab-webhooks-openapi.yml
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: Private-Token
+  sources:
+  - openapi/gitlab-openapi-original.yml
+- name: privateToken
+  type: apiKey
+  in: header
+  parameter: PRIVATE-TOKEN
+  description: GitLab personal access token or project access token.
+  sources:
+  - openapi/gitlab-webhooks-openapi.yml
