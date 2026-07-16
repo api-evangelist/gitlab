@@ -1,0 +1,14 @@
+# generated: '2026-06-20'
+# method: generated
+# source: openapi/gitlab-api-v4-admin-openapi-original.yml
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for GitLab api/v4/admin
+  version: 1.0.0
+extends: openapi/gitlab-api-v4-admin-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-indexed: true
+    x-apievangelist-provider: gitlab
+    x-apievangelist-catalog: https://apis.io/gitlab

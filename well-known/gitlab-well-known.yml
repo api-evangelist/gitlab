@@ -1,0 +1,20 @@
+generated: '2026-06-20'
+method: searched
+host: https://gitlab.com
+documents:
+- path: /.well-known/security.txt
+  status: 200
+  file: gitlab-security.txt
+  standard: RFC 9116
+- path: /.well-known/openid-configuration
+  status: 200
+  file: gitlab-openid-configuration.json
+  standard: OpenID Connect Discovery 1.0
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: gitlab-oauth-authorization-server.json
+  standard: RFC 8414
+- path: /.well-known/api-catalog
+  status: 302
+- path: /.well-known/ai-plugin.json
+  status: 302

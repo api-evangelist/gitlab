@@ -1,0 +1,189 @@
+generated: '2026-06-20'
+method: derived
+source: openapi/, json-schema/gitlab-*-schema.json
+render: subway/gitlab-subway-map.svg
+docs: https://docs.gitlab.com/api/api_resources/
+notes: >-
+  Entity-relationship graph derived from the GitLab REST resource surface and the harvested
+  JSON Schemas. Numeric IDs (project_id, group_id, iid) are the primary reference fields;
+  "iid" identifiers (issues, merge requests) are scoped per-project.
+entities:
+- name: namespace
+  id: id
+  description: A user or group namespace that owns projects.
+  relationships:
+  - has_many: project
+    via: namespace_id
+- name: group
+  id: id
+  description: A collection of projects and subgroups with shared access control.
+  relationships:
+  - has_many: project
+    via: namespace_id
+  - has_many: group
+    via: parent_id
+    note: subgroups
+  - has_many: member
+    via: group_id
+  - has_many: milestone
+    via: group_id
+  - has_many: label
+    via: group_id
+- name: project
+  id: id
+  description: A repository plus its issues, merge requests, CI/CD, and settings.
+  relationships:
+  - belongs_to: namespace
+    via: namespace_id
+  - has_many: branch
+    via: project_id
+  - has_many: commit
+    via: project_id
+  - has_many: tag
+    via: project_id
+  - has_many: issue
+    via: project_id
+  - has_many: merge_request
+    via: project_id
+  - has_many: pipeline
+    via: project_id
+  - has_many: environment
+    via: project_id
+  - has_many: release
+    via: project_id
+  - has_many: label
+    via: project_id
+  - has_many: milestone
+    via: project_id
+  - has_many: member
+    via: project_id
+  - has_many: badge
+    via: project_id
+  - has_many: deploy_key
+    via: project_id
+  - has_many: protected_branch
+    via: project_id
+  - has_many: package
+    via: project_id
+- name: user
+  id: id
+  description: A GitLab account; author/assignee of most resources.
+  relationships:
+  - has_many: ssh_key
+    via: user_id
+  - has_many: gpg_key
+    via: user_id
+- name: issue
+  id: iid
+  description: A tracked unit of work within a project.
+  relationships:
+  - belongs_to: project
+    via: project_id
+  - belongs_to: milestone
+    via: milestone_id
+  - has_many: note
+    via: noteable_id
+  - has_many: label
+    via: labels
+  - belongs_to: user
+    via: assignee_id
+- name: merge_request
+  id: iid
+  description: A proposed set of changes from a source to a target branch.
+  relationships:
+  - belongs_to: project
+    via: project_id
+  - belongs_to: milestone
+    via: milestone_id
+  - has_many: note
+    via: noteable_id
+  - has_many: commit
+    via: merge_request_iid
+  - belongs_to: branch
+    via: source_branch
+- name: branch
+  id: name
+  description: A named Git ref within a project repository.
+  relationships:
+  - belongs_to: project
+    via: project_id
+  - has_one: commit
+    via: commit
+- name: commit
+  id: id
+  description: A Git commit (SHA) in a project.
+  relationships:
+  - belongs_to: project
+    via: project_id
+- name: pipeline
+  id: id
+  description: A CI/CD pipeline run for a project ref.
+  relationships:
+  - belongs_to: project
+    via: project_id
+  - has_many: job
+    via: pipeline_id
+  - belongs_to: commit
+    via: sha
+- name: job
+  id: id
+  description: A single CI/CD job within a pipeline.
+  relationships:
+  - belongs_to: pipeline
+    via: pipeline_id
+  - belongs_to: project
+    via: project_id
+  - belongs_to: runner
+    via: runner_id
+- name: runner
+  id: id
+  description: A CI/CD runner registered to execute jobs.
+  relationships:
+  - has_many: job
+    via: runner_id
+- name: environment
+  id: id
+  description: A deployment target (staging, production) for a project.
+  relationships:
+  - belongs_to: project
+    via: project_id
+  - has_many: deployment
+    via: environment
+- name: deployment
+  id: id
+  description: A record of a deploy to an environment.
+  relationships:
+  - belongs_to: environment
+    via: environment
+  - belongs_to: project
+    via: project_id
+- name: release
+  id: tag_name
+  description: A published release tied to a Git tag.
+  relationships:
+  - belongs_to: project
+    via: project_id
+- name: milestone
+  id: id
+  description: A planning milestone grouping issues and merge requests.
+  relationships:
+  - belongs_to: project
+    via: project_id
+- name: label
+  id: id
+  description: A tag applied to issues and merge requests.
+  relationships:
+  - belongs_to: project
+    via: project_id
+- name: note
+  id: id
+  description: A comment on an issue, merge request, snippet, or commit.
+  relationships:
+  - belongs_to: user
+    via: author
+- name: package
+  id: id
+  description: An artifact stored in the GitLab Package Registry.
+  relationships:
+  - belongs_to: project
+    via: project_id

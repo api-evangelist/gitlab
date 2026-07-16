@@ -1,0 +1,41 @@
+generated: '2026-06-20'
+method: searched
+source: https://about.gitlab.com/releases/categories/releases/
+changelog_url: https://gitlab.com/gitlab-org/gitlab/blob/master/CHANGELOG.md
+scheme: calver-like
+version_format: MAJOR.MINOR (monthly minor, annual major)
+current_version: '19.1'
+cadence:
+  minor: monthly, third Thursday of the month
+  major: annual, May
+  patch: as needed, backported to the three most recent minor releases
+notes: >-
+  GitLab ships a new minor version every month and a major version each May. Machine-readable
+  changelog lives in the repo CHANGELOG.md; human release posts are on about.gitlab.com. Recent
+  window captured from the provider's release blog and mirrored in blogs/.
+entries:
+- version: '19.1'
+  date: '2026-06-18'
+  highlights: GitLab 19.1 released; AI Catalog updates for governance and operations; unified vulnerability view.
+- version: '19.0'
+  date: '2026-05-21'
+  breaking: true
+  highlights: GitLab 19.0 major release; GitLab Secrets Manager; curl removed from Omnibus FIPS packages; more Duo Agent Platform models.
+- version: '18.11'
+  date: '2026-04-16'
+  highlights: Automated remediation; new security foundations; agentic SAST false-positive detection groundwork.
+- version: '18.10'
+  date: '2026-03-19'
+  highlights: Agentic SAST false-positive detection; free-tier improvements.
+- version: '18.9'
+  date: '2026-02-19'
+  highlights: Self-hosted AI models for GitLab Duo.
+- version: '18.8'
+  date: '2026-01-15'
+  highlights: GitLab Duo Agent Platform now generally available.
+- version: '18.7'
+  date: '2025-12-18'
+  highlights: Improved GitLab Duo analytics dashboards.
+- version: '18.6'
+  date: '2025-11-20'
+  highlights: New UI designed for productivity; MCP server promoted to Beta.

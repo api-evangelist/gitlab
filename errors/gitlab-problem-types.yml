@@ -1,0 +1,54 @@
+generated: '2026-06-20'
+method: derived
+source: openapi/gitlab-openapi-original.yml, openapi/gitlab-api-v4-*-openapi-original.yml
+format: gitlab-json
+docs: https://docs.gitlab.com/api/rest/troubleshooting/
+envelope: >-
+  GitLab does not use RFC 9457 problem+json. Errors return a JSON body with a
+  "message" field (validation/permission errors, often an object keyed by field)
+  or an "error" field (OAuth and some auth errors). HTTP status conveys the class.
+problems:
+- status: 400
+  title: Bad request
+  meaning: A required attribute is missing or malformed in the request.
+  envelope_field: message
+- status: 401
+  title: Unauthorized
+  meaning: Authentication credentials were missing or invalid (bad/expired token).
+  envelope_field: message
+- status: 403
+  title: Forbidden
+  meaning: The authenticated user lacks permission (insufficient role or scope) for the resource.
+  envelope_field: message
+- status: 404
+  title: Not found
+  meaning: The resource does not exist, or is hidden to protect against enumeration when the user lacks access.
+  envelope_field: message
+- status: 405
+  title: Method not allowed
+  meaning: The HTTP method is not supported for the requested endpoint.
+  envelope_field: message
+- status: 409
+  title: Conflict
+  meaning: A conflicting resource already exists (e.g. duplicate).
+  envelope_field: message
+- status: 412
+  title: Precondition failed
+  meaning: A delete/update guard (e.g. If-Unmodified-Since) failed.
+  envelope_field: message
+- status: 422
+  title: Unprocessable entity
+  meaning: The request was well-formed but a validation rule was violated; message is usually an object of field errors.
+  envelope_field: message
+- status: 429
+  title: Too many requests
+  meaning: Rate limit exceeded; a Retry-After header indicates when to retry.
+  envelope_field: message
+- status: 500
+  title: Internal server error
+  meaning: An unexpected error occurred on the GitLab side.
+  envelope_field: message
+- status: 503
+  title: Service unavailable
+  meaning: The service is temporarily unavailable (maintenance or overload).
+  envelope_field: message

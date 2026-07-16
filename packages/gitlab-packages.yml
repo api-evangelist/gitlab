@@ -1,0 +1,68 @@
+generated: '2026-06-20'
+method: searched
+source: https://docs.gitlab.com/api/rest/third_party_clients/
+notes: >-
+  GitLab maintains one first-party client: the glab CLI (gitlab-org/cli). All
+  REST/GraphQL client libraries are community-maintained and explicitly listed by
+  GitLab as third-party (official: false). The command surface of glab is in
+  cli/gitlab-cli.yml.
+packages:
+- language: go
+  registry: gitlab
+  name: glab
+  url: https://gitlab.com/gitlab-org/cli
+  install: brew install glab
+  official: true
+  role: cli
+  description: The official GitLab CLI, adopted and maintained by GitLab at gitlab-org/cli.
+- language: shell
+  registry: homebrew
+  name: glab
+  url: https://formulae.brew.sh/formula/glab
+  install: brew install glab
+  official: true
+  role: cli
+- language: shell
+  registry: snap
+  name: glab
+  url: https://snapcraft.io/glab
+  install: sudo snap install --edge glab
+  official: true
+  role: cli
+- language: shell
+  registry: winget
+  name: GLab.GLab
+  url: https://winget.run/pkg/GLab/GLab
+  install: winget install GLab.GLab
+  official: true
+  role: cli
+- language: javascript
+  registry: npm
+  name: "@gitbeaker/rest"
+  url: https://www.npmjs.com/package/@gitbeaker/rest
+  install: npm install @gitbeaker/rest
+  official: false
+  description: Gitbeaker — comprehensive typed GitLab SDK for Node, browsers, Deno; community-maintained.
+- language: python
+  registry: pypi
+  name: python-gitlab
+  url: https://pypi.org/project/python-gitlab/
+  install: pip install python-gitlab
+  official: false
+  description: The most widely used Python client for the GitLab API; community-maintained.
+- language: ruby
+  registry: rubygems
+  name: gitlab
+  url: https://rubygems.org/gems/gitlab
+  install: gem install gitlab
+  official: false
+  description: NARKOZ/gitlab — Ruby wrapper and CLI for the GitLab REST API; community-maintained.
+- language: go
+  registry: pkg.go.dev
+  name: gitlab.com/gitlab-org/api/client-go
+  url: https://pkg.go.dev/gitlab.com/gitlab-org/api/client-go
+  install: go get gitlab.com/gitlab-org/api/client-go
+  official: false
+  description: >-
+    client-go (formerly go-gitlab / xanzy) — the Go client now hosted under the
+    gitlab-org namespace; community-maintained project.

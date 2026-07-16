@@ -1,0 +1,34 @@
+generated: '2026-06-20'
+method: searched
+source: https://docs.gitlab.com/api/rest/, https://docs.gitlab.com/development/deprecation_guidelines/
+versioning:
+  scheme: uri-path
+  current: v4
+  docs: https://docs.gitlab.com/api/rest/
+  notes: >-
+    The REST API major version is fixed at v4; backward-incompatible changes would
+    require a new major version. The GraphQL API is versionless. GitLab product
+    releases follow monthly minor versions (currently 19.x) shipped on the third
+    Thursday of each month, with major versions annually in May.
+deprecation:
+  policy_url: https://docs.gitlab.com/development/deprecation_guidelines/
+  graphql_policy_url: https://docs.gitlab.com/api/graphql/#deprecation-and-removal-process
+  sunset_header: false
+  deprecation_header: false
+  notes: >-
+    Deprecated REST elements are removed alongside major GitLab releases. Experimental/beta
+    elements and fields behind a disabled feature flag can be removed without notice. GraphQL
+    fields are deprecated for a minimum of six releases (six months) before removal. No RFC 8594
+    Sunset/Deprecation response headers are emitted.
+  announcements: https://about.gitlab.com/releases/categories/releases/
+  breaking_changes: https://docs.gitlab.com/update/deprecations/
+sla:
+  url: https://about.gitlab.com/handbook/engineering/infrastructure/performance-indicators/
+  status_page: https://status.gitlab.com/
+  notes: GitLab.com availability is tracked publicly; formal uptime SLAs apply to GitLab Dedicated.
+status_page: https://status.gitlab.com/
+release_cadence:
+  minor: monthly (third Thursday)
+  major: annual (May)
+  patch: as needed (security/bug backports to the last three minor versions)
+deprecated_operations: []

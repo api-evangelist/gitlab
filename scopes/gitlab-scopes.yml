@@ -1,0 +1,65 @@
+generated: '2026-06-20'
+method: searched
+source: https://gitlab.com/.well-known/oauth-authorization-server
+docs: https://docs.gitlab.com/integration/oauth_provider/
+schemes:
+- name: OAuth2
+  issuer: https://gitlab.com
+  authorizationUrl: https://gitlab.com/oauth/authorize
+  tokenUrl: https://gitlab.com/oauth/token
+  device_authorization_endpoint: https://gitlab.com/oauth/authorize_device
+  registration_endpoint: https://gitlab.com/oauth/register
+  grant_types: [authorization_code, client_credentials, device_code, refresh_token]
+  code_challenge_methods: [plain, S256]
+  flows: [authorizationCode, clientCredentials, deviceCode]
+scopes:
+- scope: api
+  description: Complete read/write access to the API, including all groups and projects, the container registry, the dependency proxy, and the package registry.
+- scope: read_api
+  description: Read access to the API, including all groups and projects, the container registry, and the package registry.
+- scope: read_user
+  description: Read-only access to the authenticated user's profile through the /user API, including username, public email, and full name.
+- scope: create_runner
+  description: Grants create access to the runners.
+- scope: manage_runner
+  description: Grants access to manage the runners.
+- scope: k8s_proxy
+  description: Perform Kubernetes API calls using the agent for Kubernetes.
+- scope: self_rotate
+  description: Rotate the access token used to make the request. Documented via the live discovery metadata; not enumerated on the OAuth provider scopes page.
+- scope: mcp
+  description: Access to the GitLab Model Context Protocol (MCP) server at /api/v4/mcp for AI agents.
+- scope: mcp_orbit
+  description: Scope for the GitLab Orbit agent context surface (from live discovery metadata).
+- scope: read_repository
+  description: Read-only access to repositories on private projects using Git-over-HTTP or the Repository Files API.
+- scope: write_repository
+  description: Read-write access to repositories on private projects using Git-over-HTTP.
+- scope: read_registry
+  description: Read-only access to container registry images on private projects.
+- scope: write_registry
+  description: Write access to container registry images on private projects.
+- scope: read_virtual_registry
+  description: Read-only access to container images through the dependency proxy.
+- scope: write_virtual_registry
+  description: Read, write, and delete access to container images through the dependency proxy.
+- scope: read_observability
+  description: Read-only access to GitLab Observability.
+- scope: write_observability
+  description: Write access to GitLab Observability.
+- scope: ai_features
+  description: Access to GitLab Duo related API endpoints.
+- scope: ai_workflows
+  description: Access to AI workflow endpoints (from live discovery metadata).
+- scope: sudo
+  description: Perform API actions as any user in the system (available only for administrators).
+- scope: admin_mode
+  description: Perform API actions as an administrator when Admin Mode is enabled.
+- scope: read_service_ping
+  description: Download Service Ping payloads through the API when authenticated as an administrator.
+- scope: openid
+  description: Authenticate with GitLab using OpenID Connect; also grants read-only access to the user's profile and group memberships.
+- scope: profile
+  description: Read-only access to the user's profile data using OpenID Connect.
+- scope: email
+  description: Read-only access to the user's primary email address using OpenID Connect.

@@ -1,0 +1,52 @@
+generated: '2026-06-20'
+method: searched
+source: https://docs.gitlab.com/api/rest/, https://docs.gitlab.com/security/rate_limits/
+authentication:
+  styles:
+  - OAuth 2.0 Bearer token (Authorization: Bearer <token>)
+  - Personal / project / group access token (PRIVATE-TOKEN header)
+  - Job token (CI_JOB_TOKEN) for CI-scoped calls
+  docs: https://docs.gitlab.com/api/rest/authentication/
+  see: authentication/gitlab-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    GitLab does not provide a general-purpose idempotency-key header. Mutating requests are
+    not automatically deduplicated; clients must guard retries. Some operations are naturally
+    idempotent (PUT updates, DELETE).
+pagination:
+  styles: [offset, keyset]
+  offset:
+    params: [page, per_page]
+    default_per_page: 20
+    max_per_page: 100
+    response_headers: [X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, Link]
+  keyset:
+    params: [pagination=keyset, order_by, sort, per_page]
+    response_headers: [Link, X-Next-Cursor]
+    notes: Recommended for large/unbounded collections; cursor is opaque.
+field_expansion:
+  supported: partial
+  notes: Selected endpoints accept a `with_*` boolean (e.g. with_stats, with_labels_details) rather than a generic expand parameter.
+metadata:
+  notes: List responses expose counts via pagination headers; many resources carry created_at/updated_at timestamps.
+request_tracing:
+  request_id_header: X-Request-Id
+  notes: Each response includes an X-Request-Id useful when contacting support.
+versioning:
+  rest: uri-path v4 (fixed)
+  graphql: versionless
+  see: lifecycle/gitlab-lifecycle.yml
+error_envelope:
+  format: gitlab-json
+  fields: [message, error]
+  notes: '"message" for API validation/permission errors; "error" for OAuth errors. Not RFC 9457.'
+  see: errors/gitlab-problem-types.yml
+rate_limit_signaling:
+  headers: [RateLimit-Limit, RateLimit-Observed, RateLimit-Remaining, RateLimit-Reset, RateLimit-ResetTime, Retry-After]
+  notes: >-
+    RateLimit-Observed + RateLimit-Remaining = RateLimit-Limit. Headers reflect the most
+    restrictive Rack::Attack limit; some application-level limits are not surfaced in headers.
+    Authenticated API 2,000 req/min/user; unauthenticated 500 req/min/IP; Search 30 req/min.
+  docs: https://docs.gitlab.com/security/rate_limits/
+  see: rate-limits/gitlab-rate-limits.yml

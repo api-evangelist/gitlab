@@ -1,0 +1,82 @@
+generated: '2026-06-20'
+method: searched
+source: https://docs.gitlab.com/cli/
+name: glab
+official: true
+repo: https://gitlab.com/gitlab-org/cli
+docs: https://docs.gitlab.com/cli/
+description: >-
+  glab is the official GitLab CLI. It brings GitLab to the terminal — CI/CD pipelines,
+  merge requests, issues, releases, and direct API calls — for GitLab.com, Dedicated,
+  and Self-Managed instances.
+install:
+- method: homebrew
+  command: brew install glab
+- method: apt
+  command: sudo apt install glab
+- method: snap
+  command: sudo snap install --edge glab
+- method: winget
+  command: winget install GLab.GLab
+- method: scoop
+  command: scoop install glab
+- method: source
+  command: go install gitlab.com/gitlab-org/cli/cmd/glab@main
+authentication:
+  interactive: glab auth login
+  token_env: GITLAB_TOKEN
+  methods: [oauth, personal-access-token]
+commands:
+- name: auth
+  description: Authenticate with a GitLab instance and manage credentials.
+- name: ci
+  description: Manage and view CI/CD pipelines, run and retry pipelines.
+- name: job
+  description: View and manage CI/CD jobs, including logs and artifacts.
+- name: mr
+  description: Create, view, review, approve, and merge merge requests.
+- name: issue
+  description: Create, list, update, and close issues.
+- name: repo
+  description: Clone, create, view, search, and fork repositories/projects.
+- name: release
+  description: Create and manage project releases and assets.
+- name: changelog
+  description: Generate a changelog from merged merge requests.
+- name: snippet
+  description: Create and manage personal and project snippets.
+- name: cluster
+  description: Manage Kubernetes clusters connected via the agent.
+- name: incident
+  description: View and manage incidents.
+- name: label
+  description: Create, list, and delete labels.
+- name: variable
+  description: Manage CI/CD variables at project and group level.
+- name: schedule
+  description: Manage scheduled pipelines.
+- name: runner
+  description: List and manage CI/CD runners.
+- name: token
+  description: Create and manage personal, project, and group access tokens.
+- name: ssh-key
+  description: Manage account SSH keys.
+- name: gpg-key
+  description: Manage account GPG keys.
+- name: deploy-key
+  description: Manage project deploy keys.
+- name: user
+  description: Retrieve information about users.
+- name: search
+  description: Search across projects, issues, merge requests, and more.
+- name: duo
+  description: Interact with GitLab Duo Chat from the command line.
+- name: api
+  description: Make an authenticated raw request to the GitLab REST or GraphQL API.
+key_flows:
+- glab auth login
+- glab mr create / glab mr merge
+- glab ci run / glab ci view
+- glab issue create
+- glab api /projects/:id/pipelines
+binary_package: packages/gitlab-packages.yml

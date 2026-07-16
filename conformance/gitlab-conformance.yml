@@ -1,0 +1,51 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  https://gitlab.com/.well-known/openid-configuration,
+  https://gitlab.com/.well-known/oauth-authorization-server,
+  https://gitlab.com/.well-known/security.txt, openapi/
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OAuth 2.0 authorization server with authorize/token/revoke/introspection endpoints; RFC 8414 metadata published.
+- id: oidc
+  conforms: true
+  evidence: /.well-known/openid-configuration present; openid/profile/email scopes and userinfo endpoint.
+- id: rfc8414-oauth-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns issuer, endpoints, scopes_supported.
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint https://gitlab.com/oauth/register; used by the MCP server.
+- id: rfc8628-device-authorization
+  conforms: true
+  evidence: device_code grant + /oauth/authorize_device (GitLab 17.1+).
+- id: pkce
+  conforms: true
+  evidence: code_challenge_methods_supported [plain, S256].
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: /.well-known/security.txt present, PGP-signed, with Policy/Contact/Expires.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a GitLab JSON envelope ({"message":...} or {"error":...}), not application/problem+json.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: REST API deprecation is tied to major releases; no Sunset/Deprecation response headers documented.
+- id: json-api
+  conforms: false
+- id: scim2
+  conforms: true
+  evidence: GitLab provides SCIM 2.0 provisioning for groups/enterprise (docs.gitlab.com/api/scim/).
+- id: pagination-keyset
+  conforms: true
+  evidence: Keyset (cursor) pagination via pagination=keyset with Link and X-NEXT-CURSOR headers.
+- id: pagination-offset
+  conforms: true
+  evidence: Offset pagination via page/per_page with X-Total, X-Total-Pages, X-Page headers.
+- id: graphql
+  conforms: true
+  evidence: Versionless GraphQL API at https://gitlab.com/api/graphql.
+- id: webhooks
+  conforms: true
+  evidence: Project, group, and system webhooks; captured in asyncapi/gitlab-webhooks-asyncapi.yml.

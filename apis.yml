@@ -256,7 +256,9 @@ apis:
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/api/rest/
-  overlays: []
+  overlays:
+  - url: overlays/gitlab-openapi-search.yml
+    type: OpenAPI
   properties:
   - url: openapi/gitlab-openapi-original.yml
     type: OpenAPI
@@ -285,7 +287,9 @@ apis:
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com
   humanURL: https://docs.gitlab.com/api/oauth2/
-  overlays: []
+  overlays:
+  - url: overlays/gitlab-oauth2-openapi-search.yml
+    type: OpenAPI
   properties:
   - url: openapi/gitlab-oauth2-openapi.yml
     type: OpenAPI
@@ -306,7 +310,9 @@ apis:
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
   humanURL: https://docs.gitlab.com/user/project/integrations/webhooks.html
-  overlays: []
+  overlays:
+  - url: overlays/gitlab-webhooks-openapi-search.yml
+    type: OpenAPI
   properties:
   - url: openapi/gitlab-webhooks-openapi.yml
     type: OpenAPI
@@ -851,6 +857,32 @@ common:
   url: security/gitlab-vulnerability-disclosure.yml
 - type: Authentication
   url: authentication/gitlab-authentication.yml
+- type: OAuthScopes
+  url: scopes/gitlab-scopes.yml
+- type: Packages
+  url: packages/gitlab-packages.yml
+- type: WellKnown
+  url: well-known/gitlab-well-known.yml
+- type: SecurityTxt
+  url: well-known/gitlab-security.txt
+- type: MCPServer
+  url: mcp/gitlab-mcp.yml
+- type: LLMsTxt
+  url: llms/gitlab-llms.txt
+- type: Conformance
+  url: conformance/gitlab-conformance.yml
+- type: ErrorCatalog
+  url: errors/gitlab-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/gitlab-lifecycle.yml
+- type: Conventions
+  url: conventions/gitlab-conventions.yml
+- type: ChangeLog
+  url: changelog/gitlab-changelog.yml
+- type: CLI
+  url: cli/gitlab-cli.yml
+- type: DataModel
+  url: data-model/gitlab-data-model.yml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/gitlab/overview
 - type: Arazzo
@@ -1059,7 +1091,7 @@ common:
 - type: LlmsText
   url: https://docs.gitlab.com/llms.txt
 created: 2023/11/10
-modified: '2026-05-19'
+modified: '2026-06-20'
 position: Consuming
 description: >-
   GitLab Inc. is an open-core company that develops GitLab, a DevOps software platform for building, securing, and
