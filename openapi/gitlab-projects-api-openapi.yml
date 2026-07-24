@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: 'GitLab api/v4/projects'
+  title: GitLab api/v4/ Admin Projects API
   version: v4
   description: Needs description.
   termsOfService: https://about.gitlab.com/terms/
@@ -329,9 +329,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the project owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the project owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -363,9 +361,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the project owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the project owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -410,9 +406,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the project owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the project owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -442,9 +436,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the project owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the project owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -492,9 +484,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the project owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the project owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -537,9 +527,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the project owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the project owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -578,9 +566,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the project owned by the authenticated
-          user
+        description: The ID or URL-encoded path of the project owned by the authenticated user
         required: true
         schema:
           type: string
@@ -610,9 +596,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the project owned by the authenticated
-          user
+        description: The ID or URL-encoded path of the project owned by the authenticated user
         required: true
         schema:
           type: string
@@ -663,9 +647,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the project owned by the authenticated
-          user
+        description: The ID or URL-encoded path of the project owned by the authenticated user
         required: true
         schema:
           type: string
@@ -705,9 +687,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the project owned by the authenticated
-          user
+        description: The ID or URL-encoded path of the project owned by the authenticated user
         required: true
         schema:
           type: string
@@ -791,8 +771,7 @@ paths:
       tags:
       - Projects
       description: Remove a metric image for an alert
-      operationId: >-
-        deleteApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId
+      operationId: deleteApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId
       parameters:
       - name: id
         in: path
@@ -1056,140 +1035,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    API_Entities_Branch:
-      type: object
-      properties:
-        name:
-          type: string
-          example: master
-        commit:
-          $ref: '#/components/schemas/API_Entities_Commit'
-        merged:
-          type: boolean
-          example: true
-        protected:
-          type: boolean
-          example: true
-        developers_can_push:
-          type: boolean
-          example: true
-        developers_can_merge:
-          type: boolean
-          example: true
-        can_push:
-          type: boolean
-          example: true
-        default:
-          type: boolean
-          example: true
-        web_url:
-          type: string
-          example: https://gitlab.example.com/Commit921/the-dude/-/tree/master
-      description: API_Entities_Branch model
-    API_Entities_Badge:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Example Project
-        link_url:
-          type: string
-          example: https://gitlab.com/example
-        image_url:
-          type: string
-          example: https://gitlab.com/example
-        rendered_link_url:
-          type: string
-          example: https://gitlab.com/example
-        rendered_image_url:
-          type: string
-          example: https://gitlab.com/example
-        id:
-          type: string
-          example: '123456'
-        kind:
-          type: string
-          example: example_value
-      description: API_Entities_Badge model
-    API_Entities_BasicBadgeDetails:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Example Project
-        link_url:
-          type: string
-          example: https://gitlab.com/example
-        image_url:
-          type: string
-          example: https://gitlab.com/example
-        rendered_link_url:
-          type: string
-          example: https://gitlab.com/example
-        rendered_image_url:
-          type: string
-          example: https://gitlab.com/example
-      description: API_Entities_BasicBadgeDetails model
-    API_Entities_AccessRequester:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 1
-        username:
-          type: string
-          example: admin
-        name:
-          type: string
-          example: Administrator
-        state:
-          type: string
-          example: active
-        avatar_url:
-          type: string
-          example: https://gravatar.com/avatar/1
-        avatar_path:
-          type: string
-          example: /user/avatar/28/The-Big-Lebowski-400-400.png
-        custom_attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_Entities_CustomAttribute'
-        web_url:
-          type: string
-          example: https://gitlab.example.com/root
-        email:
-          type: string
-          example: user@example.com
-        requested_at:
-          type: string
-          example: '2026-04-17T12:00:00Z'
-      description: API_Entities_AccessRequester model
-    API_Entities_MetricImage:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 23
-        created_at:
-          type: string
-          format: date-time
-          example: '2020-11-13T00:06:18.084Z'
-        filename:
-          type: string
-          example: file.png
-        file_path:
-          type: string
-          example: /uploads/-/system/alert_metric_image/file/23/file.png
-        url:
-          type: string
-          example: https://example.com/metric
-        url_text:
-          type: string
-          example: An example metric
-      description: API_Entities_MetricImage model
     API_Entities_Job:
       type: object
       properties:
@@ -1267,10 +1112,234 @@ components:
           properties:
             ci_job_token_scope_enabled:
               type: boolean
-              description: >-
-                Indicates if the CI/CD job token scope setting is enabled for
-                the project
+              description: Indicates if the CI/CD job token scope setting is enabled for the project
         user:
           $ref: '#/components/schemas/API_Entities_UserBasic'
           description: The user that started the job
       description: API_Entities_Job model
+    API_Entities_Branch:
+      type: object
+      properties:
+        name:
+          type: string
+          example: master
+        commit:
+          $ref: '#/components/schemas/API_Entities_Commit'
+        merged:
+          type: boolean
+          example: true
+        protected:
+          type: boolean
+          example: true
+        developers_can_push:
+          type: boolean
+          example: true
+        developers_can_merge:
+          type: boolean
+          example: true
+        can_push:
+          type: boolean
+          example: true
+        default:
+          type: boolean
+          example: true
+        web_url:
+          type: string
+          example: https://gitlab.example.com/Commit921/the-dude/-/tree/master
+      description: API_Entities_Branch model
+    API_Entities_MetricImage:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 23
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-11-13T00:06:18.084Z'
+        filename:
+          type: string
+          example: file.png
+        file_path:
+          type: string
+          example: /uploads/-/system/alert_metric_image/file/23/file.png
+        url:
+          type: string
+          example: https://example.com/metric
+        url_text:
+          type: string
+          example: An example metric
+      description: API_Entities_MetricImage model
+    API_Entities_CustomAttribute:
+      type: object
+      properties:
+        key:
+          type: string
+          example: foo
+        value:
+          type: string
+          example: bar
+    API_Entities_BasicBadgeDetails:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Example Project
+        link_url:
+          type: string
+          example: https://gitlab.com/example
+        image_url:
+          type: string
+          example: https://gitlab.com/example
+        rendered_link_url:
+          type: string
+          example: https://gitlab.com/example
+        rendered_image_url:
+          type: string
+          example: https://gitlab.com/example
+      description: API_Entities_BasicBadgeDetails model
+    API_Entities_AccessRequester:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+        username:
+          type: string
+          example: admin
+        name:
+          type: string
+          example: Administrator
+        state:
+          type: string
+          example: active
+        avatar_url:
+          type: string
+          example: https://gravatar.com/avatar/1
+        avatar_path:
+          type: string
+          example: /user/avatar/28/The-Big-Lebowski-400-400.png
+        custom_attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_Entities_CustomAttribute'
+        web_url:
+          type: string
+          example: https://gitlab.example.com/root
+        email:
+          type: string
+          example: user@example.com
+        requested_at:
+          type: string
+          example: '2026-04-17T12:00:00Z'
+      description: API_Entities_AccessRequester model
+    API_Entities_Commit:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 2695effb5807a22ff3d138d593fd856244e155e7
+        short_id:
+          type: string
+          example: 2695effb
+        created_at:
+          type: string
+          format: date-time
+          example: 2017-07-26 09:08:53+00:00
+        parent_ids:
+          type: array
+          items:
+            type: string
+            example: 2a4b78934375d7f53875269ffd4f45fd83a84ebe
+        title:
+          type: string
+          example: Initial commit
+        message:
+          type: string
+          example: Initial commit
+        author_name:
+          type: string
+          example: John Smith
+        author_email:
+          type: string
+          example: john@example.com
+        authored_date:
+          type: string
+          format: date-time
+          example: 2012-05-28 11:42:42+00:00
+        committer_name:
+          type: string
+          example: Jack Smith
+        committer_email:
+          type: string
+          example: jack@example.com
+        committed_date:
+          type: string
+          format: date-time
+          example: 2012-05-28 11:42:42+00:00
+        trailers:
+          type: object
+          properties: {}
+          example: '{ "Merged-By": "Jane Doe janedoe@gitlab.com" }'
+        web_url:
+          type: string
+          example: https://gitlab.example.com/janedoe/gitlab-foss/-/commit/ed899a2f4b50b4370feeea94676502b42383c746
+    API_Entities_UserBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+        username:
+          type: string
+          example: admin
+        name:
+          type: string
+          example: Administrator
+        state:
+          type: string
+          example: active
+        avatar_url:
+          type: string
+          example: https://gravatar.com/avatar/1
+        avatar_path:
+          type: string
+          example: /user/avatar/28/The-Big-Lebowski-400-400.png
+        custom_attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_Entities_CustomAttribute'
+        web_url:
+          type: string
+          example: https://gitlab.example.com/root
+        email:
+          type: string
+          example: user@example.com
+    API_Entities_Badge:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Example Project
+        link_url:
+          type: string
+          example: https://gitlab.com/example
+        image_url:
+          type: string
+          example: https://gitlab.com/example
+        rendered_link_url:
+          type: string
+          example: https://gitlab.com/example
+        rendered_image_url:
+          type: string
+          example: https://gitlab.com/example
+        id:
+          type: string
+          example: '123456'
+        kind:
+          type: string
+          example: example_value
+      description: API_Entities_Badge model

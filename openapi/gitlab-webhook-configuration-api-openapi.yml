@@ -1,0 +1,163 @@
+openapi: 3.0.1
+info:
+  title: GitLab api/v4/ Admin Webhook Configuration API
+  version: v4
+  description: Needs description.
+  termsOfService: https://about.gitlab.com/terms/
+  license:
+    name: CC BY-SA 4.0
+    url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
+servers:
+- url: https://www.gitlab.com/api/
+security:
+- ApiKeyAuth: []
+tags:
+- name: Webhook Configuration
+  description: Manage custom headers and URL variables for webhooks.
+paths:
+  /projects/{id}/hooks/{hook_id}/custom_headers/{key}:
+    put:
+      operationId: setWebhookCustomHeader
+      summary: GitLab Set a Webhook Custom Header
+      description: Adds or updates a custom HTTP header sent with every webhook delivery for the specified webhook. Custom headers are useful for authentication or routing at the receiving endpoint.
+      tags:
+      - Webhook Configuration
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/hookId'
+      - name: key
+        in: path
+        required: true
+        description: The name of the custom header.
+        schema:
+          type: string
+        example: example_value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - value
+              properties:
+                value:
+                  type: string
+                  description: The value of the custom header.
+      responses:
+        '204':
+          description: Custom header set successfully.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project or webhook not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteWebhookCustomHeader
+      summary: GitLab Delete a Webhook Custom Header
+      description: Removes a custom HTTP header from the specified webhook. The header will no longer be included in future webhook deliveries.
+      tags:
+      - Webhook Configuration
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/hookId'
+      - name: key
+        in: path
+        required: true
+        description: The name of the custom header to delete.
+        schema:
+          type: string
+        example: example_value
+      responses:
+        '204':
+          description: Custom header deleted successfully.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project, webhook, or header not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /projects/{id}/hooks/{hook_id}/url_variables/{key}:
+    put:
+      operationId: setWebhookUrlVariable
+      summary: GitLab Set a Webhook URL Variable
+      description: Adds or updates a URL variable for the specified webhook. URL variables allow dynamic substitution in the webhook URL, enabling reuse of the same webhook configuration with different target endpoints.
+      tags:
+      - Webhook Configuration
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/hookId'
+      - name: key
+        in: path
+        required: true
+        description: The name of the URL variable.
+        schema:
+          type: string
+        example: example_value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - value
+              properties:
+                value:
+                  type: string
+                  description: The value to substitute for the URL variable.
+      responses:
+        '204':
+          description: URL variable set successfully.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project or webhook not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteWebhookUrlVariable
+      summary: GitLab Delete a Webhook URL Variable
+      description: Removes a URL variable from the specified webhook. The variable will no longer be substituted in future webhook deliveries.
+      tags:
+      - Webhook Configuration
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/hookId'
+      - name: key
+        in: path
+        required: true
+        description: The name of the URL variable to delete.
+        schema:
+          type: string
+        example: example_value
+      responses:
+        '204':
+          description: URL variable deleted successfully.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project, webhook, or variable not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    hookId:
+      name: hook_id
+      in: path
+      required: true
+      description: The ID of the webhook.
+      schema:
+        type: integer
+    projectId:
+      name: id
+      in: path
+      required: true
+      description: The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name.
+      schema:
+        type: string

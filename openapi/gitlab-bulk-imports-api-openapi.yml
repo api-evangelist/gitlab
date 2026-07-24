@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: 'GitLab api/v4/bulk imports'
+  title: GitLab api/v4/ Admin Bulk Imports API
   version: v4
   description: Needs description.
   termsOfService: https://about.gitlab.com/terms/
@@ -339,9 +339,7 @@ paths:
                     type: string
                 entities[destination_name]:
                   type: array
-                  description: >-
-                    Deprecated: Use :destination_slug instead. Destination slug
-                    for the entity
+                  description: 'Deprecated: Use :destination_slug instead. Destination slug for the entity'
                   items:
                     type: string
                 entities[migrate_projects]:
@@ -377,6 +375,62 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    API_Entities_BulkImport:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+        status:
+          type: string
+          example: finished
+          enum:
+          - created
+          - started
+          - finished
+          - timeout
+          - failed
+        source_type:
+          type: string
+          example: gitlab
+        created_at:
+          type: string
+          format: date-time
+          example: '2012-05-28T11:42:42.000Z'
+        updated_at:
+          type: string
+          format: date-time
+          example: '2012-05-28T11:42:42.000Z'
+      description: API_Entities_BulkImport model
+    API_Entities_BulkImports_EntityFailure:
+      type: object
+      properties:
+        relation:
+          type: string
+          example: group
+        step:
+          type: string
+          example: extractor
+        exception_message:
+          type: string
+          example: error message
+        exception_class:
+          type: string
+          example: Exception
+        correlation_id_value:
+          type: string
+          example: dfcf583058ed4508e4c7c617bd7f0edd
+        created_at:
+          type: string
+          format: date-time
+          example: 2012-05-28 11:42:42+00:00
+        pipeline_class:
+          type: string
+          example: BulkImports::Groups::Pipelines::GroupPipeline
+        pipeline_step:
+          type: string
+          example: extractor
     API_Entities_BulkImports:
       type: object
       properties:
@@ -446,31 +500,3 @@ components:
           type: boolean
           example: true
       description: API_Entities_BulkImports model
-    API_Entities_BulkImport:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 1
-        status:
-          type: string
-          example: finished
-          enum:
-          - created
-          - started
-          - finished
-          - timeout
-          - failed
-        source_type:
-          type: string
-          example: gitlab
-        created_at:
-          type: string
-          format: date-time
-          example: '2012-05-28T11:42:42.000Z'
-        updated_at:
-          type: string
-          format: date-time
-          example: '2012-05-28T11:42:42.000Z'
-      description: API_Entities_BulkImport model

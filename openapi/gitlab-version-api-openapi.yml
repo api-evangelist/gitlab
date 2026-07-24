@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: 'GitLab api/v4/version'
+  title: GitLab api/v4/ Admin Version API
   version: v4
   description: Needs description.
   termsOfService: https://about.gitlab.com/terms/
@@ -19,9 +19,7 @@ paths:
       tags:
       - Version
       summary: GitLab Retrieves Version Information for the GitLab Instance
-      description: >-
-        This feature was introduced in GitLab 8.13 and deprecated in 15.5. We
-        recommend you instead use the Metadata API.
+      description: This feature was introduced in GitLab 8.13 and deprecated in 15.5. We recommend you instead use the Metadata API.
       operationId: getApiV4Version
       responses:
         '200':

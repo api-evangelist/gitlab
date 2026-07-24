@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: 'GitLab api/v4/avatar'
+  title: GitLab api/v4/ Admin Avatar API
   version: v4
   description: Needs description.
   termsOfService: https://about.gitlab.com/terms/

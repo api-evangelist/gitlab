@@ -1,0 +1,79 @@
+openapi: 3.0.1
+info:
+  title: GitLab api/v4/ Admin User Info API
+  version: v4
+  description: Needs description.
+  termsOfService: https://about.gitlab.com/terms/
+  license:
+    name: CC BY-SA 4.0
+    url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
+servers:
+- url: https://www.gitlab.com/api/
+security:
+- ApiKeyAuth: []
+tags:
+- name: User Info
+  description: Endpoints for retrieving authenticated user information via OAuth.
+paths:
+  /oauth/userinfo:
+    get:
+      operationId: getUserInfo
+      summary: GitLab Get Authenticated User Information
+      description: Returns profile information about the currently authenticated user based on the OAuth token's scopes. Implements the OpenID Connect UserInfo endpoint. Supports CORS for browser-based applications.
+      tags:
+      - User Info
+      security:
+      - oauthToken: []
+      responses:
+        '200':
+          description: User information returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserInfo'
+        '401':
+          description: Invalid or expired token.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    UserInfo:
+      type: object
+      properties:
+        sub:
+          type: string
+          description: Subject identifier. Unique to the user within the provider.
+          example: example_value
+        name:
+          type: string
+          description: Full name of the user.
+          example: Example Project
+        nickname:
+          type: string
+          description: The user's GitLab username.
+          example: Example Project
+        email:
+          type: string
+          format: email
+          description: The user's email address. Requires the email scope.
+          example: user@example.com
+        email_verified:
+          type: boolean
+          description: Whether the user's email address has been verified.
+          example: true
+        profile:
+          type: string
+          format: uri
+          description: URL to the user's GitLab profile page.
+          example: example_value
+        picture:
+          type: string
+          format: uri
+          description: URL to the user's avatar image.
+          example: example_value
+        groups:
+          type: array
+          description: List of groups the user belongs to.
+          items:
+            type: string

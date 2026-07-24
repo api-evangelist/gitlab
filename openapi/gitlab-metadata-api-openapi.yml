@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: 'GitLab api/v4/metadata'
+  title: GitLab api/v4/ Admin Metadata API
   version: v4
   description: Needs description.
   termsOfService: https://about.gitlab.com/terms/

@@ -1,0 +1,163 @@
+openapi: 3.0.1
+info:
+  title: GitLab api/v4/ Admin Webhook Events API
+  version: v4
+  description: Needs description.
+  termsOfService: https://about.gitlab.com/terms/
+  license:
+    name: CC BY-SA 4.0
+    url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
+servers:
+- url: https://www.gitlab.com/api/
+security:
+- ApiKeyAuth: []
+tags:
+- name: Webhook Events
+  description: Access webhook delivery history and resend events.
+paths:
+  /projects/{id}/hooks/{hook_id}/events:
+    get:
+      operationId: listProjectWebhookEvents
+      summary: GitLab List Webhook Events
+      description: Returns a list of all delivery events for a specified project webhook from the past 7 days. Each event includes the trigger type, response status code, request and response headers, and payload body.
+      tags:
+      - Webhook Events
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/hookId'
+      responses:
+        '200':
+          description: Webhook events returned successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebhookEvent'
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project or webhook not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /projects/{id}/hooks/{hook_id}/events/{hook_event_id}/resend:
+    post:
+      operationId: resendWebhookEvent
+      summary: GitLab Resend a Webhook Event
+      description: Resends a previously triggered webhook event to the configured URL. Useful for retrying failed deliveries or for debugging webhook configurations.
+      tags:
+      - Webhook Events
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/hookId'
+      - name: hook_event_id
+        in: path
+        required: true
+        description: The ID of the webhook event to resend.
+        schema:
+          type: integer
+        example: 42
+      responses:
+        '201':
+          description: Webhook event resent successfully.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project, webhook, or event not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /projects/{id}/hooks/{hook_id}/test/{trigger}:
+    post:
+      operationId: testProjectWebhook
+      summary: GitLab Test a Webhook Trigger
+      description: Sends a test webhook payload of the specified trigger type to the configured webhook URL. Use this to verify the webhook endpoint is reachable and handling payloads correctly.
+      tags:
+      - Webhook Events
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/hookId'
+      - name: trigger
+        in: path
+        required: true
+        description: The event type to simulate. Supported values include push_events, tag_push_events, issues_events, confidential_issues_events, note_events, merge_requests_events, job_events, pipeline_events, wiki_page_events, releases_events, and member_events.
+        schema:
+          type: string
+        example: example_value
+      responses:
+        '201':
+          description: Test event sent successfully.
+        '400':
+          description: Trigger type not supported or webhook could not be tested.
+        '401':
+          description: Authentication required.
+        '404':
+          description: Project or webhook not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    hookId:
+      name: hook_id
+      in: path
+      required: true
+      description: The ID of the webhook.
+      schema:
+        type: integer
+    projectId:
+      name: id
+      in: path
+      required: true
+      description: The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name.
+      schema:
+        type: string
+  schemas:
+    WebhookEvent:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier of the webhook event delivery.
+          example: 42
+        url:
+          type: string
+          format: uri
+          description: The URL the event was delivered to.
+          example: https://gitlab.com/example
+        trigger:
+          type: string
+          description: The event type that triggered the webhook delivery.
+          example: example_value
+        request_headers:
+          type: object
+          description: HTTP headers sent with the webhook request.
+          additionalProperties:
+            type: string
+        request_data:
+          type: string
+          description: The JSON payload body sent in the webhook request.
+          example: '2026-04-17T12:00:00Z'
+        response_headers:
+          type: object
+          description: HTTP headers returned in the webhook response.
+          additionalProperties:
+            type: string
+        response_body:
+          type: string
+          description: The body of the response from the webhook receiver.
+          example: example_value
+        response_status:
+          type: string
+          description: The HTTP response status code returned by the receiver.
+          example: '2026-04-17T12:00:00Z'
+        execution_duration:
+          type: number
+          description: Time in milliseconds the webhook delivery took.
+          example: 42.5
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the event was delivered.
+          example: '2026-04-17T12:00:00Z'

@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: 'GitLab api/v4/groups'
+  title: GitLab api/v4/ Admin Groups API
   version: v4
   description: Needs description.
   termsOfService: https://about.gitlab.com/terms/
@@ -24,9 +24,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the group owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the group owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -58,9 +56,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the group owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the group owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -105,9 +101,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the group owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the group owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -137,9 +131,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the group owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the group owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -187,9 +179,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the group owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the group owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -232,9 +222,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the group owned by the authenticated
-          user.
+        description: The ID or URL-encoded path of the group owned by the authenticated user.
         required: true
         schema:
           type: string
@@ -273,9 +261,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the group owned by the authenticated
-          user
+        description: The ID or URL-encoded path of the group owned by the authenticated user
         required: true
         schema:
           type: string
@@ -305,9 +291,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the group owned by the authenticated
-          user
+        description: The ID or URL-encoded path of the group owned by the authenticated user
         required: true
         schema:
           type: string
@@ -358,9 +342,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the group owned by the authenticated
-          user
+        description: The ID or URL-encoded path of the group owned by the authenticated user
         required: true
         schema:
           type: string
@@ -400,9 +382,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: >-
-          The ID or URL-encoded path of the group owned by the authenticated
-          user
+        description: The ID or URL-encoded path of the group owned by the authenticated user
         required: true
         schema:
           type: string
@@ -452,25 +432,6 @@ components:
           type: string
           example: example_value
       description: API_Entities_Badge model
-    API_Entities_BasicBadgeDetails:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Example Project
-        link_url:
-          type: string
-          example: https://gitlab.com/example
-        image_url:
-          type: string
-          example: https://gitlab.com/example
-        rendered_link_url:
-          type: string
-          example: https://gitlab.com/example
-        rendered_image_url:
-          type: string
-          example: https://gitlab.com/example
-      description: API_Entities_BasicBadgeDetails model
     API_Entities_AccessRequester:
       type: object
       properties:
@@ -507,3 +468,31 @@ components:
           type: string
           example: '2026-04-17T12:00:00Z'
       description: API_Entities_AccessRequester model
+    API_Entities_BasicBadgeDetails:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Example Project
+        link_url:
+          type: string
+          example: https://gitlab.com/example
+        image_url:
+          type: string
+          example: https://gitlab.com/example
+        rendered_link_url:
+          type: string
+          example: https://gitlab.com/example
+        rendered_image_url:
+          type: string
+          example: https://gitlab.com/example
+      description: API_Entities_BasicBadgeDetails model
+    API_Entities_CustomAttribute:
+      type: object
+      properties:
+        key:
+          type: string
+          example: foo
+        value:
+          type: string
+          example: bar

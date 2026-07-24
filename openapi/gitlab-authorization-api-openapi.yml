@@ -1,0 +1,163 @@
+openapi: 3.0.1
+info:
+  title: GitLab api/v4/ Admin Authorization API
+  version: v4
+  description: Needs description.
+  termsOfService: https://about.gitlab.com/terms/
+  license:
+    name: CC BY-SA 4.0
+    url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
+servers:
+- url: https://www.gitlab.com/api/
+security:
+- ApiKeyAuth: []
+tags:
+- name: Authorization
+  description: Endpoints for initiating OAuth authorization flows.
+paths:
+  /oauth/authorize:
+    get:
+      operationId: authorizeOAuth
+      summary: GitLab Authorize OAuth Application
+      description: Initiates the OAuth 2.0 authorization code flow. Redirects the user to the GitLab authorization page where they can grant access to the application. Supports PKCE for public clients by including the code_challenge and code_challenge_method parameters.
+      tags:
+      - Authorization
+      parameters:
+      - name: client_id
+        in: query
+        required: true
+        description: The application ID registered in GitLab.
+        schema:
+          type: string
+        example: '123456'
+      - name: redirect_uri
+        in: query
+        required: true
+        description: The URI to redirect to after authorization.
+        schema:
+          type: string
+          format: uri
+        example: example_value
+      - name: response_type
+        in: query
+        required: true
+        description: Must be set to code for the authorization code flow.
+        schema:
+          type: string
+          enum:
+          - code
+        example: code
+      - name: state
+        in: query
+        required: true
+        description: A random, unguessable string used to protect against CSRF attacks. Must be returned unchanged in the redirect response.
+        schema:
+          type: string
+        example: '2026-04-17T12:00:00Z'
+      - name: scope
+        in: query
+        required: false
+        description: Space-separated list of scopes to request. Available scopes include api, read_api, read_user, read_repository, write_repository, and others.
+        schema:
+          type: string
+        example: example_value
+      - name: code_challenge
+        in: query
+        required: false
+        description: A Base64 URL-encoded SHA-256 hash of the code_verifier. Required when using PKCE for public clients.
+        schema:
+          type: string
+        example: example_value
+      - name: code_challenge_method
+        in: query
+        required: false
+        description: The method used to generate the code_challenge. Must be S256.
+        schema:
+          type: string
+          enum:
+          - S256
+        example: S256
+      - name: root_namespace_id
+        in: query
+        required: false
+        description: Optional. Limits group access token creation to a specific namespace.
+        schema:
+          type: integer
+        example: 42
+      responses:
+        '302':
+          description: Redirect to the specified redirect_uri with the authorization code.
+        '400':
+          description: Bad request due to missing or invalid parameters.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /oauth/authorize_device:
+    post:
+      operationId: authorizeDevice
+      summary: GitLab Initiate Device Authorization Grant
+      description: Initiates the OAuth 2.0 device authorization grant flow for input-constrained devices. Returns a device code and user code that the user enters on a secondary device to authorize access.
+      tags:
+      - Authorization
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DeviceAuthorizationRequest'
+      responses:
+        '200':
+          description: Device authorization initiated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceAuthorizationResponse'
+        '400':
+          description: Bad request due to invalid client credentials.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    DeviceAuthorizationResponse:
+      type: object
+      properties:
+        device_code:
+          type: string
+          description: The device verification code used to poll for the access token.
+          example: example_value
+        user_code:
+          type: string
+          description: The end-user verification code to enter on the authorization page.
+          example: example_value
+        verification_uri:
+          type: string
+          format: uri
+          description: The end-user verification URI on the authorization server.
+          example: '2026-04-17T12:00:00Z'
+        verification_uri_complete:
+          type: string
+          format: uri
+          description: The verification URI that includes the user_code.
+          example: '2026-04-17T12:00:00Z'
+        expires_in:
+          type: integer
+          description: The lifetime in seconds of the device_code and user_code.
+          example: 42
+        interval:
+          type: integer
+          description: Minimum number of seconds between polling requests.
+          example: 42
+    DeviceAuthorizationRequest:
+      type: object
+      required:
+      - client_id
+      properties:
+        client_id:
+          type: string
+          description: The application ID registered in GitLab.
+          example: '123456'
+        scope:
+          type: string
+          description: Space-separated list of requested scopes.
+          example: example_value
