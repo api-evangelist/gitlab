@@ -1,0 +1,56 @@
+openapi: 3.0.1
+info:
+  title: 'GitLab api/v4/avatar'
+  version: v4
+  description: Needs description.
+  termsOfService: https://about.gitlab.com/terms/
+  license:
+    name: CC BY-SA 4.0
+    url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
+servers:
+- url: https://www.gitlab.com/api/
+security:
+- ApiKeyAuth: []
+tags:
+- name: Avatar
+paths:
+  /api/v4/avatar:
+    get:
+      tags:
+      - Avatar
+      description: Return avatar url for a user
+      operationId: getApiV4Avatar
+      parameters:
+      - name: email
+        in: query
+        description: Public email address of the user
+        required: true
+        schema:
+          type: string
+        example: user@example.com
+      - name: size
+        in: query
+        description: Single pixel dimension for Gravatar images
+        schema:
+          type: integer
+          format: int32
+        example: 42
+      responses:
+        '200':
+          description: Return avatar url for a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Entities_Avatar'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    API_Entities_Avatar:
+      type: object
+      properties:
+        avatar_url:
+          type: string
+          example: https://gitlab.com/example
+      description: API_Entities_Avatar model
