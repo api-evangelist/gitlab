@@ -1,0 +1,8 @@
+---
+title: "GitLab 19.0 release notes"
+url: "https://docs.gitlab.com/releases/19/gitlab-19-0-released/"
+date: "2026-05-21"
+author: "The GitLab Team"
+feed_url: "https://about.gitlab.com/releases.xml"
+---
+On May 21, 2026, GitLab 19.0 was released with the following features. We’d also like to announce this month’s Notable Contributor : Norman Debald! We are excited to recognize Norman , a Level 3 contributor with more than 40 merged improvements across GitLab since joining in May 2022.
