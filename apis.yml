@@ -1401,6 +1401,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/gitlab.png
 access: 3rd-Party
 common:
+- type: Overlay
+  url: overlays/gitlab-api-v4-admin-openapi-search.yml
 - type: AgenticAccess
   url: agentic-access/gitlab-agentic-access.yml
 - type: DomainSecurity
