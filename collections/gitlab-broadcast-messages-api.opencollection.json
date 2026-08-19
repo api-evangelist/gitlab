@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab api/v4/ Admin Broadcast Messages API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Broadcast Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Get a Specific Broadcast Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/broadcast_messages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "42",
+                "type": "path",
+                "description": "Broadcast message ID"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 8.12."
+        },
+        {
+          "info": {
+            "name": "GitLab Update a Broadcast Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.gitlab.com/api/api/v4/broadcast_messages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "42",
+                "type": "path",
+                "description": "Broadcast message ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This feature was introduced in GitLab 8.12."
+        },
+        {
+          "info": {
+            "name": "GitLab Delete a Broadcast Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.gitlab.com/api/api/v4/broadcast_messages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "42",
+                "type": "path",
+                "description": "Broadcast message ID"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 8.12."
+        },
+        {
+          "info": {
+            "name": "GitLab Get All Broadcast Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/broadcast_messages",
+            "params": [
+              {
+                "name": "page",
+                "value": "42",
+                "type": "query",
+                "description": "Current page number"
+              },
+              {
+                "name": "per_page",
+                "value": "42",
+                "type": "query",
+                "description": "Number of items per page"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 8.12."
+        },
+        {
+          "info": {
+            "name": "GitLab Create a Broadcast Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/api/v4/broadcast_messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This feature was introduced in GitLab 8.12."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

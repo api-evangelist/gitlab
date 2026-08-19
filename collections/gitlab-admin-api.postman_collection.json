@@ -1,0 +1,3273 @@
+{
+  "item": [
+    {
+      "id": "c14bdd6c-539d-49a5-8eb5-7a8331386e39",
+      "name": "Admin",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "af01b1fc-8d2b-4e75-a9c4-2c73009232d3",
+          "name": "get Api V4Admin Batched Background Migrations Id",
+          "request": {
+            "name": "get Api V4Admin Batched Background Migrations Id",
+            "description": {
+              "content": "Retrieve a batched background migration",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "batched_background_migrations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "database",
+                  "value": "main",
+                  "description": "The name of the database"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The batched background migration id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d89bd2d-568b-4d84-ba42-7f360bd38832",
+              "name": "Retrieve a batched background migration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "database",
+                      "value": "main"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1234\",\n  \"job_class_name\": \"CopyColumnUsingBackgroundMigrationJob\",\n  \"table_name\": \"events\",\n  \"status\": \"active\",\n  \"progress\": 50,\n  \"created_at\": \"2022-11-28T14:26:39.000Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2587b60e-f865-499c-bc16-1648199a4c05",
+              "name": "401 Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "database",
+                      "value": "main"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5bef5d14-f23b-4ce3-b6d1-c81bc0238097",
+              "name": "403 Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "database",
+                      "value": "main"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "955ac8f2-ff32-405a-bc6e-9d34951c2bee",
+              "name": "404 Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "database",
+                      "value": "main"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8e2686d-8bb7-4200-b25d-f5bc4227284f",
+          "name": "get Api V4Admin Batched Background Migrations",
+          "request": {
+            "name": "get Api V4Admin Batched Background Migrations",
+            "description": {
+              "content": "Get the list of batched background migrations",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "batched_background_migrations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "database",
+                  "value": "main",
+                  "description": "The name of the database, the default `main`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87e59665-4b0e-4f69-b573-236a8a806a8d",
+              "name": "Get the list of batched background migrations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "database",
+                      "value": "main"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"1234\",\n    \"job_class_name\": \"CopyColumnUsingBackgroundMigrationJob\",\n    \"table_name\": \"events\",\n    \"status\": \"active\",\n    \"progress\": 50,\n    \"created_at\": \"2022-11-28T14:26:39.000Z\"\n  },\n  {\n    \"id\": \"1234\",\n    \"job_class_name\": \"CopyColumnUsingBackgroundMigrationJob\",\n    \"table_name\": \"events\",\n    \"status\": \"active\",\n    \"progress\": 50,\n    \"created_at\": \"2022-11-28T14:26:39.000Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecf65281-3b6b-4568-9403-4a009aae1e59",
+              "name": "401 Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "database",
+                      "value": "main"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc048679-0f35-4148-9146-75c964aacb34",
+              "name": "403 Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "database",
+                      "value": "main"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1af18486-d202-4d51-a014-917b4180ec74",
+          "name": "put Api V4Admin Batched Background Migrations Id Resume",
+          "request": {
+            "name": "put Api V4Admin Batched Background Migrations Id Resume",
+            "description": {
+              "content": "Resume a batched background migration",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "batched_background_migrations",
+                ":id",
+                "resume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The batched background migration id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"database\": \"main\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7c8bcc4c-e254-4709-8bd7-f1e05a41a987",
+              "name": "Resume a batched background migration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1234\",\n  \"job_class_name\": \"CopyColumnUsingBackgroundMigrationJob\",\n  \"table_name\": \"events\",\n  \"status\": \"active\",\n  \"progress\": 50,\n  \"created_at\": \"2022-11-28T14:26:39.000Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d28224c4-c944-4fe7-aa5f-b61e2ffb75e0",
+              "name": "401 Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7234a859-95ca-495b-bc69-18cfb363772a",
+              "name": "403 Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9678bb85-e91d-4a06-8f04-ca4d0b73ee74",
+              "name": "404 Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0b128bc3-daf5-4d8e-b5d2-169d3e449f2e",
+              "name": "You can resume only `paused` batched background migrations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "788429ad-2def-41cc-af1b-ac51024912f6",
+          "name": "put Api V4Admin Batched Background Migrations Id Pause",
+          "request": {
+            "name": "put Api V4Admin Batched Background Migrations Id Pause",
+            "description": {
+              "content": "Pause a batched background migration",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "batched_background_migrations",
+                ":id",
+                "pause"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The batched background migration id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"database\": \"main\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a3e5e3c-c1e8-45c8-9b61-8ab61c68309d",
+              "name": "Pause a batched background migration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id",
+                    "pause"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1234\",\n  \"job_class_name\": \"CopyColumnUsingBackgroundMigrationJob\",\n  \"table_name\": \"events\",\n  \"status\": \"active\",\n  \"progress\": 50,\n  \"created_at\": \"2022-11-28T14:26:39.000Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e337220-04fd-4c45-934b-341a32dc51bb",
+              "name": "401 Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id",
+                    "pause"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e5e4a60-1849-4601-b07d-cac65d48e1e1",
+              "name": "403 Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id",
+                    "pause"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "974be79f-f423-40ef-834e-d2b168854b67",
+              "name": "404 Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id",
+                    "pause"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "80f91f63-7c0f-4f3f-bbfd-ca7b3aa8be8a",
+              "name": "You can pause only `active` batched background migrations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "batched_background_migrations",
+                    ":id",
+                    "pause"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The batched background migration id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ced6dcea-c429-4ccb-8be8-03826d171f4b",
+          "name": "get Api V4Admin Ci Variables Key",
+          "request": {
+            "name": "get Api V4Admin Ci Variables Key",
+            "description": {
+              "content": "Get the details of a specific instance-level variable",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "ci",
+                "variables",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) The key of a variable"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b4b379c-414a-484b-bc8b-a524bccb1f89",
+              "name": "Get the details of a specific instance-level variable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "ci",
+                    "variables",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of a variable"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"variable_type\": \"env_var\",\n  \"key\": \"TEST_VARIABLE_1\",\n  \"value\": \"TEST_1\",\n  \"protected\": true,\n  \"masked\": true,\n  \"raw\": true,\n  \"environment_scope\": \"*\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "225809bc-c6e9-41eb-b675-7444dfef6112",
+              "name": "Instance Variable Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "ci",
+                    "variables",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of a variable"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a14990d-5639-4f52-a10c-da689b5ef932",
+          "name": "put Api V4Admin Ci Variables Key",
+          "request": {
+            "name": "put Api V4Admin Ci Variables Key",
+            "description": {
+              "content": "Update an instance-level variable",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "ci",
+                "variables",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) The key of a variable"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"<string>\",\n  \"protected\": \"<boolean>\",\n  \"masked\": \"<boolean>\",\n  \"raw\": \"<boolean>\",\n  \"variable_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f773757-6738-4116-8447-8eed5213ddc1",
+              "name": "Update an instance-level variable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "ci",
+                    "variables",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of a variable"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"<string>\",\n  \"protected\": \"<boolean>\",\n  \"masked\": \"<boolean>\",\n  \"raw\": \"<boolean>\",\n  \"variable_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"variable_type\": \"env_var\",\n  \"key\": \"TEST_VARIABLE_1\",\n  \"value\": \"TEST_1\",\n  \"protected\": true,\n  \"masked\": true,\n  \"raw\": true,\n  \"environment_scope\": \"*\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ff82c19-263b-44e1-a51c-2695de48a46e",
+              "name": "Instance Variable Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "ci",
+                    "variables",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of a variable"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"<string>\",\n  \"protected\": \"<boolean>\",\n  \"masked\": \"<boolean>\",\n  \"raw\": \"<boolean>\",\n  \"variable_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8df53ca3-164e-45dd-ac39-10f3f6dbd080",
+          "name": "delete Api V4Admin Ci Variables Key",
+          "request": {
+            "name": "delete Api V4Admin Ci Variables Key",
+            "description": {
+              "content": "Delete an existing instance-level variable",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "ci",
+                "variables",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) The key of a variable"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e39b02c7-0602-4cc4-b324-36b9e793f858",
+              "name": "Delete an existing instance-level variable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "ci",
+                    "variables",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of a variable"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"variable_type\": \"env_var\",\n  \"key\": \"TEST_VARIABLE_1\",\n  \"value\": \"TEST_1\",\n  \"protected\": true,\n  \"masked\": true,\n  \"raw\": true,\n  \"environment_scope\": \"*\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "605d6cc8-0ea3-4c89-b489-14070f69e813",
+              "name": "Instance Variable Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "ci",
+                    "variables",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) The key of a variable"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c97ac92-88c4-4725-a0ef-4ed80b6a4986",
+          "name": "get Api V4Admin Ci Variables",
+          "request": {
+            "name": "get Api V4Admin Ci Variables",
+            "description": {
+              "content": "List all instance-level variables",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "ci",
+                "variables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "20",
+                  "description": "Number of items per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c0185eaa-7768-4a63-94d6-5f1d53f816b4",
+              "name": "List all instance-level variables",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "ci",
+                    "variables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "42"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "42"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"variable_type\": \"env_var\",\n  \"key\": \"TEST_VARIABLE_1\",\n  \"value\": \"TEST_1\",\n  \"protected\": true,\n  \"masked\": true,\n  \"raw\": true,\n  \"environment_scope\": \"*\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "612263ab-5b14-4c25-914e-d981533e558f",
+          "name": "post Api V4Admin Ci Variables",
+          "request": {
+            "name": "post Api V4Admin Ci Variables",
+            "description": {
+              "content": "Create a new instance-level variable",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "ci",
+                "variables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\",\n  \"value\": \"<string>\",\n  \"protected\": \"<boolean>\",\n  \"masked\": \"<boolean>\",\n  \"raw\": \"<boolean>\",\n  \"variable_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c39ff8fe-0590-4e1b-8e0c-2bc8fb5243b3",
+              "name": "Create a new instance-level variable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "ci",
+                    "variables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"<string>\",\n  \"value\": \"<string>\",\n  \"protected\": \"<boolean>\",\n  \"masked\": \"<boolean>\",\n  \"raw\": \"<boolean>\",\n  \"variable_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"variable_type\": \"env_var\",\n  \"key\": \"TEST_VARIABLE_1\",\n  \"value\": \"TEST_1\",\n  \"protected\": true,\n  \"masked\": true,\n  \"raw\": true,\n  \"environment_scope\": \"*\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec3d04cd-53f6-4b70-af0b-4f7f9f6b02fc",
+              "name": "400 Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "ci",
+                    "variables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"<string>\",\n  \"value\": \"<string>\",\n  \"protected\": \"<boolean>\",\n  \"masked\": \"<boolean>\",\n  \"raw\": \"<boolean>\",\n  \"variable_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "36712229-6284-4316-a829-1ff94bfc157f",
+          "name": "get Api V4Admin Databases Database Name Dictionary Tables Table Name",
+          "request": {
+            "name": "get Api V4Admin Databases Database Name Dictionary Tables Table Name",
+            "description": {
+              "content": "Retrieve dictionary details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "databases",
+                ":database_name",
+                "dictionary",
+                "tables",
+                ":table_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "database_name",
+                  "description": "(Required) The database name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "table_name",
+                  "description": "(Required) The table name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a8aeadd-5efc-4012-89f3-8d7d52587ed9",
+              "name": "Retrieve dictionary details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "databases",
+                    ":database_name",
+                    "dictionary",
+                    "tables",
+                    ":table_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database_name",
+                      "description": "(Required) The database name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "table_name",
+                      "description": "(Required) The table name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"table_name\": \"users\",\n  \"feature_categories\": [\n    \"database\",\n    \"database\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02ebab86-9ef0-4a36-b594-a74aea9314cd",
+              "name": "401 Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "databases",
+                    ":database_name",
+                    "dictionary",
+                    "tables",
+                    ":table_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database_name",
+                      "description": "(Required) The database name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "table_name",
+                      "description": "(Required) The table name"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "353863e8-34cc-41ef-85dd-9c45243363b6",
+              "name": "403 Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "databases",
+                    ":database_name",
+                    "dictionary",
+                    "tables",
+                    ":table_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database_name",
+                      "description": "(Required) The database name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "table_name",
+                      "description": "(Required) The table name"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a130165f-980a-4477-b07a-aeab3855154c",
+              "name": "404 Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "databases",
+                    ":database_name",
+                    "dictionary",
+                    "tables",
+                    ":table_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "database_name",
+                      "description": "(Required) The database name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "table_name",
+                      "description": "(Required) The table name"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5bf0f6b8-37f1-402c-95dd-68c1a6985476",
+          "name": "GitLab Get a Single Instance Cluster",
+          "request": {
+            "name": "GitLab Get a Single Instance Cluster",
+            "description": {
+              "content": "This feature was introduced in GitLab 13.2. Returns a single instance cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "clusters",
+                ":cluster_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cluster_id",
+                  "description": "(Required) The cluster ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba16f8ed-d897-4bce-a145-a3a07515fb4a",
+              "name": "Get a single instance cluster",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    ":cluster_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) The cluster ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"123456\",\n  \"name\": \"Example Project\",\n  \"created_at\": \"2026-04-17T12:00:00Z\",\n  \"domain\": \"example_value\",\n  \"enabled\": \"example_value\",\n  \"managed\": \"example_value\",\n  \"provider_type\": \"example_value\",\n  \"platform_type\": \"2026-04-17T12:00:00Z\",\n  \"environment_scope\": \"example_value\",\n  \"cluster_type\": \"example_value\",\n  \"namespace_per_environment\": \"Example Project\",\n  \"user\": {\n    \"id\": 1,\n    \"username\": \"admin\",\n    \"name\": \"Administrator\",\n    \"state\": \"active\",\n    \"avatar_url\": \"https://gravatar.com/avatar/1\",\n    \"avatar_path\": \"/user/avatar/28/The-Big-Lebowski-400-400.png\",\n    \"custom_attributes\": [\n      {\n        \"key\": \"foo\",\n        \"value\": \"bar\"\n      },\n      {\n        \"key\": \"foo\",\n        \"value\": \"bar\"\n      }\n    ],\n    \"web_url\": \"https://gitlab.example.com/root\",\n    \"email\": \"user@example.com\"\n  },\n  \"platform_kubernetes\": {\n    \"api_url\": \"https://gitlab.com/example\",\n    \"namespace\": \"Example Project\",\n    \"authorization_type\": \"2026-04-17T12:00:00Z\",\n    \"ca_cert\": \"example_value\"\n  },\n  \"provider_gcp\": {\n    \"cluster_id\": \"123456\",\n    \"status_name\": \"Example Project\",\n    \"gcp_project_id\": \"123456\",\n    \"zone\": \"example_value\",\n    \"machine_type\": \"example_value\",\n    \"num_nodes\": \"example_value\",\n    \"endpoint\": \"example_value\"\n  },\n  \"management_project\": {\n    \"id\": 1,\n    \"description\": \"desc\",\n    \"name\": \"project1\",\n    \"name_with_namespace\": \"John Doe / project1\",\n    \"path\": \"project1\",\n    \"path_with_namespace\": \"namespace1/project1\",\n    \"created_at\": \"2020-05-07 04:27:17.016000+00:00\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ba68fba-33b4-4c83-bb83-2e42b89f00cd",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    ":cluster_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) The cluster ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "71b4f294-52df-4d75-82b8-ee9c46bcc28c",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    ":cluster_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) The cluster ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f161063-1413-487a-9b6f-2ffbe67aebf2",
+          "name": "GitLab Edit Instance Cluster",
+          "request": {
+            "name": "GitLab Edit Instance Cluster",
+            "description": {
+              "content": "This feature was introduced in GitLab 13.2. Updates an existing instance cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "clusters",
+                ":cluster_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cluster_id",
+                  "description": "(Required) The cluster ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"environment_scope\": \"<string>\",\n  \"namespace_per_environment\": true,\n  \"domain\": \"<string>\",\n  \"management_project_id\": \"<integer>\",\n  \"managed\": \"<boolean>\",\n  \"platform_kubernetes_attributes[api_url]\": \"<string>\",\n  \"platform_kubernetes_attributes[token]\": \"<string>\",\n  \"platform_kubernetes_attributes[ca_cert]\": \"<string>\",\n  \"platform_kubernetes_attributes[namespace]\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e0742296-400a-43ca-bb3c-55705ca132b1",
+              "name": "Edit instance cluster",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    ":cluster_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) The cluster ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"environment_scope\": \"<string>\",\n  \"namespace_per_environment\": true,\n  \"domain\": \"<string>\",\n  \"management_project_id\": \"<integer>\",\n  \"managed\": \"<boolean>\",\n  \"platform_kubernetes_attributes[api_url]\": \"<string>\",\n  \"platform_kubernetes_attributes[token]\": \"<string>\",\n  \"platform_kubernetes_attributes[ca_cert]\": \"<string>\",\n  \"platform_kubernetes_attributes[namespace]\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"123456\",\n  \"name\": \"Example Project\",\n  \"created_at\": \"2026-04-17T12:00:00Z\",\n  \"domain\": \"example_value\",\n  \"enabled\": \"example_value\",\n  \"managed\": \"example_value\",\n  \"provider_type\": \"example_value\",\n  \"platform_type\": \"2026-04-17T12:00:00Z\",\n  \"environment_scope\": \"example_value\",\n  \"cluster_type\": \"example_value\",\n  \"namespace_per_environment\": \"Example Project\",\n  \"user\": {\n    \"id\": 1,\n    \"username\": \"admin\",\n    \"name\": \"Administrator\",\n    \"state\": \"active\",\n    \"avatar_url\": \"https://gravatar.com/avatar/1\",\n    \"avatar_path\": \"/user/avatar/28/The-Big-Lebowski-400-400.png\",\n    \"custom_attributes\": [\n      {\n        \"key\": \"foo\",\n        \"value\": \"bar\"\n      },\n      {\n        \"key\": \"foo\",\n        \"value\": \"bar\"\n      }\n    ],\n    \"web_url\": \"https://gitlab.example.com/root\",\n    \"email\": \"user@example.com\"\n  },\n  \"platform_kubernetes\": {\n    \"api_url\": \"https://gitlab.com/example\",\n    \"namespace\": \"Example Project\",\n    \"authorization_type\": \"2026-04-17T12:00:00Z\",\n    \"ca_cert\": \"example_value\"\n  },\n  \"provider_gcp\": {\n    \"cluster_id\": \"123456\",\n    \"status_name\": \"Example Project\",\n    \"gcp_project_id\": \"123456\",\n    \"zone\": \"example_value\",\n    \"machine_type\": \"example_value\",\n    \"num_nodes\": \"example_value\",\n    \"endpoint\": \"example_value\"\n  },\n  \"management_project\": {\n    \"id\": 1,\n    \"description\": \"desc\",\n    \"name\": \"project1\",\n    \"name_with_namespace\": \"John Doe / project1\",\n    \"path\": \"project1\",\n    \"path_with_namespace\": \"namespace1/project1\",\n    \"created_at\": \"2020-05-07 04:27:17.016000+00:00\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12083347-38b1-493d-ae25-792fdf87ff5f",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    ":cluster_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) The cluster ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"environment_scope\": \"<string>\",\n  \"namespace_per_environment\": true,\n  \"domain\": \"<string>\",\n  \"management_project_id\": \"<integer>\",\n  \"managed\": \"<boolean>\",\n  \"platform_kubernetes_attributes[api_url]\": \"<string>\",\n  \"platform_kubernetes_attributes[token]\": \"<string>\",\n  \"platform_kubernetes_attributes[ca_cert]\": \"<string>\",\n  \"platform_kubernetes_attributes[namespace]\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dfd708b7-0e90-416a-956e-d1d046e16804",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    ":cluster_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) The cluster ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"environment_scope\": \"<string>\",\n  \"namespace_per_environment\": true,\n  \"domain\": \"<string>\",\n  \"management_project_id\": \"<integer>\",\n  \"managed\": \"<boolean>\",\n  \"platform_kubernetes_attributes[api_url]\": \"<string>\",\n  \"platform_kubernetes_attributes[token]\": \"<string>\",\n  \"platform_kubernetes_attributes[ca_cert]\": \"<string>\",\n  \"platform_kubernetes_attributes[namespace]\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "38e53a7c-f234-476e-b27d-c91b33acd53b",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    ":cluster_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) The cluster ID"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"environment_scope\": \"<string>\",\n  \"namespace_per_environment\": true,\n  \"domain\": \"<string>\",\n  \"management_project_id\": \"<integer>\",\n  \"managed\": \"<boolean>\",\n  \"platform_kubernetes_attributes[api_url]\": \"<string>\",\n  \"platform_kubernetes_attributes[token]\": \"<string>\",\n  \"platform_kubernetes_attributes[ca_cert]\": \"<string>\",\n  \"platform_kubernetes_attributes[namespace]\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7e7f020-99dc-46d4-a839-a6d67f30bb53",
+          "name": "GitLab Delete Instance Cluster",
+          "request": {
+            "name": "GitLab Delete Instance Cluster",
+            "description": {
+              "content": "This feature was introduced in GitLab 13.2. Deletes an existing instance cluster. Does not remove existing resources within the connected Kubernetes cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "clusters",
+                ":cluster_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cluster_id",
+                  "description": "(Required) The cluster ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6aa92aee-9d02-44b4-bfe0-6dc40e0f567b",
+              "name": "Delete instance cluster",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    ":cluster_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) The cluster ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"123456\",\n  \"name\": \"Example Project\",\n  \"created_at\": \"2026-04-17T12:00:00Z\",\n  \"domain\": \"example_value\",\n  \"enabled\": \"example_value\",\n  \"managed\": \"example_value\",\n  \"provider_type\": \"example_value\",\n  \"platform_type\": \"2026-04-17T12:00:00Z\",\n  \"environment_scope\": \"example_value\",\n  \"cluster_type\": \"example_value\",\n  \"namespace_per_environment\": \"Example Project\",\n  \"user\": {\n    \"id\": 1,\n    \"username\": \"admin\",\n    \"name\": \"Administrator\",\n    \"state\": \"active\",\n    \"avatar_url\": \"https://gravatar.com/avatar/1\",\n    \"avatar_path\": \"/user/avatar/28/The-Big-Lebowski-400-400.png\",\n    \"custom_attributes\": [\n      {\n        \"key\": \"foo\",\n        \"value\": \"bar\"\n      },\n      {\n        \"key\": \"foo\",\n        \"value\": \"bar\"\n      }\n    ],\n    \"web_url\": \"https://gitlab.example.com/root\",\n    \"email\": \"user@example.com\"\n  },\n  \"platform_kubernetes\": {\n    \"api_url\": \"https://gitlab.com/example\",\n    \"namespace\": \"Example Project\",\n    \"authorization_type\": \"2026-04-17T12:00:00Z\",\n    \"ca_cert\": \"example_value\"\n  },\n  \"provider_gcp\": {\n    \"cluster_id\": \"123456\",\n    \"status_name\": \"Example Project\",\n    \"gcp_project_id\": \"123456\",\n    \"zone\": \"example_value\",\n    \"machine_type\": \"example_value\",\n    \"num_nodes\": \"example_value\",\n    \"endpoint\": \"example_value\"\n  },\n  \"management_project\": {\n    \"id\": 1,\n    \"description\": \"desc\",\n    \"name\": \"project1\",\n    \"name_with_namespace\": \"John Doe / project1\",\n    \"path\": \"project1\",\n    \"path_with_namespace\": \"namespace1/project1\",\n    \"created_at\": \"2020-05-07 04:27:17.016000+00:00\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1b8d062-2111-4b53-a854-108a8f267f11",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    ":cluster_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) The cluster ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a7cdd35e-907e-42df-9c60-d0cadea7f082",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    ":cluster_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) The cluster ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d68d9b9d-8efe-4430-acdb-c3eb74b375d5",
+          "name": "GitLab Add Existing Instance Cluster",
+          "request": {
+            "name": "GitLab Add Existing Instance Cluster",
+            "description": {
+              "content": "This feature was introduced in GitLab 13.2. Adds an existing Kubernetes instance cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "clusters",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"platform_kubernetes_attributes[api_url]\": \"<string>\",\n  \"platform_kubernetes_attributes[token]\": \"<string>\",\n  \"enabled\": true,\n  \"environment_scope\": \"*\",\n  \"namespace_per_environment\": true,\n  \"domain\": \"<string>\",\n  \"management_project_id\": \"<integer>\",\n  \"managed\": true,\n  \"platform_kubernetes_attributes[ca_cert]\": \"<string>\",\n  \"platform_kubernetes_attributes[namespace]\": \"<string>\",\n  \"platform_kubernetes_attributes[authorization_type]\": \"rbac\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4d9109a2-e5a1-4bb3-9709-df0ca9380167",
+              "name": "Add existing instance cluster",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"platform_kubernetes_attributes[api_url]\": \"<string>\",\n  \"platform_kubernetes_attributes[token]\": \"<string>\",\n  \"enabled\": true,\n  \"environment_scope\": \"*\",\n  \"namespace_per_environment\": true,\n  \"domain\": \"<string>\",\n  \"management_project_id\": \"<integer>\",\n  \"managed\": true,\n  \"platform_kubernetes_attributes[ca_cert]\": \"<string>\",\n  \"platform_kubernetes_attributes[namespace]\": \"<string>\",\n  \"platform_kubernetes_attributes[authorization_type]\": \"rbac\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"123456\",\n  \"name\": \"Example Project\",\n  \"created_at\": \"2026-04-17T12:00:00Z\",\n  \"domain\": \"example_value\",\n  \"enabled\": \"example_value\",\n  \"managed\": \"example_value\",\n  \"provider_type\": \"example_value\",\n  \"platform_type\": \"2026-04-17T12:00:00Z\",\n  \"environment_scope\": \"example_value\",\n  \"cluster_type\": \"example_value\",\n  \"namespace_per_environment\": \"Example Project\",\n  \"user\": {\n    \"id\": 1,\n    \"username\": \"admin\",\n    \"name\": \"Administrator\",\n    \"state\": \"active\",\n    \"avatar_url\": \"https://gravatar.com/avatar/1\",\n    \"avatar_path\": \"/user/avatar/28/The-Big-Lebowski-400-400.png\",\n    \"custom_attributes\": [\n      {\n        \"key\": \"foo\",\n        \"value\": \"bar\"\n      },\n      {\n        \"key\": \"foo\",\n        \"value\": \"bar\"\n      }\n    ],\n    \"web_url\": \"https://gitlab.example.com/root\",\n    \"email\": \"user@example.com\"\n  },\n  \"platform_kubernetes\": {\n    \"api_url\": \"https://gitlab.com/example\",\n    \"namespace\": \"Example Project\",\n    \"authorization_type\": \"2026-04-17T12:00:00Z\",\n    \"ca_cert\": \"example_value\"\n  },\n  \"provider_gcp\": {\n    \"cluster_id\": \"123456\",\n    \"status_name\": \"Example Project\",\n    \"gcp_project_id\": \"123456\",\n    \"zone\": \"example_value\",\n    \"machine_type\": \"example_value\",\n    \"num_nodes\": \"example_value\",\n    \"endpoint\": \"example_value\"\n  },\n  \"management_project\": {\n    \"id\": 1,\n    \"description\": \"desc\",\n    \"name\": \"project1\",\n    \"name_with_namespace\": \"John Doe / project1\",\n    \"path\": \"project1\",\n    \"path_with_namespace\": \"namespace1/project1\",\n    \"created_at\": \"2020-05-07 04:27:17.016000+00:00\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af0373fd-9ae0-4038-92ca-b2190188a2c6",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"platform_kubernetes_attributes[api_url]\": \"<string>\",\n  \"platform_kubernetes_attributes[token]\": \"<string>\",\n  \"enabled\": true,\n  \"environment_scope\": \"*\",\n  \"namespace_per_environment\": true,\n  \"domain\": \"<string>\",\n  \"management_project_id\": \"<integer>\",\n  \"managed\": true,\n  \"platform_kubernetes_attributes[ca_cert]\": \"<string>\",\n  \"platform_kubernetes_attributes[namespace]\": \"<string>\",\n  \"platform_kubernetes_attributes[authorization_type]\": \"rbac\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ceba5d6b-c094-4037-a772-9d4dd0028ece",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"platform_kubernetes_attributes[api_url]\": \"<string>\",\n  \"platform_kubernetes_attributes[token]\": \"<string>\",\n  \"enabled\": true,\n  \"environment_scope\": \"*\",\n  \"namespace_per_environment\": true,\n  \"domain\": \"<string>\",\n  \"management_project_id\": \"<integer>\",\n  \"managed\": true,\n  \"platform_kubernetes_attributes[ca_cert]\": \"<string>\",\n  \"platform_kubernetes_attributes[namespace]\": \"<string>\",\n  \"platform_kubernetes_attributes[authorization_type]\": \"rbac\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "940e6ced-6a23-48d9-b74e-61d4717045d4",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"platform_kubernetes_attributes[api_url]\": \"<string>\",\n  \"platform_kubernetes_attributes[token]\": \"<string>\",\n  \"enabled\": true,\n  \"environment_scope\": \"*\",\n  \"namespace_per_environment\": true,\n  \"domain\": \"<string>\",\n  \"management_project_id\": \"<integer>\",\n  \"managed\": true,\n  \"platform_kubernetes_attributes[ca_cert]\": \"<string>\",\n  \"platform_kubernetes_attributes[namespace]\": \"<string>\",\n  \"platform_kubernetes_attributes[authorization_type]\": \"rbac\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6b547b6-44fb-4e6b-abeb-78710f380d3c",
+          "name": "GitLab List Instance Clusters",
+          "request": {
+            "name": "GitLab List Instance Clusters",
+            "description": {
+              "content": "This feature was introduced in GitLab 13.2. Returns a list of instance clusters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4fc54b97-1685-44c3-9983-7b4719786505",
+              "name": "List instance clusters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"123456\",\n    \"name\": \"Example Project\",\n    \"created_at\": \"2026-04-17T12:00:00Z\",\n    \"domain\": \"example_value\",\n    \"enabled\": \"example_value\",\n    \"managed\": \"example_value\",\n    \"provider_type\": \"example_value\",\n    \"platform_type\": \"2026-04-17T12:00:00Z\",\n    \"environment_scope\": \"example_value\",\n    \"cluster_type\": \"example_value\",\n    \"namespace_per_environment\": \"Example Project\",\n    \"user\": {\n      \"id\": 1,\n      \"username\": \"admin\",\n      \"name\": \"Administrator\",\n      \"state\": \"active\",\n      \"avatar_url\": \"https://gravatar.com/avatar/1\",\n      \"avatar_path\": \"/user/avatar/28/The-Big-Lebowski-400-400.png\",\n      \"custom_attributes\": [\n        {\n          \"key\": \"foo\",\n          \"value\": \"bar\"\n        },\n        {\n          \"key\": \"foo\",\n          \"value\": \"bar\"\n        }\n      ],\n      \"web_url\": \"https://gitlab.example.com/root\",\n      \"email\": \"user@example.com\"\n    },\n    \"platform_kubernetes\": {\n      \"api_url\": \"https://gitlab.com/example\",\n      \"namespace\": \"Example Project\",\n      \"authorization_type\": \"2026-04-17T12:00:00Z\",\n      \"ca_cert\": \"example_value\"\n    },\n    \"provider_gcp\": {\n      \"cluster_id\": \"123456\",\n      \"status_name\": \"Example Project\",\n      \"gcp_project_id\": \"123456\",\n      \"zone\": \"example_value\",\n      \"machine_type\": \"example_value\",\n      \"num_nodes\": \"example_value\",\n      \"endpoint\": \"example_value\"\n    },\n    \"management_project\": {\n      \"id\": 1,\n      \"description\": \"desc\",\n      \"name\": \"project1\",\n      \"name_with_namespace\": \"John Doe / project1\",\n      \"path\": \"project1\",\n      \"path_with_namespace\": \"namespace1/project1\",\n      \"created_at\": \"2020-05-07 04:27:17.016000+00:00\"\n    }\n  },\n  {\n    \"id\": \"123456\",\n    \"name\": \"Example Project\",\n    \"created_at\": \"2026-04-17T12:00:00Z\",\n    \"domain\": \"example_value\",\n    \"enabled\": \"example_value\",\n    \"managed\": \"example_value\",\n    \"provider_type\": \"example_value\",\n    \"platform_type\": \"2026-04-17T12:00:00Z\",\n    \"environment_scope\": \"example_value\",\n    \"cluster_type\": \"example_value\",\n    \"namespace_per_environment\": \"Example Project\",\n    \"user\": {\n      \"id\": 1,\n      \"username\": \"admin\",\n      \"name\": \"Administrator\",\n      \"state\": \"active\",\n      \"avatar_url\": \"https://gravatar.com/avatar/1\",\n      \"avatar_path\": \"/user/avatar/28/The-Big-Lebowski-400-400.png\",\n      \"custom_attributes\": [\n        {\n          \"key\": \"foo\",\n          \"value\": \"bar\"\n        },\n        {\n          \"key\": \"foo\",\n          \"value\": \"bar\"\n        }\n      ],\n      \"web_url\": \"https://gitlab.example.com/root\",\n      \"email\": \"user@example.com\"\n    },\n    \"platform_kubernetes\": {\n      \"api_url\": \"https://gitlab.com/example\",\n      \"namespace\": \"Example Project\",\n      \"authorization_type\": \"2026-04-17T12:00:00Z\",\n      \"ca_cert\": \"example_value\"\n    },\n    \"provider_gcp\": {\n      \"cluster_id\": \"123456\",\n      \"status_name\": \"Example Project\",\n      \"gcp_project_id\": \"123456\",\n      \"zone\": \"example_value\",\n      \"machine_type\": \"example_value\",\n      \"num_nodes\": \"example_value\",\n      \"endpoint\": \"example_value\"\n    },\n    \"management_project\": {\n      \"id\": 1,\n      \"description\": \"desc\",\n      \"name\": \"project1\",\n      \"name_with_namespace\": \"John Doe / project1\",\n      \"path\": \"project1\",\n      \"path_with_namespace\": \"namespace1/project1\",\n      \"created_at\": \"2020-05-07 04:27:17.016000+00:00\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc12dff6-6424-46f6-9e2a-756fefc1939f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ba2ea28-378b-48df-acc7-98c6e50231e1",
+          "name": "post Api V4Admin Migrations Timestamp Mark",
+          "request": {
+            "name": "post Api V4Admin Migrations Timestamp Mark",
+            "description": {
+              "content": "Mark the migration as successfully executed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "admin",
+                "migrations",
+                ":timestamp",
+                "mark"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "timestamp",
+                  "description": "(Required) The migration version timestamp"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"database\": \"main\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7173b51c-0b88-4d15-bb6f-e9d75425a7d3",
+              "name": "201 Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "migrations",
+                    ":timestamp",
+                    "mark"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "timestamp",
+                      "description": "(Required) The migration version timestamp"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "936bea03-b265-4407-bde1-277e4fdf7dc6",
+              "name": "401 Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "migrations",
+                    ":timestamp",
+                    "mark"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "timestamp",
+                      "description": "(Required) The migration version timestamp"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3681645-f4fe-485c-8ec0-1983148ec289",
+              "name": "403 Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "migrations",
+                    ":timestamp",
+                    "mark"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "timestamp",
+                      "description": "(Required) The migration version timestamp"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02998d3e-cf2d-4473-abfc-1a0d1fa8483f",
+              "name": "404 Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "migrations",
+                    ":timestamp",
+                    "mark"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "timestamp",
+                      "description": "(Required) The migration version timestamp"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a4a8a877-3343-4eea-8eb8-22acd334dcd1",
+              "name": "You can mark only pending migrations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "admin",
+                    "migrations",
+                    ":timestamp",
+                    "mark"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "timestamp",
+                      "description": "(Required) The migration version timestamp"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"database\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.gitlab.com/api/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8cd5c089-a9d4-4d12-accb-4437749ec2c4",
+    "name": "GitLab api/v4/ Admin API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab api/v4/ Admin Groups API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Gets a Badge of a Group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/groups/:id/badges/:badge_id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123456",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the group owned by the authenticated user."
+              },
+              {
+                "name": "badge_id",
+                "value": "42",
+                "type": "path",
+                "description": "The badge ID"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 10.6."
+        },
+        {
+          "info": {
+            "name": "GitLab Updates a Badge of a Group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.gitlab.com/api/api/v4/groups/:id/badges/:badge_id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123456",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the group owned by the authenticated user."
+              },
+              {
+                "name": "badge_id",
+                "value": "42",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This feature was introduced in GitLab 10.6."
+        },
+        {
+          "info": {
+            "name": "GitLab Removes a Badge from the Group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.gitlab.com/api/api/v4/groups/:id/badges/:badge_id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123456",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the group owned by the authenticated user."
+              },
+              {
+                "name": "badge_id",
+                "value": "42",
+                "type": "path",
+                "description": "The badge ID"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 10.6."
+        },
+        {
+          "info": {
+            "name": "GitLab Gets a List of Group Badges Viewable by the Authenticated User.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/groups/:id/badges",
+            "params": [
+              {
+                "name": "id",
+                "value": "123456",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the group owned by the authenticated user."
+              },
+              {
+                "name": "page",
+                "value": "42",
+                "type": "query",
+                "description": "Current page number"
+              },
+              {
+                "name": "per_page",
+                "value": "42",
+                "type": "query",
+                "description": "Number of items per page"
+              },
+              {
+                "name": "name",
+                "value": "Example Project",
+                "type": "query",
+                "description": "Name for the badge"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 10.6."
+        },
+        {
+          "info": {
+            "name": "GitLab Adds a Badge to a Group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/api/v4/groups/:id/badges",
+            "params": [
+              {
+                "name": "id",
+                "value": "123456",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the group owned by the authenticated user."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This feature was introduced in GitLab 10.6."
+        },
+        {
+          "info": {
+            "name": "GitLab Preview a Badge from a Group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/groups/:id/badges/render",
+            "params": [
+              {
+                "name": "id",
+                "value": "123456",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the group owned by the authenticated user."
+              },
+              {
+                "name": "link_url",
+                "value": "https://gitlab.com/example",
+                "type": "query",
+                "description": "URL of the badge link"
+              },
+              {
+                "name": "image_url",
+                "value": "https://gitlab.com/example",
+                "type": "query",
+                "description": "URL of the badge image"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 10.6."
+        },
+        {
+          "info": {
+            "name": "GitLab Denies an Access Request for the Given User.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.gitlab.com/api/api/v4/groups/:id/access_requests/:user_id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123456",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the group owned by the authenticated user"
+              },
+              {
+                "name": "user_id",
+                "value": "42",
+                "type": "path",
+                "description": "The user ID of the access requester"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 8.11."
+        },
+        {
+          "info": {
+            "name": "GitLab Approves an Access Request for the Given User.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.gitlab.com/api/api/v4/groups/:id/access_requests/:user_id/approve",
+            "params": [
+              {
+                "name": "id",
+                "value": "123456",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the group owned by the authenticated user"
+              },
+              {
+                "name": "user_id",
+                "value": "42",
+                "type": "path",
+                "description": "The user ID of the access requester"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This feature was introduced in GitLab 8.11."
+        },
+        {
+          "info": {
+            "name": "GitLab Gets a List of Access Requests for a Group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/groups/:id/access_requests",
+            "params": [
+              {
+                "name": "id",
+                "value": "123456",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the group owned by the authenticated user"
+              },
+              {
+                "name": "page",
+                "value": "42",
+                "type": "query",
+                "description": "Current page number"
+              },
+              {
+                "name": "per_page",
+                "value": "42",
+                "type": "query",
+                "description": "Number of items per page"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 8.11."
+        },
+        {
+          "info": {
+            "name": "GitLab Requests Access for the Authenticated User to a Group.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/api/v4/groups/:id/access_requests",
+            "params": [
+              {
+                "name": "id",
+                "value": "123456",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the group owned by the authenticated user"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 8.11."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

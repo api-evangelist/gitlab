@@ -1,0 +1,344 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab api/v4/ Admin API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getApiV4AdminBatchedBackgroundMigrationsId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/admin/batched_background_migrations/:id",
+            "params": [
+              {
+                "name": "database",
+                "value": "main",
+                "type": "query",
+                "description": "The name of the database"
+              },
+              {
+                "name": "id",
+                "value": "42",
+                "type": "path",
+                "description": "The batched background migration id"
+              }
+            ]
+          },
+          "docs": "Retrieve a batched background migration"
+        },
+        {
+          "info": {
+            "name": "getApiV4AdminBatchedBackgroundMigrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/admin/batched_background_migrations",
+            "params": [
+              {
+                "name": "database",
+                "value": "main",
+                "type": "query",
+                "description": "The name of the database, the default `main`"
+              }
+            ]
+          },
+          "docs": "Get the list of batched background migrations"
+        },
+        {
+          "info": {
+            "name": "putApiV4AdminBatchedBackgroundMigrationsIdResume",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.gitlab.com/api/api/v4/admin/batched_background_migrations/:id/resume",
+            "params": [
+              {
+                "name": "id",
+                "value": "42",
+                "type": "path",
+                "description": "The batched background migration id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resume a batched background migration"
+        },
+        {
+          "info": {
+            "name": "putApiV4AdminBatchedBackgroundMigrationsIdPause",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.gitlab.com/api/api/v4/admin/batched_background_migrations/:id/pause",
+            "params": [
+              {
+                "name": "id",
+                "value": "42",
+                "type": "path",
+                "description": "The batched background migration id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pause a batched background migration"
+        },
+        {
+          "info": {
+            "name": "getApiV4AdminCiVariablesKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/admin/ci/variables/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "example_value",
+                "type": "path",
+                "description": "The key of a variable"
+              }
+            ]
+          },
+          "docs": "Get the details of a specific instance-level variable"
+        },
+        {
+          "info": {
+            "name": "putApiV4AdminCiVariablesKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.gitlab.com/api/api/v4/admin/ci/variables/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "example_value",
+                "type": "path",
+                "description": "The key of a variable"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an instance-level variable"
+        },
+        {
+          "info": {
+            "name": "deleteApiV4AdminCiVariablesKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.gitlab.com/api/api/v4/admin/ci/variables/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "example_value",
+                "type": "path",
+                "description": "The key of a variable"
+              }
+            ]
+          },
+          "docs": "Delete an existing instance-level variable"
+        },
+        {
+          "info": {
+            "name": "getApiV4AdminCiVariables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/admin/ci/variables",
+            "params": [
+              {
+                "name": "page",
+                "value": "42",
+                "type": "query",
+                "description": "Current page number"
+              },
+              {
+                "name": "per_page",
+                "value": "42",
+                "type": "query",
+                "description": "Number of items per page"
+              }
+            ]
+          },
+          "docs": "List all instance-level variables"
+        },
+        {
+          "info": {
+            "name": "postApiV4AdminCiVariables",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/api/v4/admin/ci/variables",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new instance-level variable"
+        },
+        {
+          "info": {
+            "name": "getApiV4AdminDatabasesDatabaseNameDictionaryTablesTableName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/admin/databases/:database_name/dictionary/tables/:table_name",
+            "params": [
+              {
+                "name": "database_name",
+                "value": "main",
+                "type": "path",
+                "description": "The database name"
+              },
+              {
+                "name": "table_name",
+                "value": "Example Project",
+                "type": "path",
+                "description": "The table name"
+              }
+            ]
+          },
+          "docs": "Retrieve dictionary details"
+        },
+        {
+          "info": {
+            "name": "GitLab Get a Single Instance Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/admin/clusters/:cluster_id",
+            "params": [
+              {
+                "name": "cluster_id",
+                "value": "42",
+                "type": "path",
+                "description": "The cluster ID"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 13.2. Returns a single instance cluster."
+        },
+        {
+          "info": {
+            "name": "GitLab Edit Instance Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.gitlab.com/api/api/v4/admin/clusters/:cluster_id",
+            "params": [
+              {
+                "name": "cluster_id",
+                "value": "42",
+                "type": "path",
+                "description": "The cluster ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This feature was introduced in GitLab 13.2. Updates an existing instance cluster."
+        },
+        {
+          "info": {
+            "name": "GitLab Delete Instance Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.gitlab.com/api/api/v4/admin/clusters/:cluster_id",
+            "params": [
+              {
+                "name": "cluster_id",
+                "value": "42",
+                "type": "path",
+                "description": "The cluster ID"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 13.2. Deletes an existing instance cluster. Does not remove existing resources within the connected Kubernetes cluster."
+        },
+        {
+          "info": {
+            "name": "GitLab Add Existing Instance Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/api/v4/admin/clusters/add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This feature was introduced in GitLab 13.2. Adds an existing Kubernetes instance cluster."
+        },
+        {
+          "info": {
+            "name": "GitLab List Instance Clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/admin/clusters"
+          },
+          "docs": "This feature was introduced in GitLab 13.2. Returns a list of instance clusters."
+        },
+        {
+          "info": {
+            "name": "postApiV4AdminMigrationsTimestampMark",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/api/v4/admin/migrations/:timestamp/mark",
+            "params": [
+              {
+                "name": "timestamp",
+                "value": "42",
+                "type": "path",
+                "description": "The migration version timestamp"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mark the migration as successfully executed"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

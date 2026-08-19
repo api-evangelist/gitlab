@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab api/v4/ Admin Authorization API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authorization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Authorize OAuth Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/oauth/authorize",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "123456",
+                "type": "query",
+                "description": "The application ID registered in GitLab."
+              },
+              {
+                "name": "redirect_uri",
+                "value": "example_value",
+                "type": "query",
+                "description": "The URI to redirect to after authorization."
+              },
+              {
+                "name": "response_type",
+                "value": "code",
+                "type": "query",
+                "description": "Must be set to code for the authorization code flow."
+              },
+              {
+                "name": "state",
+                "value": "2026-04-17T12:00:00Z",
+                "type": "query",
+                "description": "A random, unguessable string used to protect against CSRF attacks. Must be returned unchanged in the redirect response."
+              },
+              {
+                "name": "scope",
+                "value": "example_value",
+                "type": "query",
+                "description": "Space-separated list of scopes to request. Available scopes include api, read_api, read_user, read_repository, write_repository, and others."
+              },
+              {
+                "name": "code_challenge",
+                "value": "example_value",
+                "type": "query",
+                "description": "A Base64 URL-encoded SHA-256 hash of the code_verifier. Required when using PKCE for public clients."
+              },
+              {
+                "name": "code_challenge_method",
+                "value": "S256",
+                "type": "query",
+                "description": "The method used to generate the code_challenge. Must be S256."
+              },
+              {
+                "name": "root_namespace_id",
+                "value": "42",
+                "type": "query",
+                "description": "Optional. Limits group access token creation to a specific namespace."
+              }
+            ]
+          },
+          "docs": "Initiates the OAuth 2.0 authorization code flow. Redirects the user to the GitLab authorization page where they can grant access to the application. Supports PKCE for public clients by including the code_challenge and code_challenge_method parameters."
+        },
+        {
+          "info": {
+            "name": "GitLab Initiate Device Authorization Grant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/oauth/authorize_device",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Initiates the OAuth 2.0 device authorization grant flow for input-constrained devices. Returns a device code and user code that the user enters on a secondary device to authorize access."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

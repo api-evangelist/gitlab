@@ -1,0 +1,1132 @@
+{
+  "item": [
+    {
+      "id": "1e0b9eab-9dad-4e83-9c62-c15a4489e29e",
+      "name": "Project Webhooks",
+      "description": {
+        "content": "Manage webhooks for a specific project.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7964de32-e024-4e6b-903e-1381df8054a3",
+          "name": "GitLab List Project Webhooks",
+          "request": {
+            "name": "GitLab List Project Webhooks",
+            "description": {
+              "content": "Returns a list of all webhooks configured for the specified project. Each webhook entry includes its URL, enabled event triggers, and SSL verification settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":id",
+                "hooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1339014-6f3e-46e0-8ffb-77519c8bbd15",
+              "name": "List of project webhooks returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 42,\n    \"url\": \"https://gitlab.com/example\",\n    \"name\": \"Example Project\",\n    \"description\": \"Example description\",\n    \"project_id\": 42,\n    \"created_at\": \"2026-04-17T12:00:00Z\",\n    \"push_events\": true,\n    \"tag_push_events\": true,\n    \"issues_events\": true,\n    \"confidential_issues_events\": true,\n    \"merge_requests_events\": true,\n    \"note_events\": true,\n    \"confidential_note_events\": true,\n    \"job_events\": true,\n    \"pipeline_events\": true,\n    \"wiki_page_events\": true,\n    \"deployment_events\": true,\n    \"releases_events\": true,\n    \"member_events\": true,\n    \"enable_ssl_verification\": true,\n    \"push_events_branch_filter\": \"main\",\n    \"branch_filter_strategy\": \"wildcard\",\n    \"alert_status\": \"2026-04-17T12:00:00Z\",\n    \"disabled_until\": \"1988-06-22T02:31:22.496Z\"\n  },\n  {\n    \"id\": 42,\n    \"url\": \"https://gitlab.com/example\",\n    \"name\": \"Example Project\",\n    \"description\": \"Example description\",\n    \"project_id\": 42,\n    \"created_at\": \"2026-04-17T12:00:00Z\",\n    \"push_events\": true,\n    \"tag_push_events\": true,\n    \"issues_events\": true,\n    \"confidential_issues_events\": true,\n    \"merge_requests_events\": true,\n    \"note_events\": true,\n    \"confidential_note_events\": true,\n    \"job_events\": true,\n    \"pipeline_events\": true,\n    \"wiki_page_events\": true,\n    \"deployment_events\": true,\n    \"releases_events\": true,\n    \"member_events\": true,\n    \"enable_ssl_verification\": true,\n    \"push_events_branch_filter\": \"main\",\n    \"branch_filter_strategy\": \"wildcard\",\n    \"alert_status\": \"2026-04-17T12:00:00Z\",\n    \"disabled_until\": \"1983-05-07T13:29:47.536Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38b364d5-35d1-4a3d-bf40-849e8a39124c",
+              "name": "Authentication required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aeb65155-b637-4e46-a5a4-72db532ce7cb",
+              "name": "Project not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bef1c772-bb8a-454f-a073-f5a5c425cef8",
+          "name": "GitLab Add a Webhook to a Project",
+          "request": {
+            "name": "GitLab Add a Webhook to a Project",
+            "description": {
+              "content": "Creates a new webhook for the specified project. The webhook will receive HTTP POST requests for the configured event triggers. A secret token can be specified for payload verification.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":id",
+                "hooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d3dce1de-ee7e-4d4d-8e80-fc9210432753",
+              "name": "Webhook created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://gitlab.com/example\",\n  \"name\": \"Example Project\",\n  \"description\": \"Example description\",\n  \"secret_token\": \"glpat-example-token\",\n  \"enable_ssl_verification\": true,\n  \"push_events\": true,\n  \"tag_push_events\": true,\n  \"issues_events\": true,\n  \"confidential_issues_events\": true,\n  \"merge_requests_events\": true,\n  \"note_events\": true,\n  \"confidential_note_events\": true,\n  \"job_events\": true,\n  \"pipeline_events\": true,\n  \"wiki_page_events\": true,\n  \"deployment_events\": true,\n  \"releases_events\": true,\n  \"member_events\": true,\n  \"push_events_branch_filter\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 42,\n  \"url\": \"https://gitlab.com/example\",\n  \"name\": \"Example Project\",\n  \"description\": \"Example description\",\n  \"project_id\": 42,\n  \"created_at\": \"2026-04-17T12:00:00Z\",\n  \"push_events\": true,\n  \"tag_push_events\": true,\n  \"issues_events\": true,\n  \"confidential_issues_events\": true,\n  \"merge_requests_events\": true,\n  \"note_events\": true,\n  \"confidential_note_events\": true,\n  \"job_events\": true,\n  \"pipeline_events\": true,\n  \"wiki_page_events\": true,\n  \"deployment_events\": true,\n  \"releases_events\": true,\n  \"member_events\": true,\n  \"enable_ssl_verification\": true,\n  \"push_events_branch_filter\": \"main\",\n  \"branch_filter_strategy\": \"wildcard\",\n  \"alert_status\": \"2026-04-17T12:00:00Z\",\n  \"disabled_until\": \"1983-03-02T16:36:08.948Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fde3e0c-871f-4e23-a23f-c97c9b74fedf",
+              "name": "Invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://gitlab.com/example\",\n  \"name\": \"Example Project\",\n  \"description\": \"Example description\",\n  \"secret_token\": \"glpat-example-token\",\n  \"enable_ssl_verification\": true,\n  \"push_events\": true,\n  \"tag_push_events\": true,\n  \"issues_events\": true,\n  \"confidential_issues_events\": true,\n  \"merge_requests_events\": true,\n  \"note_events\": true,\n  \"confidential_note_events\": true,\n  \"job_events\": true,\n  \"pipeline_events\": true,\n  \"wiki_page_events\": true,\n  \"deployment_events\": true,\n  \"releases_events\": true,\n  \"member_events\": true,\n  \"push_events_branch_filter\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "11b59d39-db52-441d-862e-cda5cc544df1",
+              "name": "Authentication required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://gitlab.com/example\",\n  \"name\": \"Example Project\",\n  \"description\": \"Example description\",\n  \"secret_token\": \"glpat-example-token\",\n  \"enable_ssl_verification\": true,\n  \"push_events\": true,\n  \"tag_push_events\": true,\n  \"issues_events\": true,\n  \"confidential_issues_events\": true,\n  \"merge_requests_events\": true,\n  \"note_events\": true,\n  \"confidential_note_events\": true,\n  \"job_events\": true,\n  \"pipeline_events\": true,\n  \"wiki_page_events\": true,\n  \"deployment_events\": true,\n  \"releases_events\": true,\n  \"member_events\": true,\n  \"push_events_branch_filter\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d89c636-095e-4f9b-8e4c-c118d7f0388b",
+              "name": "Project not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://gitlab.com/example\",\n  \"name\": \"Example Project\",\n  \"description\": \"Example description\",\n  \"secret_token\": \"glpat-example-token\",\n  \"enable_ssl_verification\": true,\n  \"push_events\": true,\n  \"tag_push_events\": true,\n  \"issues_events\": true,\n  \"confidential_issues_events\": true,\n  \"merge_requests_events\": true,\n  \"note_events\": true,\n  \"confidential_note_events\": true,\n  \"job_events\": true,\n  \"pipeline_events\": true,\n  \"wiki_page_events\": true,\n  \"deployment_events\": true,\n  \"releases_events\": true,\n  \"member_events\": true,\n  \"push_events_branch_filter\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08c5e786-e867-49a6-8ab9-55d1b5919c1c",
+          "name": "GitLab Get a Project Webhook",
+          "request": {
+            "name": "GitLab Get a Project Webhook",
+            "description": {
+              "content": "Returns configuration details for a specific webhook in a project, including the URL, enabled triggers, and SSL verification setting.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":id",
+                "hooks",
+                ":hook_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "hook_id",
+                  "description": "(Required) The ID of the webhook."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "410e6cd7-a844-4d3c-be9a-5984730309ad",
+              "name": "Webhook configuration returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks",
+                    ":hook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hook_id",
+                      "description": "(Required) The ID of the webhook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 42,\n  \"url\": \"https://gitlab.com/example\",\n  \"name\": \"Example Project\",\n  \"description\": \"Example description\",\n  \"project_id\": 42,\n  \"created_at\": \"2026-04-17T12:00:00Z\",\n  \"push_events\": true,\n  \"tag_push_events\": true,\n  \"issues_events\": true,\n  \"confidential_issues_events\": true,\n  \"merge_requests_events\": true,\n  \"note_events\": true,\n  \"confidential_note_events\": true,\n  \"job_events\": true,\n  \"pipeline_events\": true,\n  \"wiki_page_events\": true,\n  \"deployment_events\": true,\n  \"releases_events\": true,\n  \"member_events\": true,\n  \"enable_ssl_verification\": true,\n  \"push_events_branch_filter\": \"main\",\n  \"branch_filter_strategy\": \"wildcard\",\n  \"alert_status\": \"2026-04-17T12:00:00Z\",\n  \"disabled_until\": \"1983-03-02T16:36:08.948Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c334c46-c9c9-408e-a1c9-da0799d19ecb",
+              "name": "Authentication required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks",
+                    ":hook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hook_id",
+                      "description": "(Required) The ID of the webhook."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b634bad8-3cca-4ae6-a8ff-5fa060d30677",
+              "name": "Project or webhook not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks",
+                    ":hook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hook_id",
+                      "description": "(Required) The ID of the webhook."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3cff97d6-7291-4587-bcc5-7b9dbe2a4d9f",
+          "name": "GitLab Update a Project Webhook",
+          "request": {
+            "name": "GitLab Update a Project Webhook",
+            "description": {
+              "content": "Modifies the configuration of an existing project webhook. You can update the URL, secret token, SSL verification setting, and which events trigger the webhook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":id",
+                "hooks",
+                ":hook_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "hook_id",
+                  "description": "(Required) The ID of the webhook."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"secret_token\": \"<string>\",\n  \"enable_ssl_verification\": \"<boolean>\",\n  \"push_events\": \"<boolean>\",\n  \"tag_push_events\": \"<boolean>\",\n  \"issues_events\": \"<boolean>\",\n  \"confidential_issues_events\": \"<boolean>\",\n  \"merge_requests_events\": \"<boolean>\",\n  \"note_events\": \"<boolean>\",\n  \"confidential_note_events\": \"<boolean>\",\n  \"job_events\": \"<boolean>\",\n  \"pipeline_events\": \"<boolean>\",\n  \"wiki_page_events\": \"<boolean>\",\n  \"deployment_events\": \"<boolean>\",\n  \"releases_events\": \"<boolean>\",\n  \"member_events\": \"<boolean>\",\n  \"push_events_branch_filter\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be055f8b-ccc0-4ab9-ad7f-e1d4d9b7f721",
+              "name": "Webhook updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks",
+                    ":hook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hook_id",
+                      "description": "(Required) The ID of the webhook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://gitlab.com/example\",\n  \"name\": \"Example Project\",\n  \"description\": \"Example description\",\n  \"secret_token\": \"glpat-example-token\",\n  \"enable_ssl_verification\": true,\n  \"push_events\": true,\n  \"tag_push_events\": true,\n  \"issues_events\": true,\n  \"confidential_issues_events\": true,\n  \"merge_requests_events\": true,\n  \"note_events\": true,\n  \"confidential_note_events\": true,\n  \"job_events\": true,\n  \"pipeline_events\": true,\n  \"wiki_page_events\": true,\n  \"deployment_events\": true,\n  \"releases_events\": true,\n  \"member_events\": true,\n  \"push_events_branch_filter\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 42,\n  \"url\": \"https://gitlab.com/example\",\n  \"name\": \"Example Project\",\n  \"description\": \"Example description\",\n  \"project_id\": 42,\n  \"created_at\": \"2026-04-17T12:00:00Z\",\n  \"push_events\": true,\n  \"tag_push_events\": true,\n  \"issues_events\": true,\n  \"confidential_issues_events\": true,\n  \"merge_requests_events\": true,\n  \"note_events\": true,\n  \"confidential_note_events\": true,\n  \"job_events\": true,\n  \"pipeline_events\": true,\n  \"wiki_page_events\": true,\n  \"deployment_events\": true,\n  \"releases_events\": true,\n  \"member_events\": true,\n  \"enable_ssl_verification\": true,\n  \"push_events_branch_filter\": \"main\",\n  \"branch_filter_strategy\": \"wildcard\",\n  \"alert_status\": \"2026-04-17T12:00:00Z\",\n  \"disabled_until\": \"1983-03-02T16:36:08.948Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3df5639e-26b1-4a15-a42e-98daea0df7d2",
+              "name": "Invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks",
+                    ":hook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hook_id",
+                      "description": "(Required) The ID of the webhook."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://gitlab.com/example\",\n  \"name\": \"Example Project\",\n  \"description\": \"Example description\",\n  \"secret_token\": \"glpat-example-token\",\n  \"enable_ssl_verification\": true,\n  \"push_events\": true,\n  \"tag_push_events\": true,\n  \"issues_events\": true,\n  \"confidential_issues_events\": true,\n  \"merge_requests_events\": true,\n  \"note_events\": true,\n  \"confidential_note_events\": true,\n  \"job_events\": true,\n  \"pipeline_events\": true,\n  \"wiki_page_events\": true,\n  \"deployment_events\": true,\n  \"releases_events\": true,\n  \"member_events\": true,\n  \"push_events_branch_filter\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "decdbd85-fc1a-4380-8a2f-1eac8e467920",
+              "name": "Authentication required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks",
+                    ":hook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hook_id",
+                      "description": "(Required) The ID of the webhook."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://gitlab.com/example\",\n  \"name\": \"Example Project\",\n  \"description\": \"Example description\",\n  \"secret_token\": \"glpat-example-token\",\n  \"enable_ssl_verification\": true,\n  \"push_events\": true,\n  \"tag_push_events\": true,\n  \"issues_events\": true,\n  \"confidential_issues_events\": true,\n  \"merge_requests_events\": true,\n  \"note_events\": true,\n  \"confidential_note_events\": true,\n  \"job_events\": true,\n  \"pipeline_events\": true,\n  \"wiki_page_events\": true,\n  \"deployment_events\": true,\n  \"releases_events\": true,\n  \"member_events\": true,\n  \"push_events_branch_filter\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "087a9ded-d0ae-4641-8b4b-7c508bb01b41",
+              "name": "Project or webhook not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks",
+                    ":hook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hook_id",
+                      "description": "(Required) The ID of the webhook."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://gitlab.com/example\",\n  \"name\": \"Example Project\",\n  \"description\": \"Example description\",\n  \"secret_token\": \"glpat-example-token\",\n  \"enable_ssl_verification\": true,\n  \"push_events\": true,\n  \"tag_push_events\": true,\n  \"issues_events\": true,\n  \"confidential_issues_events\": true,\n  \"merge_requests_events\": true,\n  \"note_events\": true,\n  \"confidential_note_events\": true,\n  \"job_events\": true,\n  \"pipeline_events\": true,\n  \"wiki_page_events\": true,\n  \"deployment_events\": true,\n  \"releases_events\": true,\n  \"member_events\": true,\n  \"push_events_branch_filter\": \"main\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d6880cb-9543-4769-8beb-8f67523e28cf",
+          "name": "GitLab Delete a Project Webhook",
+          "request": {
+            "name": "GitLab Delete a Project Webhook",
+            "description": {
+              "content": "Removes a webhook from the specified project. Deleted webhooks will no longer receive event deliveries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":id",
+                "hooks",
+                ":hook_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "hook_id",
+                  "description": "(Required) The ID of the webhook."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73929c30-a0f0-4d24-ad1b-aaf4462ac050",
+              "name": "Webhook deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks",
+                    ":hook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hook_id",
+                      "description": "(Required) The ID of the webhook."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8fcd992f-4a02-4d6d-b9c5-50f8ba324fed",
+              "name": "Authentication required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks",
+                    ":hook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hook_id",
+                      "description": "(Required) The ID of the webhook."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7a06aece-2196-4600-8b09-af5346088390",
+              "name": "Project or webhook not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":id",
+                    "hooks",
+                    ":hook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hook_id",
+                      "description": "(Required) The ID of the webhook."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.gitlab.com/api/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "de4f7d84-79be-438f-95a0-3a3236bb8bed",
+    "name": "GitLab api/v4/ Admin Project Webhooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.",
+      "type": "text/plain"
+    }
+  }
+}

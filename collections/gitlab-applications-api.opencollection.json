@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab api/v4/ Admin Applications API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Delete an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.gitlab.com/api/api/v4/applications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "42",
+                "type": "path",
+                "description": "The ID of the application (not the application_id)"
+              }
+            ]
+          },
+          "docs": "Delete a specific application"
+        },
+        {
+          "info": {
+            "name": "GitLab Get Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/applications"
+          },
+          "docs": "List all registered applications"
+        },
+        {
+          "info": {
+            "name": "GitLab Create a New Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/api/v4/applications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This feature was introduced in GitLab 10.5"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

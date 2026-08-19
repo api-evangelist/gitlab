@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab api/v4/ Admin User Info API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Get Authenticated User Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/oauth/userinfo"
+          },
+          "docs": "Returns profile information about the currently authenticated user based on the OAuth token's scopes. Implements the OpenID Connect UserInfo endpoint. Supports CORS for browser-based applications."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

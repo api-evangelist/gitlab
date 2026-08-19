@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab api/v4/ Admin Version API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Version",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Retrieves Version Information for the GitLab Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/version"
+          },
+          "docs": "This feature was introduced in GitLab 8.13 and deprecated in 15.5. We recommend you instead use the Metadata API."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

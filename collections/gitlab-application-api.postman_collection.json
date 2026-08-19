@@ -1,0 +1,812 @@
+{
+  "item": [
+    {
+      "id": "e2329dce-a41c-4bec-b525-ca2ee0893d48",
+      "name": "Application",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "33e7c4f8-9fa7-4bd0-b2e1-ba0e1b74af17",
+          "name": "get Api V4Application Appearance",
+          "request": {
+            "name": "get Api V4Application Appearance",
+            "description": {
+              "content": "Get the current appearance",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "application",
+                "appearance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23f1243f-dc76-4f8d-adab-fffcf21b784e",
+              "name": "Get the current appearance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "application",
+                    "appearance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"example_value\",\n  \"description\": \"Example description\",\n  \"pwa_name\": \"Example Project\",\n  \"pwa_short_name\": \"Example Project\",\n  \"pwa_description\": \"Example description\",\n  \"logo\": \"example_value\",\n  \"pwa_icon\": \"example_value\",\n  \"header_logo\": \"example_value\",\n  \"favicon\": \"example_value\",\n  \"new_project_guidelines\": \"example_value\",\n  \"profile_image_guidelines\": \"example_value\",\n  \"header_message\": \"example_value\",\n  \"footer_message\": \"example_value\",\n  \"message_background_color\": \"example_value\",\n  \"message_font_color\": \"example_value\",\n  \"email_header_and_footer_enabled\": \"user@example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d74f700-fd47-4ab0-970f-c30d639af7d4",
+          "name": "put Api V4Application Appearance",
+          "request": {
+            "name": "put Api V4Application Appearance",
+            "description": {
+              "content": "Modify appearance",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "application",
+                "appearance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Instance title on the sign in / sign up page"
+                },
+                {
+                  "key": "description",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Markdown text shown on the sign in / sign up page"
+                },
+                {
+                  "key": "pwa_name",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Name of the Progressive Web App"
+                },
+                {
+                  "key": "pwa_short_name",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Optional, short name for Progressive Web App"
+                },
+                {
+                  "key": "pwa_description",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "An explanation of what the Progressive Web App does"
+                },
+                {
+                  "key": "logo",
+                  "type": "file",
+                  "description": "Instance image used on the sign in / sign up page"
+                },
+                {
+                  "key": "pwa_icon",
+                  "type": "file",
+                  "description": "Icon used for Progressive Web App"
+                },
+                {
+                  "key": "header_logo",
+                  "type": "file",
+                  "description": "Instance image used for the main navigation bar"
+                },
+                {
+                  "key": "favicon",
+                  "type": "file",
+                  "description": "Instance favicon in .ico/.png format"
+                },
+                {
+                  "key": "new_project_guidelines",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Markdown text shown on the new project page"
+                },
+                {
+                  "key": "profile_image_guidelines",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Markdown text shown on the profile page below Public Avatar"
+                },
+                {
+                  "key": "header_message",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Message within the system header bar"
+                },
+                {
+                  "key": "footer_message",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Message within the system footer bar"
+                },
+                {
+                  "key": "message_background_color",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Background color for the system header / footer bar"
+                },
+                {
+                  "key": "message_font_color",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Font color for the system header / footer bar"
+                },
+                {
+                  "key": "email_header_and_footer_enabled",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": "Add header and footer to all outgoing emails if enabled"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "15b923ab-63a9-4401-b9db-8efce867a94a",
+              "name": "Modify appearance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "application",
+                    "appearance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "Instance title on the sign in / sign up page",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Markdown text shown on the sign in / sign up page",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Name of the Progressive Web App",
+                        "type": "text/plain"
+                      },
+                      "key": "pwa_name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional, short name for Progressive Web App",
+                        "type": "text/plain"
+                      },
+                      "key": "pwa_short_name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "An explanation of what the Progressive Web App does",
+                        "type": "text/plain"
+                      },
+                      "key": "pwa_description",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Instance image used on the sign in / sign up page",
+                        "type": "text/plain"
+                      },
+                      "key": "logo",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Icon used for Progressive Web App",
+                        "type": "text/plain"
+                      },
+                      "key": "pwa_icon",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Instance image used for the main navigation bar",
+                        "type": "text/plain"
+                      },
+                      "key": "header_logo",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Instance favicon in .ico/.png format",
+                        "type": "text/plain"
+                      },
+                      "key": "favicon",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Markdown text shown on the new project page",
+                        "type": "text/plain"
+                      },
+                      "key": "new_project_guidelines",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Markdown text shown on the profile page below Public Avatar",
+                        "type": "text/plain"
+                      },
+                      "key": "profile_image_guidelines",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Message within the system header bar",
+                        "type": "text/plain"
+                      },
+                      "key": "header_message",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Message within the system footer bar",
+                        "type": "text/plain"
+                      },
+                      "key": "footer_message",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Background color for the system header / footer bar",
+                        "type": "text/plain"
+                      },
+                      "key": "message_background_color",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Font color for the system header / footer bar",
+                        "type": "text/plain"
+                      },
+                      "key": "message_font_color",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Add header and footer to all outgoing emails if enabled",
+                        "type": "text/plain"
+                      },
+                      "key": "email_header_and_footer_enabled",
+                      "value": "<boolean>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"example_value\",\n  \"description\": \"Example description\",\n  \"pwa_name\": \"Example Project\",\n  \"pwa_short_name\": \"Example Project\",\n  \"pwa_description\": \"Example description\",\n  \"logo\": \"example_value\",\n  \"pwa_icon\": \"example_value\",\n  \"header_logo\": \"example_value\",\n  \"favicon\": \"example_value\",\n  \"new_project_guidelines\": \"example_value\",\n  \"profile_image_guidelines\": \"example_value\",\n  \"header_message\": \"example_value\",\n  \"footer_message\": \"example_value\",\n  \"message_background_color\": \"example_value\",\n  \"message_font_color\": \"example_value\",\n  \"email_header_and_footer_enabled\": \"user@example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad2eb7e9-73b8-4c20-9d9d-8a1f1670fccd",
+          "name": "GitLab Get Current Plan Limits",
+          "request": {
+            "name": "GitLab Get Current Plan Limits",
+            "description": {
+              "content": "List the current limits of a plan on the GitLab instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "application",
+                "plan_limits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "plan_name",
+                  "value": "default",
+                  "description": "Name of the plan to get the limits from. Default: default."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b01ea40-80d5-4e3f-a638-a779651c8807",
+              "name": "Get current plan limits",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "application",
+                    "plan_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "plan_name",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ci_pipeline_size\": 0,\n  \"ci_active_jobs\": 0,\n  \"ci_project_subscriptions\": 2,\n  \"ci_pipeline_schedules\": 10,\n  \"ci_needs_size_limit\": 50,\n  \"ci_registered_group_runners\": 1000,\n  \"ci_registered_project_runners\": 1000,\n  \"conan_max_file_size\": 3221225472,\n  \"enforcement_limit\": 15000,\n  \"generic_packages_max_file_size\": 5368709120,\n  \"helm_max_file_size\": 5242880,\n  \"limits_history\": {},\n  \"maven_max_file_size\": 3221225472,\n  \"notification_limit\": 15000,\n  \"npm_max_file_size\": 524288000,\n  \"nuget_max_file_size\": 524288000,\n  \"pipeline_hierarchy_size\": 1000,\n  \"pypi_max_file_size\": 3221225472,\n  \"terraform_module_max_file_size\": 1073741824,\n  \"storage_size_limit\": 15000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d2d8a06-a7c7-45e8-a409-cdee4fa456fb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "application",
+                    "plan_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "plan_name",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "995aef14-9bbf-465d-8b30-28e5fa5fa85f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "application",
+                    "plan_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "plan_name",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33210431-4e45-4fb7-99aa-98db61c108b4",
+          "name": "GitLab Change Plan Limits",
+          "request": {
+            "name": "GitLab Change Plan Limits",
+            "description": {
+              "content": "Modify the limits of a plan on the GitLab instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "application",
+                "plan_limits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plan_name\": \"<string>\",\n  \"ci_pipeline_size\": \"<integer>\",\n  \"ci_active_jobs\": \"<integer>\",\n  \"ci_project_subscriptions\": \"<integer>\",\n  \"ci_pipeline_schedules\": \"<integer>\",\n  \"ci_needs_size_limit\": \"<integer>\",\n  \"ci_registered_group_runners\": \"<integer>\",\n  \"ci_registered_project_runners\": \"<integer>\",\n  \"conan_max_file_size\": \"<integer>\",\n  \"enforcement_limit\": \"<integer>\",\n  \"generic_packages_max_file_size\": \"<integer>\",\n  \"helm_max_file_size\": \"<integer>\",\n  \"maven_max_file_size\": \"<integer>\",\n  \"notification_limit\": \"<integer>\",\n  \"npm_max_file_size\": \"<integer>\",\n  \"nuget_max_file_size\": \"<integer>\",\n  \"pypi_max_file_size\": \"<integer>\",\n  \"terraform_module_max_file_size\": \"<integer>\",\n  \"storage_size_limit\": \"<integer>\",\n  \"pipeline_hierarchy_size\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5cc1bfe1-0092-4a0c-8f47-797cb5c2cc57",
+              "name": "Change plan limits",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "application",
+                    "plan_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"plan_name\": \"<string>\",\n  \"ci_pipeline_size\": \"<integer>\",\n  \"ci_active_jobs\": \"<integer>\",\n  \"ci_project_subscriptions\": \"<integer>\",\n  \"ci_pipeline_schedules\": \"<integer>\",\n  \"ci_needs_size_limit\": \"<integer>\",\n  \"ci_registered_group_runners\": \"<integer>\",\n  \"ci_registered_project_runners\": \"<integer>\",\n  \"conan_max_file_size\": \"<integer>\",\n  \"enforcement_limit\": \"<integer>\",\n  \"generic_packages_max_file_size\": \"<integer>\",\n  \"helm_max_file_size\": \"<integer>\",\n  \"maven_max_file_size\": \"<integer>\",\n  \"notification_limit\": \"<integer>\",\n  \"npm_max_file_size\": \"<integer>\",\n  \"nuget_max_file_size\": \"<integer>\",\n  \"pypi_max_file_size\": \"<integer>\",\n  \"terraform_module_max_file_size\": \"<integer>\",\n  \"storage_size_limit\": \"<integer>\",\n  \"pipeline_hierarchy_size\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ci_pipeline_size\": 0,\n  \"ci_active_jobs\": 0,\n  \"ci_project_subscriptions\": 2,\n  \"ci_pipeline_schedules\": 10,\n  \"ci_needs_size_limit\": 50,\n  \"ci_registered_group_runners\": 1000,\n  \"ci_registered_project_runners\": 1000,\n  \"conan_max_file_size\": 3221225472,\n  \"enforcement_limit\": 15000,\n  \"generic_packages_max_file_size\": 5368709120,\n  \"helm_max_file_size\": 5242880,\n  \"limits_history\": {},\n  \"maven_max_file_size\": 3221225472,\n  \"notification_limit\": 15000,\n  \"npm_max_file_size\": 524288000,\n  \"nuget_max_file_size\": 524288000,\n  \"pipeline_hierarchy_size\": 1000,\n  \"pypi_max_file_size\": 3221225472,\n  \"terraform_module_max_file_size\": 1073741824,\n  \"storage_size_limit\": 15000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2d98a92-6da2-450c-a898-3451b674996d",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "application",
+                    "plan_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"plan_name\": \"<string>\",\n  \"ci_pipeline_size\": \"<integer>\",\n  \"ci_active_jobs\": \"<integer>\",\n  \"ci_project_subscriptions\": \"<integer>\",\n  \"ci_pipeline_schedules\": \"<integer>\",\n  \"ci_needs_size_limit\": \"<integer>\",\n  \"ci_registered_group_runners\": \"<integer>\",\n  \"ci_registered_project_runners\": \"<integer>\",\n  \"conan_max_file_size\": \"<integer>\",\n  \"enforcement_limit\": \"<integer>\",\n  \"generic_packages_max_file_size\": \"<integer>\",\n  \"helm_max_file_size\": \"<integer>\",\n  \"maven_max_file_size\": \"<integer>\",\n  \"notification_limit\": \"<integer>\",\n  \"npm_max_file_size\": \"<integer>\",\n  \"nuget_max_file_size\": \"<integer>\",\n  \"pypi_max_file_size\": \"<integer>\",\n  \"terraform_module_max_file_size\": \"<integer>\",\n  \"storage_size_limit\": \"<integer>\",\n  \"pipeline_hierarchy_size\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "df21c748-6a5b-4663-8f2e-02d0bd5776b4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "application",
+                    "plan_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"plan_name\": \"<string>\",\n  \"ci_pipeline_size\": \"<integer>\",\n  \"ci_active_jobs\": \"<integer>\",\n  \"ci_project_subscriptions\": \"<integer>\",\n  \"ci_pipeline_schedules\": \"<integer>\",\n  \"ci_needs_size_limit\": \"<integer>\",\n  \"ci_registered_group_runners\": \"<integer>\",\n  \"ci_registered_project_runners\": \"<integer>\",\n  \"conan_max_file_size\": \"<integer>\",\n  \"enforcement_limit\": \"<integer>\",\n  \"generic_packages_max_file_size\": \"<integer>\",\n  \"helm_max_file_size\": \"<integer>\",\n  \"maven_max_file_size\": \"<integer>\",\n  \"notification_limit\": \"<integer>\",\n  \"npm_max_file_size\": \"<integer>\",\n  \"nuget_max_file_size\": \"<integer>\",\n  \"pypi_max_file_size\": \"<integer>\",\n  \"terraform_module_max_file_size\": \"<integer>\",\n  \"storage_size_limit\": \"<integer>\",\n  \"pipeline_hierarchy_size\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac52aa30-6ad5-43a1-be20-7be6f3c6834b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "application",
+                    "plan_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"plan_name\": \"<string>\",\n  \"ci_pipeline_size\": \"<integer>\",\n  \"ci_active_jobs\": \"<integer>\",\n  \"ci_project_subscriptions\": \"<integer>\",\n  \"ci_pipeline_schedules\": \"<integer>\",\n  \"ci_needs_size_limit\": \"<integer>\",\n  \"ci_registered_group_runners\": \"<integer>\",\n  \"ci_registered_project_runners\": \"<integer>\",\n  \"conan_max_file_size\": \"<integer>\",\n  \"enforcement_limit\": \"<integer>\",\n  \"generic_packages_max_file_size\": \"<integer>\",\n  \"helm_max_file_size\": \"<integer>\",\n  \"maven_max_file_size\": \"<integer>\",\n  \"notification_limit\": \"<integer>\",\n  \"npm_max_file_size\": \"<integer>\",\n  \"nuget_max_file_size\": \"<integer>\",\n  \"pypi_max_file_size\": \"<integer>\",\n  \"terraform_module_max_file_size\": \"<integer>\",\n  \"storage_size_limit\": \"<integer>\",\n  \"pipeline_hierarchy_size\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.gitlab.com/api/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "123a5934-44d5-4d3d-9eca-bfcf2e651dc5",
+    "name": "GitLab api/v4/ Admin Application API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.",
+      "type": "text/plain"
+    }
+  }
+}

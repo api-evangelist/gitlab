@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab api/v4/ Admin Tokens API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Exchange Code for Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/oauth/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Exchanges an authorization code, device code, or refresh token for an OAuth 2.0 access token. Supports authorization_code, refresh_token, device_code, and password grant types. Access tokens are valid for two hours. Includes CORS support for browser-based applications."
+        },
+        {
+          "info": {
+            "name": "GitLab Revoke an OAuth Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/oauth/revoke",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Revokes an existing OAuth access token or refresh token. After revocation the token can no longer be used to access GitLab resources. Supports CORS for browser-based applications."
+        },
+        {
+          "info": {
+            "name": "GitLab Get Token Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/oauth/token/info"
+          },
+          "docs": "Returns information about the current OAuth access token, including the scopes it was granted and its expiration time. Useful for validating that a token is still active."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

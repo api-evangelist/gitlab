@@ -1,0 +1,221 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab api/v4/ Admin Bulk Imports API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulk Imports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Get GitLab Migration Entity Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/bulk_imports/:import_id/entities/:entity_id",
+            "params": [
+              {
+                "name": "import_id",
+                "value": "42",
+                "type": "path",
+                "description": "The ID of user's GitLab Migration"
+              },
+              {
+                "name": "entity_id",
+                "value": "42",
+                "type": "path",
+                "description": "The ID of GitLab Migration entity"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 14.1."
+        },
+        {
+          "info": {
+            "name": "GitLab List GitLab Migration Entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/bulk_imports/:import_id/entities",
+            "params": [
+              {
+                "name": "import_id",
+                "value": "42",
+                "type": "path",
+                "description": "The ID of user's GitLab Migration"
+              },
+              {
+                "name": "status",
+                "value": "created",
+                "type": "query",
+                "description": "Return import entities with specified status"
+              },
+              {
+                "name": "page",
+                "value": "42",
+                "type": "query",
+                "description": "Current page number"
+              },
+              {
+                "name": "per_page",
+                "value": "42",
+                "type": "query",
+                "description": "Number of items per page"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 14.1."
+        },
+        {
+          "info": {
+            "name": "GitLab Get GitLab Migration Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/bulk_imports/:import_id",
+            "params": [
+              {
+                "name": "import_id",
+                "value": "42",
+                "type": "path",
+                "description": "The ID of user's GitLab Migration"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 14.1."
+        },
+        {
+          "info": {
+            "name": "GitLab List All GitLab Migrations' Entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/bulk_imports/entities",
+            "params": [
+              {
+                "name": "page",
+                "value": "42",
+                "type": "query",
+                "description": "Current page number"
+              },
+              {
+                "name": "per_page",
+                "value": "42",
+                "type": "query",
+                "description": "Number of items per page"
+              },
+              {
+                "name": "sort",
+                "value": "asc",
+                "type": "query",
+                "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order."
+              },
+              {
+                "name": "status",
+                "value": "created",
+                "type": "query",
+                "description": "Return all GitLab Migrations' entities with specified status"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 14.1."
+        },
+        {
+          "info": {
+            "name": "GitLab List All GitLab Migrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/api/v4/bulk_imports",
+            "params": [
+              {
+                "name": "page",
+                "value": "42",
+                "type": "query",
+                "description": "Current page number"
+              },
+              {
+                "name": "per_page",
+                "value": "42",
+                "type": "query",
+                "description": "Number of items per page"
+              },
+              {
+                "name": "sort",
+                "value": "asc",
+                "type": "query",
+                "description": "Return GitLab Migrations sorted in created by `asc` or `desc` order."
+              },
+              {
+                "name": "status",
+                "value": "created",
+                "type": "query",
+                "description": "Return GitLab Migrations with specified status"
+              }
+            ]
+          },
+          "docs": "This feature was introduced in GitLab 14.1."
+        },
+        {
+          "info": {
+            "name": "GitLab Start a New GitLab Migration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/api/v4/bulk_imports",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "configuration[url]",
+                  "value": ""
+                },
+                {
+                  "name": "configuration[access_token]",
+                  "value": ""
+                },
+                {
+                  "name": "entities[source_type]",
+                  "value": ""
+                },
+                {
+                  "name": "entities[source_full_path]",
+                  "value": ""
+                },
+                {
+                  "name": "entities[destination_namespace]",
+                  "value": ""
+                },
+                {
+                  "name": "entities[destination_slug]",
+                  "value": ""
+                },
+                {
+                  "name": "entities[destination_name]",
+                  "value": ""
+                },
+                {
+                  "name": "entities[migrate_projects]",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This feature was introduced in GitLab 14.2."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

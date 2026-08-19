@@ -1,0 +1,520 @@
+{
+  "item": [
+    {
+      "id": "c70d42be-ca74-4dce-912d-5bcfb2727281",
+      "name": "Broadcast Messages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a8b3ad5-40af-42f2-a8ad-e9ed7573acec",
+          "name": "GitLab Get a Specific Broadcast Message",
+          "request": {
+            "name": "GitLab Get a Specific Broadcast Message",
+            "description": {
+              "content": "This feature was introduced in GitLab 8.12.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "broadcast_messages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Broadcast message ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26c0efb0-6831-477f-b9ba-09f338fc483c",
+              "name": "Get a specific broadcast message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "broadcast_messages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Broadcast message ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"123456\",\n  \"message\": \"example_value\",\n  \"starts_at\": \"2026-04-17T12:00:00Z\",\n  \"ends_at\": \"2026-04-17T12:00:00Z\",\n  \"color\": \"example_value\",\n  \"font\": \"example_value\",\n  \"target_access_levels\": \"example_value\",\n  \"target_path\": \"my-group/my-project\",\n  \"broadcast_type\": \"example_value\",\n  \"dismissable\": \"example_value\",\n  \"active\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8de94282-8cd3-47b0-8602-937965043f30",
+          "name": "GitLab Update a Broadcast Message",
+          "request": {
+            "name": "GitLab Update a Broadcast Message",
+            "description": {
+              "content": "This feature was introduced in GitLab 8.12.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "broadcast_messages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Broadcast message ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\",\n  \"starts_at\": \"<dateTime>\",\n  \"ends_at\": \"<dateTime>\",\n  \"color\": \"<string>\",\n  \"font\": \"<string>\",\n  \"target_access_levels\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"target_path\": \"<string>\",\n  \"broadcast_type\": \"<string>\",\n  \"dismissable\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8c785b4a-1ed1-4ac4-bffc-36f25cf8331b",
+              "name": "Update a broadcast message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "broadcast_messages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Broadcast message ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"starts_at\": \"<dateTime>\",\n  \"ends_at\": \"<dateTime>\",\n  \"color\": \"<string>\",\n  \"font\": \"<string>\",\n  \"target_access_levels\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"target_path\": \"<string>\",\n  \"broadcast_type\": \"<string>\",\n  \"dismissable\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"123456\",\n  \"message\": \"example_value\",\n  \"starts_at\": \"2026-04-17T12:00:00Z\",\n  \"ends_at\": \"2026-04-17T12:00:00Z\",\n  \"color\": \"example_value\",\n  \"font\": \"example_value\",\n  \"target_access_levels\": \"example_value\",\n  \"target_path\": \"my-group/my-project\",\n  \"broadcast_type\": \"example_value\",\n  \"dismissable\": \"example_value\",\n  \"active\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d132773-62b7-46c0-8e5f-d76990429bd1",
+          "name": "GitLab Delete a Broadcast Message",
+          "request": {
+            "name": "GitLab Delete a Broadcast Message",
+            "description": {
+              "content": "This feature was introduced in GitLab 8.12.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "broadcast_messages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Broadcast message ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e1f39a1-89b1-419e-81b6-cc2821c7c3d6",
+              "name": "Delete a broadcast message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "broadcast_messages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Broadcast message ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"123456\",\n  \"message\": \"example_value\",\n  \"starts_at\": \"2026-04-17T12:00:00Z\",\n  \"ends_at\": \"2026-04-17T12:00:00Z\",\n  \"color\": \"example_value\",\n  \"font\": \"example_value\",\n  \"target_access_levels\": \"example_value\",\n  \"target_path\": \"my-group/my-project\",\n  \"broadcast_type\": \"example_value\",\n  \"dismissable\": \"example_value\",\n  \"active\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "257c3f8d-cd7a-429b-ac1e-6bf51bf88f5d",
+          "name": "GitLab Get All Broadcast Messages",
+          "request": {
+            "name": "GitLab Get All Broadcast Messages",
+            "description": {
+              "content": "This feature was introduced in GitLab 8.12.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "broadcast_messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "20",
+                  "description": "Number of items per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04ab2d8d-a57f-4fed-9350-ea7292494340",
+              "name": "Get all broadcast messages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "broadcast_messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "42"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "42"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"123456\",\n  \"message\": \"example_value\",\n  \"starts_at\": \"2026-04-17T12:00:00Z\",\n  \"ends_at\": \"2026-04-17T12:00:00Z\",\n  \"color\": \"example_value\",\n  \"font\": \"example_value\",\n  \"target_access_levels\": \"example_value\",\n  \"target_path\": \"my-group/my-project\",\n  \"broadcast_type\": \"example_value\",\n  \"dismissable\": \"example_value\",\n  \"active\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "747e15de-373c-4045-acd0-ab983517c61b",
+          "name": "GitLab Create a Broadcast Message",
+          "request": {
+            "name": "GitLab Create a Broadcast Message",
+            "description": {
+              "content": "This feature was introduced in GitLab 8.12.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "broadcast_messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\",\n  \"starts_at\": \"<dateTime>\",\n  \"ends_at\": \"<dateTime>\",\n  \"color\": \"<string>\",\n  \"font\": \"<string>\",\n  \"target_access_levels\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"target_path\": \"<string>\",\n  \"broadcast_type\": \"<string>\",\n  \"dismissable\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c62efbb5-80dd-4d90-a6fd-fbe66ae2cfff",
+              "name": "Create a broadcast message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "broadcast_messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"starts_at\": \"<dateTime>\",\n  \"ends_at\": \"<dateTime>\",\n  \"color\": \"<string>\",\n  \"font\": \"<string>\",\n  \"target_access_levels\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"target_path\": \"<string>\",\n  \"broadcast_type\": \"<string>\",\n  \"dismissable\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"123456\",\n  \"message\": \"example_value\",\n  \"starts_at\": \"2026-04-17T12:00:00Z\",\n  \"ends_at\": \"2026-04-17T12:00:00Z\",\n  \"color\": \"example_value\",\n  \"font\": \"example_value\",\n  \"target_access_levels\": \"example_value\",\n  \"target_path\": \"my-group/my-project\",\n  \"broadcast_type\": \"example_value\",\n  \"dismissable\": \"example_value\",\n  \"active\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.gitlab.com/api/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2a3d8be3-b361-471f-8942-b0f78d6221e3",
+    "name": "GitLab api/v4/ Admin Broadcast Messages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.",
+      "type": "text/plain"
+    }
+  }
+}

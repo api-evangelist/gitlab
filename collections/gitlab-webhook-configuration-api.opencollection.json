@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab api/v4/ Admin Webhook Configuration API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhook Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab Set a Webhook Custom Header",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.gitlab.com/api/projects/:id/hooks/:hook_id/custom_headers/:key",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+              },
+              {
+                "name": "hook_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the webhook."
+              },
+              {
+                "name": "key",
+                "value": "example_value",
+                "type": "path",
+                "description": "The name of the custom header."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds or updates a custom HTTP header sent with every webhook delivery for the specified webhook. Custom headers are useful for authentication or routing at the receiving endpoint."
+        },
+        {
+          "info": {
+            "name": "GitLab Delete a Webhook Custom Header",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.gitlab.com/api/projects/:id/hooks/:hook_id/custom_headers/:key",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+              },
+              {
+                "name": "hook_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the webhook."
+              },
+              {
+                "name": "key",
+                "value": "example_value",
+                "type": "path",
+                "description": "The name of the custom header to delete."
+              }
+            ]
+          },
+          "docs": "Removes a custom HTTP header from the specified webhook. The header will no longer be included in future webhook deliveries."
+        },
+        {
+          "info": {
+            "name": "GitLab Set a Webhook URL Variable",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.gitlab.com/api/projects/:id/hooks/:hook_id/url_variables/:key",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+              },
+              {
+                "name": "hook_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the webhook."
+              },
+              {
+                "name": "key",
+                "value": "example_value",
+                "type": "path",
+                "description": "The name of the URL variable."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds or updates a URL variable for the specified webhook. URL variables allow dynamic substitution in the webhook URL, enabling reuse of the same webhook configuration with different target endpoints."
+        },
+        {
+          "info": {
+            "name": "GitLab Delete a Webhook URL Variable",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.gitlab.com/api/projects/:id/hooks/:hook_id/url_variables/:key",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+              },
+              {
+                "name": "hook_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the webhook."
+              },
+              {
+                "name": "key",
+                "value": "example_value",
+                "type": "path",
+                "description": "The name of the URL variable to delete."
+              }
+            ]
+          },
+          "docs": "Removes a URL variable from the specified webhook. The variable will no longer be substituted in future webhook deliveries."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

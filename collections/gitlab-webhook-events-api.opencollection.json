@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitLab api/v4/ Admin Webhook Events API",
+    "version": "v4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhook Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GitLab List Webhook Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.gitlab.com/api/projects/:id/hooks/:hook_id/events",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+              },
+              {
+                "name": "hook_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the webhook."
+              }
+            ]
+          },
+          "docs": "Returns a list of all delivery events for a specified project webhook from the past 7 days. Each event includes the trigger type, response status code, request and response headers, and payload body."
+        },
+        {
+          "info": {
+            "name": "GitLab Resend a Webhook Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/projects/:id/hooks/:hook_id/events/:hook_event_id/resend",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+              },
+              {
+                "name": "hook_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the webhook."
+              },
+              {
+                "name": "hook_event_id",
+                "value": "42",
+                "type": "path",
+                "description": "The ID of the webhook event to resend."
+              }
+            ]
+          },
+          "docs": "Resends a previously triggered webhook event to the configured URL. Useful for retrying failed deliveries or for debugging webhook configurations."
+        },
+        {
+          "info": {
+            "name": "GitLab Test a Webhook Trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.gitlab.com/api/projects/:id/hooks/:hook_id/test/:trigger",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name."
+              },
+              {
+                "name": "hook_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the webhook."
+              },
+              {
+                "name": "trigger",
+                "value": "example_value",
+                "type": "path",
+                "description": "The event type to simulate. Supported values include push_events, tag_push_events, issues_events, confidential_issues_events, note_events, merge_requests_events, job_events, pipeline_events, wiki_page_events, releases_events, and member_events."
+              }
+            ]
+          },
+          "docs": "Sends a test webhook payload of the specified trigger type to the configured webhook URL. Use this to verify the webhook endpoint is reachable and handling payloads correctly."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
