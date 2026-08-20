@@ -94,6 +94,10 @@ apis:
 - aid: gitlab:apiv4jobs
   name: GitLab Jobs API
   tags:
+  - Builds
+  - CI/CD
+  - Job
+  tags_raw:
   - Build
   - CI/CD
   - Jobs
@@ -132,6 +136,10 @@ apis:
 - aid: gitlab:apiv4users
   name: GitLab Users API
   tags:
+  - Access Management
+  - Identity
+  - User
+  tags_raw:
   - Access Management
   - Identity
   - Users
@@ -246,6 +254,10 @@ apis:
   name: GitLab Environments API
   tags:
   - CI/CD
+  - Deployment
+  - Environments
+  tags_raw:
+  - CI/CD
   - Deployments
   - Environments
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
@@ -264,6 +276,10 @@ apis:
 - aid: gitlab:apiv4deployments
   name: GitLab Deployments API
   tags:
+  - CI/CD
+  - Deployment
+  - Release Management
+  tags_raw:
   - CI/CD
   - Deployments
   - Release Management
@@ -494,6 +510,10 @@ apis:
   tags:
   - Activity
   - Audit
+  - Event
+  tags_raw:
+  - Activity
+  - Audit
   - Events
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
@@ -656,6 +676,8 @@ apis:
   humanURL: https://docs.gitlab.com/ee/api/graphql/
   baseURL: https://gitlab.com/api/graphql
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -916,6 +938,8 @@ apis:
   humanURL: https://docs.gitlab.com/ee/api/graphql/
   baseURL: https://gitlab.com/api/graphql
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -1072,6 +1096,8 @@ apis:
   humanURL: https://docs.gitlab.com/ee/api/graphql/
   baseURL: https://gitlab.com/api/graphql
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -1176,6 +1202,8 @@ apis:
   humanURL: https://docs.gitlab.com/ee/api/graphql/
   baseURL: https://gitlab.com/api/graphql
   tags:
+  - UserInfo
+  tags_raw:
   - User Info
   properties:
   - type: OpenAPI
