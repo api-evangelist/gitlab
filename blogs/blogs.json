@@ -5,7 +5,7 @@
       "source": "https://about.gitlab.com/atom.xml",
       "feed_url": "https://about.gitlab.com/atom.xml",
       "title": "",
-      "saved": 6,
+      "saved": 0,
       "method": "feed"
     },
     {
@@ -13,8 +13,7 @@
       "feed_url": "https://github.com/gitlabhq",
       "title": "",
       "saved": 0,
-      "method": "none",
-      "error": "parse_failed"
+      "method": "none"
     },
     {
       "source": "https://about.gitlab.com/releases.xml",
@@ -31,6 +30,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 129,
-  "fetched": "2026-08-15T12:11:08Z"
+  "post_count": 140,
+  "fetched": "2026-08-22T20:20:02Z"
 }
