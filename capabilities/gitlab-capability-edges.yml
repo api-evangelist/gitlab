@@ -1,0 +1,36 @@
+slug: gitlab
+provider: GitLab
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Projects
+  spec_file: gitlab-projects-api-openapi.yml
+  capability_id: BC-4200.40
+  capability_id_l1: BC-4200
+  capability_name: Software Construction Management
+  confidence: 0.8
+  evidence: GET /api/v4/projects/{id}/repository/branches; PUT .../branches/{branch}/protect; schemas
+    API_Entities_Commit, API_Entities_Branch
+  reason: Repository branch and commit management is source-control practice, i.e. Software Construction
+    Management.
+- tag: Project Webhooks
+  spec_file: gitlab-project-webhooks-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.7
+  evidence: POST /projects/{id}/hooks addProjectWebhook 'Add a Webhook to a Project'; schemas WebhookInput,
+    Webhook
+  reason: CRUD over outbound webhook subscriptions matches Webhook & Event Subscription Management; some
+    risk this is judged pure plumbing.

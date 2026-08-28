@@ -1413,6 +1413,18 @@ tags:
 - Software Development
 - Source Control
 kind: contract
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -1429,6 +1441,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/gitlab.png
 access: 3rd-Party
 common:
+- type: CapabilityMap
+  url: capabilities/gitlab-capability-edges.yml
+  name: GitLab Business Capability Map
 - type: Overlay
   url: overlays/gitlab-api-v4-admin-openapi-search.yml
 - type: AgenticAccess
