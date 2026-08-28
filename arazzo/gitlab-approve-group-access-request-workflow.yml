@@ -10,8 +10,8 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: gitlabGroupsApi
-  url: ../openapi/gitlab-api-v4-groups-openapi-original.yml
+- name: groupsApi
+  url: ../openapi/gitlab-groups-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: approve-group-access-request

@@ -10,8 +10,8 @@ info:
     opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: gitlabAdminApi
-  url: ../openapi/gitlab-openapi-original.yml
+- name: adminApi
+  url: ../openapi/gitlab-admin-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: register-instance-cluster

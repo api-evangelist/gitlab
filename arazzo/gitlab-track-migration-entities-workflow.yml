@@ -10,8 +10,8 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: gitlabAdminApi
-  url: ../openapi/gitlab-openapi-original.yml
+- name: bulkImportsApi
+  url: ../openapi/gitlab-bulk-imports-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: track-migration-entities

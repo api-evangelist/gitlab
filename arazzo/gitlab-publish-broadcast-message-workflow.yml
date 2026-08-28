@@ -10,8 +10,8 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: gitlabAdminApi
-  url: ../openapi/gitlab-openapi-original.yml
+- name: broadcastMessagesApi
+  url: ../openapi/gitlab-broadcast-messages-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: publish-broadcast-message
