@@ -1409,6 +1409,7 @@ apis:
 name: GitLab
 tags:
 - Code
+- Developer Tools
 - Platform
 - Software Development
 - Source Control
