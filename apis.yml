@@ -1413,6 +1413,7 @@ tags:
 - Platform
 - Software Development
 - Source Control
+- GitLab
 kind: contract
 deliveryModel:
   model: saas
