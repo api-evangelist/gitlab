@@ -255,7 +255,7 @@ apis:
   tags:
   - CI/CD
   - Deployment
-  - Environments
+  - Environment
   tags_raw:
   - CI/CD
   - Deployments
@@ -782,6 +782,8 @@ apis:
   humanURL: https://docs.gitlab.com/ee/api/graphql/
   baseURL: https://gitlab.com/api/graphql
   tags:
+  - Avatars
+  tags_raw:
   - Avatar
   properties:
   - type: OpenAPI
