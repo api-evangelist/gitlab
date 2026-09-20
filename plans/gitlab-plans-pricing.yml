@@ -1,142 +1,76 @@
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: GitLab
-providerId: gitlab
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-reconciled: true
-tags:
-  - DevOps
-  - Source Control
-  - CI/CD
-description: 'GitLab.com plans: Free / Premium / Ultimate.'
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://about.gitlab.com/pricing/
 sources:
-  - https://about.gitlab.com/pricing/
+- https://about.gitlab.com/pricing/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+published: true
+note: GitLab plan pricing page; Ultimate is custom-priced, Premium/Free numeric, plus credit and add-on
+  pricing.
+plan_count: 9
+currency: USD
 plans:
-  - id: gitlab-free
-    name: Free
-    type: freemium
-    description: 5 licensed users, 400 compute minutes/mo, 10 GiB storage.
-    entries:
-      - label: Licensed users
-        name: users
-        type: quota
-        metric: user
-        limit: 5
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Compute minutes
-        name: minutes
-        type: quota
-        metric: minute
-        limit: 400
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Storage
-        name: storage
-        type: quota
-        metric: GiB
-        limit: 10
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Source code management + CI/CD
-      - name: Built-in CI/CD
-      - name: Container Scanning
-  - id: gitlab-premium
-    name: Premium
-    type: paid
-    description: $29/user/month.
-    entries:
-      - label: Per user
-        name: seat
-        type: subscription
-        metric: user
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '29.00'
-        userMultiplied: true
-      - label: Compute minutes
-        name: minutes
-        type: quota
-        metric: minute
-        limit: 10000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: GitLab Credits included
-        name: credits
-        type: quota
-        metric: USD
-        limit: 12
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Unlimited licensed users
-      - name: Advanced CI/CD
-      - name: Team Project Management
-      - name: SLA Management
-      - name: Priority Support
-  - id: gitlab-ultimate
-    name: Ultimate
-    type: enterprise
-    description: Custom pricing.
-    entries:
-      - label: Per user (custom)
-        name: seat
-        type: subscription
-        metric: user
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: custom
-        userMultiplied: true
-      - label: Compute minutes
-        name: minutes
-        type: quota
-        metric: minute
-        limit: 50000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: GitLab Credits included
-        name: credits
-        type: quota
-        metric: USD
-        limit: 24
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Application Security Testing
-      - name: Software Supply Chain Security
-      - name: Vulnerability Management
-      - name: Strategic Portfolio Management
-      - name: Value Stream Management
-      - name: Compliance + Governance
-      - name: Unlimited guest users
+- name: Free
+  price_text: $ 0 per user/month
+  price: 0
+  currency: USD
+  period: month
+  unit: user
+  included_quota: 5 users per top-level group; 400 compute minutes per month; 10 GiB adjustable storage
+- name: Premium
+  price_text: $ 29 per user/month, billed annually
+  price: 29
+  currency: USD
+  period: month
+  unit: user
+  included_quota: $12 included GitLab Credits per user/month; 10,000 compute minutes per month; 500 GiB
+    storage
+- name: Ultimate
+  price_text: Get custom pricing
+  period: none
+  unit: user
+  included_quota: $24 included GitLab Credits per user/month; 50,000 compute minutes per month; 500 GiB
+    storage
+- name: GitLab Dedicated
+  price_text: Book a demo
+  period: none
+  included_quota: Everything from Ultimate
+- name: GitLab Dedicated for Government
+  price_text: Contact us
+  period: none
+  included_quota: 50,000 compute minutes per month; Unlimited guest users
+- name: GitLab Credits
+  price_text: $ 1 per GitLab Credit
+  price: 1
+  currency: USD
+  period: per-use
+  unit: credit
+  overage: on-demand credits at the standard rate of $1/credit
+- name: Compute Minutes add-on
+  price_text: $ 10 per 1,000 minutes, one time payment
+  price: 10
+  currency: USD
+  period: one-time
+  unit: 1,000 minutes
+- name: Storage add-on
+  price_text: $ 5 per month for 10GiB of storage, billed annually
+  price: 5
+  currency: USD
+  period: month
+  unit: 10GiB
+- name: Enterprise Agile Planning
+  price_text: $ 15 per user/month
+  price: 15
+  currency: USD
+  period: month
+  unit: user
+rate_limit_statements:
+- 5 users per top-level group
+- Projects on GitLab.com Free have an initial 10 GiB limit on Git repository and LFS storage.
+- Projects on Premium and Ultimate have a fixed limit of 500GiB per project.
