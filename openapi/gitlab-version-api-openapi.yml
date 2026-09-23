@@ -1,8 +1,8 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitLab api/v4/ Admin Version API
+  title: GitLab Version API
   version: v4
-  description: Needs description.
+  description: An OpenAPI definition for the GitLab REST API.
   termsOfService: https://about.gitlab.com/terms/
   license:
     name: CC BY-SA 4.0
@@ -60,3 +60,8 @@ components:
           type: boolean
           example: true
       description: API_Entities_Metadata model
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Private-Token

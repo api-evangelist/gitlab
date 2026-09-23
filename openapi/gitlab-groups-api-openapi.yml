@@ -1,8 +1,8 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitLab api/v4/ Admin Groups API
+  title: GitLab Groups API
   version: v4
-  description: Needs description.
+  description: An OpenAPI definition for the GitLab REST API.
   termsOfService: https://about.gitlab.com/terms/
   license:
     name: CC BY-SA 4.0
@@ -18,7 +18,7 @@ paths:
     get:
       tags:
       - Groups
-      summary: GitLab Gets a Badge of a Group.
+      summary: GitLab Gets a Badge of a Group
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadgesBadgeId
       parameters:
@@ -50,7 +50,7 @@ paths:
     put:
       tags:
       - Groups
-      summary: GitLab Updates a Badge of a Group.
+      summary: GitLab Updates a Badge of a Group
       description: This feature was introduced in GitLab 10.6.
       operationId: putApiV4GroupsIdBadgesBadgeId
       parameters:
@@ -95,7 +95,7 @@ paths:
     delete:
       tags:
       - Groups
-      summary: GitLab Removes a Badge from the Group.
+      summary: GitLab Removes a Badge from the Group
       description: This feature was introduced in GitLab 10.6.
       operationId: deleteApiV4GroupsIdBadgesBadgeId
       parameters:
@@ -125,7 +125,7 @@ paths:
     get:
       tags:
       - Groups
-      summary: GitLab Gets a List of Group Badges Viewable by the Authenticated User.
+      summary: GitLab Gets a List of Group Badges Viewable by the Authenticated User
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadges
       parameters:
@@ -173,7 +173,7 @@ paths:
     post:
       tags:
       - Groups
-      summary: GitLab Adds a Badge to a Group.
+      summary: GitLab Adds a Badge to a Group
       description: This feature was introduced in GitLab 10.6.
       operationId: postApiV4GroupsIdBadges
       parameters:
@@ -216,7 +216,7 @@ paths:
     get:
       tags:
       - Groups
-      summary: GitLab Preview a Badge from a Group.
+      summary: GitLab Preview a Badge from a Group
       description: This feature was introduced in GitLab 10.6.
       operationId: getApiV4GroupsIdBadgesRender
       parameters:
@@ -255,7 +255,7 @@ paths:
     delete:
       tags:
       - Groups
-      summary: GitLab Denies an Access Request for the Given User.
+      summary: GitLab Denies an Access Request for the Given User
       description: This feature was introduced in GitLab 8.11.
       operationId: deleteApiV4GroupsIdAccessRequestsUserId
       parameters:
@@ -285,7 +285,7 @@ paths:
     put:
       tags:
       - Groups
-      summary: GitLab Approves an Access Request for the Given User.
+      summary: GitLab Approves an Access Request for the Given User
       description: This feature was introduced in GitLab 8.11.
       operationId: putApiV4GroupsIdAccessRequestsUserIdApprove
       parameters:
@@ -327,7 +327,7 @@ paths:
                 username: raymond_smith
                 name: Raymond Smith
                 state: active
-                created_at: '2012-10-22T14:13:35.000Z'
+                created_at: 2012-10-22 14:13:35+00:00
                 access_level: 20
       x-microcks-operation:
         delay: 0
@@ -336,7 +336,7 @@ paths:
     get:
       tags:
       - Groups
-      summary: GitLab Gets a List of Access Requests for a Group.
+      summary: GitLab Gets a List of Access Requests for a Group
       description: This feature was introduced in GitLab 8.11.
       operationId: getApiV4GroupsIdAccessRequests
       parameters:
@@ -376,7 +376,7 @@ paths:
     post:
       tags:
       - Groups
-      summary: GitLab Requests Access for the Authenticated User to a Group.
+      summary: GitLab Requests Access for the Authenticated User to a Group
       description: This feature was introduced in GitLab 8.11.
       operationId: postApiV4GroupsIdAccessRequests
       parameters:
@@ -400,13 +400,22 @@ paths:
                 username: raymond_smith
                 name: Raymond Smith
                 state: active
-                created_at: '2012-10-22T14:13:35.000Z'
+                created_at: 2012-10-22 14:13:35+00:00
                 access_level: 20
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
 components:
   schemas:
+    API_Entities_CustomAttribute:
+      type: object
+      properties:
+        key:
+          type: string
+          example: foo
+        value:
+          type: string
+          example: bar
     API_Entities_Badge:
       type: object
       properties:
@@ -432,6 +441,25 @@ components:
           type: string
           example: example_value
       description: API_Entities_Badge model
+    API_Entities_BasicBadgeDetails:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Example Project
+        link_url:
+          type: string
+          example: https://gitlab.com/example
+        image_url:
+          type: string
+          example: https://gitlab.com/example
+        rendered_link_url:
+          type: string
+          example: https://gitlab.com/example
+        rendered_image_url:
+          type: string
+          example: https://gitlab.com/example
+      description: API_Entities_BasicBadgeDetails model
     API_Entities_AccessRequester:
       type: object
       properties:
@@ -468,31 +496,8 @@ components:
           type: string
           example: '2026-04-17T12:00:00Z'
       description: API_Entities_AccessRequester model
-    API_Entities_BasicBadgeDetails:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Example Project
-        link_url:
-          type: string
-          example: https://gitlab.com/example
-        image_url:
-          type: string
-          example: https://gitlab.com/example
-        rendered_link_url:
-          type: string
-          example: https://gitlab.com/example
-        rendered_image_url:
-          type: string
-          example: https://gitlab.com/example
-      description: API_Entities_BasicBadgeDetails model
-    API_Entities_CustomAttribute:
-      type: object
-      properties:
-        key:
-          type: string
-          example: foo
-        value:
-          type: string
-          example: bar
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Private-Token

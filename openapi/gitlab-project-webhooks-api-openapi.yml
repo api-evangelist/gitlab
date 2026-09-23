@@ -1,16 +1,18 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitLab api/v4/ Admin Project Webhooks API
-  version: v4
-  description: Needs description.
+  title: GitLab Webhooks Project Webhooks API
+  description: The GitLab Webhooks API provides REST endpoints for managing project and group webhooks. Webhooks can be configured to send HTTP POST requests to external URLs when events occur in GitLab, such as pushes, merge requests, issues, pipelines, and deployments. This API covers webhook configuration, event history, and test trigger operations.
+  version: '4'
+  contact:
+    name: GitLab Support
+    url: https://about.gitlab.com/support/
   termsOfService: https://about.gitlab.com/terms/
-  license:
-    name: CC BY-SA 4.0
-    url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
 servers:
-- url: https://www.gitlab.com/api/
+- url: https://gitlab.com/api/v4
+  description: GitLab.com Production Server
 security:
-- ApiKeyAuth: []
+- privateToken: []
+- bearerAuth: []
 tags:
 - name: Project Webhooks
   description: Manage webhooks for a specific project.
@@ -146,6 +148,88 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    WebhookInput:
+      type: object
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          format: uri
+          description: The URL to send webhook POST requests to.
+          example: https://gitlab.com/example
+        name:
+          type: string
+          description: Optional name for the webhook.
+          example: Example Project
+        description:
+          type: string
+          description: Optional description of the webhook.
+          example: Example description
+        secret_token:
+          type: string
+          description: A secret token to validate received payloads. Sent as the X-Gitlab-Token header.
+          example: glpat-example-token
+        enable_ssl_verification:
+          type: boolean
+          description: Whether to verify SSL certificates on the webhook URL.
+          example: true
+        push_events:
+          type: boolean
+          description: Trigger on push events.
+          example: true
+        tag_push_events:
+          type: boolean
+          description: Trigger on tag push events.
+          example: true
+        issues_events:
+          type: boolean
+          description: Trigger on issue events.
+          example: true
+        confidential_issues_events:
+          type: boolean
+          description: Trigger on confidential issue events.
+          example: true
+        merge_requests_events:
+          type: boolean
+          description: Trigger on merge request events.
+          example: true
+        note_events:
+          type: boolean
+          description: Trigger on comment events.
+          example: true
+        confidential_note_events:
+          type: boolean
+          description: Trigger on confidential comment events.
+          example: true
+        job_events:
+          type: boolean
+          description: Trigger on job status change events.
+          example: true
+        pipeline_events:
+          type: boolean
+          description: Trigger on pipeline status change events.
+          example: true
+        wiki_page_events:
+          type: boolean
+          description: Trigger on wiki page events.
+          example: true
+        deployment_events:
+          type: boolean
+          description: Trigger on deployment events.
+          example: true
+        releases_events:
+          type: boolean
+          description: Trigger on release events.
+          example: true
+        member_events:
+          type: boolean
+          description: Trigger on group member events.
+          example: true
+        push_events_branch_filter:
+          type: string
+          description: Branch name or wildcard pattern to filter push events.
+          example: main
     Webhook:
       type: object
       properties:
@@ -252,88 +336,6 @@ components:
           format: date-time
           description: If set, the webhook is temporarily disabled until this time.
           example: example_value
-    WebhookInput:
-      type: object
-      required:
-      - url
-      properties:
-        url:
-          type: string
-          format: uri
-          description: The URL to send webhook POST requests to.
-          example: https://gitlab.com/example
-        name:
-          type: string
-          description: Optional name for the webhook.
-          example: Example Project
-        description:
-          type: string
-          description: Optional description of the webhook.
-          example: Example description
-        secret_token:
-          type: string
-          description: A secret token to validate received payloads. Sent as the X-Gitlab-Token header.
-          example: glpat-example-token
-        enable_ssl_verification:
-          type: boolean
-          description: Whether to verify SSL certificates on the webhook URL.
-          example: true
-        push_events:
-          type: boolean
-          description: Trigger on push events.
-          example: true
-        tag_push_events:
-          type: boolean
-          description: Trigger on tag push events.
-          example: true
-        issues_events:
-          type: boolean
-          description: Trigger on issue events.
-          example: true
-        confidential_issues_events:
-          type: boolean
-          description: Trigger on confidential issue events.
-          example: true
-        merge_requests_events:
-          type: boolean
-          description: Trigger on merge request events.
-          example: true
-        note_events:
-          type: boolean
-          description: Trigger on comment events.
-          example: true
-        confidential_note_events:
-          type: boolean
-          description: Trigger on confidential comment events.
-          example: true
-        job_events:
-          type: boolean
-          description: Trigger on job status change events.
-          example: true
-        pipeline_events:
-          type: boolean
-          description: Trigger on pipeline status change events.
-          example: true
-        wiki_page_events:
-          type: boolean
-          description: Trigger on wiki page events.
-          example: true
-        deployment_events:
-          type: boolean
-          description: Trigger on deployment events.
-          example: true
-        releases_events:
-          type: boolean
-          description: Trigger on release events.
-          example: true
-        member_events:
-          type: boolean
-          description: Trigger on group member events.
-          example: true
-        push_events_branch_filter:
-          type: string
-          description: Branch name or wildcard pattern to filter push events.
-          example: main
   parameters:
     hookId:
       name: hook_id
@@ -349,3 +351,16 @@ components:
       description: The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name.
       schema:
         type: string
+  securitySchemes:
+    privateToken:
+      type: apiKey
+      in: header
+      name: PRIVATE-TOKEN
+      description: GitLab personal access token or project access token.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token.
+externalDocs:
+  description: GitLab Project Webhooks API Documentation
+  url: https://docs.gitlab.com/api/project_webhooks/

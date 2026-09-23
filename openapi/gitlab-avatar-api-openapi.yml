@@ -1,8 +1,8 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitLab api/v4/ Admin Avatar API
+  title: GitLab Avatar API
   version: v4
-  description: Needs description.
+  description: An OpenAPI definition for the GitLab REST API.
   termsOfService: https://about.gitlab.com/terms/
   license:
     name: CC BY-SA 4.0
@@ -45,6 +45,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Get api V4 avatar
+      x-summary-source: derived
 components:
   schemas:
     API_Entities_Avatar:
@@ -54,3 +56,8 @@ components:
           type: string
           example: https://gitlab.com/example
       description: API_Entities_Avatar model
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Private-Token

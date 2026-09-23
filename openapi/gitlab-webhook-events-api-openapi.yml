@@ -1,16 +1,18 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitLab api/v4/ Admin Webhook Events API
-  version: v4
-  description: Needs description.
+  title: GitLab Webhooks Webhook Events API
+  description: The GitLab Webhooks API provides REST endpoints for managing project and group webhooks. Webhooks can be configured to send HTTP POST requests to external URLs when events occur in GitLab, such as pushes, merge requests, issues, pipelines, and deployments. This API covers webhook configuration, event history, and test trigger operations.
+  version: '4'
+  contact:
+    name: GitLab Support
+    url: https://about.gitlab.com/support/
   termsOfService: https://about.gitlab.com/terms/
-  license:
-    name: CC BY-SA 4.0
-    url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
 servers:
-- url: https://www.gitlab.com/api/
+- url: https://gitlab.com/api/v4
+  description: GitLab.com Production Server
 security:
-- ApiKeyAuth: []
+- privateToken: []
+- bearerAuth: []
 tags:
 - name: Webhook Events
   description: Access webhook delivery history and resend events.
@@ -98,21 +100,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    hookId:
-      name: hook_id
-      in: path
-      required: true
-      description: The ID of the webhook.
-      schema:
-        type: integer
-    projectId:
-      name: id
-      in: path
-      required: true
-      description: The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name.
-      schema:
-        type: string
   schemas:
     WebhookEvent:
       type: object
@@ -161,3 +148,31 @@ components:
           format: date-time
           description: The date and time the event was delivered.
           example: '2026-04-17T12:00:00Z'
+  parameters:
+    hookId:
+      name: hook_id
+      in: path
+      required: true
+      description: The ID of the webhook.
+      schema:
+        type: integer
+    projectId:
+      name: id
+      in: path
+      required: true
+      description: The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name.
+      schema:
+        type: string
+  securitySchemes:
+    privateToken:
+      type: apiKey
+      in: header
+      name: PRIVATE-TOKEN
+      description: GitLab personal access token or project access token.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token.
+externalDocs:
+  description: GitLab Project Webhooks API Documentation
+  url: https://docs.gitlab.com/api/project_webhooks/

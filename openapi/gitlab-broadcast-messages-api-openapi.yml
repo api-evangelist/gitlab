@@ -1,8 +1,8 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitLab api/v4/ Admin Broadcast Messages API
+  title: GitLab Broadcast Messages API
   version: v4
-  description: Needs description.
+  description: An OpenAPI definition for the GitLab REST API.
   termsOfService: https://about.gitlab.com/terms/
   license:
     name: CC BY-SA 4.0
@@ -13,6 +13,7 @@ security:
 - ApiKeyAuth: []
 tags:
 - name: Broadcast Messages
+  description: Operations about broadcast_messages
 paths:
   /api/v4/broadcast_messages/{id}:
     get:
@@ -274,3 +275,8 @@ components:
           type: string
           example: example_value
       description: API_Entities_BroadcastMessage model
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Private-Token

@@ -1,16 +1,15 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitLab api/v4/ Admin User Info API
-  version: v4
-  description: Needs description.
+  title: GitLab OAuth 2.0 User Info API
+  description: The GitLab OAuth 2.0 API enables third-party services to access GitLab resources on behalf of users using the OAuth 2.0 protocol. It supports authorization code with PKCE, device authorization grant, and resource owner password credentials flows. Applications must first be registered in GitLab user settings before using these endpoints.
+  version: '4'
+  contact:
+    name: GitLab Support
+    url: https://about.gitlab.com/support/
   termsOfService: https://about.gitlab.com/terms/
-  license:
-    name: CC BY-SA 4.0
-    url: https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE
 servers:
-- url: https://www.gitlab.com/api/
-security:
-- ApiKeyAuth: []
+- url: https://gitlab.com
+  description: GitLab.com Production Server
 tags:
 - name: User Info
   description: Endpoints for retrieving authenticated user information via OAuth.
@@ -77,3 +76,11 @@ components:
           description: List of groups the user belongs to.
           items:
             type: string
+  securitySchemes:
+    oauthToken:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token obtained via the authorization flow.
+externalDocs:
+  description: GitLab OAuth 2.0 API Documentation
+  url: https://docs.gitlab.com/api/oauth2/

@@ -1,8 +1,8 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitLab api/v4/ Admin API
+  title: GitLab Admin API
   version: v4
-  description: Needs description.
+  description: An OpenAPI definition for the GitLab REST API.
   termsOfService: https://about.gitlab.com/terms/
   license:
     name: CC BY-SA 4.0
@@ -61,6 +61,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Get api V4 admin batched background migrations id
+      x-summary-source: derived
   /api/v4/admin/batched_background_migrations:
     get:
       tags:
@@ -99,6 +101,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Get api V4 admin batched background migrations
+      x-summary-source: derived
   /api/v4/admin/batched_background_migrations/{id}/resume:
     put:
       tags:
@@ -151,6 +155,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Put api V4 admin batched background migrations id resume
+      x-summary-source: derived
   /api/v4/admin/batched_background_migrations/{id}/pause:
     put:
       tags:
@@ -203,6 +209,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Put api V4 admin batched background migrations id pause
+      x-summary-source: derived
   /api/v4/admin/ci/variables/{key}:
     get:
       tags:
@@ -230,6 +238,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Get api V4 admin ci variables key
+      x-summary-source: derived
     put:
       tags:
       - Admin
@@ -279,6 +289,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Put api V4 admin ci variables key
+      x-summary-source: derived
     delete:
       tags:
       - Admin
@@ -305,6 +317,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Delete api V4 admin ci variables key
+      x-summary-source: derived
   /api/v4/admin/ci/variables:
     get:
       tags:
@@ -338,6 +352,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Get api V4 admin ci variables
+      x-summary-source: derived
     post:
       tags:
       - Admin
@@ -386,6 +402,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Post api V4 admin ci variables
+      x-summary-source: derived
   /api/v4/admin/databases/{database_name}/dictionary/tables/{table_name}:
     get:
       tags:
@@ -429,6 +447,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Get api V4 admin databases database name dictionary tables table name
+      x-summary-source: derived
   /api/v4/admin/clusters/{cluster_id}:
     get:
       tags:
@@ -719,151 +739,10 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Post api V4 admin migrations timestamp mark
+      x-summary-source: derived
 components:
   schemas:
-    API_Entities_Ci_Variable:
-      type: object
-      properties:
-        variable_type:
-          type: string
-          example: env_var
-        key:
-          type: string
-          example: TEST_VARIABLE_1
-        value:
-          type: string
-          example: TEST_1
-        protected:
-          type: boolean
-          example: true
-        masked:
-          type: boolean
-          example: true
-        raw:
-          type: boolean
-          example: true
-        environment_scope:
-          type: string
-          example: '*'
-      description: API_Entities_Ci_Variable model
-    API_Entities_Dictionary_Table:
-      type: object
-      properties:
-        table_name:
-          type: string
-          example: users
-        feature_categories:
-          type: array
-          items:
-            type: string
-            example: database
-      description: API_Entities_Dictionary_Table model
-    API_Entities_ProjectIdentity:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 1
-        description:
-          type: string
-          example: desc
-        name:
-          type: string
-          example: project1
-        name_with_namespace:
-          type: string
-          example: John Doe / project1
-        path:
-          type: string
-          example: project1
-        path_with_namespace:
-          type: string
-          example: namespace1/project1
-        created_at:
-          type: string
-          format: date-time
-          example: 2020-05-07 04:27:17.016000+00:00
-    API_Entities_CustomAttribute:
-      type: object
-      properties:
-        key:
-          type: string
-          example: foo
-        value:
-          type: string
-          example: bar
-    API_Entities_Provider_Gcp:
-      type: object
-      properties:
-        cluster_id:
-          type: string
-          example: '123456'
-        status_name:
-          type: string
-          example: Example Project
-        gcp_project_id:
-          type: string
-          example: '123456'
-        zone:
-          type: string
-          example: example_value
-        machine_type:
-          type: string
-          example: example_value
-        num_nodes:
-          type: string
-          example: example_value
-        endpoint:
-          type: string
-          example: example_value
-    API_Entities_Platform_Kubernetes:
-      type: object
-      properties:
-        api_url:
-          type: string
-          example: https://gitlab.com/example
-        namespace:
-          type: string
-          example: Example Project
-        authorization_type:
-          type: string
-          example: '2026-04-17T12:00:00Z'
-        ca_cert:
-          type: string
-          example: example_value
-    API_Entities_UserBasic:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 1
-        username:
-          type: string
-          example: admin
-        name:
-          type: string
-          example: Administrator
-        state:
-          type: string
-          example: active
-        avatar_url:
-          type: string
-          example: https://gravatar.com/avatar/1
-        avatar_path:
-          type: string
-          example: /user/avatar/28/The-Big-Lebowski-400-400.png
-        custom_attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_Entities_CustomAttribute'
-        web_url:
-          type: string
-          example: https://gitlab.example.com/root
-        email:
-          type: string
-          example: user@example.com
     API_Entities_Cluster:
       type: object
       properties:
@@ -909,6 +788,68 @@ components:
         management_project:
           $ref: '#/components/schemas/API_Entities_ProjectIdentity'
       description: API_Entities_Cluster model
+    API_Entities_Dictionary_Table:
+      type: object
+      properties:
+        table_name:
+          type: string
+          example: users
+        feature_categories:
+          type: array
+          items:
+            type: string
+            example: database
+      description: API_Entities_Dictionary_Table model
+    API_Entities_Provider_Gcp:
+      type: object
+      properties:
+        cluster_id:
+          type: string
+          example: '123456'
+        status_name:
+          type: string
+          example: Example Project
+        gcp_project_id:
+          type: string
+          example: '123456'
+        zone:
+          type: string
+          example: example_value
+        machine_type:
+          type: string
+          example: example_value
+        num_nodes:
+          type: string
+          example: example_value
+        endpoint:
+          type: string
+          example: example_value
+    API_Entities_ProjectIdentity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+        description:
+          type: string
+          example: desc
+        name:
+          type: string
+          example: project1
+        name_with_namespace:
+          type: string
+          example: John Doe / project1
+        path:
+          type: string
+          example: project1
+        path_with_namespace:
+          type: string
+          example: namespace1/project1
+        created_at:
+          type: string
+          format: date-time
+          example: 2020-05-07 04:27:17.016000+00:00
     API_Entities_BatchedBackgroundMigration:
       type: object
       properties:
@@ -931,5 +872,91 @@ components:
         created_at:
           type: string
           format: date-time
-          example: '2022-11-28T14:26:39.000Z'
+          example: 2022-11-28 14:26:39+00:00
       description: API_Entities_BatchedBackgroundMigration model
+    API_Entities_Platform_Kubernetes:
+      type: object
+      properties:
+        api_url:
+          type: string
+          example: https://gitlab.com/example
+        namespace:
+          type: string
+          example: Example Project
+        authorization_type:
+          type: string
+          example: '2026-04-17T12:00:00Z'
+        ca_cert:
+          type: string
+          example: example_value
+    API_Entities_Ci_Variable:
+      type: object
+      properties:
+        variable_type:
+          type: string
+          example: env_var
+        key:
+          type: string
+          example: TEST_VARIABLE_1
+        value:
+          type: string
+          example: TEST_1
+        protected:
+          type: boolean
+          example: true
+        masked:
+          type: boolean
+          example: true
+        raw:
+          type: boolean
+          example: true
+        environment_scope:
+          type: string
+          example: '*'
+      description: API_Entities_Ci_Variable model
+    API_Entities_CustomAttribute:
+      type: object
+      properties:
+        key:
+          type: string
+          example: foo
+        value:
+          type: string
+          example: bar
+    API_Entities_UserBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+        username:
+          type: string
+          example: admin
+        name:
+          type: string
+          example: Administrator
+        state:
+          type: string
+          example: active
+        avatar_url:
+          type: string
+          example: https://gravatar.com/avatar/1
+        avatar_path:
+          type: string
+          example: /user/avatar/28/The-Big-Lebowski-400-400.png
+        custom_attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_Entities_CustomAttribute'
+        web_url:
+          type: string
+          example: https://gitlab.example.com/root
+        email:
+          type: string
+          example: user@example.com
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Private-Token

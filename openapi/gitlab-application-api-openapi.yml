@@ -1,8 +1,8 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GitLab api/v4/ Admin Application API
+  title: GitLab Application API
   version: v4
-  description: Needs description.
+  description: An OpenAPI definition for the GitLab REST API.
   termsOfService: https://about.gitlab.com/terms/
   license:
     name: CC BY-SA 4.0
@@ -30,6 +30,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Get api V4 application appearance
+      x-summary-source: derived
     put:
       tags:
       - Application
@@ -102,6 +104,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Put api V4 application appearance
+      x-summary-source: derived
   /api/v4/application/plan_limits:
     get:
       tags:
@@ -269,6 +273,58 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    API_Entities_Appearance:
+      type: object
+      properties:
+        title:
+          type: string
+          example: example_value
+        description:
+          type: string
+          example: Example description
+        pwa_name:
+          type: string
+          example: Example Project
+        pwa_short_name:
+          type: string
+          example: Example Project
+        pwa_description:
+          type: string
+          example: Example description
+        logo:
+          type: string
+          example: example_value
+        pwa_icon:
+          type: string
+          example: example_value
+        header_logo:
+          type: string
+          example: example_value
+        favicon:
+          type: string
+          example: example_value
+        new_project_guidelines:
+          type: string
+          example: example_value
+        profile_image_guidelines:
+          type: string
+          example: example_value
+        header_message:
+          type: string
+          example: example_value
+        footer_message:
+          type: string
+          example: example_value
+        message_background_color:
+          type: string
+          example: example_value
+        message_font_color:
+          type: string
+          example: example_value
+        email_header_and_footer_enabled:
+          type: string
+          example: user@example.com
+      description: API_Entities_Appearance model
     API_Entities_PlanLimit:
       type: object
       properties:
@@ -353,55 +409,8 @@ components:
           format: int32
           example: 15000
       description: API_Entities_PlanLimit model
-    API_Entities_Appearance:
-      type: object
-      properties:
-        title:
-          type: string
-          example: example_value
-        description:
-          type: string
-          example: Example description
-        pwa_name:
-          type: string
-          example: Example Project
-        pwa_short_name:
-          type: string
-          example: Example Project
-        pwa_description:
-          type: string
-          example: Example description
-        logo:
-          type: string
-          example: example_value
-        pwa_icon:
-          type: string
-          example: example_value
-        header_logo:
-          type: string
-          example: example_value
-        favicon:
-          type: string
-          example: example_value
-        new_project_guidelines:
-          type: string
-          example: example_value
-        profile_image_guidelines:
-          type: string
-          example: example_value
-        header_message:
-          type: string
-          example: example_value
-        footer_message:
-          type: string
-          example: example_value
-        message_background_color:
-          type: string
-          example: example_value
-        message_font_color:
-          type: string
-          example: example_value
-        email_header_and_footer_enabled:
-          type: string
-          example: user@example.com
-      description: API_Entities_Appearance model
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Private-Token
