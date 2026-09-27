@@ -85,25 +85,33 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    RevokeTokenRequest:
+    TokenInfo:
       type: object
-      required:
-      - client_id
-      - client_secret
-      - token
       properties:
-        client_id:
-          type: string
-          description: The application ID registered in GitLab.
-          example: '123456'
-        client_secret:
-          type: string
-          description: The application secret.
-          example: example_value
-        token:
-          type: string
-          description: The access token or refresh token to revoke.
-          example: glpat-example-token
+        resource_owner_id:
+          type: integer
+          description: The ID of the user who authorized the token.
+          example: 42
+        application:
+          type: object
+          description: Information about the OAuth application.
+          properties:
+            uid:
+              type: string
+              description: The application client ID.
+        scope:
+          type: array
+          description: List of scopes the token has been granted.
+          items:
+            type: string
+        expires_in_seconds:
+          type: integer
+          description: Remaining lifetime of the token in seconds.
+          example: 42
+        created_at:
+          type: number
+          description: Unix timestamp of when the token was created.
+          example: 42.5
     TokenRequest:
       type: object
       required:
@@ -156,33 +164,6 @@ components:
           type: string
           description: Resource owner password. Only for password grant type.
           example: example_value
-    TokenInfo:
-      type: object
-      properties:
-        resource_owner_id:
-          type: integer
-          description: The ID of the user who authorized the token.
-          example: 42
-        application:
-          type: object
-          description: Information about the OAuth application.
-          properties:
-            uid:
-              type: string
-              description: The application client ID.
-        scope:
-          type: array
-          description: List of scopes the token has been granted.
-          items:
-            type: string
-        expires_in_seconds:
-          type: integer
-          description: Remaining lifetime of the token in seconds.
-          example: 42
-        created_at:
-          type: number
-          description: Unix timestamp of when the token was created.
-          example: 42.5
     TokenResponse:
       type: object
       properties:
@@ -210,6 +191,25 @@ components:
           type: integer
           description: Unix timestamp of when the token was created.
           example: 42
+    RevokeTokenRequest:
+      type: object
+      required:
+      - client_id
+      - client_secret
+      - token
+      properties:
+        client_id:
+          type: string
+          description: The application ID registered in GitLab.
+          example: '123456'
+        client_secret:
+          type: string
+          description: The application secret.
+          example: example_value
+        token:
+          type: string
+          description: The access token or refresh token to revoke.
+          example: glpat-example-token
   securitySchemes:
     oauthToken:
       type: http

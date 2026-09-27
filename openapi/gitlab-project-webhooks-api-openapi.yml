@@ -337,13 +337,6 @@ components:
           description: If set, the webhook is temporarily disabled until this time.
           example: example_value
   parameters:
-    hookId:
-      name: hook_id
-      in: path
-      required: true
-      description: The ID of the webhook.
-      schema:
-        type: integer
     projectId:
       name: id
       in: path
@@ -351,6 +344,13 @@ components:
       description: The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name.
       schema:
         type: string
+    hookId:
+      name: hook_id
+      in: path
+      required: true
+      description: The ID of the webhook.
+      schema:
+        type: integer
   securitySchemes:
     privateToken:
       type: apiKey
