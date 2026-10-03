@@ -376,6 +376,34 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    API_Entities_BulkImports_EntityFailure:
+      type: object
+      properties:
+        relation:
+          type: string
+          example: group
+        step:
+          type: string
+          example: extractor
+        exception_message:
+          type: string
+          example: error message
+        exception_class:
+          type: string
+          example: Exception
+        correlation_id_value:
+          type: string
+          example: dfcf583058ed4508e4c7c617bd7f0edd
+        created_at:
+          type: string
+          format: date-time
+          example: 2012-05-28 11:42:42+00:00
+        pipeline_class:
+          type: string
+          example: BulkImports::Groups::Pipelines::GroupPipeline
+        pipeline_step:
+          type: string
+          example: extractor
     API_Entities_BulkImports:
       type: object
       properties:
@@ -445,34 +473,6 @@ components:
           type: boolean
           example: true
       description: API_Entities_BulkImports model
-    API_Entities_BulkImports_EntityFailure:
-      type: object
-      properties:
-        relation:
-          type: string
-          example: group
-        step:
-          type: string
-          example: extractor
-        exception_message:
-          type: string
-          example: error message
-        exception_class:
-          type: string
-          example: Exception
-        correlation_id_value:
-          type: string
-          example: dfcf583058ed4508e4c7c617bd7f0edd
-        created_at:
-          type: string
-          format: date-time
-          example: 2012-05-28 11:42:42+00:00
-        pipeline_class:
-          type: string
-          example: BulkImports::Groups::Pipelines::GroupPipeline
-        pipeline_step:
-          type: string
-          example: extractor
     API_Entities_BulkImport:
       type: object
       properties:
