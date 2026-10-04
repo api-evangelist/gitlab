@@ -1416,6 +1416,7 @@ tags:
 - Software Development
 - Source Control
 - GitLab
+- Git
 kind: contract
 deliveryModel:
   model: saas
