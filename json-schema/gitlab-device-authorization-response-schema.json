@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-device-authorization-response-schema.json",
+  "title": "DeviceAuthorizationResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-authorization-api-openapi.yml#/components/schemas/DeviceAuthorizationResponse",
+  "type": "object",
+  "properties": {
+    "device_code": {
+      "type": "string",
+      "description": "The device verification code used to poll for the access token."
+    },
+    "user_code": {
+      "type": "string",
+      "description": "The end-user verification code to enter on the authorization page."
+    },
+    "verification_uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "The end-user verification URI on the authorization server."
+    },
+    "verification_uri_complete": {
+      "type": "string",
+      "format": "uri",
+      "description": "The verification URI that includes the user_code."
+    },
+    "expires_in": {
+      "type": "integer",
+      "description": "The lifetime in seconds of the device_code and user_code."
+    },
+    "interval": {
+      "type": "integer",
+      "description": "Minimum number of seconds between polling requests."
+    }
+  }
+}

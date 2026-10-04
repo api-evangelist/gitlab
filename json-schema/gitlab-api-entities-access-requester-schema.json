@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-api-entities-access-requester-schema.json",
+  "title": "API_Entities_AccessRequester",
+  "description": "API_Entities_AccessRequester model",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-groups-api-openapi.yml#/components/schemas/API_Entities_AccessRequester",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "username": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "avatar_url": {
+      "type": "string"
+    },
+    "avatar_path": {
+      "type": "string"
+    },
+    "custom_attributes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/API_Entities_CustomAttribute"
+      }
+    },
+    "web_url": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "requested_at": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "API_Entities_CustomAttribute": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

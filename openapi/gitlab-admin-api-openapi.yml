@@ -743,67 +743,30 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    API_Entities_BatchedBackgroundMigration:
+    API_Entities_Provider_Gcp:
       type: object
       properties:
-        id:
+        cluster_id:
           type: string
-          example: '1234'
-        job_class_name:
+          example: '123456'
+        status_name:
           type: string
-          example: CopyColumnUsingBackgroundMigrationJob
-        table_name:
+          example: Example Project
+        gcp_project_id:
           type: string
-          example: events
-        status:
+          example: '123456'
+        zone:
           type: string
-          example: active
-        progress:
-          type: number
-          format: float
-          example: 50
-        created_at:
+          example: example_value
+        machine_type:
           type: string
-          format: date-time
-          example: 2022-11-28 14:26:39+00:00
-      description: API_Entities_BatchedBackgroundMigration model
-    API_Entities_Ci_Variable:
-      type: object
-      properties:
-        variable_type:
+          example: example_value
+        num_nodes:
           type: string
-          example: env_var
-        key:
+          example: example_value
+        endpoint:
           type: string
-          example: TEST_VARIABLE_1
-        value:
-          type: string
-          example: TEST_1
-        protected:
-          type: boolean
-          example: true
-        masked:
-          type: boolean
-          example: true
-        raw:
-          type: boolean
-          example: true
-        environment_scope:
-          type: string
-          example: '*'
-      description: API_Entities_Ci_Variable model
-    API_Entities_Dictionary_Table:
-      type: object
-      properties:
-        table_name:
-          type: string
-          example: users
-        feature_categories:
-          type: array
-          items:
-            type: string
-            example: database
-      description: API_Entities_Dictionary_Table model
+          example: example_value
     API_Entities_Cluster:
       type: object
       properties:
@@ -849,6 +812,42 @@ components:
         management_project:
           $ref: '#/components/schemas/API_Entities_ProjectIdentity'
       description: API_Entities_Cluster model
+    API_Entities_Dictionary_Table:
+      type: object
+      properties:
+        table_name:
+          type: string
+          example: users
+        feature_categories:
+          type: array
+          items:
+            type: string
+            example: database
+      description: API_Entities_Dictionary_Table model
+    API_Entities_BatchedBackgroundMigration:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '1234'
+        job_class_name:
+          type: string
+          example: CopyColumnUsingBackgroundMigrationJob
+        table_name:
+          type: string
+          example: events
+        status:
+          type: string
+          example: active
+        progress:
+          type: number
+          format: float
+          example: 50
+        created_at:
+          type: string
+          format: date-time
+          example: 2022-11-28 14:26:39+00:00
+      description: API_Entities_BatchedBackgroundMigration model
     API_Entities_UserBasic:
       type: object
       properties:
@@ -896,6 +895,15 @@ components:
         ca_cert:
           type: string
           example: example_value
+    API_Entities_CustomAttribute:
+      type: object
+      properties:
+        key:
+          type: string
+          example: foo
+        value:
+          type: string
+          example: bar
     API_Entities_ProjectIdentity:
       type: object
       properties:
@@ -922,39 +930,31 @@ components:
           type: string
           format: date-time
           example: 2020-05-07 04:27:17.016000+00:00
-    API_Entities_CustomAttribute:
+    API_Entities_Ci_Variable:
       type: object
       properties:
+        variable_type:
+          type: string
+          example: env_var
         key:
           type: string
-          example: foo
+          example: TEST_VARIABLE_1
         value:
           type: string
-          example: bar
-    API_Entities_Provider_Gcp:
-      type: object
-      properties:
-        cluster_id:
+          example: TEST_1
+        protected:
+          type: boolean
+          example: true
+        masked:
+          type: boolean
+          example: true
+        raw:
+          type: boolean
+          example: true
+        environment_scope:
           type: string
-          example: '123456'
-        status_name:
-          type: string
-          example: Example Project
-        gcp_project_id:
-          type: string
-          example: '123456'
-        zone:
-          type: string
-          example: example_value
-        machine_type:
-          type: string
-          example: example_value
-        num_nodes:
-          type: string
-          example: example_value
-        endpoint:
-          type: string
-          example: example_value
+          example: '*'
+      description: API_Entities_Ci_Variable model
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

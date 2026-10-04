@@ -147,6 +147,21 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    projectId:
+      name: id
+      in: path
+      required: true
+      description: The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name.
+      schema:
+        type: string
+    hookId:
+      name: hook_id
+      in: path
+      required: true
+      description: The ID of the webhook.
+      schema:
+        type: integer
   schemas:
     WebhookInput:
       type: object
@@ -336,21 +351,6 @@ components:
           format: date-time
           description: If set, the webhook is temporarily disabled until this time.
           example: example_value
-  parameters:
-    projectId:
-      name: id
-      in: path
-      required: true
-      description: The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name.
-      schema:
-        type: string
-    hookId:
-      name: hook_id
-      in: path
-      required: true
-      description: The ID of the webhook.
-      schema:
-        type: integer
   securitySchemes:
     privateToken:
       type: apiKey

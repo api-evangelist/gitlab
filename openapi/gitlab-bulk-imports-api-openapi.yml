@@ -376,6 +376,34 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    API_Entities_BulkImport:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+        status:
+          type: string
+          example: finished
+          enum:
+          - created
+          - started
+          - finished
+          - timeout
+          - failed
+        source_type:
+          type: string
+          example: gitlab
+        created_at:
+          type: string
+          format: date-time
+          example: 2012-05-28 11:42:42+00:00
+        updated_at:
+          type: string
+          format: date-time
+          example: 2012-05-28 11:42:42+00:00
+      description: API_Entities_BulkImport model
     API_Entities_BulkImports_EntityFailure:
       type: object
       properties:
@@ -473,34 +501,6 @@ components:
           type: boolean
           example: true
       description: API_Entities_BulkImports model
-    API_Entities_BulkImport:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 1
-        status:
-          type: string
-          example: finished
-          enum:
-          - created
-          - started
-          - finished
-          - timeout
-          - failed
-        source_type:
-          type: string
-          example: gitlab
-        created_at:
-          type: string
-          format: date-time
-          example: 2012-05-28 11:42:42+00:00
-        updated_at:
-          type: string
-          format: date-time
-          example: 2012-05-28 11:42:42+00:00
-      description: API_Entities_BulkImport model
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

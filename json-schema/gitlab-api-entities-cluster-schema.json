@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-api-entities-cluster-schema.json",
+  "title": "API_Entities_Cluster",
+  "description": "API_Entities_Cluster model",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_Cluster",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "string"
+    },
+    "managed": {
+      "type": "string"
+    },
+    "provider_type": {
+      "type": "string"
+    },
+    "platform_type": {
+      "type": "string"
+    },
+    "environment_scope": {
+      "type": "string"
+    },
+    "cluster_type": {
+      "type": "string"
+    },
+    "namespace_per_environment": {
+      "type": "string"
+    },
+    "user": {
+      "$ref": "#/$defs/API_Entities_UserBasic"
+    },
+    "platform_kubernetes": {
+      "$ref": "#/$defs/API_Entities_Platform_Kubernetes"
+    },
+    "provider_gcp": {
+      "$ref": "#/$defs/API_Entities_Provider_Gcp"
+    },
+    "management_project": {
+      "$ref": "#/$defs/API_Entities_ProjectIdentity"
+    }
+  },
+  "$defs": {
+    "API_Entities_CustomAttribute": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "API_Entities_Platform_Kubernetes": {
+      "type": "object",
+      "properties": {
+        "api_url": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "authorization_type": {
+          "type": "string"
+        },
+        "ca_cert": {
+          "type": "string"
+        }
+      }
+    },
+    "API_Entities_ProjectIdentity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "name_with_namespace": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "path_with_namespace": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "API_Entities_Provider_Gcp": {
+      "type": "object",
+      "properties": {
+        "cluster_id": {
+          "type": "string"
+        },
+        "status_name": {
+          "type": "string"
+        },
+        "gcp_project_id": {
+          "type": "string"
+        },
+        "zone": {
+          "type": "string"
+        },
+        "machine_type": {
+          "type": "string"
+        },
+        "num_nodes": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        }
+      }
+    },
+    "API_Entities_UserBasic": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "username": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "avatar_url": {
+          "type": "string"
+        },
+        "avatar_path": {
+          "type": "string"
+        },
+        "custom_attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/API_Entities_CustomAttribute"
+          }
+        },
+        "web_url": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

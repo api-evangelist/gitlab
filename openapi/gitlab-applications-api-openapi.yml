@@ -98,6 +98,25 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    API_Entities_Application:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '123456'
+        application_id:
+          type: string
+          example: 5832fc6e14300a0d962240a8144466eef4ee93ef0d218477e55f11cf12fc3737
+        application_name:
+          type: string
+          example: MyApplication
+        callback_url:
+          type: string
+          example: https://redirect.uri
+        confidential:
+          type: boolean
+          example: true
+      description: API_Entities_Application model
     API_Entities_ApplicationWithSecret:
       type: object
       properties:
@@ -120,25 +139,6 @@ components:
           type: string
           example: ee1dd64b6adc89cf7e2c23099301ccc2c61b441064e9324d963c46902a85ec34
       description: API_Entities_ApplicationWithSecret model
-    API_Entities_Application:
-      type: object
-      properties:
-        id:
-          type: string
-          example: '123456'
-        application_id:
-          type: string
-          example: 5832fc6e14300a0d962240a8144466eef4ee93ef0d218477e55f11cf12fc3737
-        application_name:
-          type: string
-          example: MyApplication
-        callback_url:
-          type: string
-          example: https://redirect.uri
-        confidential:
-          type: boolean
-          example: true
-      description: API_Entities_Application model
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-api-entities-branch-schema.json",
+  "title": "API_Entities_Branch",
+  "description": "API_Entities_Branch model",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-projects-api-openapi.yml#/components/schemas/API_Entities_Branch",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "commit": {
+      "$ref": "#/$defs/API_Entities_Commit"
+    },
+    "merged": {
+      "type": "boolean"
+    },
+    "protected": {
+      "type": "boolean"
+    },
+    "developers_can_push": {
+      "type": "boolean"
+    },
+    "developers_can_merge": {
+      "type": "boolean"
+    },
+    "can_push": {
+      "type": "boolean"
+    },
+    "default": {
+      "type": "boolean"
+    },
+    "web_url": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "API_Entities_Commit": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "short_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "parent_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "author_name": {
+          "type": "string"
+        },
+        "author_email": {
+          "type": "string"
+        },
+        "authored_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "committer_name": {
+          "type": "string"
+        },
+        "committer_email": {
+          "type": "string"
+        },
+        "committed_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "trailers": {
+          "type": "object",
+          "properties": {}
+        },
+        "web_url": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

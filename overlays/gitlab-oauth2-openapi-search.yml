@@ -5,7 +5,7 @@ overlay: 1.0.0
 info:
   title: API Evangelist enhancements for GitLab OAuth 2.0 API
   version: 1.0.0
-extends: openapi/gitlab-oauth2-openapi.yml
+extends: ../openapi/_original/gitlab-oauth2-openapi.yml
 actions:
 - target: $.info
   update:

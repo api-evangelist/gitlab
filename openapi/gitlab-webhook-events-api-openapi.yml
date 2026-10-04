@@ -100,6 +100,21 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    projectId:
+      name: id
+      in: path
+      required: true
+      description: The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name.
+      schema:
+        type: string
+    hookId:
+      name: hook_id
+      in: path
+      required: true
+      description: The ID of the webhook.
+      schema:
+        type: integer
   schemas:
     WebhookEvent:
       type: object
@@ -148,21 +163,6 @@ components:
           format: date-time
           description: The date and time the event was delivered.
           example: '2026-04-17T12:00:00Z'
-  parameters:
-    hookId:
-      name: hook_id
-      in: path
-      required: true
-      description: The ID of the webhook.
-      schema:
-        type: integer
-    projectId:
-      name: id
-      in: path
-      required: true
-      description: The ID or URL-encoded path of the project. For example, 42 or namespace%2Fproject-name.
-      schema:
-        type: string
   securitySchemes:
     privateToken:
       type: apiKey

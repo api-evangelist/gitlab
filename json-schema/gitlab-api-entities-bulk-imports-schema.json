@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-api-entities-bulk-imports-schema.json",
+  "title": "API_Entities_BulkImports",
+  "description": "API_Entities_BulkImports model",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-bulk-imports-api-openapi.yml#/components/schemas/API_Entities_BulkImports",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "bulk_import_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "created",
+        "started",
+        "finished",
+        "timeout",
+        "failed"
+      ]
+    },
+    "entity_type": {
+      "type": "string",
+      "enum": [
+        "group",
+        "project"
+      ]
+    },
+    "source_full_path": {
+      "type": "string"
+    },
+    "destination_full_path": {
+      "type": "string"
+    },
+    "destination_name": {
+      "type": "string"
+    },
+    "destination_slug": {
+      "type": "string"
+    },
+    "destination_namespace": {
+      "type": "string"
+    },
+    "parent_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "namespace_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "project_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "failures": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/API_Entities_BulkImports_EntityFailure"
+      }
+    },
+    "migrate_projects": {
+      "type": "boolean"
+    }
+  },
+  "$defs": {
+    "API_Entities_BulkImports_EntityFailure": {
+      "type": "object",
+      "properties": {
+        "relation": {
+          "type": "string"
+        },
+        "step": {
+          "type": "string"
+        },
+        "exception_message": {
+          "type": "string"
+        },
+        "exception_class": {
+          "type": "string"
+        },
+        "correlation_id_value": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "pipeline_class": {
+          "type": "string"
+        },
+        "pipeline_step": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

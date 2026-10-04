@@ -9,6 +9,7 @@ authentication:
   docs: https://docs.gitlab.com/api/rest/authentication/
   see: authentication/gitlab-authentication.yml
 idempotency:
+  coverage: none
   supported: false
   notes: >-
     GitLab does not provide a general-purpose idempotency-key header. Mutating requests are

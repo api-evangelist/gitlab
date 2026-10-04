@@ -5,7 +5,7 @@ overlay: 1.0.0
 info:
   title: API Evangelist enhancements for GitLab Webhooks API
   version: 1.0.0
-extends: openapi/gitlab-webhooks-openapi.yml
+extends: ../openapi/_original/gitlab-webhooks-openapi.yml
 actions:
 - target: $.info
   update:

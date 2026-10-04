@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-webhook-schema.json",
+  "title": "Webhook",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-project-webhooks-api-openapi.yml#/components/schemas/Webhook",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier of the webhook."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL that receives webhook POST requests."
+    },
+    "name": {
+      "type": "string",
+      "description": "Optional name for the webhook."
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of the webhook."
+    },
+    "project_id": {
+      "type": "integer",
+      "description": "The ID of the project the webhook belongs to."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the webhook was created."
+    },
+    "push_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on push events."
+    },
+    "tag_push_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on tag push events."
+    },
+    "issues_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on issue events."
+    },
+    "confidential_issues_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on confidential issue events."
+    },
+    "merge_requests_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on merge request events."
+    },
+    "note_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on comment events."
+    },
+    "confidential_note_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on confidential comment events."
+    },
+    "job_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on job status change events."
+    },
+    "pipeline_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on pipeline status change events."
+    },
+    "wiki_page_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on wiki page events."
+    },
+    "deployment_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on deployment events."
+    },
+    "releases_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on release events."
+    },
+    "member_events": {
+      "type": "boolean",
+      "description": "Whether the webhook triggers on group member events."
+    },
+    "enable_ssl_verification": {
+      "type": "boolean",
+      "description": "Whether SSL certificate verification is enabled for the webhook URL."
+    },
+    "push_events_branch_filter": {
+      "type": "string",
+      "description": "Branch name or wildcard pattern to filter push events."
+    },
+    "branch_filter_strategy": {
+      "type": "string",
+      "enum": [
+        "wildcard",
+        "regex",
+        "all_branches"
+      ],
+      "description": "The strategy used for filtering branches."
+    },
+    "alert_status": {
+      "type": "string",
+      "description": "The current alert status of the webhook based on delivery failures."
+    },
+    "disabled_until": {
+      "type": "string",
+      "format": "date-time",
+      "description": "If set, the webhook is temporarily disabled until this time."
+    }
+  }
+}

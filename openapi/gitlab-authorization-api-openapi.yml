@@ -118,6 +118,19 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    DeviceAuthorizationRequest:
+      type: object
+      required:
+      - client_id
+      properties:
+        client_id:
+          type: string
+          description: The application ID registered in GitLab.
+          example: '123456'
+        scope:
+          type: string
+          description: Space-separated list of requested scopes.
+          example: example_value
     DeviceAuthorizationResponse:
       type: object
       properties:
@@ -147,19 +160,6 @@ components:
           type: integer
           description: Minimum number of seconds between polling requests.
           example: 42
-    DeviceAuthorizationRequest:
-      type: object
-      required:
-      - client_id
-      properties:
-        client_id:
-          type: string
-          description: The application ID registered in GitLab.
-          example: '123456'
-        scope:
-          type: string
-          description: Space-separated list of requested scopes.
-          example: example_value
   securitySchemes:
     oauthToken:
       type: http

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-api-entities-ci-variable-schema.json",
+  "title": "API_Entities_Ci_Variable",
+  "description": "API_Entities_Ci_Variable model",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_Ci_Variable",
+  "type": "object",
+  "properties": {
+    "variable_type": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "protected": {
+      "type": "boolean"
+    },
+    "masked": {
+      "type": "boolean"
+    },
+    "raw": {
+      "type": "boolean"
+    },
+    "environment_scope": {
+      "type": "string"
+    }
+  }
+}

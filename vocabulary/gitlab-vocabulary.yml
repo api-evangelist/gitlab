@@ -1,0 +1,258 @@
+generated: '2026-10-04'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/gitlab-admin-api-openapi.yml
+- openapi/gitlab-application-api-openapi.yml
+- openapi/gitlab-applications-api-openapi.yml
+- openapi/gitlab-authorization-api-openapi.yml
+- openapi/gitlab-avatar-api-openapi.yml
+vocabulary:
+  name: GitLab Domain Vocabulary
+  description: 'Terms declared by GitLab''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-04'
+  terms:
+  - term: Applications
+    definition: Operations about applications
+    tags:
+    - Resource Group
+    source: openapi/gitlab-applications-api-openapi.yml
+  - term: Authorization
+    definition: Endpoints for initiating OAuth authorization flows.
+    tags:
+    - Resource Group
+    source: openapi/gitlab-authorization-api-openapi.yml
+  - term: Broadcast Messages
+    definition: Operations about broadcast_messages
+    tags:
+    - Resource Group
+    source: openapi/gitlab-broadcast-messages-api-openapi.yml
+  - term: Bulk Imports
+    definition: Operations about bulk_imports
+    tags:
+    - Resource Group
+    source: openapi/gitlab-bulk-imports-api-openapi.yml
+  - term: Metadata
+    definition: Operations related to metadata of the GitLab instance
+    tags:
+    - Resource Group
+    source: openapi/gitlab-metadata-api-openapi.yml
+  - term: Project Webhooks
+    definition: Manage webhooks for a specific project.
+    tags:
+    - Resource Group
+    source: openapi/gitlab-project-webhooks-api-openapi.yml
+  - term: Projects
+    definition: Operations related to projects
+    tags:
+    - Resource Group
+    source: openapi/gitlab-projects-api-openapi.yml
+  - term: Tokens
+    definition: Endpoints for exchanging, refreshing, and revoking OAuth tokens.
+    tags:
+    - Resource Group
+    source: openapi/gitlab-tokens-api-openapi.yml
+  - term: User Info
+    definition: Endpoints for retrieving authenticated user information via OAuth.
+    tags:
+    - Resource Group
+    source: openapi/gitlab-user-info-api-openapi.yml
+  - term: Webhook Configuration
+    definition: Manage custom headers and URL variables for webhooks.
+    tags:
+    - Resource Group
+    source: openapi/gitlab-webhook-configuration-api-openapi.yml
+  - term: Webhook Events
+    definition: Access webhook delivery history and resend events.
+    tags:
+    - Resource Group
+    source: openapi/gitlab-webhook-events-api-openapi.yml
+  - term: API_Entities_BatchedBackgroundMigration
+    definition: API_Entities_BatchedBackgroundMigration model
+    tags:
+    - Object
+    source: openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_BatchedBackgroundMigration
+  - term: API_Entities_Ci_Variable
+    definition: API_Entities_Ci_Variable model
+    tags:
+    - Object
+    source: openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_Ci_Variable
+  - term: API_Entities_Dictionary_Table
+    definition: API_Entities_Dictionary_Table model
+    tags:
+    - Object
+    source: openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_Dictionary_Table
+  - term: API_Entities_Cluster
+    definition: API_Entities_Cluster model
+    tags:
+    - Object
+    source: openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_Cluster
+  - term: API_Entities_UserBasic
+    definition: 'Object declared by the contract with fields: id, username, name, state, avatar_url, avatar_path, custom_attributes, web_url,
+      email.'
+    tags:
+    - Object
+    source: openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_UserBasic
+  - term: API_Entities_Platform_Kubernetes
+    definition: 'Object declared by the contract with fields: api_url, namespace, authorization_type, ca_cert.'
+    tags:
+    - Object
+    source: openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_Platform_Kubernetes
+  - term: API_Entities_ProjectIdentity
+    definition: 'Object declared by the contract with fields: id, description, name, name_with_namespace, path, path_with_namespace, created_at.'
+    tags:
+    - Object
+    source: openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_ProjectIdentity
+  - term: API_Entities_CustomAttribute
+    definition: 'Object declared by the contract with fields: key, value.'
+    tags:
+    - Object
+    source: openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_CustomAttribute
+  - term: API_Entities_Provider_Gcp
+    definition: 'Object declared by the contract with fields: cluster_id, status_name, gcp_project_id, zone, machine_type, num_nodes, endpoint.'
+    tags:
+    - Object
+    source: openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_Provider_Gcp
+  - term: API_Entities_PlanLimit
+    definition: API_Entities_PlanLimit model
+    tags:
+    - Object
+    source: openapi/gitlab-application-api-openapi.yml#/components/schemas/API_Entities_PlanLimit
+  - term: API_Entities_Appearance
+    definition: API_Entities_Appearance model
+    tags:
+    - Object
+    source: openapi/gitlab-application-api-openapi.yml#/components/schemas/API_Entities_Appearance
+  - term: API_Entities_ApplicationWithSecret
+    definition: API_Entities_ApplicationWithSecret model
+    tags:
+    - Object
+    source: openapi/gitlab-applications-api-openapi.yml#/components/schemas/API_Entities_ApplicationWithSecret
+  - term: API_Entities_Application
+    definition: API_Entities_Application model
+    tags:
+    - Object
+    source: openapi/gitlab-applications-api-openapi.yml#/components/schemas/API_Entities_Application
+  - term: DeviceAuthorizationResponse
+    definition: 'Object declared by the contract with fields: device_code, user_code, verification_uri, verification_uri_complete, expires_in,
+      interval.'
+    tags:
+    - Object
+    source: openapi/gitlab-authorization-api-openapi.yml#/components/schemas/DeviceAuthorizationResponse
+  - term: DeviceAuthorizationRequest
+    definition: 'Object declared by the contract with fields: client_id, scope.'
+    tags:
+    - Object
+    source: openapi/gitlab-authorization-api-openapi.yml#/components/schemas/DeviceAuthorizationRequest
+  - term: API_Entities_Avatar
+    definition: API_Entities_Avatar model
+    tags:
+    - Object
+    source: openapi/gitlab-avatar-api-openapi.yml#/components/schemas/API_Entities_Avatar
+  - term: API_Entities_BroadcastMessage
+    definition: API_Entities_BroadcastMessage model
+    tags:
+    - Object
+    source: openapi/gitlab-broadcast-messages-api-openapi.yml#/components/schemas/API_Entities_BroadcastMessage
+  - term: API_Entities_BulkImports_EntityFailure
+    definition: 'Object declared by the contract with fields: relation, step, exception_message, exception_class, correlation_id_value, created_at,
+      pipeline_class, pipeline_step.'
+    tags:
+    - Object
+    source: openapi/gitlab-bulk-imports-api-openapi.yml#/components/schemas/API_Entities_BulkImports_EntityFailure
+  - term: API_Entities_BulkImports
+    definition: API_Entities_BulkImports model
+    tags:
+    - Object
+    source: openapi/gitlab-bulk-imports-api-openapi.yml#/components/schemas/API_Entities_BulkImports
+  - term: API_Entities_BulkImport
+    definition: API_Entities_BulkImport model
+    tags:
+    - Object
+    source: openapi/gitlab-bulk-imports-api-openapi.yml#/components/schemas/API_Entities_BulkImport
+  - term: API_Entities_AccessRequester
+    definition: API_Entities_AccessRequester model
+    tags:
+    - Object
+    source: openapi/gitlab-groups-api-openapi.yml#/components/schemas/API_Entities_AccessRequester
+  - term: API_Entities_BasicBadgeDetails
+    definition: API_Entities_BasicBadgeDetails model
+    tags:
+    - Object
+    source: openapi/gitlab-groups-api-openapi.yml#/components/schemas/API_Entities_BasicBadgeDetails
+  - term: API_Entities_Badge
+    definition: API_Entities_Badge model
+    tags:
+    - Object
+    source: openapi/gitlab-groups-api-openapi.yml#/components/schemas/API_Entities_Badge
+  - term: API_Entities_Metadata
+    definition: API_Entities_Metadata model
+    tags:
+    - Object
+    source: openapi/gitlab-metadata-api-openapi.yml#/components/schemas/API_Entities_Metadata
+  - term: WebhookInput
+    definition: 'Object declared by the contract with fields: url, name, description, secret_token, enable_ssl_verification, push_events, tag_push_events,
+      issues_events, confidential_issues_events, merge_requests_events, note_events, confidential_note_events. (7 more)'
+    tags:
+    - Object
+    source: openapi/gitlab-project-webhooks-api-openapi.yml#/components/schemas/WebhookInput
+  - term: Webhook
+    definition: 'Object declared by the contract with fields: id, url, name, description, project_id, created_at, push_events, tag_push_events,
+      issues_events, confidential_issues_events, merge_requests_events, note_events. (12 more)'
+    tags:
+    - Object
+    source: openapi/gitlab-project-webhooks-api-openapi.yml#/components/schemas/Webhook
+  - term: API_Entities_Branch
+    definition: API_Entities_Branch model
+    tags:
+    - Object
+    source: openapi/gitlab-projects-api-openapi.yml#/components/schemas/API_Entities_Branch
+  - term: API_Entities_MetricImage
+    definition: API_Entities_MetricImage model
+    tags:
+    - Object
+    source: openapi/gitlab-projects-api-openapi.yml#/components/schemas/API_Entities_MetricImage
+  - term: API_Entities_Job
+    definition: API_Entities_Job model
+    tags:
+    - Object
+    source: openapi/gitlab-projects-api-openapi.yml#/components/schemas/API_Entities_Job
+  - term: API_Entities_Commit
+    definition: 'Object declared by the contract with fields: id, short_id, created_at, parent_ids, title, message, author_name, author_email,
+      authored_date, committer_name, committer_email, committed_date. (2 more)'
+    tags:
+    - Object
+    source: openapi/gitlab-projects-api-openapi.yml#/components/schemas/API_Entities_Commit
+  - term: TokenInfo
+    definition: 'Object declared by the contract with fields: resource_owner_id, application, scope, expires_in_seconds, created_at.'
+    tags:
+    - Object
+    source: openapi/gitlab-tokens-api-openapi.yml#/components/schemas/TokenInfo
+  - term: RevokeTokenRequest
+    definition: 'Object declared by the contract with fields: client_id, client_secret, token.'
+    tags:
+    - Object
+    source: openapi/gitlab-tokens-api-openapi.yml#/components/schemas/RevokeTokenRequest
+  - term: TokenResponse
+    definition: 'Object declared by the contract with fields: access_token, token_type, expires_in, refresh_token, scope, created_at.'
+    tags:
+    - Object
+    source: openapi/gitlab-tokens-api-openapi.yml#/components/schemas/TokenResponse
+  - term: TokenRequest
+    definition: 'Object declared by the contract with fields: grant_type, client_id, client_secret, code, redirect_uri, code_verifier, refresh_token,
+      device_code, username, password.'
+    tags:
+    - Object
+    source: openapi/gitlab-tokens-api-openapi.yml#/components/schemas/TokenRequest
+  - term: UserInfo
+    definition: 'Object declared by the contract with fields: sub, name, nickname, email, email_verified, profile, picture, groups.'
+    tags:
+    - Object
+    source: openapi/gitlab-user-info-api-openapi.yml#/components/schemas/UserInfo
+  - term: WebhookEvent
+    definition: 'Object declared by the contract with fields: id, url, trigger, request_headers, request_data, response_headers, response_body,
+      response_status, execution_duration, created_at.'
+    tags:
+    - Object
+    source: openapi/gitlab-webhook-events-api-openapi.yml#/components/schemas/WebhookEvent

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-api-entities-appearance-schema.json",
+  "title": "API_Entities_Appearance",
+  "description": "API_Entities_Appearance model",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-application-api-openapi.yml#/components/schemas/API_Entities_Appearance",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "pwa_name": {
+      "type": "string"
+    },
+    "pwa_short_name": {
+      "type": "string"
+    },
+    "pwa_description": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "string"
+    },
+    "pwa_icon": {
+      "type": "string"
+    },
+    "header_logo": {
+      "type": "string"
+    },
+    "favicon": {
+      "type": "string"
+    },
+    "new_project_guidelines": {
+      "type": "string"
+    },
+    "profile_image_guidelines": {
+      "type": "string"
+    },
+    "header_message": {
+      "type": "string"
+    },
+    "footer_message": {
+      "type": "string"
+    },
+    "message_background_color": {
+      "type": "string"
+    },
+    "message_font_color": {
+      "type": "string"
+    },
+    "email_header_and_footer_enabled": {
+      "type": "string"
+    }
+  }
+}

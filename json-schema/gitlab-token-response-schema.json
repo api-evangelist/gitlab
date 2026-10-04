@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-token-response-schema.json",
+  "title": "TokenResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-tokens-api-openapi.yml#/components/schemas/TokenResponse",
+  "type": "object",
+  "properties": {
+    "access_token": {
+      "type": "string",
+      "description": "The OAuth 2.0 access token."
+    },
+    "token_type": {
+      "type": "string",
+      "description": "The type of token. Always Bearer."
+    },
+    "expires_in": {
+      "type": "integer",
+      "description": "Token lifetime in seconds. Typically 7200 (2 hours)."
+    },
+    "refresh_token": {
+      "type": "string",
+      "description": "The refresh token for obtaining new access tokens."
+    },
+    "scope": {
+      "type": "string",
+      "description": "Space-separated list of granted scopes."
+    },
+    "created_at": {
+      "type": "integer",
+      "description": "Unix timestamp of when the token was created."
+    }
+  }
+}

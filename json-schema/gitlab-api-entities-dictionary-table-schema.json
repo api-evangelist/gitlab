@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-api-entities-dictionary-table-schema.json",
+  "title": "API_Entities_Dictionary_Table",
+  "description": "API_Entities_Dictionary_Table model",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-admin-api-openapi.yml#/components/schemas/API_Entities_Dictionary_Table",
+  "type": "object",
+  "properties": {
+    "table_name": {
+      "type": "string"
+    },
+    "feature_categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

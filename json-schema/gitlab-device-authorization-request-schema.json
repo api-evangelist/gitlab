@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-device-authorization-request-schema.json",
+  "title": "DeviceAuthorizationRequest",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-authorization-api-openapi.yml#/components/schemas/DeviceAuthorizationRequest",
+  "type": "object",
+  "required": [
+    "client_id"
+  ],
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "The application ID registered in GitLab."
+    },
+    "scope": {
+      "type": "string",
+      "description": "Space-separated list of requested scopes."
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-user-info-schema.json",
+  "title": "UserInfo",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-user-info-api-openapi.yml#/components/schemas/UserInfo",
+  "type": "object",
+  "properties": {
+    "sub": {
+      "type": "string",
+      "description": "Subject identifier. Unique to the user within the provider."
+    },
+    "name": {
+      "type": "string",
+      "description": "Full name of the user."
+    },
+    "nickname": {
+      "type": "string",
+      "description": "The user's GitLab username."
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "The user's email address. Requires the email scope."
+    },
+    "email_verified": {
+      "type": "boolean",
+      "description": "Whether the user's email address has been verified."
+    },
+    "profile": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the user's GitLab profile page."
+    },
+    "picture": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the user's avatar image."
+    },
+    "groups": {
+      "type": "array",
+      "description": "List of groups the user belongs to.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

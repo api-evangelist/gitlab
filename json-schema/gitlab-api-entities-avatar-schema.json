@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-api-entities-avatar-schema.json",
+  "title": "API_Entities_Avatar",
+  "description": "API_Entities_Avatar model",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-avatar-api-openapi.yml#/components/schemas/API_Entities_Avatar",
+  "type": "object",
+  "properties": {
+    "avatar_url": {
+      "type": "string"
+    }
+  }
+}

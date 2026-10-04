@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-api-entities-basic-badge-details-schema.json",
+  "title": "API_Entities_BasicBadgeDetails",
+  "description": "API_Entities_BasicBadgeDetails model",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-groups-api-openapi.yml#/components/schemas/API_Entities_BasicBadgeDetails",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "link_url": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "rendered_link_url": {
+      "type": "string"
+    },
+    "rendered_image_url": {
+      "type": "string"
+    }
+  }
+}

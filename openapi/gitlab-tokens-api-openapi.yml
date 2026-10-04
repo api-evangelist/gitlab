@@ -112,25 +112,6 @@ components:
           type: number
           description: Unix timestamp of when the token was created.
           example: 42.5
-    RevokeTokenRequest:
-      type: object
-      required:
-      - client_id
-      - client_secret
-      - token
-      properties:
-        client_id:
-          type: string
-          description: The application ID registered in GitLab.
-          example: '123456'
-        client_secret:
-          type: string
-          description: The application secret.
-          example: example_value
-        token:
-          type: string
-          description: The access token or refresh token to revoke.
-          example: glpat-example-token
     TokenResponse:
       type: object
       properties:
@@ -158,6 +139,25 @@ components:
           type: integer
           description: Unix timestamp of when the token was created.
           example: 42
+    RevokeTokenRequest:
+      type: object
+      required:
+      - client_id
+      - client_secret
+      - token
+      properties:
+        client_id:
+          type: string
+          description: The application ID registered in GitLab.
+          example: '123456'
+        client_secret:
+          type: string
+          description: The application secret.
+          example: example_value
+        token:
+          type: string
+          description: The access token or refresh token to revoke.
+          example: glpat-example-token
     TokenRequest:
       type: object
       required:

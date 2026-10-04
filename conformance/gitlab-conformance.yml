@@ -1,9 +1,7 @@
 generated: '2026-06-20'
 method: searched
-source: >-
-  https://gitlab.com/.well-known/openid-configuration,
-  https://gitlab.com/.well-known/oauth-authorization-server,
-  https://gitlab.com/.well-known/security.txt, openapi/
+source: https://gitlab.com/.well-known/openid-configuration, https://gitlab.com/.well-known/oauth-authorization-server, https://gitlab.com/.well-known/security.txt,
+  openapi/
 standards:
 - id: oauth2
   conforms: true
@@ -49,3 +47,15 @@ standards:
 - id: webhooks
   conforms: true
   evidence: Project, group, and system webhooks; captured in asyncapi/gitlab-webhooks-asyncapi.yml.
+- id: openapi-3.2
+  conforms: true
+  evidence: the document declares 3.2.0
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations
+- id: pagination
+  conforms: true
+  evidence: list operations take page, page_token, per_page

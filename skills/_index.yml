@@ -1,0 +1,30 @@
+generated: '2026-10-04'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/gitlab-projects-api-openapi.yml
+skills:
+- file: skills/gitlab-create-protect-branch.md
+  name: gitlab-create-protect-branch
+  api: openapi/gitlab-projects-api-openapi.yml
+  operations:
+  - getApiV4ProjectsIdRepositoryBranches
+  - postApiV4ProjectsIdRepositoryBranches
+  - putApiV4ProjectsIdRepositoryBranchesBranchProtect
+- file: skills/gitlab-manage-group-badges.md
+  name: gitlab-manage-group-badges
+  api: openapi/gitlab-groups-api-openapi.yml
+  operations:
+  - postApiV4GroupsIdBadges
+  - getApiV4GroupsIdBadges
+  - getApiV4GroupsIdBadgesBadgeId
+  - putApiV4GroupsIdBadgesBadgeId
+  - deleteApiV4GroupsIdBadgesBadgeId
+- file: skills/gitlab-manage-project-webhooks.md
+  name: gitlab-manage-project-webhooks
+  api: openapi/gitlab-project-webhooks-api-openapi.yml
+  operations:
+  - addProjectWebhook
+  - listProjectWebhooks
+  - getProjectWebhook
+  - updateProjectWebhook
+  - deleteProjectWebhook

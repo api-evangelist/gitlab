@@ -2,6 +2,7 @@
 generated: '2026-09-20'
 method: searched
 source: https://about.gitlab.com/pricing/
+name: GitLab API Plans
 sources:
 - https://about.gitlab.com/pricing/
 provenance:

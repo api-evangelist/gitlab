@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/gitlab/main/json-schema/gitlab-api-entities-broadcast-message-schema.json",
+  "title": "API_Entities_BroadcastMessage",
+  "description": "API_Entities_BroadcastMessage model",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/gitlab-broadcast-messages-api-openapi.yml#/components/schemas/API_Entities_BroadcastMessage",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "starts_at": {
+      "type": "string"
+    },
+    "ends_at": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "font": {
+      "type": "string"
+    },
+    "target_access_levels": {
+      "type": "string"
+    },
+    "target_path": {
+      "type": "string"
+    },
+    "broadcast_type": {
+      "type": "string"
+    },
+    "dismissable": {
+      "type": "string"
+    },
+    "active": {
+      "type": "string"
+    }
+  }
+}
