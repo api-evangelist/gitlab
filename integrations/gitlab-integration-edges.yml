@@ -1,0 +1,1038 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/gitlab/integrations
+- https://n8n.io/integrations/gitlab/
+- https://composio.dev/toolkits/gitlab
+checked:
+- https://composio.dev/toolkits/gitlab
+- https://monid.ai/tools/gitlab
+- https://n8n.io/integrations/gitlab/
+- https://zapier.com/apps/gitlab/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: gitlab
+  url: https://zapier.com/apps/gitlab/integrations
+  external_url: https://gitlab.com/
+  partner_tier: SILVER
+  triggers:
+  - key: codeSnippetComment
+    label: New Code Snippet Comment
+  - key: commit
+    label: New Commit
+  - key: commitComment
+    label: New Commit Comment
+  - key: group_issue
+    label: New Group Issue Event
+  - key: group_merge_request
+    label: New Group Merge Request Event
+  - key: issueComment
+    label: New Issue Comment
+  - key: issue_trigger
+    label: New Project Issue Event
+  - key: job
+    label: New Job Event
+  - key: mergeRequestComment
+    label: New Merge Request Comment
+  - key: merge_request
+    label: New Project Merge Request Event
+  - key: merge_request_review
+    label: Merge Request Review Request
+  actions:
+  - key: branch
+    label: Create Branch
+  - key: commit
+    label: Create Commit
+  - key: issue
+    label: Create Issue
+  - key: issue_note
+    label: Add Note to Issue
+  - key: merge_request
+    label: Create Merge Request
+  - key: merge_request_note
+    label: Add Note to Merge Request
+  - key: update_mr
+    label: Update Merge Request
+  - key: _zap_raw_request
+    label: API Request (Beta)
+  searches:
+  - key: find_group_merge_requests_v2
+    label: Find Group Merge Requests
+  - key: find_merge_requests_v2
+    label: Find All Merge Requests
+  - key: find_project_merge_requests_v2
+    label: Find Project Merge Requests
+- marketplace: n8n
+  channel: open-source-node
+  app: gitlab
+  url: https://n8n.io/integrations/gitlab/
+  identity: title
+  pair_pages: 508
+  pairs:
+  - gleap
+  - gmail
+  - gocanvas
+  - godaddy
+  - gong
+  - google-ads
+  - google-ai-studio-gemini
+  - google-analytics
+  - google-bigquery
+  - google-books
+  - google-business-profile
+  - google-calendar
+  - google-chat
+  - google-cloud
+  - google-cloud-firestore
+  - google-cloud-natural-language
+  - google-cloud-realtime-database
+  - google-cloud-storage
+  - google-contacts
+  - google-docs
+  - google-drive
+  - google-forms
+  - google-gemini-chat-model
+  - google-perspective
+  - google-sheets
+  - google-slides
+  - google-tables
+  - google-tasks
+  - google-translate
+  - google-vertex-ai
+  - google-workspace-admin
+  - gotify
+  - gotowebinar
+  - gptea
+  - grafana
+  - grain
+  - graphql
+  - gravity-forms
+  - grid
+  - grist
+  - growbots
+  - gumroad
+  - gupshup
+  - guru
+  - hacker-news
+  - halopsa
+  - handwrytten
+  - hansei
+  - harry-potter-api
+  - harvest
+  - headless-testing
+  - helcim
+  - helpscout
+  - heysummit
+  - highlevel
+  - home-assistant
+  - http-request
+  - hub-planner
+  - hubspot
+  - hugging-face
+  - humantic-ai
+  - hunter
+  - hybrid-analysis
+  - iauditor-by-safetyculture
+  - idealpostcodes
+  - idealspot
+  - ideta
+  - imgbb
+  - imgur
+  - imperva-waf
+  - impira
+  - industryselect
+  - influxdb-cloud
+  - infolobby
+  - instabot
+  - instabug
+  - intakeq
+  - intercom
+  - invoice-ninja
+  - invoiced
+  - ip2location
+  - ipinfo
+  - ipregistry
+  - iris-dfir
+  - isn
+  - iterable
+  - jama
+  - jasper
+  - jenkins
+  - jina-ai
+  - jira-software
+  - jwt
+  - kadoa
+  - kafka
+  - kaggle
+  - kanban-tool
+  - karbon
+  - keap
+  - keygen
+  - keyzy
+  - kibana
+  - kitemaker
+  - klaviyo
+  - klazify
+  - knack
+  - knowbe4
+  - kobotoolbox
+  - kraftful
+  - lagrowthmachine
+  - lambdatest
+  - landbot
+  - laposta
+  - launch27
+  - launchdarkly
+  - ldap
+  - leadboxer
+  - leadpops
+  - lemlist
+  - lets-enhance
+  - libraria
+  - lighthouse
+  - lime-go
+  - line
+  - linear
+  - lingvanex
+  - linkedin
+  - linkish
+  - linode
+  - liveagent
+  - localazy
+  - loginradius
+  - lokalise
+  - lonescale
+  - lucidchart
+  - magento-2
+  - mailcheck
+  - mailchimp
+  - mailerlite
+  - mailersend
+  - mailgun
+  - mailify
+  - mailjet
+  - mailmodo
+  - malcore
+  - mandrill
+  - marcom-robot
+  - marketing-master-io
+  - marketplacer
+  - marketstack
+  - mastodon
+  - matrix
+  - mattermost
+  - mautic
+  - mav
+  - maverick
+  - medium
+  - mem
+  - messagebird
+  - metabase
+  - metatextai-inference-api
+  - mews
+  - microsoft-azure-monitor
+  - microsoft-dynamics-365-business-central-api
+  - microsoft-dynamics-crm
+  - microsoft-entra-id
+  - microsoft-entra-id-azure-active-directory
+  - microsoft-excel
+  - microsoft-graph-security
+  - microsoft-onedrive
+  - microsoft-outlook
+  - microsoft-sharepoint
+  - microsoft-sql
+  - microsoft-teams
+  - microsoft-teams-admin
+  - microsoft-to-do
+  - miestro
+  - mindee
+  - miro
+  - misp
+  - missive
+  - mist
+  - mistral-ai
+  - mixpanel
+  - mocean
+  - mondaycom
+  - mongodb
+  - monica-crm
+  - moonclerk
+  - moonmail
+  - morph
+  - mqtt
+  - msg91
+  - mux
+  - mx-toolbox
+  - my-askai
+  - myphoner
+  - mysql
+  - nanonets-ocr
+  - nasa
+  - ncscale
+  - netlify
+  - nextcloud
+  - nightfallai
+  - ninox
+  - nmkr
+  - nocodb
+  - notion
+  - nozbe-teams
+  - npm
+  - nuclia
+  - nusii-proposals
+  - nyckel
+  - nyota
+  - occasion
+  - ocrspace
+  - odoo
+  - offalerts
+  - okta
+  - omeda
+  - omniconvert
+  - omnimind
+  - on2air
+  - one-ai
+  - one-simple-api
+  - onfleet
+  - openai
+  - opencti
+  - openthesaurus
+  - openweathermap
+  - opn-formerly-omise
+  - oracle-database
+  - orbit
+  - order-desk
+  - ortto
+  - oura
+  - paddle
+  - pagerduty
+  - paperform
+  - papyrs
+  - parsehub
+  - parseprompt
+  - passcreator
+  - passslot
+  - patreon
+  - paymo
+  - paypal
+  - peekalink
+  - perplexity
+  - persio
+  - personal-ai
+  - phantombuster
+  - philips-hue
+  - phrase
+  - pinata
+  - pinboard
+  - pinterest
+  - pipedrive
+  - pipefy
+  - pirate-weather
+  - pitchly
+  - pivotal-tracker
+  - planview-leankit
+  - planyo-online-booking
+  - platformly
+  - plecto
+  - plivo
+  - postbin
+  - postgres
+  - posthog
+  - practitest
+  - predisai
+  - prodia
+  - product-hunt
+  - profitwell
+  - project-bubble-proprofs-project
+  - prompthub
+  - prospe-ai
+  - pushbullet
+  - pushcut
+  - pusher
+  - pushover
+  - qradar
+  - qualaroo
+  - qualys
+  - quentn
+  - questdb
+  - quick-base
+  - quickbooks-online
+  - quickchart
+  - quintadb
+  - rabbitmq
+  - radar
+  - raindrop
+  - rapid7-insightvm
+  - raven-tools
+  - rawg-video-games-database
+  - read-ai
+  - realphonevalidation
+  - recharge
+  - recorded-future
+  - redash
+  - reddit
+  - redis
+  - relevance-ai
+  - relink-url-shortener
+  - relysia
+  - replyio
+  - retable
+  - reverse-contact
+  - rewardful
+  - ritekit
+  - roboflow
+  - robolytix
+  - roboresponseai
+  - rocketchat
+  - rollbar
+  - rootly
+  - route4me
+  - rundeck
+  - s3
+  - sales-simplify
+  - salesforce
+  - salesmaa
+  - salesmate
+  - salesmsg
+  - salesrocks
+  - samsung-smartthings
+  - scrape-itcloud
+  - scrapeninja
+  - seamless-ai
+  - search-and-save
+  - seatable
+  - securityscorecard
+  - segment
+  - sekoia
+  - sellix
+  - sembly-ai
+  - sendgrid
+  - sendy
+  - sentryio
+  - servicenow
+  - sharly-ai
+  - shiphero
+  - shipstation
+  - shopify
+  - shortio
+  - shuffler
+  - sierra-interactive
+  - sifter
+  - signaturit
+  - signl4
+  - signrequest
+  - simpleem
+  - simplehash
+  - simplekpi
+  - simplelocalize
+  - simplero
+  - simpletexting
+  - sitecreatorio
+  - sitespeakai
+  - slack
+  - smaily
+  - smartreach
+  - smartsuite
+  - sms-it
+  - sms-magic
+  - sms77
+  - snapdocs
+  - snatchbot
+  - snipcart
+  - snowflake
+  - solve-data
+  - specter
+  - splunk
+  - spondyr
+  - spontit
+  - sportsdata
+  - spotify
+  - spydra
+  - sslmate-cert-spotter-api
+  - stackby
+  - stammerai
+  - starton
+  - statuscake
+  - storyblok
+  - strapi
+  - strava
+  - stripe
+  - studio-by-ai21-labs
+  - suitedash
+  - supabase
+  - supernormal
+  - superpowered
+  - supportivekoala
+  - survicate
+  - swagup
+  - switchboard
+  - syncly
+  - syncromsp
+  - synthesia
+  - taiga
+  - talentlms
+  - talknotes
+  - tapfiliate
+  - td-ameritrade
+  - teachable
+  - team-up
+  - teamdeck
+  - teamgate
+  - teknoir
+  - telegram
+  - testmonitor
+  - textcortex-ai
+  - textgain
+  - textkit
+  - textmagic
+  - thankster
+  - the-customer-factor
+  - the-leap
+  - thehive
+  - thehive-5
+  - thoughtfulgpt
+  - thrivecart
+  - tidb-cloud
+  - tierion
+  - tilda
+  - timescaledb
+  - timetonic
+  - tinyurl
+  - tisane-labs
+  - todoist
+  - token-metrics
+  - toket
+  - totango
+  - trackvia
+  - transifex
+  - travisci
+  - trellix-epo
+  - trello
+  - trengo
+  - trevorio
+  - turbohire
+  - tuskr
+  - tuulio
+  - twake
+  - twilio
+  - twist
+  - twitter
+  - unbounce
+  - unisender
+  - unleashed-software
+  - upkeep
+  - uplead
+  - uproc
+  - uptimerobot
+  - uptimetoolbox
+  - urlscanio
+  - uservoice
+  - venafi-tls-protect-cloud
+  - venafi-tls-protect-datacenter
+  - venly
+  - verifalia
+  - vero
+  - vimeo
+  - virustotal
+  - vivifyscrum
+  - voicit
+  - vonage
+  - vowel
+  - watchsignals
+  - waveline-extract
+  - webex-by-cisco
+  - webflow
+  - webscraperio
+  - wekan
+  - whal3s
+  - whatconverts
+  - whatsapp-business-cloud
+  - wise
+  - wizychat
+  - wonderchat
+  - wondercraft
+  - woocommerce
+  - woodpeckerco
+  - wordpress
+  - workast
+  - workboard
+  - woxo
+  - writesonic
+  - wubook-ratechecker
+  - xero
+  - xtractly
+  - ybug
+  - ycode
+  - yodiz
+  - yourls
+  - youtube
+  - zabbix
+  - zammad
+  - zendesk
+  - zenrows
+  - zoho-books
+  - zoho-crm
+  - zoho-desk
+  - zonka-feedback
+  - zoom
+  - zscaler-zia
+  - zulip
+- marketplace: composio
+  channel: agent-gateway
+  app: gitlab
+  url: https://composio.dev/toolkits/gitlab
+  identity: action-prefix
+  actions:
+  - key: GITLAB_ARCHIVE_PROJECT
+  - key: GITLAB_CREATE_GROUP
+  - key: GITLAB_CREATE_PROJECT
+  - key: GITLAB_CREATE_PROJECT_ISSUE
+  - key: GITLAB_CREATE_REPOSITORY_BRANCH
+  - key: GITLAB_DELETE_PROJECT
+  - key: GITLAB_DOWNLOAD_PROJECT_AVATAR
+  - key: GITLAB_ERASE_JOB
+  - key: GITLAB_GET_COMMIT_REFS
+  - key: GITLAB_GET_COMMIT_SEQUENCE
+  - key: GITLAB_GET_GROUP
+  - key: GITLAB_GET_GROUPS
+  - key: GITLAB_GET_GROUP_MEMBER
+  - key: GITLAB_GET_JOB_DETAILS
+  - key: GITLAB_GET_MERGE_REQUEST_NOTES
+  - key: GITLAB_GET_PROJECT
+  - key: GITLAB_GET_PROJECTS
+  - key: GITLAB_GET_PROJECTS_ID_MERGE_REQUESTS_IID_DIFFS
+  - key: GITLAB_GET_PROJECT_LANGUAGES
+  - key: GITLAB_GET_PROJECT_MEMBER
+  - key: GITLAB_GET_PROJECT_MEMBER_ALL
+  - key: GITLAB_GET_PROJECT_MERGE_REQUEST
+  - key: GITLAB_GET_PROJECT_MERGE_REQUESTS
+  - key: GITLAB_GET_PROJECT_MERGE_REQUEST_COMMITS
+  - key: GITLAB_GET_REPOSITORY_BRANCH
+  - key: GITLAB_GET_REPOSITORY_BRANCHES
+  - key: GITLAB_GET_SINGLE_COMMIT
+  - key: GITLAB_GET_SINGLE_PIPELINE
+  - key: GITLAB_GET_USER
+  - key: GITLAB_GET_USERS
+  - key: GITLAB_GET_USERS_ID_STATUS
+  - key: GITLAB_GET_USER_PREFERENCES
+  - key: GITLAB_GET_USER_STATUS
+  - key: GITLAB_GET_USER_SUPPORT_PIN
+  - key: GITLAB_IMPORT_PROJECT_MEMBERS
+  - key: GITLAB_LIST_ALL_GROUP_MEMBERS
+  - key: GITLAB_LIST_ALL_PROJECT_MEMBERS
+  - key: GITLAB_LIST_BILLABLE_GROUP_MEMBERS
+  - key: GITLAB_LIST_GROUP_MEMBERS
+  - key: GITLAB_LIST_GROUP_PROJECTS
+  - key: GITLAB_LIST_PENDING_GROUP_MEMBERS
+  - key: GITLAB_LIST_PIPELINE_JOBS
+  - key: GITLAB_LIST_PROJECT_GROUPS
+  - key: GITLAB_LIST_PROJECT_INVITED_GROUPS
+  - key: GITLAB_LIST_PROJECT_ISSUES
+  - key: GITLAB_LIST_PROJECT_PIPELINES
+  - key: GITLAB_LIST_PROJECT_SHAREABLE_GROUPS
+  - key: GITLAB_LIST_PROJECT_TAGS
+  - key: GITLAB_LIST_PROJECT_TRANSFER_LOCATIONS
+  - key: GITLAB_LIST_PROJECT_USERS
+  - key: GITLAB_LIST_REPOSITORY_COMMITS
+  - key: GITLAB_LIST_USER_PROJECTS
+  - key: GITLAB_POST_USER_SUPPORT_PIN
+  - key: GITLAB_PUT_USER_PREFERENCES
+  - key: GITLAB_SET_USER_STATUS
+  - key: GITLAB_SHARE_PROJECT_WITH_GROUP
+  - key: GITLAB_START_PROJECT_HOUSEKEEPING
+  - key: GITLAB_UPDATE_PROJECT_ISSUE
+edges:
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: Jira Software Cloud
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/jira-software-cloud
+  direction: third-party
+  category: Project Management
+  partner_url: https://www.atlassian.com/software/jira
+- partner_name: Trello
+  partner: trello
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/trello
+  direction: third-party
+  category: Project Management
+  partner_url: https://trello.com/
+- partner_name: Asana
+  partner: asana
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/asana
+  direction: third-party
+  category: Project Management
+  partner_url: http://asana.com/
+- partner_name: Notion
+  partner: notion
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/notion
+  direction: third-party
+  category: Task Management
+  partner_url: https://www.notion.so/
+- partner_name: ClickUp
+  partner: clickup
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/clickup
+  direction: third-party
+  category: Project Management
+  partner_url: https://clickup.com/zapier
+- partner_name: Discord
+  partner: discord
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/discord
+  direction: third-party
+  category: Team Chat
+  partner_url: https://discordapp.com/
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: monday.com
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: GitHub
+  partner: github
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/github
+  direction: third-party
+  category: Developer Tools
+  partner_url: https://github.com/
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Todoist
+  partner: todoist
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/todoist
+  direction: third-party
+  category: Task Management
+  partner_url: https://todoist.com/
+- partner_name: Linear
+  partner: linear-app
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/linear
+  direction: third-party
+  category: Team Collaboration
+  partner_url: https://linear.app/
+- partner_name: Google Calendar
+  partner: google-calendar
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/google-calendar
+  direction: third-party
+  category: Calendar
+  partner_url: https://calendar.google.com/
+- partner_name: KanbanFlow
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/kanbanflow
+  direction: third-party
+  category: Project Management
+  partner_url: https://kanbanflow.com/
+- partner_name: Basecamp
+  partner: basecamp
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/basecamp
+  direction: third-party
+  category: Project Management
+  partner_url: https://basecamp.com/
+- partner_name: Google Drive
+  partner: google-drive
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/google-drive
+  direction: third-party
+  category: File Management & Storage
+  partner_url: https://www.google.com/drive/
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Podio
+  partner: podio
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/podio
+  direction: third-party
+  category: Project Management
+  partner_url: https://podio.com/
+- partner_name: Azure DevOps
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/azure-devops
+  direction: third-party
+  category: Developer Tools
+  partner_url: https://www.visualstudio.com/
+- partner_name: Google Forms
+  partner: google-forms
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/google-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: Microsoft Teams
+  partner: microsoft-teams
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/microsoft-teams
+  direction: third-party
+  category: Microsoft
+  partner_url: https://products.office.com/en-us/microsoft-teams/group-chat-software
+- partner_name: Akiflow
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/akiflow
+  direction: third-party
+  category: Productivity
+  partner_url: https://akiflow.com/?Source=zapier
+- partner_name: Miro
+  partner: miro
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/miro
+  direction: third-party
+  category: Team Collaboration
+  partner_url: https://miro.com/
+- partner_name: Microsoft To Do
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/microsoft-todo
+  direction: third-party
+  category: Microsoft
+  partner_url: https://todo.microsoft.com/
+- partner_name: Planfix
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/planfix
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://planfix.com/
+- partner_name: Telegram
+  partner: telegram
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/telegram
+  direction: third-party
+  category: Phone & SMS
+  partner_url: https://telegram.org/
+- partner_name: Amazon SES
+  partner: amazon-ses
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/amazon-ses
+  direction: third-party
+  category: Amazon
+  partner_url: https://zapier.com/aws.amazon.com
+- partner_name: Google Tasks
+  partner: google-tasks
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gitlab/integrations/google-tasks
+  direction: third-party
+  category: Google
+  partner_url: https://google.com/
+templates:
+- title: Post new GitLab merge requests to Slack channels
+  url: https://zapier.com/apps/gitlab/integrations/slack/16971/post-new-gitlab-merge-requests-to-slack-channels
+  apps:
+  - gitlab
+  - slack
+- title: Add Trello cards for new GitLab issues
+  url: https://zapier.com/apps/gitlab/integrations/trello/16962/add-trello-cards-for-new-gitlab-issues
+  apps:
+  - gitlab
+  - trello
+- title: Add new GitLab issues as ClickUp tasks
+  url: https://zapier.com/apps/clickup/integrations/gitlab/20065/add-new-gitlab-issues-as-clickup-tasks
+  apps:
+  - gitlab
+  - clickup
+- title: Post new GitLab issues to Slack
+  url: https://zapier.com/apps/gitlab/integrations/slack/16966/post-new-gitlab-issues-to-slack
+  apps:
+  - gitlab
+  - slack
+- title: Create Akiflow tasks from new project issue events in GitLab
+  url: https://zapier.com/apps/akiflow/integrations/gitlab/748389/create-akiflow-tasks-from-new-project-issue-events-in-gitlab
+  apps:
+  - gitlab
+  - akiflow
+- title: Add Trello cards to create new GitLab issues
+  url: https://zapier.com/apps/gitlab/integrations/trello/16964/add-trello-cards-to-create-new-gitlab-issues
+  apps:
+  - trello
+  - gitlab
+- title: Add Todoist tasks for new GitLab issues
+  url: https://zapier.com/apps/gitlab/integrations/todoist/16979/add-todoist-tasks-for-new-gitlab-issues
+  apps:
+  - gitlab
+  - todoist
+- title: Update Notion database items with new GitLab commits
+  url: https://zapier.com/apps/gitlab/integrations/notion/1318213/update-notion-database-items-with-new-gitlab-commits
+  apps:
+  - gitlab
+  - notion
+- title: Create Google Sheet rows for new issue events in GitLab
+  url: https://zapier.com/apps/gitlab/integrations/google-sheets/209667/create-google-sheet-rows-for-new-issue-events-in-gitlab
+  apps:
+  - gitlab
+  - google-sheets
+- title: Create GitLab issues from new Linear issues for seamless project management
+  url: https://zapier.com/apps/gitlab/integrations/linear/1318186/create-gitlab-issues-from-new-linear-issues-for-seamless-project-management
+  apps:
+  - linear
+  - gitlab
+- title: Send messages in Telegram for new commits in GitLab
+  url: https://zapier.com/apps/gitlab/integrations/telegram/1759154/send-messages-in-telegram-for-new-commits-in-gitlab
+  apps:
+  - gitlab
+  - telegram
+- title: Create GitLab issues every month with Schedule by Zapier
+  url: https://zapier.com/apps/gitlab/integrations/schedule/1281611/create-gitlab-issues-every-month-with-schedule-by-zapier
+  apps:
+  - schedule
+  - gitlab
+template_total: 327
