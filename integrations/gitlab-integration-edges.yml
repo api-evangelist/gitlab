@@ -6,8 +6,12 @@ source:
 - https://composio.dev/toolkits/gitlab
 checked:
 - https://composio.dev/toolkits/gitlab
+- https://docs.gitlab.com/user/project/integrations/
+- https://marketplace.atlassian.com/
+- https://marketplace.visualstudio.com/vscode
 - https://monid.ai/tools/gitlab
 - https://n8n.io/integrations/gitlab/
+- https://plugins.jetbrains.com/
 - https://zapier.com/apps/gitlab/integrations
 summary: null
 marketplace_apps:
@@ -643,6 +647,14 @@ marketplace_apps:
   - key: GITLAB_SHARE_PROJECT_WITH_GROUP
   - key: GITLAB_START_PROJECT_HOUSEKEEPING
   - key: GITLAB_UPDATE_PROJECT_ISSUE
+- marketplace: gitlab-integrations
+  channel: provider-built
+  app: gitlab
+  url: https://docs.gitlab.com/user/project/integrations/
+  app_count: 39
+  adapter: sweep-devtools.py:gitlab
+  listed: 39
+  note: GitLab-built project integrations (docs); GitLab runs no third-party marketplace
 edges:
 - partner_name: Slack
   partner: slack
@@ -974,6 +986,485 @@ edges:
   direction: third-party
   category: Google
   partner_url: https://google.com/
+- partner_name: apple app store
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/apple_app_store/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: asana
+  partner: null
+  partner_match: null
+  partner_candidate: asana
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/asana/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: bamboo
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/bamboo/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: aws codepipeline
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/aws_codepipeline/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: beyond identity
+  partner: null
+  partner_match: null
+  partner_candidate: beyond-identity
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/beyond_identity/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: confluence
+  partner: null
+  partner_match: null
+  partner_candidate: confluence
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/confluence/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: discord notifications
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/discord_notifications/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: emails on push
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/emails_on_push/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: git guardian
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/git_guardian/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: github
+  partner: null
+  partner_match: null
+  partner_candidate: github
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/github/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: gitlab slack application
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/gitlab_slack_application/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: hangouts chat
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/hangouts_chat/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: google play
+  partner: null
+  partner_match: null
+  partner_candidate: google-play
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/google_play/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: harbor
+  partner: null
+  partner_match: null
+  partner_candidate: harbor
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/harbor/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: irker
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/irker/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: matrix
+  partner: null
+  partner_match: null
+  partner_candidate: matrix
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/matrix/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: mattermost
+  partner: null
+  partner_match: null
+  partner_candidate: mattermost
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/mattermost/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: mattermost slash commands
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/mattermost_slash_commands/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: microsoft teams
+  partner: null
+  partner_match: null
+  partner_candidate: microsoft-teams
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/microsoft_teams/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: mock ci
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/mock_ci/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: pipeline status emails
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/pipeline_status_emails/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: pivotal tracker
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/pivotal_tracker/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: pumble
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/pumble/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: slack
+  partner: null
+  partner_match: null
+  partner_candidate: slack
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/slack/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: squash tm
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/squash_tm/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: telegram
+  partner: null
+  partner_match: null
+  partner_candidate: telegram
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/telegram/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: unify circuit
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/unify_circuit/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: webex teams
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/webex_teams/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: zentao
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/zentao/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: webhooks
+  partner: null
+  partner_match: null
+  partner_candidate: webhooks
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/webhooks/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: bugzilla
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/bugzilla/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: clickup
+  partner: null
+  partner_match: null
+  partner_candidate: clickup
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/clickup/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: custom issue tracker
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/custom_issue_tracker/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: ewm
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/ewm/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: linear
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/linear/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: phorge
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/phorge/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: redmine
+  partner: null
+  partner_match: null
+  partner_candidate: redmine
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/redmine/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: youtrack
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/youtrack/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: google artifact management
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: docs
+  channel: provider-built
+  relationship: connector-coverage
+  direction: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/google_artifact_management/
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: Atlassian Marketplace
+  partner: atlassian
+  partner_match: aggregator
+  type: marketplace
+  marketplace: atlassian
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://marketplace.atlassian.com/vendors/1217142/gitlab
+  listing_count: 1
+  apps:
+  - GitLab for Jira Cloud
+  publisher_name: GitLab
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: JetBrains Marketplace
+  partner: jetbrains
+  partner_match: aggregator
+  type: marketplace
+  marketplace: jetbrains
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://plugins.jetbrains.com/vendor/GitLab
+  listing_count: 1
+  apps:
+  - GitLab Duo
+  publisher_name: GitLab, Inc.
+  badges:
+  - Verified vendor
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: Visual Studio Code Marketplace
+  partner: vs-code-marketplace
+  partner_match: aggregator
+  type: marketplace
+  marketplace: vscode
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://marketplace.visualstudio.com/publishers/GitLab
+  listing_count: 1
+  apps:
+  - GitLab
+  publisher_name: GitLab
+  badges:
+  - Verified publisher
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
 templates:
 - title: Post new GitLab merge requests to Slack channels
   url: https://zapier.com/apps/gitlab/integrations/slack/16971/post-new-gitlab-merge-requests-to-slack-channels

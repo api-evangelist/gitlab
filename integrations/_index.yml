@@ -193,7 +193,6 @@
   arazzo: null
 - slug: gitlab-monday-com
   label: monday.com
-  partner: monday-com
   partner_name: monday.com
   category: Project Management
   type: marketplace
@@ -201,7 +200,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/gitlab/integrations/monday
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: gitlab-gmail
   label: Gmail
@@ -359,7 +358,6 @@
   arazzo: null
 - slug: gitlab-microsoft-to-do
   label: Microsoft To Do
-  partner: microsoft-to-do
   partner_name: Microsoft To Do
   category: Microsoft
   type: marketplace
@@ -367,7 +365,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/gitlab/integrations/microsoft-todo
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: gitlab-planfix
   label: Planfix
@@ -403,4 +401,430 @@
   evidence: https://zapier.com/apps/gitlab/integrations/google-tasks
   source: edge
   status: pending-generation
+  arazzo: null
+- slug: gitlab-apple-app-store
+  label: apple app store
+  partner_name: apple app store
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/apple_app_store/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-asana
+  label: asana
+  partner_name: asana
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/asana/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-bamboo
+  label: bamboo
+  partner_name: bamboo
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/bamboo/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-aws-codepipeline
+  label: aws codepipeline
+  partner_name: aws codepipeline
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/aws_codepipeline/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-beyond-identity
+  label: beyond identity
+  partner_name: beyond identity
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/beyond_identity/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-confluence
+  label: confluence
+  partner_name: confluence
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/confluence/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-discord-notifications
+  label: discord notifications
+  partner_name: discord notifications
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/discord_notifications/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-emails-on-push
+  label: emails on push
+  partner_name: emails on push
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/emails_on_push/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-git-guardian
+  label: git guardian
+  partner_name: git guardian
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/git_guardian/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-github
+  label: github
+  partner_name: github
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/github/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-gitlab-slack-application
+  label: gitlab slack application
+  partner_name: gitlab slack application
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/gitlab_slack_application/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-hangouts-chat
+  label: hangouts chat
+  partner_name: hangouts chat
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/hangouts_chat/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-google-play
+  label: google play
+  partner_name: google play
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/google_play/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-harbor
+  label: harbor
+  partner_name: harbor
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/harbor/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-irker
+  label: irker
+  partner_name: irker
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/irker/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-matrix
+  label: matrix
+  partner_name: matrix
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/matrix/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-mattermost
+  label: mattermost
+  partner_name: mattermost
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/mattermost/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-mattermost-slash-commands
+  label: mattermost slash commands
+  partner_name: mattermost slash commands
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/mattermost_slash_commands/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-microsoft-teams
+  label: microsoft teams
+  partner_name: microsoft teams
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/microsoft_teams/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-mock-ci
+  label: mock ci
+  partner_name: mock ci
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/mock_ci/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-pipeline-status-emails
+  label: pipeline status emails
+  partner_name: pipeline status emails
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/pipeline_status_emails/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-pivotal-tracker
+  label: pivotal tracker
+  partner_name: pivotal tracker
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/pivotal_tracker/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-pumble
+  label: pumble
+  partner_name: pumble
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/pumble/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-slack
+  label: slack
+  partner_name: slack
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/slack/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-squash-tm
+  label: squash tm
+  partner_name: squash tm
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/squash_tm/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-telegram
+  label: telegram
+  partner_name: telegram
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/telegram/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-unify-circuit
+  label: unify circuit
+  partner_name: unify circuit
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/unify_circuit/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-webex-teams
+  label: webex teams
+  partner_name: webex teams
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/webex_teams/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-zentao
+  label: zentao
+  partner_name: zentao
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/zentao/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-webhooks
+  label: webhooks
+  partner_name: webhooks
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/webhooks/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-bugzilla
+  label: bugzilla
+  partner_name: bugzilla
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/bugzilla/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-clickup
+  label: clickup
+  partner_name: clickup
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/clickup/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-custom-issue-tracker
+  label: custom issue tracker
+  partner_name: custom issue tracker
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/custom_issue_tracker/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-ewm
+  label: ewm
+  partner_name: ewm
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/ewm/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-linear
+  label: linear
+  partner_name: linear
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/linear/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-phorge
+  label: phorge
+  partner_name: phorge
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/phorge/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-redmine
+  label: redmine
+  partner_name: redmine
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/redmine/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-youtrack
+  label: youtrack
+  partner_name: youtrack
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/youtrack/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-google-artifact-management
+  label: google artifact management
+  partner_name: google artifact management
+  type: docs
+  channel: provider-built
+  evidence: https://docs.gitlab.com/user/project/integrations/google_artifact_management/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-atlassian-marketplace
+  label: Atlassian Marketplace
+  partner: atlassian
+  partner_name: Atlassian Marketplace
+  type: marketplace
+  marketplace: atlassian
+  channel: partner-built
+  evidence: https://marketplace.atlassian.com/vendors/1217142/gitlab
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-jetbrains-marketplace
+  label: JetBrains Marketplace
+  partner: jetbrains
+  partner_name: JetBrains Marketplace
+  type: marketplace
+  marketplace: jetbrains
+  channel: partner-built
+  evidence: https://plugins.jetbrains.com/vendor/GitLab
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: gitlab-visual-studio-code-marketplace
+  label: Visual Studio Code Marketplace
+  partner: vs-code-marketplace
+  partner_name: Visual Studio Code Marketplace
+  type: marketplace
+  marketplace: vscode
+  channel: partner-built
+  evidence: https://marketplace.visualstudio.com/publishers/GitLab
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
   arazzo: null
