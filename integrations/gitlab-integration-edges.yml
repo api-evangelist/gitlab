@@ -14,6 +14,7 @@ checked:
 - https://plugins.jetbrains.com/
 - https://registry.modelcontextprotocol.io/v0/servers
 - https://zapier.com/apps/gitlab/integrations
+- stripe/integrations/stripe-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -1497,6 +1498,23 @@ edges:
   - namespace-domain+label
   detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
+- partner_name: Stripe (own)
+  partner: stripe
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.stripe.com/apps/gitlab
+  mirror_of: stripe/integrations/stripe-integration-edges.yml
+  apps:
+  - GitLab
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: developer_tools
 templates:
 - title: Post new GitLab merge requests to Slack channels
   url: https://zapier.com/apps/gitlab/integrations/slack/16971/post-new-gitlab-merge-requests-to-slack-channels
