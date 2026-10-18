@@ -6,6 +6,13 @@ tags:
 - Developer Tools
 - Platform
 - Software Development
+- Version Control
+- GitLab
+tags_raw:
+- Code
+- Developer Tools
+- Platform
+- Software Development
 - Source Control
 - GitLab
 kind: contract
@@ -468,7 +475,7 @@ apis:
 - aid: gitlab:apiv4users
   name: GitLab Users API
   tags:
-  - Access Management
+  - Identity and Access Management
   - Identity
   - User
   tags_raw:
@@ -492,6 +499,10 @@ apis:
   tags:
   - Git
   - Repositories
+  - Version Control
+  tags_raw:
+  - Git
+  - Repositories
   - Source Control
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
@@ -508,6 +519,10 @@ apis:
 - aid: gitlab:apiv4commits
   name: GitLab Commits API
   tags:
+  - Commits
+  - Git
+  - Version Control
+  tags_raw:
   - Commits
   - Git
   - Source Control
@@ -528,6 +543,10 @@ apis:
   tags:
   - Branches
   - Git
+  - Version Control
+  tags_raw:
+  - Branches
+  - Git
   - Source Control
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://gitlab.com/api/v4
@@ -544,6 +563,9 @@ apis:
 - aid: gitlab:apiv4tags
   name: GitLab Tags API
   tags:
+  - Git
+  - Version Control
+  tags_raw:
   - Git
   - Source Control
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
@@ -785,6 +807,10 @@ apis:
 - aid: gitlab:apiv4protected-branches
   name: GitLab Protected Branches API
   tags:
+  - Access Control
+  - Protected Branches
+  - Version Control
+  tags_raw:
   - Access Control
   - Protected Branches
   - Source Control
