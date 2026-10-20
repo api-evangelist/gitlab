@@ -1,9 +1,10 @@
-generated: '2026-10-12'
+generated: '2026-10-20'
 method: searched
 source:
 - https://zapier.com/apps/gitlab/integrations
 - https://n8n.io/integrations/gitlab/
 - https://composio.dev/toolkits/gitlab
+- https://docs.gitlab.com/user/project/integrations/
 checked:
 - https://cloudsecurityalliance.org/star/registry
 - https://composio.dev/toolkits/gitlab
@@ -19,6 +20,14 @@ checked:
 - stripe/integrations/stripe-integration-edges.yml
 summary: null
 marketplace_apps:
+- marketplace: gitlab-integrations
+  channel: provider-built
+  app: gitlab
+  url: https://docs.gitlab.com/user/project/integrations/
+  app_count: 39
+  adapter: sweep-devtools.py:gitlab
+  listed: 39
+  note: GitLab-built project integrations (docs); GitLab runs no third-party marketplace
 - marketplace: zapier
   channel: ipaas-listing
   app: gitlab
@@ -77,537 +86,75 @@ marketplace_apps:
   app: gitlab
   url: https://n8n.io/integrations/gitlab/
   identity: title
-  pair_pages: 508
+  pair_pages: 13
   pairs:
-  - gleap
   - gmail
-  - gocanvas
-  - godaddy
-  - gong
-  - google-ads
-  - google-ai-studio-gemini
-  - google-analytics
-  - google-bigquery
-  - google-books
-  - google-business-profile
-  - google-calendar
-  - google-chat
-  - google-cloud
-  - google-cloud-firestore
-  - google-cloud-natural-language
-  - google-cloud-realtime-database
-  - google-cloud-storage
-  - google-contacts
-  - google-docs
   - google-drive
-  - google-forms
-  - google-gemini-chat-model
-  - google-perspective
   - google-sheets
-  - google-slides
-  - google-tables
-  - google-tasks
-  - google-translate
-  - google-vertex-ai
-  - google-workspace-admin
-  - gotify
-  - gotowebinar
-  - gptea
-  - grafana
-  - grain
-  - graphql
-  - gravity-forms
-  - grid
-  - grist
-  - growbots
-  - gumroad
-  - gupshup
-  - guru
-  - hacker-news
-  - halopsa
-  - handwrytten
-  - hansei
-  - harry-potter-api
-  - harvest
-  - headless-testing
-  - helcim
-  - helpscout
-  - heysummit
-  - highlevel
-  - home-assistant
   - http-request
-  - hub-planner
-  - hubspot
-  - hugging-face
-  - humantic-ai
-  - hunter
-  - hybrid-analysis
-  - iauditor-by-safetyculture
-  - idealpostcodes
-  - idealspot
-  - ideta
-  - imgbb
-  - imgur
-  - imperva-waf
-  - impira
-  - industryselect
-  - influxdb-cloud
-  - infolobby
-  - instabot
-  - instabug
-  - intakeq
-  - intercom
-  - invoice-ninja
-  - invoiced
-  - ip2location
-  - ipinfo
-  - ipregistry
-  - iris-dfir
-  - isn
-  - iterable
-  - jama
-  - jasper
-  - jenkins
-  - jina-ai
   - jira-software
-  - jwt
-  - kadoa
-  - kafka
-  - kaggle
-  - kanban-tool
-  - karbon
-  - keap
-  - keygen
-  - keyzy
-  - kibana
-  - kitemaker
-  - klaviyo
-  - klazify
-  - knack
-  - knowbe4
-  - kobotoolbox
-  - kraftful
-  - lagrowthmachine
-  - lambdatest
-  - landbot
-  - laposta
-  - launch27
-  - launchdarkly
-  - ldap
-  - leadboxer
-  - leadpops
-  - lemlist
-  - lets-enhance
-  - libraria
-  - lighthouse
-  - lime-go
-  - line
-  - linear
-  - lingvanex
-  - linkedin
-  - linkish
-  - linode
-  - liveagent
-  - localazy
-  - loginradius
-  - lokalise
-  - lonescale
-  - lucidchart
-  - magento-2
-  - mailcheck
-  - mailchimp
-  - mailerlite
-  - mailersend
-  - mailgun
-  - mailify
-  - mailjet
-  - mailmodo
-  - malcore
-  - mandrill
-  - marcom-robot
-  - marketing-master-io
-  - marketplacer
-  - marketstack
-  - mastodon
-  - matrix
   - mattermost
-  - mautic
-  - mav
-  - maverick
-  - medium
-  - mem
-  - messagebird
-  - metabase
-  - metatextai-inference-api
-  - mews
-  - microsoft-azure-monitor
-  - microsoft-dynamics-365-business-central-api
-  - microsoft-dynamics-crm
-  - microsoft-entra-id
-  - microsoft-entra-id-azure-active-directory
   - microsoft-excel
-  - microsoft-graph-security
-  - microsoft-onedrive
-  - microsoft-outlook
-  - microsoft-sharepoint
-  - microsoft-sql
-  - microsoft-teams
-  - microsoft-teams-admin
-  - microsoft-to-do
-  - miestro
-  - mindee
-  - miro
-  - misp
-  - missive
-  - mist
-  - mistral-ai
-  - mixpanel
-  - mocean
-  - mondaycom
-  - mongodb
-  - monica-crm
-  - moonclerk
-  - moonmail
-  - morph
-  - mqtt
-  - msg91
-  - mux
-  - mx-toolbox
-  - my-askai
-  - myphoner
-  - mysql
-  - nanonets-ocr
-  - nasa
-  - ncscale
-  - netlify
-  - nextcloud
-  - nightfallai
-  - ninox
-  - nmkr
-  - nocodb
   - notion
-  - nozbe-teams
-  - npm
-  - nuclia
-  - nusii-proposals
-  - nyckel
-  - nyota
-  - occasion
-  - ocrspace
-  - odoo
-  - offalerts
-  - okta
-  - omeda
-  - omniconvert
-  - omnimind
-  - on2air
-  - one-ai
-  - one-simple-api
-  - onfleet
   - openai
-  - opencti
-  - openthesaurus
-  - openweathermap
-  - opn-formerly-omise
-  - oracle-database
-  - orbit
-  - order-desk
-  - ortto
-  - oura
-  - paddle
-  - pagerduty
-  - paperform
-  - papyrs
-  - parsehub
-  - parseprompt
-  - passcreator
-  - passslot
-  - patreon
-  - paymo
-  - paypal
-  - peekalink
-  - perplexity
-  - persio
-  - personal-ai
-  - phantombuster
-  - philips-hue
-  - phrase
-  - pinata
-  - pinboard
-  - pinterest
-  - pipedrive
-  - pipefy
-  - pirate-weather
-  - pitchly
-  - pivotal-tracker
-  - planview-leankit
-  - planyo-online-booking
-  - platformly
-  - plecto
-  - plivo
-  - postbin
   - postgres
-  - posthog
-  - practitest
-  - predisai
-  - prodia
-  - product-hunt
-  - profitwell
-  - project-bubble-proprofs-project
-  - prompthub
-  - prospe-ai
-  - pushbullet
-  - pushcut
-  - pusher
-  - pushover
-  - qradar
-  - qualaroo
-  - qualys
-  - quentn
-  - questdb
-  - quick-base
-  - quickbooks-online
-  - quickchart
-  - quintadb
-  - rabbitmq
-  - radar
-  - raindrop
-  - rapid7-insightvm
-  - raven-tools
-  - rawg-video-games-database
-  - read-ai
-  - realphonevalidation
-  - recharge
-  - recorded-future
-  - redash
-  - reddit
-  - redis
-  - relevance-ai
-  - relink-url-shortener
-  - relysia
-  - replyio
-  - retable
-  - reverse-contact
-  - rewardful
-  - ritekit
-  - roboflow
-  - robolytix
-  - roboresponseai
-  - rocketchat
-  - rollbar
-  - rootly
-  - route4me
-  - rundeck
-  - s3
-  - sales-simplify
-  - salesforce
-  - salesmaa
-  - salesmate
-  - salesmsg
-  - salesrocks
-  - samsung-smartthings
-  - scrape-itcloud
-  - scrapeninja
-  - seamless-ai
-  - search-and-save
-  - seatable
-  - securityscorecard
-  - segment
-  - sekoia
-  - sellix
-  - sembly-ai
-  - sendgrid
-  - sendy
-  - sentryio
-  - servicenow
-  - sharly-ai
-  - shiphero
-  - shipstation
-  - shopify
-  - shortio
-  - shuffler
-  - sierra-interactive
-  - sifter
-  - signaturit
-  - signl4
-  - signrequest
-  - simpleem
-  - simplehash
-  - simplekpi
-  - simplelocalize
-  - simplero
-  - simpletexting
-  - sitecreatorio
-  - sitespeakai
   - slack
-  - smaily
-  - smartreach
-  - smartsuite
-  - sms-it
-  - sms-magic
-  - sms77
-  - snapdocs
-  - snatchbot
-  - snipcart
-  - snowflake
-  - solve-data
-  - specter
-  - splunk
-  - spondyr
-  - spontit
-  - sportsdata
-  - spotify
-  - spydra
-  - sslmate-cert-spotter-api
-  - stackby
-  - stammerai
-  - starton
-  - statuscake
-  - storyblok
-  - strapi
-  - strava
-  - stripe
-  - studio-by-ai21-labs
-  - suitedash
   - supabase
-  - supernormal
-  - superpowered
-  - supportivekoala
-  - survicate
-  - swagup
-  - switchboard
-  - syncly
-  - syncromsp
-  - synthesia
-  - taiga
-  - talentlms
-  - talknotes
-  - tapfiliate
-  - td-ameritrade
-  - teachable
-  - team-up
-  - teamdeck
-  - teamgate
-  - teknoir
   - telegram
-  - testmonitor
-  - textcortex-ai
-  - textgain
-  - textkit
-  - textmagic
-  - thankster
-  - the-customer-factor
-  - the-leap
-  - thehive
-  - thehive-5
-  - thoughtfulgpt
-  - thrivecart
-  - tidb-cloud
-  - tierion
-  - tilda
-  - timescaledb
-  - timetonic
-  - tinyurl
-  - tisane-labs
-  - todoist
-  - token-metrics
-  - toket
-  - totango
-  - trackvia
-  - transifex
-  - travisci
-  - trellix-epo
-  - trello
-  - trengo
-  - trevorio
-  - turbohire
-  - tuskr
-  - tuulio
-  - twake
-  - twilio
-  - twist
-  - twitter
-  - unbounce
-  - unisender
-  - unleashed-software
-  - upkeep
-  - uplead
-  - uproc
-  - uptimerobot
-  - uptimetoolbox
-  - urlscanio
-  - uservoice
-  - venafi-tls-protect-cloud
-  - venafi-tls-protect-datacenter
-  - venly
-  - verifalia
-  - vero
-  - vimeo
-  - virustotal
-  - vivifyscrum
-  - voicit
-  - vonage
-  - vowel
-  - watchsignals
-  - waveline-extract
-  - webex-by-cisco
-  - webflow
-  - webscraperio
-  - wekan
-  - whal3s
-  - whatconverts
-  - whatsapp-business-cloud
-  - wise
-  - wizychat
-  - wonderchat
-  - wondercraft
-  - woocommerce
-  - woodpeckerco
-  - wordpress
-  - workast
-  - workboard
-  - woxo
-  - writesonic
-  - wubook-ratechecker
-  - xero
-  - xtractly
-  - ybug
-  - ycode
-  - yodiz
-  - yourls
-  - youtube
-  - zabbix
-  - zammad
-  - zendesk
-  - zenrows
-  - zoho-books
-  - zoho-crm
-  - zoho-desk
-  - zonka-feedback
-  - zoom
-  - zscaler-zia
-  - zulip
 - marketplace: composio
   channel: agent-gateway
   app: gitlab
   url: https://composio.dev/toolkits/gitlab
   identity: action-prefix
   actions:
+  - key: GITLAB_ADD_SPENT_TIME
+  - key: GITLAB_APPROVE_MERGE_REQUEST
   - key: GITLAB_ARCHIVE_PROJECT
+  - key: GITLAB_CANCEL_JOB
+  - key: GITLAB_CANCEL_PIPELINE
+  - key: GITLAB_CREATE_COMMIT
+  - key: GITLAB_CREATE_COMMIT_COMMENT
+  - key: GITLAB_CREATE_FILE
   - key: GITLAB_CREATE_GROUP
+  - key: GITLAB_CREATE_ISSUE_NOTE
+  - key: GITLAB_CREATE_LABEL
+  - key: GITLAB_CREATE_MERGE_REQUEST
+  - key: GITLAB_CREATE_MERGE_REQUEST_DRAFT_NOTE
+  - key: GITLAB_CREATE_MILESTONE
+  - key: GITLAB_CREATE_PIPELINE
   - key: GITLAB_CREATE_PROJECT
   - key: GITLAB_CREATE_PROJECT_ISSUE
   - key: GITLAB_CREATE_REPOSITORY_BRANCH
+  - key: GITLAB_CREATE_WEBHOOK
+  - key: GITLAB_DELETE_GROUP
+  - key: GITLAB_DELETE_ISSUE_NOTE
+  - key: GITLAB_DELETE_LABEL
+  - key: GITLAB_DELETE_MERGE_REQUEST
+  - key: GITLAB_DELETE_MILESTONE
+  - key: GITLAB_DELETE_PIPELINE
   - key: GITLAB_DELETE_PROJECT
+  - key: GITLAB_DELETE_REPOSITORY_BRANCH
+  - key: GITLAB_DELETE_REPOSITORY_FILE
+  - key: GITLAB_DELETE_WEBHOOK
   - key: GITLAB_DOWNLOAD_PROJECT_AVATAR
   - key: GITLAB_ERASE_JOB
+  - key: GITLAB_FORK_PROJECT
   - key: GITLAB_GET_COMMIT_REFS
   - key: GITLAB_GET_COMMIT_SEQUENCE
+  - key: GITLAB_GET_CURRENT_USER
+  - key: GITLAB_GET_FILE
   - key: GITLAB_GET_GROUP
   - key: GITLAB_GET_GROUPS
   - key: GITLAB_GET_GROUP_MEMBER
+  - key: GITLAB_GET_ISSUE
+  - key: GITLAB_GET_ISSUE_NOTE
   - key: GITLAB_GET_JOB_DETAILS
+  - key: GITLAB_GET_JOB_TRACE
+  - key: GITLAB_GET_LABEL
+  - key: GITLAB_GET_MERGE_REQUEST_APPROVALS
+  - key: GITLAB_GET_MERGE_REQUEST_APPROVAL_STATE
   - key: GITLAB_GET_MERGE_REQUEST_NOTES
+  - key: GITLAB_GET_MILESTONE
   - key: GITLAB_GET_PROJECT
   - key: GITLAB_GET_PROJECTS
   - key: GITLAB_GET_PROJECTS_ID_MERGE_REQUESTS_IID_DIFFS
@@ -617,22 +164,32 @@ marketplace_apps:
   - key: GITLAB_GET_PROJECT_MERGE_REQUEST
   - key: GITLAB_GET_PROJECT_MERGE_REQUESTS
   - key: GITLAB_GET_PROJECT_MERGE_REQUEST_COMMITS
+  - key: GITLAB_GET_RAW_FILE
   - key: GITLAB_GET_REPOSITORY_BRANCH
   - key: GITLAB_GET_REPOSITORY_BRANCHES
   - key: GITLAB_GET_SINGLE_COMMIT
   - key: GITLAB_GET_SINGLE_PIPELINE
+  - key: GITLAB_GET_TIME_STATS
   - key: GITLAB_GET_USER
   - key: GITLAB_GET_USERS
   - key: GITLAB_GET_USERS_ID_STATUS
   - key: GITLAB_GET_USER_PREFERENCES
   - key: GITLAB_GET_USER_STATUS
   - key: GITLAB_GET_USER_SUPPORT_PIN
+  - key: GITLAB_GET_WEBHOOK
   - key: GITLAB_IMPORT_PROJECT_MEMBERS
   - key: GITLAB_LIST_ALL_GROUP_MEMBERS
   - key: GITLAB_LIST_ALL_PROJECT_MEMBERS
   - key: GITLAB_LIST_BILLABLE_GROUP_MEMBERS
+  - key: GITLAB_LIST_COMMIT_COMMENTS
   - key: GITLAB_LIST_GROUP_MEMBERS
   - key: GITLAB_LIST_GROUP_PROJECTS
+  - key: GITLAB_LIST_ISSUE_NOTES
+  - key: GITLAB_LIST_LABELS
+  - key: GITLAB_LIST_MERGE_REQUESTS
+  - key: GITLAB_LIST_MERGE_REQUEST_DIFFS
+  - key: GITLAB_LIST_MERGE_REQUEST_DISCUSSIONS
+  - key: GITLAB_LIST_MILESTONES
   - key: GITLAB_LIST_PENDING_GROUP_MEMBERS
   - key: GITLAB_LIST_PIPELINE_JOBS
   - key: GITLAB_LIST_PROJECT_GROUPS
@@ -644,352 +201,36 @@ marketplace_apps:
   - key: GITLAB_LIST_PROJECT_TRANSFER_LOCATIONS
   - key: GITLAB_LIST_PROJECT_USERS
   - key: GITLAB_LIST_REPOSITORY_COMMITS
+  - key: GITLAB_LIST_REPOSITORY_TREE
   - key: GITLAB_LIST_USER_PROJECTS
+  - key: GITLAB_LIST_WEBHOOKS
+  - key: GITLAB_MERGE_MERGE_REQUEST
+  - key: GITLAB_MOVE_ISSUE
+  - key: GITLAB_PLAY_JOB
   - key: GITLAB_POST_USER_SUPPORT_PIN
+  - key: GITLAB_PROTECT_BRANCH
   - key: GITLAB_PUT_USER_PREFERENCES
+  - key: GITLAB_RESET_SPENT_TIME
+  - key: GITLAB_RESET_TIME_ESTIMATE
+  - key: GITLAB_RETRY_PIPELINE
+  - key: GITLAB_SET_TIME_ESTIMATE
   - key: GITLAB_SET_USER_STATUS
   - key: GITLAB_SHARE_PROJECT_WITH_GROUP
   - key: GITLAB_START_PROJECT_HOUSEKEEPING
+  - key: GITLAB_STAR_PROJECT
+  - key: GITLAB_UNAPPROVE_MERGE_REQUEST
+  - key: GITLAB_UNPROTECT_BRANCH
+  - key: GITLAB_UNSTAR_PROJECT
+  - key: GITLAB_UPDATE_GROUP
+  - key: GITLAB_UPDATE_ISSUE_NOTE
+  - key: GITLAB_UPDATE_LABEL
+  - key: GITLAB_UPDATE_MERGE_REQUEST
+  - key: GITLAB_UPDATE_MILESTONE
   - key: GITLAB_UPDATE_PROJECT_ISSUE
-- marketplace: gitlab-integrations
-  channel: provider-built
-  app: gitlab
-  url: https://docs.gitlab.com/user/project/integrations/
-  app_count: 39
-  adapter: sweep-devtools.py:gitlab
-  listed: 39
-  note: GitLab-built project integrations (docs); GitLab runs no third-party marketplace
+  - key: GITLAB_UPDATE_REPOSITORY_FILE
+  - key: GITLAB_UPDATE_WEBHOOK
+  - key: GITLAB_VALIDATE_CREDENTIAL
 edges:
-- partner_name: Slack
-  partner: slack
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/slack
-  direction: third-party
-  category: Team Chat
-  partner_url: https://slack.com/
-- partner_name: Jira Software Cloud
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/jira-software-cloud
-  direction: third-party
-  category: Project Management
-  partner_url: https://www.atlassian.com/software/jira
-- partner_name: Trello
-  partner: trello
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/trello
-  direction: third-party
-  category: Project Management
-  partner_url: https://trello.com/
-- partner_name: Asana
-  partner: asana
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/asana
-  direction: third-party
-  category: Project Management
-  partner_url: http://asana.com/
-- partner_name: Notion
-  partner: notion
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/notion
-  direction: third-party
-  category: Task Management
-  partner_url: https://www.notion.so/
-- partner_name: ClickUp
-  partner: clickup
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/clickup
-  direction: third-party
-  category: Project Management
-  partner_url: https://clickup.com/zapier
-- partner_name: Discord
-  partner: discord
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/discord
-  direction: third-party
-  category: Team Chat
-  partner_url: https://discordapp.com/
-- partner_name: Google Sheets
-  partner: google-sheets
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/google-sheets
-  direction: third-party
-  category: Google
-  partner_url: http://sheets.google.com/
-- partner_name: monday.com
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/monday
-  direction: third-party
-  category: Project Management
-  partner_url: https://monday.com/
-- partner_name: Gmail
-  partner: gmail
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/gmail
-  direction: third-party
-  category: Email
-  partner_url: https://mail.google.com/
-- partner_name: GitHub
-  partner: github
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/github
-  direction: third-party
-  category: Developer Tools
-  partner_url: https://github.com/
-- partner_name: Airtable
-  partner: airtable
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/airtable
-  direction: third-party
-  category: Databases
-  partner_url: https://airtable.com/
-- partner_name: Todoist
-  partner: todoist
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/todoist
-  direction: third-party
-  category: Task Management
-  partner_url: https://todoist.com/
-- partner_name: Linear
-  partner: linear-app
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/linear
-  direction: third-party
-  category: Team Collaboration
-  partner_url: https://linear.app/
-- partner_name: Google Calendar
-  partner: google-calendar
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/google-calendar
-  direction: third-party
-  category: Calendar
-  partner_url: https://calendar.google.com/
-- partner_name: KanbanFlow
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/kanbanflow
-  direction: third-party
-  category: Project Management
-  partner_url: https://kanbanflow.com/
-- partner_name: Basecamp
-  partner: basecamp
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/basecamp
-  direction: third-party
-  category: Project Management
-  partner_url: https://basecamp.com/
-- partner_name: Google Drive
-  partner: google-drive
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/google-drive
-  direction: third-party
-  category: File Management & Storage
-  partner_url: https://www.google.com/drive/
-- partner_name: HubSpot
-  partner: hubspot
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/hubspot
-  direction: third-party
-  category: Marketing Automation
-  partner_url: http://www.hubspot.com/
-- partner_name: Podio
-  partner: podio
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/podio
-  direction: third-party
-  category: Project Management
-  partner_url: https://podio.com/
-- partner_name: Azure DevOps
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/azure-devops
-  direction: third-party
-  category: Developer Tools
-  partner_url: https://www.visualstudio.com/
-- partner_name: Google Forms
-  partner: google-forms
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/google-forms
-  direction: third-party
-  category: Forms & Surveys
-  partner_url: http://google.com/
-- partner_name: Microsoft Teams
-  partner: microsoft-teams
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/microsoft-teams
-  direction: third-party
-  category: Microsoft
-  partner_url: https://products.office.com/en-us/microsoft-teams/group-chat-software
-- partner_name: Akiflow
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/akiflow
-  direction: third-party
-  category: Productivity
-  partner_url: https://akiflow.com/?Source=zapier
-- partner_name: Miro
-  partner: miro
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/miro
-  direction: third-party
-  category: Team Collaboration
-  partner_url: https://miro.com/
-- partner_name: Microsoft To Do
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/microsoft-todo
-  direction: third-party
-  category: Microsoft
-  partner_url: https://todo.microsoft.com/
-- partner_name: Planfix
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/planfix
-  direction: third-party
-  category: CRM (Customer Relationship Management)
-  partner_url: https://planfix.com/
-- partner_name: Telegram
-  partner: telegram
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/telegram
-  direction: third-party
-  category: Phone & SMS
-  partner_url: https://telegram.org/
-- partner_name: Amazon SES
-  partner: amazon-ses
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/amazon-ses
-  direction: third-party
-  category: Amazon
-  partner_url: https://zapier.com/aws.amazon.com
-- partner_name: Google Tasks
-  partner: google-tasks
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gitlab/integrations/google-tasks
-  direction: third-party
-  category: Google
-  partner_url: https://google.com/
 - partner_name: apple app store
   partner: null
   partner_match: null
@@ -1547,6 +788,366 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-compliance-assurance.py
   first_seen: '2026-10-20'
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: Jira Software Cloud
+  partner: jira
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/jira-software-cloud
+  direction: third-party
+  category: Project Management
+  partner_url: https://www.atlassian.com/software/jira
+- partner_name: Trello
+  partner: trello
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/trello
+  direction: third-party
+  category: Project Management
+  partner_url: https://trello.com/
+- partner_name: Asana
+  partner: asana
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/asana
+  direction: third-party
+  category: Project Management
+  partner_url: http://asana.com/
+- partner_name: ClickUp
+  partner: clickup
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/clickup
+  direction: third-party
+  category: Project Management
+  partner_url: https://clickup.com/zapier
+- partner_name: Notion
+  partner: notion
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/notion
+  direction: third-party
+  category: Task Management
+  partner_url: https://www.notion.so/
+- partner_name: Discord
+  partner: discord
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/discord
+  direction: third-party
+  category: Team Chat
+  partner_url: https://discordapp.com/
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: monday.com
+  partner: monday-com
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: GitHub
+  partner: github
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/github
+  direction: third-party
+  category: Developer Tools
+  partner_url: https://github.com/
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Todoist
+  partner: todoist
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/todoist
+  direction: third-party
+  category: Task Management
+  partner_url: https://todoist.com/
+- partner_name: Linear
+  partner: linear-app
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/linear
+  direction: third-party
+  category: Team Collaboration
+  partner_url: https://linear.app/
+- partner_name: Google Calendar
+  partner: google-calendar
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/google-calendar
+  direction: third-party
+  category: Calendar
+  partner_url: https://calendar.google.com/
+- partner_name: KanbanFlow
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/kanbanflow
+  direction: third-party
+  category: Project Management
+  partner_url: https://kanbanflow.com/
+- partner_name: Basecamp
+  partner: basecamp
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/basecamp
+  direction: third-party
+  category: Project Management
+  partner_url: https://basecamp.com/
+- partner_name: Google Drive
+  partner: google-drive
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/google-drive
+  direction: third-party
+  category: File Management & Storage
+  partner_url: https://www.google.com/drive/
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Podio
+  partner: podio
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/podio
+  direction: third-party
+  category: Project Management
+  partner_url: https://podio.com/
+- partner_name: Azure DevOps
+  partner: null
+  partner_match: null
+  partner_candidate: rest-client
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/azure-devops
+  direction: third-party
+  category: Developer Tools
+  partner_url: https://www.visualstudio.com/
+- partner_name: Google Forms
+  partner: google-forms
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/google-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: Microsoft Teams
+  partner: microsoft-teams
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/microsoft-teams
+  direction: third-party
+  category: Microsoft
+  partner_url: https://products.office.com/en-us/microsoft-teams/group-chat-software
+- partner_name: Akiflow
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/akiflow
+  direction: third-party
+  category: Productivity
+  partner_url: https://akiflow.com/?Source=zapier
+- partner_name: Miro
+  partner: miro
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/miro
+  direction: third-party
+  category: Team Collaboration
+  partner_url: https://miro.com/
+- partner_name: Microsoft To Do
+  partner: microsoft-to-do
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/microsoft-todo
+  direction: third-party
+  category: Microsoft
+  partner_url: https://todo.microsoft.com/
+- partner_name: Planfix
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/planfix
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://planfix.com/
+- partner_name: Telegram
+  partner: telegram
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/telegram
+  direction: third-party
+  category: Phone & SMS
+  partner_url: https://telegram.org/
+- partner_name: Amazon SES
+  partner: amazon-ses
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/amazon-ses
+  direction: third-party
+  category: Amazon
+  partner_url: https://zapier.com/aws.amazon.com
+- partner_name: Google Tasks
+  partner: google-tasks
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/gitlab/integrations/google-tasks
+  direction: third-party
+  category: Google
+  partner_url: https://google.com/
 templates:
 - title: Post new GitLab merge requests to Slack channels
   url: https://zapier.com/apps/gitlab/integrations/slack/16971/post-new-gitlab-merge-requests-to-slack-channels
