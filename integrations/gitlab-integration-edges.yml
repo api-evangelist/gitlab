@@ -5,8 +5,10 @@ source:
 - https://n8n.io/integrations/gitlab/
 - https://composio.dev/toolkits/gitlab
 checked:
+- https://cloudsecurityalliance.org/star/registry
 - https://composio.dev/toolkits/gitlab
 - https://docs.gitlab.com/user/project/integrations/
+- https://eucoc.cloud/en/public-register/list-of-adherent-services
 - https://marketplace.atlassian.com/
 - https://marketplace.visualstudio.com/vscode
 - https://monid.ai/tools/gitlab
@@ -1515,6 +1517,36 @@ edges:
   - namespace-domain+label
   detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
+- partner_name: Cloud Security Alliance STAR Registry
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://cloudsecurityalliance.org/star/registry/gitlab/services/gitlab
+  category: Cloud security assurance
+  contract_reference:
+    register: CSA STAR Registry (cloudsecurityalliance.org/star/registry)
+    spec_file: null
+    standard: CSA STAR
+    role: star-level-1
+    registered_name: GitLab
+    registry_id: gitlab
+    service_url: https://about.gitlab.com
+    matched_domain: gitlab.com
+    matched_by: domain+name-among-holders
+    identity_source: the service URL the organisation filed on its STAR listing (no lookup)
+    levels:
+    - STAR Level 1
+    certified_products: []
+    signal_note: STAR Level 1 (CAIQ self-assessment) = participation; certified_products = one entry per STAR Level
+      2 / STAR for AI Level 2 assessment TYPE (third-party certification, attestation, C-STAR, ValidAIted); lapsed
+      = every instance marked (Deprecated) by the registry; service counts never recorded
+    detected_by: sweep-compliance-assurance.py
+    detected: '2026-10-20'
+  detected_by: sweep-compliance-assurance.py
+  first_seen: '2026-10-20'
 templates:
 - title: Post new GitLab merge requests to Slack channels
   url: https://zapier.com/apps/gitlab/integrations/slack/16971/post-new-gitlab-merge-requests-to-slack-channels
