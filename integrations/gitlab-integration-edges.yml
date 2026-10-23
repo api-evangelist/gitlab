@@ -42,6 +42,10 @@ checked:
 - https://catalog.redhat.com/api/containers/v1/repositories?page_size=100
 - https://catalog.redhat.com/api/containers/v1/vendors/label/
 - https://catalog.redhat.com/software/partners
+- https://landscape.cd.foundation/data/full.json
+- https://plugins.jenkins.io/api/plugin/
+- https://plugins.jenkins.io/api/plugins
+- https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products
 summary: null
 marketplace_apps:
 - marketplace: gitlab-integrations
@@ -788,9 +792,9 @@ edges:
     levels:
     - STAR Level 1
     certified_products: []
-    signal_note: STAR Level 1 (CAIQ self-assessment) = participation; certified_products = one entry per STAR Level
-      2 / STAR for AI Level 2 assessment TYPE (third-party certification, attestation, C-STAR, ValidAIted); lapsed
-      = every instance marked (Deprecated) by the registry; service counts never recorded
+    signal_note: STAR Level 1 (CAIQ self-assessment) = participation; certified_products = one entry per STAR Level 2 / STAR
+      for AI Level 2 assessment TYPE (third-party certification, attestation, C-STAR, ValidAIted); lapsed = every instance
+      marked (Deprecated) by the registry; service counts never recorded
     detected_by: sweep-compliance-assurance.py
     detected: '2026-10-20'
   detected_by: sweep-compliance-assurance.py
@@ -1208,8 +1212,8 @@ edges:
     register_website: http://gitlab.com/
     matched_domain: gitlab.com
     matched_by: domain+name-among-holders
-    signal_note: 'participation only: the accelerator''s own portfolio register lists the company (cohort / investment);
-      an ownership and participation record, not conformance or certification'
+    signal_note: 'participation only: the accelerator''s own portfolio register lists the company (cohort / investment); an
+      ownership and participation record, not conformance or certification'
     detected_by: sweep-accelerator-portfolios.py
     detected: '2026-10-21'
     batch: Winter 2015
@@ -1332,8 +1336,8 @@ edges:
       swagger_url: https://api.apis.guru/v2/specs/gitlab.com/v3/swagger.json
       origin_url: https://axil.gitlab.io/swaggerapi/static/swagger.json
       openapi_version: '2.0'
-    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
-      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider did not
+      file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
     detected_by: sweep-openapi-directory-apis-guru.py
     detected: '2026-10-22'
     verified_note: x-providerName gitlab.com = GitLab's own REST API
@@ -1349,8 +1353,8 @@ edges:
   evidence: https://catalog.redhat.com/software/containers/search?p=1&vendor_name=GitLab
   category: Red Hat OpenShift / RHEL software certification
   contract_reference:
-    register: 'Red Hat Ecosystem Catalog (catalog.redhat.com/api/containers/v1: repositories, vendors, certified
-      operator bundles)'
+    register: 'Red Hat Ecosystem Catalog (catalog.redhat.com/api/containers/v1: repositories, vendors, certified operator
+      bundles)'
     standard: Red Hat Container Certification (Red Hat Ecosystem Catalog, registry.connect.redhat.com)
     spec_file: null
     role: red-hat-certified-partner
@@ -1384,13 +1388,43 @@ edges:
       - '4.20'
       - '4.21'
       - '4.22'
-    signal_note: 'certified_products = one entry per certified product TYPE (container image, OpenShift operator),
-      standard named on each; lapsed: true when no certified item of that type is current (containers: all Deprecated
-      / past EOL / unpublished; operators: absent from the three newest certified-operator indexes); repository
-      and package counts are context, never counted'
+    signal_note: 'certified_products = one entry per certified product TYPE (container image, OpenShift operator), standard
+      named on each; lapsed: true when no certified item of that type is current (containers: all Deprecated / past EOL /
+      unpublished; operators: absent from the three newest certified-operator indexes); repository and package counts are
+      context, never counted'
     detected_by: sweep-red-hat-certified-ecosystem.py
     detected: '2026-10-22'
   detected_by: sweep-red-hat-certified-ecosystem.py
+  first_seen: '2026-10-22'
+- partner_name: CD Foundation (Continuous Delivery Foundation landscape)
+  partner: continuous-delivery-foundation
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  category: Continuous delivery foundation membership / landscape
+  evidence: https://landscape.cd.foundation/
+  contract_reference:
+    register: CD Foundation landscape (landscape.cd.foundation/data/full.json)
+    spec_file: null
+    standard: Continuous Delivery Foundation
+    role: cdf-landscape-listed
+    registered_name: GitLab
+    registered_names:
+    - GitLab
+    website: https://about.gitlab.com/
+    matched_domain: gitlab.com
+    matched_by: domain+name-among-holders
+    member_tier: null
+    landscape_categories:
+    - CI & Pipeline Orchestration / Pipeline Orchestration
+    cdf_projects: []
+    signal_note: 'participation only: CDF membership or a landscape listing is standard-participant evidence, never depth;
+      tier, categories and entries are context, never counted'
+    detected_by: sweep-jenkins-cd-foundation-plugins.py
+    detected: '2026-10-22'
+  detected_by: sweep-jenkins-cd-foundation-plugins.py
   first_seen: '2026-10-22'
 templates:
 - title: Post new GitLab merge requests to Slack channels
