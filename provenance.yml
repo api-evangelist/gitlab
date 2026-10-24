@@ -7,77 +7,77 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   arazzo/gitlab-add-group-badge-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-add-project-badge-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-approve-group-access-request-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-approve-project-access-request-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-attach-alert-metric-image-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-cleanup-merged-branch-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-create-and-protect-branch-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-create-branch-from-default-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-ensure-branch-exists-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-find-and-run-manual-job-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-inspect-failed-jobs-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-prune-stale-branches-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-publish-broadcast-message-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-register-instance-cluster-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-request-and-self-approve-project-access-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-retire-instance-ci-variable-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-retire-project-badge-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-rotate-broadcast-message-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-rotate-project-badge-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-start-migration-and-poll-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-track-migration-entities-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-trigger-manual-job-and-poll-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-update-broadcast-message-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/gitlab-upsert-instance-ci-variable-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   asyncapi/gitlab-webhooks-asyncapi.yml:
     method: unknown
     evidence: no authorship recorded
@@ -375,13 +375,82 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  graphql/gitlab-graphql.json:
+    method: unknown
+    evidence: no authorship recorded
   graphql/gitlab-graphql.md:
     method: unknown
     evidence: no authorship recorded
   graphql/gitlab-introspection.json:
     method: unknown
     evidence: no authorship recorded
+  hosts/gitlab-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
+  integrations/_index.yml:
+    method: generated
+    evidence: carries an API Evangelist house phrase
+  integrations/gitlab-integration-edges.yml:
+    method: searched
+    evidence: declared in the artifact
   json-ld/gitlab-context.jsonld:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-access-requester-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-appearance-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-application-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-application-with-secret-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-avatar-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-badge-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-basic-badge-details-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-batched-background-migration-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-branch-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-broadcast-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-bulk-import-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-bulk-imports-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-ci-variable-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-cluster-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-dictionary-table-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-job-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-metadata-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-metric-image-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-api-entities-plan-limit-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/gitlab-api-v4-admin-api_entities_batched-background-migration-schema.json:
@@ -451,6 +520,12 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-schema/gitlab-api-v4-version-api_entities_metadata-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-device-authorization-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-device-authorization-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/gitlab-issue-schema.json:
@@ -529,6 +604,30 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-schema/gitlab-project-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-revoke-token-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-token-info-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-token-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-token-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-user-info-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-webhook-event-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-webhook-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/gitlab-webhook-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/gitlab-webhooks-webhook-event-schema.json:
@@ -696,127 +795,7 @@ artifacts:
   json-structure/gitlab-webhooks-webhook-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-24T161608.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T125852.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T133943.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T143147.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T154045.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-26T215308.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T094438.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T103455.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T123021.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T132314.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T140727.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-28T221322.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T213958.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T230545.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T203505.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T220315.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-31T223420.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T063623.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T210448.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T222808.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T224043.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T161828.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T174231.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T062714.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T212454.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T224856.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T055819.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T144739.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T195450.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T211839.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T011047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T224210.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T200636.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T213054.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T214843.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T232836.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T204815.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T222408.yml:
+  kin/checks-2026-10-11T110117.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-12T062655.yml:
@@ -900,9 +879,27 @@ artifacts:
   kin/score-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T210408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T232841.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T000835.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T024842.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-11T110117.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/gitlab-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
+  llms/gitlab-llms-provenance.yml:
+    method: searched
+    evidence: 'derive-llms-provenance.py: harvested'
   llms/gitlab-llms.txt:
     method: searched
     evidence: 'derive-llms-provenance.py: harvested'
@@ -1009,45 +1006,93 @@ artifacts:
   openapi/gitlab-webhook-events-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  overlays/gitlab-admin-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/gitlab-api-v4-admin-openapi-search.yml:
-    method: generated
-    evidence: declared in the artifact
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   overlays/gitlab-api-v4-application-openapi-search.yml:
-    method: generated
-    evidence: declared in the artifact
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   overlays/gitlab-api-v4-applications-openapi-search.yml:
-    method: generated
-    evidence: declared in the artifact
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   overlays/gitlab-api-v4-avatar-openapi-search.yml:
-    method: generated
-    evidence: declared in the artifact
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   overlays/gitlab-api-v4-broadcast-messages-openapi-search.yml:
-    method: generated
-    evidence: declared in the artifact
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   overlays/gitlab-api-v4-bulk-imports-openapi-search.yml:
-    method: generated
-    evidence: declared in the artifact
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   overlays/gitlab-api-v4-groups-openapi-search.yml:
-    method: generated
-    evidence: declared in the artifact
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   overlays/gitlab-api-v4-metadata-openapi-search.yml:
-    method: generated
-    evidence: declared in the artifact
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   overlays/gitlab-api-v4-projects-openapi-search.yml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/gitlab-api-v4-version-openapi-search.yml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/gitlab-application-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
-  overlays/gitlab-api-v4-version-openapi-search.yml:
+  overlays/gitlab-applications-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/gitlab-authorization-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/gitlab-avatar-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/gitlab-broadcast-messages-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/gitlab-bulk-imports-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/gitlab-groups-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/gitlab-metadata-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/gitlab-oauth2-openapi-search.yml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/gitlab-openapi-search.yml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/gitlab-project-webhooks-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
-  overlays/gitlab-openapi-search.yml:
+  overlays/gitlab-projects-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/gitlab-tokens-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/gitlab-user-info-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/gitlab-version-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/gitlab-webhook-configuration-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/gitlab-webhook-events-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/gitlab-webhooks-openapi-search.yml:
-    method: generated
-    evidence: declared in the artifact
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   packages/gitlab-packages.yml:
     method: searched
     evidence: declared in the artifact
@@ -1105,6 +1150,9 @@ artifacts:
   rules/gitlab-jsonschema-spectral-rules.yml:
     method: generated
     evidence: declared in the artifact
+  rules/gitlab-rules.yml:
+    method: generated
+    evidence: declared in the artifact
   rules/gitlab-spectral-rules.yml:
     method: generated
     evidence: declared in the artifact
@@ -1119,6 +1167,18 @@ artifacts:
     evidence: declared in the artifact
   security/gitlab-vulnerability-disclosure.yml:
     method: searched
+    evidence: declared in the artifact
+  skills/_index.yml:
+    method: generated
+    evidence: declared in the artifact
+  skills/gitlab-create-protect-branch.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/gitlab-manage-group-badges.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/gitlab-manage-project-webhooks.md:
+    method: generated
     evidence: declared in the artifact
   subway/build-map.py:
     method: unknown
@@ -1135,9 +1195,15 @@ artifacts:
   subway/gitlab-subway-map.svg:
     method: unknown
     evidence: no authorship recorded
+  vendors/gitlab-vendors.yml:
+    method: unknown
+    evidence: no authorship recorded
   vocabulary/gitlab-vocabulary.yaml:
     method: unknown
     evidence: no authorship recorded
+  vocabulary/gitlab-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
   well-known/gitlab-gitlab-oauth-protected-resource.json:
     method: unknown
     evidence: no authorship recorded
