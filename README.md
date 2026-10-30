@@ -1,4 +1,4 @@
-# GitLab (gitlab)
+# GitLab
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,946 +66,402 @@
 
 GitLab Inc. is an open-core company that develops GitLab, a DevOps software platform for building, securing, and managing applications. Created by Ukrainian developer Dmytro Zaporozhets and Dutch developer Sytse Sijbrandij, GitLab became the first partly-Ukrainian unicorn in 2018. Known for promoting remote work, it is one of the largest all-remote companies globally. GitLab has approximately 30 million registered users, including 1 million active licensed users.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-search/code/main/_apis/gitlab/apis.md](https://raw.githubusercontent.com/api-search/code/main/_apis/gitlab/apis.md)
+**Areas:** Code · Developer Tools · Platform · Software Development · Version Control · GitLab
+
+## GitLab on APIs.io
+
+Everything profiled for GitLab is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gitlab/](https://apis.io/providers/gitlab/)** — or go straight to one of the APIs or properties below.
+
+### APIs (44)
+
+- [GitLab GraphQL API](https://apis.io/apis/gitlab/gitlab-graphql-api/) — GraphQL is a query language for APIs. You can use it to request the exact data you need, and therefore limit the number of requests you need. GraphQL data…
+- [GitLab Issues API](https://apis.io/apis/gitlab/apiv4issues/) — The GitLab Issues API provides programmatic access to manage issues across projects and groups. It supports creating, listing, updating, and deleting…
+- [GitLab Merge Requests API](https://apis.io/apis/gitlab/apiv4merge-requests/) — The GitLab Merge Requests API enables programmatic management of merge requests across projects and groups. It supports creating, listing, updating,…
+- [GitLab Pipelines API](https://apis.io/apis/gitlab/apiv4pipelines/) — The GitLab Pipelines API provides programmatic access to CI/CD pipelines in GitLab projects. It supports listing, creating, retrying, and canceling…
+- [GitLab Jobs API](https://apis.io/apis/gitlab/apiv4jobs/) — The GitLab Jobs API allows you to interact with CI/CD jobs in GitLab projects. It supports listing, retrieving, canceling, retrying, and erasing jobs, as…
+- [GitLab Runners API](https://apis.io/apis/gitlab/apiv4runners/) — The GitLab Runners API provides endpoints for managing CI/CD runners registered to a GitLab instance. It supports listing, registering, updating, and…
+- [GitLab Users API](https://apis.io/apis/gitlab/apiv4users/) — The GitLab Users API provides programmatic access to manage user accounts on a GitLab instance. It supports listing, creating, updating, and deleting users,…
+- [GitLab Repositories API](https://apis.io/apis/gitlab/apiv4repositories/) — The GitLab Repositories API provides access to Git repository data within GitLab projects. It supports listing repository tree structures, retrieving file…
+- [GitLab Commits API](https://apis.io/apis/gitlab/apiv4commits/) — The GitLab Commits API provides programmatic access to Git commits within GitLab projects. It supports listing, creating, and retrieving commits, viewing…
+- [GitLab Branches API](https://apis.io/apis/gitlab/apiv4branches/) — The GitLab Branches API enables programmatic management of Git branches within GitLab projects. It supports listing, creating, and deleting branches, as…
+- [GitLab Tags API](https://apis.io/apis/gitlab/apiv4tags/) — The GitLab Tags API provides programmatic access to manage Git tags within GitLab projects. It supports listing, creating, and deleting tags, as well as…
+- [GitLab Releases API](https://apis.io/apis/gitlab/apiv4releases/) — The GitLab Releases API enables programmatic management of project releases. It supports creating, listing, updating, and deleting releases, as well as…
+- [GitLab Environments API](https://apis.io/apis/gitlab/apiv4environments/) — The GitLab Environments API provides programmatic access to manage deployment environments within GitLab projects. It supports creating, listing, updating,…
+- [GitLab Deployments API](https://apis.io/apis/gitlab/apiv4deployments/) — The GitLab Deployments API enables programmatic access to deployment records in GitLab projects. It supports listing, creating, and updating deployments, as…
+- [GitLab Pipeline Schedules API](https://apis.io/apis/gitlab/apiv4pipeline-schedules/) — The GitLab Pipeline Schedules API provides programmatic access to manage scheduled CI/CD pipelines. It supports creating, listing, updating, and deleting…
+- [GitLab Labels API](https://apis.io/apis/gitlab/apiv4labels/) — The GitLab Labels API provides programmatic access to manage project labels. It supports creating, listing, updating, deleting, and subscribing to labels…
+- [GitLab Milestones API](https://apis.io/apis/gitlab/apiv4milestones/) — The GitLab Milestones API provides programmatic access to manage project milestones. It supports creating, listing, updating, and deleting milestones, as…
+- [GitLab Notes API](https://apis.io/apis/gitlab/apiv4notes/) — The GitLab Notes API provides programmatic access to manage comments and system notes on issues, merge requests, epics, and snippets. It supports creating,…
+- [GitLab Snippets API](https://apis.io/apis/gitlab/apiv4snippets/) — The GitLab Snippets API provides programmatic access to manage code snippets. It supports creating, listing, updating, and deleting both personal and…
+- [GitLab Packages API](https://apis.io/apis/gitlab/apiv4packages/) — The GitLab Packages API provides programmatic access to the GitLab Package Registry. It supports listing, retrieving, and deleting packages across projects…
+- [GitLab Container Registry API](https://apis.io/apis/gitlab/apiv4container-registry/) — The GitLab Container Registry API provides programmatic access to manage container images stored in the GitLab Container Registry. It supports listing…
+- [GitLab Vulnerabilities API](https://apis.io/apis/gitlab/apiv4vulnerabilities/) — The GitLab Vulnerabilities API provides programmatic access to manage security vulnerabilities detected in GitLab projects. It supports retrieving,…
+- [GitLab Deploy Keys API](https://apis.io/apis/gitlab/apiv4deploy-keys/) — The GitLab Deploy Keys API provides programmatic access to manage deploy keys for GitLab projects. It supports listing, creating, updating, and deleting SSH…
+- [GitLab Protected Branches API](https://apis.io/apis/gitlab/apiv4protected-branches/) — The GitLab Protected Branches API provides programmatic access to manage branch protection rules. It supports listing, creating, updating, and removing…
+- [GitLab Wikis API](https://apis.io/apis/gitlab/apiv4wikis/) — The GitLab Wikis API provides programmatic access to manage project wiki pages. It supports listing, creating, updating, and deleting wiki pages, as well as…
+- [GitLab Events API](https://apis.io/apis/gitlab/apiv4events/) — The GitLab Events API provides programmatic access to review event activity across GitLab. It supports listing all events, retrieving user contribution…
+- [GitLab Search API](https://apis.io/apis/gitlab/apiv4search/) — The GitLab Search API enables programmatic search across a GitLab instance, group, or project. It supports searching for projects, issues, merge requests,…
+- [GitLab Namespaces API](https://apis.io/apis/gitlab/apiv4namespaces/) — The GitLab Namespaces API provides programmatic access to manage namespaces in GitLab. It supports listing namespaces, retrieving namespace details, and…
+- [GitLab Admin API](https://apis.io/apis/gitlab/gitlab-admin-api/) — The Admin API from GitLab — 11 operation(s) for admin.
+- [GitLab Application API](https://apis.io/apis/gitlab/gitlab-application-api/) — The Application API from GitLab — 2 operation(s) for application.
+- [GitLab Applications API](https://apis.io/apis/gitlab/gitlab-applications-api/) — The Applications API from GitLab — 2 operation(s) for applications.
+- [GitLab Authorization API](https://apis.io/apis/gitlab/gitlab-authorization-api/) — Endpoints for initiating OAuth authorization flows.
+- [GitLab Avatar API](https://apis.io/apis/gitlab/gitlab-avatar-api/) — The Avatar API from GitLab — 1 operation(s) for avatar.
+- [GitLab Broadcast Messages API](https://apis.io/apis/gitlab/gitlab-broadcast-messages-api/) — The Broadcast Messages API from GitLab — 2 operation(s) for broadcast messages.
+- [GitLab Bulk Imports API](https://apis.io/apis/gitlab/gitlab-bulk-imports-api/) — The Bulk Imports API from GitLab — 5 operation(s) for bulk imports.
+- [GitLab Groups API](https://apis.io/apis/gitlab/gitlab-groups-api/) — The Groups API from GitLab — 6 operation(s) for groups.
+- [GitLab Metadata API](https://apis.io/apis/gitlab/gitlab-metadata-api/) — The Metadata API from GitLab — 1 operation(s) for metadata.
+- [GitLab Project Webhooks API](https://apis.io/apis/gitlab/gitlab-project-webhooks-api/) — Manage webhooks for a specific project.
+- [GitLab Projects API](https://apis.io/apis/gitlab/gitlab-projects-api/) — The Projects API from GitLab — 17 operation(s) for projects.
+- [GitLab Tokens API](https://apis.io/apis/gitlab/gitlab-tokens-api/) — Endpoints for exchanging, refreshing, and revoking OAuth tokens.
+- [GitLab User Info API](https://apis.io/apis/gitlab/gitlab-user-info-api/) — Endpoints for retrieving authenticated user information via OAuth.
+- [GitLab Version API](https://apis.io/apis/gitlab/gitlab-version-api/) — The Version API from GitLab — 1 operation(s) for version.
+- [GitLab Webhook Configuration API](https://apis.io/apis/gitlab/gitlab-webhook-configuration-api/) — Manage custom headers and URL variables for webhooks.
+- [GitLab Webhook Events API](https://apis.io/apis/gitlab/gitlab-webhook-events-api/) — Access webhook delivery history and resend events.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Arazzo workflows (24)
+
+Multi-step workflows that chain operations into a business task.
+
+- [GitLab Add and Preview a Group Badge](https://apis.io/arazzos/gitlab/gitlab-add-group-badge-workflow/)
+- [GitLab Add and Preview a Project Badge](https://apis.io/arazzos/gitlab/gitlab-add-project-badge-workflow/)
+- [GitLab Approve a Pending Group Access Request](https://apis.io/arazzos/gitlab/gitlab-approve-group-access-request-workflow/)
+- [GitLab Approve a Pending Project Access Request](https://apis.io/arazzos/gitlab/gitlab-approve-project-access-request-workflow/)
+- [GitLab Attach a Metric Image to an Alert](https://apis.io/arazzos/gitlab/gitlab-attach-alert-metric-image-workflow/)
+- [GitLab Clean Up a Merged Branch](https://apis.io/arazzos/gitlab/gitlab-cleanup-merged-branch-workflow/)
+- [GitLab Create and Protect a Release Branch](https://apis.io/arazzos/gitlab/gitlab-create-and-protect-branch-workflow/)
+- [GitLab Create a Feature Branch from the Default Branch](https://apis.io/arazzos/gitlab/gitlab-create-branch-from-default-workflow/)
+- [GitLab Ensure a Branch Exists](https://apis.io/arazzos/gitlab/gitlab-ensure-branch-exists-workflow/)
+- [GitLab Find and Run a Pending Manual Job](https://apis.io/arazzos/gitlab/gitlab-find-and-run-manual-job-workflow/)
+- [GitLab Inspect a Failed CI Job](https://apis.io/arazzos/gitlab/gitlab-inspect-failed-jobs-workflow/)
+- [GitLab Prune Stale Merged Branches](https://apis.io/arazzos/gitlab/gitlab-prune-stale-branches-workflow/)
+- [GitLab Publish and Verify a Broadcast Message](https://apis.io/arazzos/gitlab/gitlab-publish-broadcast-message-workflow/)
+- [GitLab Register an Existing Instance Cluster](https://apis.io/arazzos/gitlab/gitlab-register-instance-cluster-workflow/)
+- [GitLab Request and Approve Project Access](https://apis.io/arazzos/gitlab/gitlab-request-and-self-approve-project-access-workflow/)
+- [GitLab Retire an Instance-Level CI Variable](https://apis.io/arazzos/gitlab/gitlab-retire-instance-ci-variable-workflow/)
+- [GitLab Retire a Project Badge by Name](https://apis.io/arazzos/gitlab/gitlab-retire-project-badge-workflow/)
+- [GitLab Rotate the Active Broadcast Message](https://apis.io/arazzos/gitlab/gitlab-rotate-broadcast-message-workflow/)
+- [GitLab Rotate a Project Badge by Name](https://apis.io/arazzos/gitlab/gitlab-rotate-project-badge-workflow/)
+- [GitLab Start a Migration and Poll to Completion](https://apis.io/arazzos/gitlab/gitlab-start-migration-and-poll-workflow/)
+- [GitLab Track a Migration's Entities](https://apis.io/arazzos/gitlab/gitlab-track-migration-entities-workflow/)
+- [GitLab Trigger a Manual CI Job and Poll to Completion](https://apis.io/arazzos/gitlab/gitlab-trigger-manual-job-and-poll-workflow/)
+- [GitLab Reschedule a Broadcast Message](https://apis.io/arazzos/gitlab/gitlab-update-broadcast-message-workflow/)
+- [GitLab Upsert an Instance-Level CI Variable](https://apis.io/arazzos/gitlab/gitlab-upsert-instance-ci-variable-workflow/)
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [GitLab Webhooks](https://apis.io/asyncapis/gitlab/gitlab-webhooks-asyncapi/)
+
+#### Event channels (1)
+
+Individual events and webhooks the provider emits.
+
+- [/webhook](https://apis.io/channels/gitlab/webhook/)
+
+#### GraphQL (1)
+
+GraphQL schemas.
+
+- [GitLab GraphQL API](https://apis.io/graphqls/gitlab/gitlab-graphql/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [gitlab](https://apis.io/servers/gitlab/gitlab/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Gitlab Agentic Access](https://apis.io/agentic-access/gitlab/gitlab-agentic-access/)
+
+#### JSON Schema (81)
+
+The data models the API reads and writes.
+
+- [API_Entities_AccessRequester](https://apis.io/schemas/gitlab/gitlab-api-entities-access-requester/)
+- [API_Entities_Appearance](https://apis.io/schemas/gitlab/gitlab-api-entities-appearance/)
+- [API_Entities_Application](https://apis.io/schemas/gitlab/gitlab-api-entities-application/)
+- [API_Entities_ApplicationWithSecret](https://apis.io/schemas/gitlab/gitlab-api-entities-application-with-secret/)
+- [API_Entities_Avatar](https://apis.io/schemas/gitlab/gitlab-api-entities-avatar/)
+- [API_Entities_Badge](https://apis.io/schemas/gitlab/gitlab-api-entities-badge/)
+- [API_Entities_BasicBadgeDetails](https://apis.io/schemas/gitlab/gitlab-api-entities-basic-badge-details/)
+- [API_Entities_BatchedBackgroundMigration](https://apis.io/schemas/gitlab/gitlab-api-entities-batched-background-migration/)
+- [API_Entities_Branch](https://apis.io/schemas/gitlab/gitlab-api-entities-branch/)
+- [API_Entities_BroadcastMessage](https://apis.io/schemas/gitlab/gitlab-api-entities-broadcast-message/)
+- [API_Entities_BulkImport](https://apis.io/schemas/gitlab/gitlab-api-entities-bulk-import/)
+- [API_Entities_BulkImports](https://apis.io/schemas/gitlab/gitlab-api-entities-bulk-imports/)
+- [API_Entities_Ci_Variable](https://apis.io/schemas/gitlab/gitlab-api-entities-ci-variable/)
+- [API_Entities_Cluster](https://apis.io/schemas/gitlab/gitlab-api-entities-cluster/)
+- [API_Entities_Dictionary_Table](https://apis.io/schemas/gitlab/gitlab-api-entities-dictionary-table/)
+- [API_Entities_Job](https://apis.io/schemas/gitlab/gitlab-api-entities-job/)
+- [API_Entities_Metadata](https://apis.io/schemas/gitlab/gitlab-api-entities-metadata/)
+- [API_Entities_MetricImage](https://apis.io/schemas/gitlab/gitlab-api-entities-metric-image/)
+- [API_Entities_PlanLimit](https://apis.io/schemas/gitlab/gitlab-api-entities-plan-limit/)
+- [API_Entities_BatchedBackgroundMigration](https://apis.io/schemas/gitlab/gitlab-api-v4-admin-api_entities_batched-background-migration/)
+- [API_Entities_Ci_Variable](https://apis.io/schemas/gitlab/gitlab-api-v4-admin-api_entities_ci_variable/)
+- [API_Entities_Cluster](https://apis.io/schemas/gitlab/gitlab-api-v4-admin-api_entities_cluster/)
+- [API_Entities_Dictionary_Table](https://apis.io/schemas/gitlab/gitlab-api-v4-admin-api_entities_dictionary_table/)
+- [API_Entities_Appearance](https://apis.io/schemas/gitlab/gitlab-api-v4-application-api_entities_appearance/)
+- [API_Entities_ApplicationWithSecret](https://apis.io/schemas/gitlab/gitlab-api-v4-application-api_entities_application-with-secret/)
+- …and 56 more published on APIs.io
+
+#### JSON Structure (52)
+
+Data models expressed in JSON Structure.
+
+- [Gitlab Api V4 Admin Api_Entities_Batched Background Migration Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-admin-api_entities_batched-background-migration-structure/)
+- [Gitlab Api V4 Admin Api_Entities_Ci_Variable Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-admin-api_entities_ci_variable-structure/)
+- [Gitlab Api V4 Admin Api_Entities_Cluster Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-admin-api_entities_cluster-structure/)
+- [Gitlab Api V4 Admin Api_Entities_Dictionary_Table Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-admin-api_entities_dictionary_table-structure/)
+- [Gitlab Api V4 Application Api_Entities_Appearance Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-application-api_entities_appearance-structure/)
+- [Gitlab Api V4 Application Api_Entities_Application With Secret Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-application-api_entities_application-with-secret-structure/)
+- [Gitlab Api V4 Application Api_Entities_Plan Limit Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-application-api_entities_plan-limit-structure/)
+- [Gitlab Api V4 Applications Api_Entities_Application With Secret Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-applications-api_entities_application-with-secret-structure/)
+- [Gitlab Api V4 Avatar Api_Entities_Avatar Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-avatar-api_entities_avatar-structure/)
+- [Gitlab Api V4 Broadcast Messages Api_Entities_Broadcast Message Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-broadcast-messages-api_entities_broadcast-message-structure/)
+- [Gitlab Api V4 Bulk Imports Api_Entities_Bulk Import Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-bulk-imports-api_entities_bulk-import-structure/)
+- [Gitlab Api V4 Bulk Imports Api_Entities_Bulk Imports Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-bulk-imports-api_entities_bulk-imports-structure/)
+- [Gitlab Api V4 Groups Api_Entities_Access Requester Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-groups-api_entities_access-requester-structure/)
+- [Gitlab Api V4 Groups Api_Entities_Badge Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-groups-api_entities_badge-structure/)
+- [Gitlab Api V4 Groups Api_Entities_Basic Badge Details Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-groups-api_entities_basic-badge-details-structure/)
+- [Gitlab Api V4 Metadata Api_Entities_Metadata Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-metadata-api_entities_metadata-structure/)
+- [Gitlab Api V4 Projects Api_Entities_Access Requester Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-projects-api_entities_access-requester-structure/)
+- [Gitlab Api V4 Projects Api_Entities_Badge Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-projects-api_entities_badge-structure/)
+- [Gitlab Api V4 Projects Api_Entities_Basic Badge Details Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-projects-api_entities_basic-badge-details-structure/)
+- [Gitlab Api V4 Projects Api_Entities_Branch Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-projects-api_entities_branch-structure/)
+- [Gitlab Api V4 Projects Api_Entities_Job Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-projects-api_entities_job-structure/)
+- [Gitlab Api V4 Projects Api_Entities_Metric Image Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-projects-api_entities_metric-image-structure/)
+- [Gitlab Api V4 Version Api_Entities_Metadata Structure](https://apis.io/json-structure/gitlab/gitlab-api-v4-version-api_entities_metadata-structure/)
+- [Gitlab Issue Structure](https://apis.io/json-structure/gitlab/gitlab-issue-structure/)
+- [Gitlab Merge Request Structure](https://apis.io/json-structure/gitlab/gitlab-merge-request-structure/)
+- …and 27 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Gitlab Context](https://apis.io/jsonld/gitlab/gitlab-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Gitlab Vocabulary](https://apis.io/vocabularies/gitlab/gitlab-vocabulary/)
+
+#### Examples (52)
+
+Example requests and responses.
+
+- [Gitlab Api V4 Admin Api_Entities_Batched Background Migration Example](https://apis.io/examples/gitlab/gitlab-api-v4-admin-api_entities_batched-background-migration-example/)
+- [Gitlab Api V4 Admin Api_Entities_Ci_Variable Example](https://apis.io/examples/gitlab/gitlab-api-v4-admin-api_entities_ci_variable-example/)
+- [Gitlab Api V4 Admin Api_Entities_Cluster Example](https://apis.io/examples/gitlab/gitlab-api-v4-admin-api_entities_cluster-example/)
+- [Gitlab Api V4 Admin Api_Entities_Dictionary_Table Example](https://apis.io/examples/gitlab/gitlab-api-v4-admin-api_entities_dictionary_table-example/)
+- [Gitlab Api V4 Application Api_Entities_Appearance Example](https://apis.io/examples/gitlab/gitlab-api-v4-application-api_entities_appearance-example/)
+- [Gitlab Api V4 Application Api_Entities_Application With Secret Example](https://apis.io/examples/gitlab/gitlab-api-v4-application-api_entities_application-with-secret-example/)
+- [Gitlab Api V4 Application Api_Entities_Plan Limit Example](https://apis.io/examples/gitlab/gitlab-api-v4-application-api_entities_plan-limit-example/)
+- [Gitlab Api V4 Applications Api_Entities_Application With Secret Example](https://apis.io/examples/gitlab/gitlab-api-v4-applications-api_entities_application-with-secret-example/)
+- [Gitlab Api V4 Avatar Api_Entities_Avatar Example](https://apis.io/examples/gitlab/gitlab-api-v4-avatar-api_entities_avatar-example/)
+- [Gitlab Api V4 Broadcast Messages Api_Entities_Broadcast Message Example](https://apis.io/examples/gitlab/gitlab-api-v4-broadcast-messages-api_entities_broadcast-message-example/)
+- [Gitlab Api V4 Bulk Imports Api_Entities_Bulk Import Example](https://apis.io/examples/gitlab/gitlab-api-v4-bulk-imports-api_entities_bulk-import-example/)
+- [Gitlab Api V4 Bulk Imports Api_Entities_Bulk Imports Example](https://apis.io/examples/gitlab/gitlab-api-v4-bulk-imports-api_entities_bulk-imports-example/)
+- [Gitlab Api V4 Groups Api_Entities_Access Requester Example](https://apis.io/examples/gitlab/gitlab-api-v4-groups-api_entities_access-requester-example/)
+- [Gitlab Api V4 Groups Api_Entities_Badge Example](https://apis.io/examples/gitlab/gitlab-api-v4-groups-api_entities_badge-example/)
+- [Gitlab Api V4 Groups Api_Entities_Basic Badge Details Example](https://apis.io/examples/gitlab/gitlab-api-v4-groups-api_entities_basic-badge-details-example/)
+- [Gitlab Api V4 Metadata Api_Entities_Metadata Example](https://apis.io/examples/gitlab/gitlab-api-v4-metadata-api_entities_metadata-example/)
+- [Gitlab Api V4 Projects Api_Entities_Access Requester Example](https://apis.io/examples/gitlab/gitlab-api-v4-projects-api_entities_access-requester-example/)
+- [Gitlab Api V4 Projects Api_Entities_Badge Example](https://apis.io/examples/gitlab/gitlab-api-v4-projects-api_entities_badge-example/)
+- [Gitlab Api V4 Projects Api_Entities_Basic Badge Details Example](https://apis.io/examples/gitlab/gitlab-api-v4-projects-api_entities_basic-badge-details-example/)
+- [Gitlab Api V4 Projects Api_Entities_Branch Example](https://apis.io/examples/gitlab/gitlab-api-v4-projects-api_entities_branch-example/)
+- [Gitlab Api V4 Projects Api_Entities_Job Example](https://apis.io/examples/gitlab/gitlab-api-v4-projects-api_entities_job-example/)
+- [Gitlab Api V4 Projects Api_Entities_Metric Image Example](https://apis.io/examples/gitlab/gitlab-api-v4-projects-api_entities_metric-image-example/)
+- [Gitlab Api V4 Version Api_Entities_Metadata Example](https://apis.io/examples/gitlab/gitlab-api-v4-version-api_entities_metadata-example/)
+- [Gitlab Issue Example](https://apis.io/examples/gitlab/gitlab-issue-example/)
+- [Gitlab Merge Request Example](https://apis.io/examples/gitlab/gitlab-merge-request-example/)
+- …and 27 more published on APIs.io
+
+#### Collections (31)
+
+Postman and Open Collection request collections.
+
+- [GitLab api/v4/ Admin API](https://apis.io/collections/gitlab/open-gitlab-admin-api/)
+- [GitLab api/v4/ Admin Application API](https://apis.io/collections/gitlab/open-gitlab-application-api/)
+- [GitLab api/v4/ Admin Applications API](https://apis.io/collections/gitlab/open-gitlab-applications-api/)
+- [GitLab api/v4/ Admin Authorization API](https://apis.io/collections/gitlab/open-gitlab-authorization-api/)
+- [GitLab api/v4/ Admin Avatar API](https://apis.io/collections/gitlab/open-gitlab-avatar-api/)
+- [GitLab api/v4/ Admin Broadcast Messages API](https://apis.io/collections/gitlab/open-gitlab-broadcast-messages-api/)
+- [GitLab api/v4/ Admin Bulk Imports API](https://apis.io/collections/gitlab/open-gitlab-bulk-imports-api/)
+- [GitLab api/v4/ Admin Groups API](https://apis.io/collections/gitlab/open-gitlab-groups-api/)
+- [GitLab api/v4/ Admin Metadata API](https://apis.io/collections/gitlab/open-gitlab-metadata-api/)
+- [GitLab OAuth 2.0 API](https://apis.io/collections/gitlab/open-gitlab-oauth2/)
+- [GitLab api/v4/ Admin Project Webhooks API](https://apis.io/collections/gitlab/open-gitlab-project-webhooks-api/)
+- [GitLab api/v4/ Admin Projects API](https://apis.io/collections/gitlab/open-gitlab-projects-api/)
+- [GitLab api/v4/ Admin Tokens API](https://apis.io/collections/gitlab/open-gitlab-tokens-api/)
+- [GitLab api/v4/ Admin User Info API](https://apis.io/collections/gitlab/open-gitlab-user-info-api/)
+- [GitLab api/v4/ Admin Version API](https://apis.io/collections/gitlab/open-gitlab-version-api/)
+- [GitLab api/v4/ Admin Webhook Configuration API](https://apis.io/collections/gitlab/open-gitlab-webhook-configuration-api/)
+- [GitLab api/v4/ Admin Webhook Events API](https://apis.io/collections/gitlab/open-gitlab-webhook-events-api/)
+- [GitLab Webhooks API](https://apis.io/collections/gitlab/open-gitlab-webhooks/)
+- [GitLab api/v4/admin](https://apis.io/collections/gitlab/postman-gitlab-api-v4-admin-openapi-original/)
+- [GitLab api/v4/application](https://apis.io/collections/gitlab/postman-gitlab-api-v4-application-openapi-original/)
+- [GitLab api/v4/applications](https://apis.io/collections/gitlab/postman-gitlab-api-v4-applications-openapi-original/)
+- [GitLab api/v4/avatar](https://apis.io/collections/gitlab/postman-gitlab-api-v4-avatar-openapi-original/)
+- [GitLab api/v4/broadcast messages](https://apis.io/collections/gitlab/postman-gitlab-api-v4-broadcast-messages-openapi-original/)
+- [GitLab api/v4/bulk imports](https://apis.io/collections/gitlab/postman-gitlab-api-v4-bulk-imports-openapi-original/)
+- [GitLab api/v4/groups](https://apis.io/collections/gitlab/postman-gitlab-api-v4-groups-openapi-original/)
+- …and 6 more published on APIs.io
+
+#### Overlays (29)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Gitlab Admin Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-admin-api-phrasing-overlay/)
+- [Gitlab Api V4 Admin Openapi Search](https://apis.io/overlays/gitlab/gitlab-api-v4-admin-openapi-search/)
+- [Gitlab Api V4 Application Openapi Search](https://apis.io/overlays/gitlab/gitlab-api-v4-application-openapi-search/)
+- [Gitlab Api V4 Applications Openapi Search](https://apis.io/overlays/gitlab/gitlab-api-v4-applications-openapi-search/)
+- [Gitlab Api V4 Avatar Openapi Search](https://apis.io/overlays/gitlab/gitlab-api-v4-avatar-openapi-search/)
+- [Gitlab Api V4 Broadcast Messages Openapi Search](https://apis.io/overlays/gitlab/gitlab-api-v4-broadcast-messages-openapi-search/)
+- [Gitlab Api V4 Bulk Imports Openapi Search](https://apis.io/overlays/gitlab/gitlab-api-v4-bulk-imports-openapi-search/)
+- [Gitlab Api V4 Groups Openapi Search](https://apis.io/overlays/gitlab/gitlab-api-v4-groups-openapi-search/)
+- [Gitlab Api V4 Metadata Openapi Search](https://apis.io/overlays/gitlab/gitlab-api-v4-metadata-openapi-search/)
+- [Gitlab Api V4 Projects Openapi Search](https://apis.io/overlays/gitlab/gitlab-api-v4-projects-openapi-search/)
+- [Gitlab Api V4 Version Openapi Search](https://apis.io/overlays/gitlab/gitlab-api-v4-version-openapi-search/)
+- [Gitlab Application Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-application-api-phrasing-overlay/)
+- [Gitlab Applications Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-applications-api-phrasing-overlay/)
+- [Gitlab Authorization Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-authorization-api-phrasing-overlay/)
+- [Gitlab Avatar Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-avatar-api-phrasing-overlay/)
+- [Gitlab Broadcast Messages Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-broadcast-messages-api-phrasing-overlay/)
+- [Gitlab Bulk Imports Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-bulk-imports-api-phrasing-overlay/)
+- [Gitlab Groups Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-groups-api-phrasing-overlay/)
+- [Gitlab Metadata Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-metadata-api-phrasing-overlay/)
+- [Gitlab Oauth2 Openapi Search](https://apis.io/overlays/gitlab/gitlab-oauth2-openapi-search/)
+- [Gitlab Openapi Search](https://apis.io/overlays/gitlab/gitlab-openapi-search/)
+- [Gitlab Project Webhooks Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-project-webhooks-api-phrasing-overlay/)
+- [Gitlab Projects Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-projects-api-phrasing-overlay/)
+- [Gitlab Tokens Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-tokens-api-phrasing-overlay/)
+- [Gitlab User Info Api Phrasing Overlay](https://apis.io/overlays/gitlab/gitlab-user-info-api-phrasing-overlay/)
+- …and 4 more published on APIs.io
+
+#### Governance rules (4)
+
+Spectral rulesets for the provider's contracts.
+
+- [GitLab — asyncapi rules](https://apis.io/rules/gitlab/gitlab-asyncapi-spectral-rules/)
+- [GitLab — jsonschema rules](https://apis.io/rules/gitlab/gitlab-jsonschema-spectral-rules/)
+- [GitLab API Rules](https://apis.io/rules/gitlab/gitlab-rules/)
+- [GitLab API Rules](https://apis.io/rules/gitlab/gitlab-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Gitlab Authentication](https://apis.io/security/gitlab/gitlab-authentication/)
+- [Gitlab Domain Security](https://apis.io/security/gitlab/gitlab-domain-security/)
+- [Gitlab Trust Center](https://apis.io/security/gitlab/gitlab-trust-center/)
+- [Gitlab Vulnerability Disclosure](https://apis.io/security/gitlab/gitlab-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Gitlab Scopes](https://apis.io/scopes/gitlab/gitlab-scopes/)
+
+#### Plans and pricing (2)
+
+Published plans, tiers and prices.
+
+- [Gitlab Plans Pricing](https://apis.io/plans/gitlab/gitlab-plans-pricing/)
+- [Gitlab Price Estimates](https://apis.io/plans/gitlab/gitlab-price-estimates/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Gitlab Rate Limits](https://apis.io/rate-limits/gitlab/gitlab-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Gitlab Finops](https://apis.io/finops/gitlab/gitlab-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-## Scope
-
-- **Position:** Consuming
-- **Access:** 3rd-Party
-
-## Tags
-
-- Code
-- Platform
-- Software Development
-- Source Control
-
-## Timestamps
-
-- **Created:** 2023/11/10
-- **Modified:** 2026-05-19
-
-## APIs
-
-### GitLab GraphQL API
-
-GraphQL is a query language for APIs. You can use it to request the exact data you need, and therefore limit the number of requests you need. GraphQL data is arranged in types, so your client can use client-side GraphQL libraries to consume the API and avoid manual parsing. There are no fixed endpoints and no data model, so you can add to the API without creating breaking changes. This enables us to have a versionless API.
-
-- **Human URL:** [https://docs.gitlab.com/ee/api/graphql/](https://docs.gitlab.com/ee/api/graphql/)
-- **Base URL:** `https://gitlab.com/api/graphql`
-
-#### Tags
-
-- Data
-- GraphQL
-- Query Language
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/ee/api/graphql/)
-- [Deprecation](https://docs.gitlab.com/ee/api/graphql/#deprecation-and-removal-process)
-- [Documentation](https://docs.gitlab.com/ee/api/graphql/#deprecation-and-removal-process)
-- [Rate Limits](https://docs.gitlab.com/ee/api/graphql/#limits)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [API Reference](https://docs.gitlab.com/api/graphql/reference/)
-- [Getting Started](https://docs.gitlab.com/api/graphql/getting_started/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Groups API
-
-The GitLab Groups API allows you to create, read, update, and delete groups and subgroups. Groups are used to manage access control and organize projects within a GitLab instance, enabling teams to collaborate with shared access permissions and settings.
-
-- **Human URL:** [https://docs.gitlab.com/api/groups/](https://docs.gitlab.com/api/groups/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Access Control
-- Groups
-- Organizations
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-api-v4-groups-openapi-original.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.gitlab.com/api/groups/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-
-### GitLab Projects API
-
-The GitLab Projects API provides programmatic access to GitLab projects, enabling you to create, list, update, and delete projects. It supports managing project settings, members, forks, stars, and other project-level resources across GitLab.com and self-managed instances.
-
-- **Human URL:** [https://docs.gitlab.com/api/projects/](https://docs.gitlab.com/api/projects/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Projects
-- Repositories
-- Source Control
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-api-v4-projects-openapi-original.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.gitlab.com/api/projects/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-
-### GitLab Admin API
-
-The GitLab Admin API provides administrative endpoints for managing a GitLab instance. It includes operations for managing runners, CI/CD variables, Sidekiq queues, and other instance-level administrative tasks that require administrator privileges.
-
-- **Human URL:** [https://docs.gitlab.com/api/admin/](https://docs.gitlab.com/api/admin/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Admin
-- Administration
-- Management
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-api-v4-admin-openapi-original.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.gitlab.com/api/admin/)
-
-### GitLab Applications API
-
-The GitLab Applications API allows you to manage OAuth applications registered in GitLab. You can create, list, and delete OAuth applications that enable third-party services to access GitLab resources on behalf of users using the OAuth 2.0 protocol.
-
-- **Human URL:** [https://docs.gitlab.com/api/applications/](https://docs.gitlab.com/api/applications/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Applications
-- Authentication
-- OAuth
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-api-v4-applications-openapi-original.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.gitlab.com/api/applications/)
-
-### GitLab Avatar API
-
-The GitLab Avatar API allows you to retrieve avatar images for users and groups. It returns avatar URLs based on user email addresses, enabling applications to display profile images for GitLab users without requiring authentication.
-
-- **Human URL:** [https://docs.gitlab.com/api/avatar/](https://docs.gitlab.com/api/avatar/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Avatars
-- Profile
-- Users
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-api-v4-avatar-openapi-original.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.gitlab.com/api/avatar/)
-
-### GitLab Broadcast Messages API
-
-The GitLab Broadcast Messages API allows administrators to create and manage broadcast messages that appear as banners across all GitLab pages. These messages are used to communicate announcements, maintenance notices, and other important information to all users of a GitLab instance.
-
-- **Human URL:** [https://docs.gitlab.com/api/broadcast_messages/](https://docs.gitlab.com/api/broadcast_messages/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Administration
-- Broadcast Messages
-- Notifications
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-api-v4-broadcast-messages-openapi-original.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.gitlab.com/api/broadcast_messages/)
-
-### GitLab Bulk Imports API
-
-The GitLab Bulk Imports API enables migration of groups and projects between GitLab instances. It provides endpoints for initiating bulk import operations and tracking their progress, facilitating large-scale data migrations between GitLab environments.
-
-- **Human URL:** [https://docs.gitlab.com/api/bulk_imports/](https://docs.gitlab.com/api/bulk_imports/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Bulk Imports
-- Data Transfer
-- Migration
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-api-v4-bulk-imports-openapi-original.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.gitlab.com/api/bulk_imports/)
-
-### GitLab Application Settings API
-
-The GitLab Application Settings API provides access to instance-wide configuration settings for a GitLab installation. Administrators can retrieve and modify application settings such as sign-up restrictions, default project visibility, and other instance-level preferences.
-
-- **Human URL:** [https://docs.gitlab.com/api/settings/](https://docs.gitlab.com/api/settings/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Administration
-- Application Settings
-- Configuration
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-api-v4-application-openapi-original.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.gitlab.com/api/settings/)
-
-### GitLab Metadata API
-
-The GitLab Metadata API provides information about the GitLab instance, including the version, revision, and other metadata about the running installation. It is useful for verifying connectivity and identifying the version of a GitLab instance programmatically.
-
-- **Human URL:** [https://docs.gitlab.com/api/metadata/](https://docs.gitlab.com/api/metadata/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Instance Information
-- Metadata
-- System
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-api-v4-metadata-openapi-original.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.gitlab.com/api/metadata/)
-
-### GitLab Version API
-
-The GitLab Version API returns version and revision information for the GitLab instance. This endpoint is useful for verifying what version of GitLab is running and for checking compatibility with specific API features before making requests.
-
-- **Human URL:** [https://docs.gitlab.com/api/version/](https://docs.gitlab.com/api/version/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Instance Information
-- System
-- Version
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-api-v4-version-openapi-original.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.gitlab.com/api/version/)
-
-### GitLab REST API
-
-The GitLab REST API provides programmatic access to GitLab resources, enabling you to build integrations, automate repetitive tasks, and extract data for custom reports. The API supports projects, groups, issues, merge requests, CI/CD pipelines, and many other GitLab features through standard HTTP methods and JSON responses.
-
-- **Human URL:** [https://docs.gitlab.com/api/rest/](https://docs.gitlab.com/api/rest/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- DevOps
-- Integration
-- REST
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-openapi-original.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.gitlab.com/api/rest/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [SDK](https://docs.gitlab.com/api/rest/third_party_clients/)
-- [API Reference](https://docs.gitlab.com/api/api_resources/)
-- [Rate Limits](https://docs.gitlab.com/security/rate_limits/)
-- [Interactive  Documentation](https://docs.gitlab.com/api/openapi/openapi_interactive/)
-
-### GitLab OAuth 2.0 API
-
-The GitLab OAuth 2.0 API enables third-party services to access GitLab resources on behalf of users using the OAuth 2.0 protocol. It supports authorization code with PKCE, device authorization grant, and resource owner password credentials flows, allowing secure delegation of access to GitLab resources.
-
-- **Human URL:** [https://docs.gitlab.com/api/oauth2/](https://docs.gitlab.com/api/oauth2/)
-- **Base URL:** `https://gitlab.com`
-
-#### Tags
-
-- Authentication
-- Authorization
-- OAuth
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-oauth2-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://docs.gitlab.com/api/oauth2/)
-- [Authentication](https://docs.gitlab.com/integration/oauth_provider/)
-
-### GitLab Webhooks
-
-GitLab Webhooks allow you to receive real-time HTTP POST notifications when events occur in GitLab projects or groups. Webhooks can be configured to trigger on events such as push events, merge requests, issues, comments, and pipeline status changes, enabling integrations with external systems.
-
-- **Human URL:** [https://docs.gitlab.com/user/project/integrations/webhooks.html](https://docs.gitlab.com/user/project/integrations/webhooks.html)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Events
-- Integrations
-- Webhooks
-
-#### Properties
-
-- [OpenAPI](openapi/gitlab-webhooks-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [AsyncAPI](asyncapi/gitlab-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Documentation](https://docs.gitlab.com/user/project/integrations/webhooks.html)
-- [API Reference](https://docs.gitlab.com/api/project_webhooks/)
-
-### GitLab Issues API
-
-The GitLab Issues API provides programmatic access to manage issues across projects and groups. It supports creating, listing, updating, and deleting issues, as well as managing issue assignments, labels, milestones, and related metadata for tracking work in GitLab.
-
-- **Human URL:** [https://docs.gitlab.com/api/issues/](https://docs.gitlab.com/api/issues/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Bug Tracking
-- Issues
-- Project Management
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/issues/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Merge Requests API
-
-The GitLab Merge Requests API enables programmatic management of merge requests across projects and groups. It supports creating, listing, updating, approving, and merging merge requests, as well as managing reviewers, assignees, and merge request metadata for code review workflows.
-
-- **Human URL:** [https://docs.gitlab.com/api/merge_requests/](https://docs.gitlab.com/api/merge_requests/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Code Review
-- Collaboration
-- Merge Requests
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/merge_requests/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Pipelines API
-
-The GitLab Pipelines API provides programmatic access to CI/CD pipelines in GitLab projects. It supports listing, creating, retrying, and canceling pipelines, as well as retrieving pipeline details and variables for automating continuous integration and delivery workflows.
-
-- **Human URL:** [https://docs.gitlab.com/api/pipelines/](https://docs.gitlab.com/api/pipelines/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- CI/CD
-- Continuous Integration
-- Pipelines
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/pipelines/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Jobs API
-
-The GitLab Jobs API allows you to interact with CI/CD jobs in GitLab projects. It supports listing, retrieving, canceling, retrying, and erasing jobs, as well as downloading job artifacts and viewing job logs for build and deployment automation.
-
-- **Human URL:** [https://docs.gitlab.com/api/jobs/](https://docs.gitlab.com/api/jobs/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Build
-- CI/CD
-- Jobs
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/jobs/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Runners API
-
-The GitLab Runners API provides endpoints for managing CI/CD runners registered to a GitLab instance. It supports listing, registering, updating, and deleting runners, as well as managing runner configurations and viewing jobs assigned to specific runners.
-
-- **Human URL:** [https://docs.gitlab.com/api/runners/](https://docs.gitlab.com/api/runners/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- CI/CD
-- Infrastructure
-- Runners
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/runners/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Users API
-
-The GitLab Users API provides programmatic access to manage user accounts on a GitLab instance. It supports listing, creating, updating, and deleting users, managing SSH keys and GPG keys, viewing user activity, and administering user-level settings and permissions.
-
-- **Human URL:** [https://docs.gitlab.com/api/users/](https://docs.gitlab.com/api/users/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Access Management
-- Identity
-- Users
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/users/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Repositories API
-
-The GitLab Repositories API provides access to Git repository data within GitLab projects. It supports listing repository tree structures, retrieving file contents, comparing branches and tags, downloading archives, and accessing contributor statistics.
-
-- **Human URL:** [https://docs.gitlab.com/api/repositories/](https://docs.gitlab.com/api/repositories/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Git
-- Repositories
-- Source Control
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/repositories/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Commits API
-
-The GitLab Commits API provides programmatic access to Git commits within GitLab projects. It supports listing, creating, and retrieving commits, viewing commit diffs and comments, cherry-picking commits, and accessing commit status information for CI/CD integration.
-
-- **Human URL:** [https://docs.gitlab.com/api/commits/](https://docs.gitlab.com/api/commits/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Commits
-- Git
-- Source Control
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/commits/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Branches API
-
-The GitLab Branches API enables programmatic management of Git branches within GitLab projects. It supports listing, creating, and deleting branches, as well as retrieving branch details including the latest commit and protection status.
-
-- **Human URL:** [https://docs.gitlab.com/api/branches/](https://docs.gitlab.com/api/branches/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Branches
-- Git
-- Source Control
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/branches/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Tags API
-
-The GitLab Tags API provides programmatic access to manage Git tags within GitLab projects. It supports listing, creating, and deleting tags, as well as retrieving tag details for version management and release workflows.
-
-- **Human URL:** [https://docs.gitlab.com/api/tags/](https://docs.gitlab.com/api/tags/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Git
-- Source Control
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/tags/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Releases API
-
-The GitLab Releases API enables programmatic management of project releases. It supports creating, listing, updating, and deleting releases, as well as managing release assets and links for distributing software versions and release notes.
-
-- **Human URL:** [https://docs.gitlab.com/api/releases/](https://docs.gitlab.com/api/releases/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Distribution
-- Releases
-- Versioning
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/releases/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Environments API
-
-The GitLab Environments API provides programmatic access to manage deployment environments within GitLab projects. It supports creating, listing, updating, stopping, and deleting environments used to track deployments across different stages such as staging and production.
-
-- **Human URL:** [https://docs.gitlab.com/api/environments/](https://docs.gitlab.com/api/environments/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- CI/CD
-- Deployments
-- Environments
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/environments/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Deployments API
-
-The GitLab Deployments API enables programmatic access to deployment records in GitLab projects. It supports listing, creating, and updating deployments, as well as retrieving deployment details and merge requests associated with specific deployments.
-
-- **Human URL:** [https://docs.gitlab.com/api/deployments/](https://docs.gitlab.com/api/deployments/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- CI/CD
-- Deployments
-- Release Management
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/deployments/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Pipeline Schedules API
-
-The GitLab Pipeline Schedules API provides programmatic access to manage scheduled CI/CD pipelines. It supports creating, listing, updating, and deleting pipeline schedules, as well as managing schedule variables and triggering scheduled pipeline runs.
-
-- **Human URL:** [https://docs.gitlab.com/api/pipeline_schedules/](https://docs.gitlab.com/api/pipeline_schedules/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Automation
-- CI/CD
-- Pipeline Schedules
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/pipeline_schedules/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Labels API
-
-The GitLab Labels API provides programmatic access to manage project labels. It supports creating, listing, updating, deleting, and subscribing to labels used for categorizing issues, merge requests, and other project resources.
-
-- **Human URL:** [https://docs.gitlab.com/api/labels/](https://docs.gitlab.com/api/labels/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Labels
-- Organization
-- Project Management
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/labels/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Milestones API
-
-The GitLab Milestones API provides programmatic access to manage project milestones. It supports creating, listing, updating, and deleting milestones, as well as retrieving issues and merge requests associated with specific milestones for sprint and release planning.
-
-- **Human URL:** [https://docs.gitlab.com/api/milestones/](https://docs.gitlab.com/api/milestones/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Milestones
-- Planning
-- Project Management
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/milestones/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Notes API
-
-The GitLab Notes API provides programmatic access to manage comments and system notes on issues, merge requests, epics, and snippets. It supports creating, listing, updating, and deleting notes for collaboration and discussion within GitLab resources.
-
-- **Human URL:** [https://docs.gitlab.com/api/notes/](https://docs.gitlab.com/api/notes/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Collaboration
-- Comments
-- Notes
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/notes/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Snippets API
-
-The GitLab Snippets API provides programmatic access to manage code snippets. It supports creating, listing, updating, and deleting both personal and project snippets, enabling sharing of code fragments and configuration examples across teams and projects.
-
-- **Human URL:** [https://docs.gitlab.com/api/snippets/](https://docs.gitlab.com/api/snippets/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Code Sharing
-- Collaboration
-- Snippets
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/snippets/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Packages API
-
-The GitLab Packages API provides programmatic access to the GitLab Package Registry. It supports listing, retrieving, and deleting packages across projects and groups, with support for multiple package formats including NPM, Maven, PyPI, NuGet, Conan, Helm, and more.
-
-- **Human URL:** [https://docs.gitlab.com/api/packages/](https://docs.gitlab.com/api/packages/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Artifacts
-- Package Registry
-- Packages
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/packages/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Container Registry API
-
-The GitLab Container Registry API provides programmatic access to manage container images stored in the GitLab Container Registry. It supports listing repositories and tags, deleting images, and managing registry visibility settings for containerized application deployments.
-
-- **Human URL:** [https://docs.gitlab.com/api/container_registry/](https://docs.gitlab.com/api/container_registry/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Container Registry
-- Containers
-- Docker
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/container_registry/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Vulnerabilities API
-
-The GitLab Vulnerabilities API provides programmatic access to manage security vulnerabilities detected in GitLab projects. It supports retrieving, confirming, resolving, and dismissing vulnerabilities found by SAST, DAST, container scanning, and dependency scanning tools.
-
-- **Human URL:** [https://docs.gitlab.com/api/vulnerabilities/](https://docs.gitlab.com/api/vulnerabilities/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- DevSecOps
-- Security
-- Vulnerabilities
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/vulnerabilities/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Deploy Keys API
-
-The GitLab Deploy Keys API provides programmatic access to manage deploy keys for GitLab projects. It supports listing, creating, updating, and deleting SSH deploy keys that grant read-only or read-write access to repositories for automated deployment workflows.
-
-- **Human URL:** [https://docs.gitlab.com/api/deploy_keys/](https://docs.gitlab.com/api/deploy_keys/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Deploy Keys
-- Security
-- SSH
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/deploy_keys/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Protected Branches API
-
-The GitLab Protected Branches API provides programmatic access to manage branch protection rules. It supports listing, creating, updating, and removing protection settings that control who can push, merge, and force push to specific branches in a project.
-
-- **Human URL:** [https://docs.gitlab.com/api/protected_branches/](https://docs.gitlab.com/api/protected_branches/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Access Control
-- Protected Branches
-- Source Control
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/protected_branches/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Wikis API
-
-The GitLab Wikis API provides programmatic access to manage project wiki pages. It supports listing, creating, updating, and deleting wiki pages, as well as uploading attachments, enabling teams to maintain project documentation programmatically.
-
-- **Human URL:** [https://docs.gitlab.com/api/wikis/](https://docs.gitlab.com/api/wikis/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Documentation
-- Knowledge Base
-- Wikis
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/wikis/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Events API
-
-The GitLab Events API provides programmatic access to review event activity across GitLab. It supports listing all events, retrieving user contribution events, and viewing project-specific events such as pushes, comments, issue updates, and merge request actions.
-
-- **Human URL:** [https://docs.gitlab.com/api/events/](https://docs.gitlab.com/api/events/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Activity
-- Audit
-- Events
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/events/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Search API
-
-The GitLab Search API enables programmatic search across a GitLab instance, group, or project. It supports searching for projects, issues, merge requests, milestones, code blobs, commits, notes, wiki pages, and users with scope-based filtering.
-
-- **Human URL:** [https://docs.gitlab.com/api/search/](https://docs.gitlab.com/api/search/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Discovery
-- Query
-- Search
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/search/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GitLab Namespaces API
-
-The GitLab Namespaces API provides programmatic access to manage namespaces in GitLab. It supports listing namespaces, retrieving namespace details, and verifying namespace existence, which is essential for organizing projects and groups within the GitLab hierarchy.
-
-- **Human URL:** [https://docs.gitlab.com/api/namespaces/](https://docs.gitlab.com/api/namespaces/)
-- **Base URL:** `https://gitlab.com/api/v4`
-
-#### Tags
-
-- Namespaces
-- Organization
-- Structure
-
-#### Properties
-
-- [Documentation](https://docs.gitlab.com/api/namespaces/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [Postman Collection](collections/gitlab-oauth2.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-oauth2.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/gitlab-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gitlab-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
-- [LinkedIn](https://www.linkedin.com/company/gitlab-com)
 - [Website](https://about.gitlab.com/)
-- [Portal](https://docs.gitlab.com/api/)
 - [Documentation](https://docs.gitlab.com/)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [GitHub Organization](https://github.com/gitlabhq)
-- [Blog](https://about.gitlab.com/blog/)
-- [Status Page](https://status.gitlab.com/)
+- [Getting started](https://about.gitlab.com/get-started/)
 - [Pricing](https://about.gitlab.com/pricing/)
-- [Terms of Service](https://about.gitlab.com/terms/)
-- [Privacy Policy](https://about.gitlab.com/privacy/)
+- [Sign up](https://handbook.gitlab.com/handbook/enterprise-data/how-we-work/registered-queries/)
 - [Support](https://about.gitlab.com/company/contact/)
-- [I D E Support](https://docs.gitlab.com/ee/editor_extensions/)
-- [Release Notes](https://about.gitlab.com/releases/categories/releases/)
-- [Portal](https://developer.gitlab.com/)
-- [Documentation](https://docs.gitlab.com/)
-- [Getting Started](https://about.gitlab.com/get-started/)
-- [Status Page](https://status.gitlab.com/)
-- [Sign Up](https://gitlab.com/users/sign_up)
-- [Blog](https://about.gitlab.com/blog/)
-- [Support](https://about.gitlab.com/support/)
 - [Changelog](https://gitlab.com/gitlab-org/gitlab/blob/master/CHANGELOG.md)
-- [Authentication](https://docs.gitlab.com/api/rest/authentication/)
-- [SDK](https://docs.gitlab.com/api/rest/third_party_clients/)
-- [Support](https://forum.gitlab.com/)
-- [Rate Limits](https://docs.gitlab.com/security/rate_limits/)
-- [JSON-LD](json-ld/gitlab-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/gitlab-project-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/gitlab-merge-request-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/gitlab-issue-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/gitlab-pipeline-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Pricing](https://about.gitlab.com/pricing/)
+- [Blog](https://about.gitlab.com/blog/)
 - [Security](https://about.gitlab.com/security/)
-- [Security](https://about.gitlab.com/security/disclosure/)
-- [Documentation](https://about.gitlab.com/direction/)
-- [Integrations](https://about.gitlab.com/integrations/)
-- [Partners](https://about.gitlab.com/partners/technology-partners/)
-- [Documentation](https://about.gitlab.com/solutions/open-source/)
-- [Marketplace](https://marketplace.gitlab.com/)
-- [Tools](https://docs.gitlab.com/api/openapi/openapi_interactive/)
-- [GitHub Repository](https://gitlab.com/gitlab-org/gitlab)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Solutions](undefined)
-- [L L Ms Txt](https://docs.gitlab.com/llms.txt)
+- [Compliance](https://trust.gitlab.com/)
+- [Terms of service](https://about.gitlab.com/terms/)
+- [Privacy policy](https://about.gitlab.com/privacy/)
+- [GitHub](https://github.com/gitlabhq)
+- [Status](https://status.gitlab.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** http://apievangelist.com
+**Kin Score 81.0** — exemplar · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 83.3 |
+| Contract quality | 69.6 |
+| Contract governance | 45.5 |
+| Operational transparency | 86.8 |
+| Developer ergonomics | 81.5 |
+| Access clarity | 92.1 |
+
+**Agent readiness 46.4** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 45.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gitlab/](https://apis.io/providers/gitlab/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for GitLab: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gitlab/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
